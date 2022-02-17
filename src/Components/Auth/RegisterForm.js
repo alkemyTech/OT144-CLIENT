@@ -43,7 +43,7 @@ const RegisterForm = () => {
                     return 'Password is required';
                 }
                 const PasswordPattern = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*()])[\da-zA-Z!@#$%^&*()]{6,}$/; // 
-                if (PasswordPattern.test(value)) {
+                if (!PasswordPattern.test(value)) {
                     return 'Password must contain at least one number, one letter, one special character and at least 6 characters';
                 }
             }
@@ -53,24 +53,22 @@ const RegisterForm = () => {
             name: 'password_confirmation',
             placeholder: 'Enter password confirmation',
             validate: value => {
-                if (!value) {
-                    return 'Password Confirmation is required';
-                }
-                if (value !== formValues.password.value) {
-                    return 'Password Confirmation must be the same as password';
-                }
+                return !value && 'Confirmation Password is required'
             }
         }
     ]
 
     const validate = values => {
         const errors = {};
-
         formValues.forEach(({ validate, name }) => {
-            if (validate) {
-                errors[name] = validate(values[name]);
+            if (validate(values[name])) {
+                errors[name] = validate(values[name])
             }
         });
+
+        if (!errors.password_confirmation && values.password !== values.password_confirmation) {
+            errors.password_confirmation = "Password Confirmation must be the same as password"
+        }
         return errors;
     };
 
@@ -82,7 +80,7 @@ const RegisterForm = () => {
 
     return (
         <Formik
-            initialValues={formValues.map(({name})=>name)}
+            initialValues={{}}
             validate={validate}
             onSubmit={(values, helpers) => handleSubmit(values, helpers)}
         >
@@ -93,12 +91,12 @@ const RegisterForm = () => {
                 handleChange,
                 handleSubmit,
                 isSubmitting,
-                /* and other goodies */
             }) => (
                 <form className="form-container" onSubmit={handleSubmit}>
                     {formValues.map((item) => (
                         <>
                             <input
+                                key={item.name}
                                 type={item.type}
                                 name={item.name}
                                 onChange={handleChange}
@@ -109,7 +107,7 @@ const RegisterForm = () => {
                             {errors[item.name] && touched[item.name] && errors[item.name]}
                         </>
                     ))}
-                    <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                    <button type="submit" className="submit-btn" disabled={isSubmitting} >
                         Submit
                     </button>
                 </form>
