@@ -1,75 +1,78 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../FormStyles.css';
 import { Formik } from 'formik';
 const RegisterForm = () => {
 
-    const formValues = {
-        name: {
+    const formValues = [
+        {
             type: 'text',
             name: 'name',
             placeholder: 'Enter name',
             validate: value => {
-                if(!value) {
+                if (!value) {
                     return 'Name is required';
                 }
             }
         },
-        lastName: {
+        {
             type: 'text',
             name: 'lastName',
             placeholder: 'Enter last name',
             validate: value => {
-                if(!value) {
+                if (!value) {
                     return 'Lastname is required';
                 }
             }
         },
-        email: {
+        {
             type: 'email',
             name: 'email',
             placeholder: 'Enter email',
             validate: value => {
-                if(!value) {
+                if (!value) {
                     return 'Email is required';
                 }
             }
         },
-        password: {
+        {
             type: 'password',
             name: 'password',
             placeholder: 'Enter password',
             validate: value => {
-                if(!value) {
+                if (!value) {
                     return 'Password is required';
                 }
-                const PasswordPattern =  /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*()])[\da-zA-Z!@#$%^&*()]{6,}$/; // 
-                if(PasswordPattern.test(value)) {
+                const PasswordPattern = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*()])[\da-zA-Z!@#$%^&*()]{6,}$/; // 
+                if (PasswordPattern.test(value)) {
                     return 'Password must contain at least one number, one letter, one special character and at least 6 characters';
                 }
             }
         },
-        password_confirmation: {
+        {
             type: 'password',
             name: 'password_confirmation',
             placeholder: 'Enter password confirmation',
             validate: value => {
-                if(!value) {
+                if (!value) {
                     return 'Password Confirmation is required';
                 }
-                if(value !== formValues.password.value) {
+                if (value !== formValues.password.value) {
                     return 'Password Confirmation must be the same as password';
                 }
             }
         }
-    }
+    ]
 
     const validate = values => {
         const errors = {};
 
-        formValues.forEach(({ error }) => {
-      
+        formValues.forEach(({ validate, name }) => {
+            if (validate) {
+                errors[name] = validate(values[name]);
+            }
+        });
         return errors;
-      };
+    };
 
     const handleSubmit = (values, { setSubmitting }) => {
         console.log(values);
@@ -79,7 +82,7 @@ const RegisterForm = () => {
 
     return (
         <Formik
-            initialValues={Object.keys(formValues)}
+            initialValues={formValues.map(({name})=>name)}
             validate={validate}
             onSubmit={(values, helpers) => handleSubmit(values, helpers)}
         >
