@@ -18,7 +18,7 @@ const HomeForm = () => {
   const [thirdSlideError, setThirdSlideError] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState('');
 
-
+  const [slide, setSlide] = React.useState('');
 
   const handleWelcomeSubmit = (e) => {
     if(welcome.length > 20) {
@@ -30,86 +30,86 @@ const HomeForm = () => {
     }
   }
 
-  const handleFirstSlideSubmit = (e) => {
-    if(firstSlideText.length > 0 && firstSlideImage !== null) {
-      //axios.post('/api/slides', {firstSlideText, firstSlideImage})
-    } else {
-      e.preventDefault();
-      setFirstSlideError(true);
-      setErrorMessage('The first slide text and image are required');
+  const handleSubmit = (e) => {
+   switch(slide) {
+     case 1:
+       if (firstSlideText.length > 0 && firstSlideImage !== null) {
+         //axios.post('/api/slides', {firstSlideText, firstSlideImage})
+       } else {
+        e.preventDefault();
+        setFirstSlideError(true);
+        setErrorMessage('The first slide text and image are required');
+      }
+        break;
+      case 2:
+        if (secondSlideText.length > 0 && secondSlideImage !== null) {
+          //axios.post('/api/slides', {secondSlideText, secondSlideImage})
+        } else {
+          e.preventDefault();
+          setSecondSlideError(true);
+          setErrorMessage('The second slide text and image are required');
+        }
+        break;
+      case 3:
+        if (thirdSlideText.length > 0 && thirdSlideImage !== null) {
+          //axios.post('/api/slides', {thirdSlideText, thirdSlideImage})
+        } else {
+          e.preventDefault();
+          setThirdSlideError(true);
+          setErrorMessage('The third slide text and image are required');
+        }
+        break;
+        default: return null;
     }
   }
 
-  const handleSecondSlideSubmit = (e) => {
-    if(secondSlideText.length > 0 && secondSlideImage !== null) {
-      //axios.post('/api/slides', {secondSlideText, secondSlideImage})
-    } else {
-      e.preventDefault();
-      setSecondSlideError(true);
-      setErrorMessage('The second slide text and image are required');
-    }
-  }
-
-  const handleThirdSlideSubmit = (e) => {
-    if(thirdSlideText.length > 0 && thirdSlideImage !== null) {
-      //axios.post('/api/slides', {thirdSlideText, thirdSlideImage})
-    } else {
-      e.preventDefault();
-      setThirdSlideError(true);
-      setErrorMessage('The third slide text and image are required');
-      console.log(errorMessage);
-    }
-  }
 
   return (
     <div className='Home'>
         <h1>{welcome}</h1>
-        <form className='welcome-edit' onSubmit={handleWelcomeSubmit}>
-          <label>
-            <p>Change the welcome message:</p>
-            <input className='text-input' type='text' onChange={(e) =>  setWelcome(e.target.value)} /><br/>
-          </label>
-          <button type='submit' value="Submit" > Submit </button>
-        
-          {welcomeError ? <p>{errorMessage}</p> : null}
+        <form className='form-container' onSubmit={handleWelcomeSubmit}>
+         
+          <label>Change the welcome message:  </label>
+          <input className='input-field' type='text' onChange={(e) =>  setWelcome(e.target.value)} />
+          <button type='submit' value="Submit" className="submit-btn"> Submit </button>
+          {welcomeError && <p>{errorMessage}</p>}
         </form>
 
       <section className='slides'>
         
-        <form className='slide' onSubmit={handleFirstSlideSubmit}>
-          <label>
-            <p>Change the text of First Slide</p>
-            <input className='text-input' type='text' onChange={(e) => setFirstSlideText(e.target.value)} />
-            <p>Select an Image for First Slide</p>
-            <input type='file' onChange={(e) => setFirstSlideImage(e.target.files[0])} /><br/>
-            <button type='submit' value="Submit" > Submit </button>
-            
-            {firstSlideError ? <p>{errorMessage}</p> : null}
-          </label>
-        </form>
-
-        <form className='slide' onSubmit={handleSecondSlideSubmit}>
-          <label>
-            <p>Change the text of Second Slide</p>
-            <input className='text-input' type='text' onChange={(e) => setSecondSlideText(e.target.value)} />
-            <p>Select an Image for Second Slide</p>
-            <input type='file' onChange={(e) => setSecondSlideImage(e.target.files[0])}/><br/>
-            <button type='submit' value="Submit" > Submit </button>
-           
-            {secondSlideError ? <p>{errorMessage}</p> : null}
-          </label>
-        </form>
-
-        <form className='slide' onSubmit={handleThirdSlideSubmit}>
-          <label>
-            <p>Change the text of Third Slide</p>
-            <input className='text-input' type='text' onChange={(e) => setThirdSlideText(e.target.value)} />
-            <p>Select an Image for Third Slide</p>
-            <input type='file' onChange={(e) => setThirdSlideImage(e.target.files[0])} /> <br/>
-            <button type='submit' value="Submit" > Submit </button>
+        <form className='form-container' onSubmit={handleSubmit}>
          
-            {thirdSlideError ? <p>{errorMessage}</p> : null}
-          </label>
+            <label>Change the text of First Slide </label>
+            <input className='input-field' type='text' onChange={(e) => setFirstSlideText(e.target.value)} />
+            <label>Select an Image for First Slide</label>
+            <input type='file' onChange={(e) => setFirstSlideImage(e.target.files[0])} />
+            <button type='submit' value="Submit" className="submit-btn" onClick={() => setSlide(1)}> Submit </button>
+            {firstSlideError && <p>{errorMessage}</p>}
+         
+        </form>
+
+        <form className='form-container' onSubmit={handleSubmit}>
+          
+            <label>Change the text of Second Slide</label>
+            <input className='input-field' type='text' onChange={(e) => setSecondSlideText(e.target.value)} />
+            <label>Select an Image for Second Slide</label>
+            <input type='file' onChange={(e) => setSecondSlideImage(e.target.files[0])}/>
+            <button type='submit' value="Submit" className="submit-btn" onClick={() => setSlide(2)}> Submit </button>
+           
+            {secondSlideError && <p>{errorMessage}</p>}
+          
+        </form>
+
+        <form className='form-container' onSubmit={handleSubmit}>
+          
+            <label>Change the text of Third Slide</label>
+            <input className='input-field' type='text' onChange={(e) => setThirdSlideText(e.target.value)} />
+            <label>Select an Image for Third Slide</label>
+            <input type='file' onChange={(e) => setThirdSlideImage(e.target.files[0])} /> 
+            <button type='submit' value="Submit" className="submit-btn" onClick={() => setSlide(3)} > Submit </button>
+         
+            {thirdSlideError && <p>{errorMessage}</p>}
+          
         </form>
       </section>
     </div>
