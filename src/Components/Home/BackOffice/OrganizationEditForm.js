@@ -3,6 +3,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 export default function OrganizationEditForm() {
+    
     const [values, setValues] = useState({
         name: '',
         logo: '',
@@ -13,6 +14,25 @@ export default function OrganizationEditForm() {
 
     const handleChangeName = (event) => {
         setValues({...values, name:event.target.value})
+    }
+
+    const handleChangeLogo = () => {
+        const file    = document.querySelector('input[type=file]').files[0];
+        setValues({...values, logo:file})
+
+        /*
+        GUARDE LA IMAGEN COMO FILE. CON ESTO SE PUEDE LEER Y CARGAR AL SRC DE LA IMG.
+        const reader  = new FileReader();
+        const preview = document.querySelector('img');
+        reader.onloadend=()=>{
+            preview.src = reader.result;
+        }
+
+        if(file){
+            reader.readAsDataURL(file)
+        }else{
+            preview.src=""
+        }*/
     }
 
     const handleChangeLongDescription = (event) => {
@@ -26,7 +46,7 @@ export default function OrganizationEditForm() {
             <input type="text" name="name" value={values.name} onChange={handleChangeName} placeholder="Enter organization name" />
             <div>
                 Upload a logo: 
-                <input type="file" name="logo" id="inputBox" accept=".png, .jpg"/>
+                <input type="file" name="logo" onChange={handleChangeLogo} accept=".png, .jpg" required/>
             </div>
             <div>
                 Enter a short description: 
@@ -34,7 +54,6 @@ export default function OrganizationEditForm() {
                 editor={ClassicEditor}
                 data=""
                 onReady={editor => {
-                    // You can store the "editor" and use when it is needed.
                     console.log('Editor is ready to use!', editor);
                 }}
                 onChange={(event, editor) => {
