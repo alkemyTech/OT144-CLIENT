@@ -59,71 +59,83 @@ const ContactForm = () => {
   };
 
   return (
-    <>
-      <Formik
-        initialValues={{
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-        }}
-        validate={validate}
-        onSubmit={handleSubmit}
-      >
-        {({ errors, handleBlur, touched }) => (
-          <Form className="form-contact">
-            <Field
-              className="input-field"
-              name="name"
-              placeholder="Nombre"
-              type="text"
-              onBlur={handleBlur}
-            />
-            {touched.name && errors.name ? (
-              <div className="alert-danger">{errors.name}</div>
-            ) : null}
-            <Field
-              className="input-field"
-              name="email"
-              placeholder="Email"
-              type="text"
-              onBlur={handleBlur}
-            />
-            {touched.email && errors.email ? (
-              <div className="alert-danger">{errors.email}</div>
-            ) : null}
-            <Field
-              className="input-field"
-              name="phone"
-              placeholder="Celular"
-              type="text"
-              onBlur={handleBlur}
-            />
-            {touched.phone && errors.phone ? (
-              <div className="alert-danger">{errors.phone}</div>
-            ) : null}
-            <Field
-              as="textarea"
-              className="input-field"
-              name="message"
-              placeholder="Escribe tu consulta..."
-              rows="4"
-              style={{
-                resize: "none",
-              }}
-              type="text"
-              onBlur={handleBlur}
-            />
-            {touched.message && errors.message ? (
-              <div className="alert-danger">{errors.message}</div>
-            ) : null}
-            <button className="btn-submit" type="submit">
-              Enviar
-            </button>
-          </Form>
-        )}
-      </Formik>
-    </>
+    <Formik
+      initialValues={{
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      }}
+      validate={validate}
+      onSubmit={handleSubmit}
+    >
+      {({ errors, handleBlur, touched }) => (
+        <Form className="form-contact">
+          
+          <Field
+            className="input-field"
+            name="name"
+            placeholder="Nombre"
+            type="text"
+            onBlur={handleBlur}
+          />
+          {
+          (touched.name && errors.name)
+          ? (<div className="alert-danger">{errors.name}</div>)
+          : null
+          }
+
+          <Field
+            className="input-field"
+            name="email"
+            placeholder="Email"
+            type="text"
+            onBlur={handleBlur}
+          />
+          {
+          (touched.email && errors.email)
+          ? (<div className="alert-danger">{errors.email}</div>)
+          : null
+          }
+
+          <Field
+            className="input-field"
+            name="phone"
+            placeholder="Celular"
+            type="text"
+            onBlur={handleBlur}
+          />
+          {
+          (touched.phone && errors.phone)
+          ? (<div className="alert-danger">{errors.phone}</div>)
+          : null
+          }
+
+          <Field
+            as="textarea"
+            className="input-field"
+            name="message"
+            placeholder="Escribe tu consulta..."
+            rows="4"
+            style={{
+              resize: "none",
+            }}
+            type="text"
+            onBlur={handleBlur}
+          />
+          {
+          (touched.message && errors.message)
+          ? (<div className="alert-danger">{errors.message}</div>)
+          : null
+          }
+
+          <button className="btn-submit" type="submit">
+            Enviar
+          </button>
+
+        </Form>
+      )}
+    </Formik>
   );
 };
 
