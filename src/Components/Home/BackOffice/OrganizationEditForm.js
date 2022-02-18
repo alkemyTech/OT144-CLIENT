@@ -53,18 +53,9 @@ export default function OrganizationEditForm() {
             <CKEditor
                 editor={ClassicEditor}
                 data=""
-                onReady={editor => {
-                    console.log('Editor is ready to use!', editor);
-                }}
                 onChange={(event, editor) => {
                     const data = editor.getData();
-                    console.log( {editor} );
-                }}
-                onBlur={(event, editor) => {
-                    console.log('Blur.', editor);
-                }}
-                onFocus={(event, editor) => {
-                    console.log('Focus.', editor);
+                    setValues({...values, shortDescription:data})
                 }}
             />
             </div>
