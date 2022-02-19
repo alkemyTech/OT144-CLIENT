@@ -43,13 +43,13 @@ export default function OrganizationEditForm() {
 
     return (
         <form>
-            <input type="text" name="name" value={values.name} onChange={handleChangeName} placeholder="Enter organization name" />
+            <input type="text" name="name" value={values.name} onChange={handleChangeName} placeholder="Nombre de la organización" required/>
             <div>
-                Upload a logo: 
+                Carga tu logo: 
                 <input type="file" name="logo" onChange={handleChangeLogo} accept=".png, .jpg" required/>
             </div>
             <div>
-                Enter a short description: 
+                Ingresá una descripción breve: 
             <CKEditor
                 editor={ClassicEditor}
                 data=""
@@ -59,8 +59,8 @@ export default function OrganizationEditForm() {
                 }}
             />
             </div>
-            <input type="text" name="longDescription" value={values.longDescription} onChange={handleChangeLongDescription} placeholder="Enter a long description" />
-            <input type="text" name="socialNetworkLinks" value={values.socialNetworkLinks} placeholder="Enter social network link" />
+            <input type="text" name="longDescription" value={values.longDescription} onChange={handleChangeLongDescription} placeholder="Ingresá una descripción detallada" />
+            <input type="text" name="socialNetworkLinks" value={values.socialNetworkLinks} placeholder="Ingresá una red social" />
             <button type="submit">Send</button>
         </form>
     )
