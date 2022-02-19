@@ -39,17 +39,26 @@ export default function OrganizationEditForm() {
         setValues({...values, longDescription:event.target.value})
     }
 
+    const handleChangeSocialNetworks = (event) =>{
+        setValues({...values, socialNetworkLinks: event.target.value.split(",")})
+    }
+
+    const handleSubmit = (event) =>{
+        event.preventDefault()
+        setValues({...values, socialNetworkLinks: values.socialNetworks.split("w")})
+    }
+
     console.log(values);
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <input type="text" name="name" value={values.name} onChange={handleChangeName} placeholder="Nombre de la organización" required/>
             <div>
-                Carga tu logo: 
+                <h3>Carga tu logo: </h3>
                 <input type="file" name="logo" onChange={handleChangeLogo} accept=".png, .jpg" required/>
             </div>
             <div>
-                Ingresá una descripción breve: 
+                <h3>Ingresá una descripción breve: </h3>
             <CKEditor
                 editor={ClassicEditor}
                 data=""
@@ -59,8 +68,8 @@ export default function OrganizationEditForm() {
                 }}
             />
             </div>
-            <input type="text" name="longDescription" value={values.longDescription} onChange={handleChangeLongDescription} placeholder="Ingresá una descripción detallada" />
-            <input type="text" name="socialNetworkLinks" value={values.socialNetworkLinks} placeholder="Ingresá una red social" />
+            <textarea name="longDescription" value={values.longDescription} onChange={handleChangeLongDescription} placeholder="Ingresá una descripción detallada" />
+            <textarea name="socialNetworkLinks" value={values.socialNetworkLinks} onChange={handleChangeSocialNetworks} placeholder="Ingresá url de tus redes sociales" />
             <button type="submit">Send</button>
         </form>
     )
