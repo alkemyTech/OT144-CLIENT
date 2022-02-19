@@ -12,6 +12,8 @@ export default function OrganizationEditForm() {
         socialNetworkLinks: []
     });
 
+    const regexUrl = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/
+
     const handleChangeName = (event) => {
         setValues({...values, name:event.target.value})
     }
@@ -41,11 +43,23 @@ export default function OrganizationEditForm() {
 
     const handleChangeSocialNetworks = (event) =>{
         setValues({...values, socialNetworkLinks: event.target.value.split(",")})
+        
     }
 
     const handleSubmit = (event) =>{
         event.preventDefault()
-        setValues({...values, socialNetworkLinks: values.socialNetworks.split("w")})
+        validateSocialNetworks()
+    }
+
+    const validateSocialNetworks = () => {
+        let resultado = true
+        values.socialNetworkLinks.forEach((url)=>{
+            if(!regexUrl.test(url)){
+                resultado= false;
+            }
+           
+        })
+        return resultado;
     }
 
     console.log(values);
