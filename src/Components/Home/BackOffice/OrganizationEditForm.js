@@ -59,7 +59,6 @@ export default function OrganizationEditForm() {
             initialValues={values}
             onSubmit={((values, actions) => {
                 setValues({ name: values.name, logo: values.logo, shortDescription: values.shortDescription, longDescription: values.longDescription, socialNetworkLinks: values.socialNetworkLinks.split(",") })
-                console.log(values);
             })}
             validate={validation}
         >
@@ -68,7 +67,6 @@ export default function OrganizationEditForm() {
                     <div className="form-container organization">
                         <form onSubmit={props.handleSubmit}>
                             <input type="text" name="name" value={props.values.name} className="input-field" onChange={props.handleChange} placeholder="Nombre de la organización*" required/>
-                            {console.log(props.values)}
                             <div className="logo-container">
                                 <label>Logo: </label>
                                 <input type="file" name="logo" className="file-field" onChange={()=>handleChangeLogo(props)} accept=".png, .jpg" required/>
