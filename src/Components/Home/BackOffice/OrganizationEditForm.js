@@ -6,7 +6,7 @@ import { Formik } from "formik";
 
 const validation = values => {
     let errors = {};
-    const regexUrl = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/
+    const regexUrl = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/|www\.)?[-a-z0-9]+\.(?:com|gov|org|net|edu|biz)/
 
     if (values.shortDescription === 'Descripción breve*' || values.shortDescription==="") {
         errors.shortDescription = "Todos los campos son obligatorios."
