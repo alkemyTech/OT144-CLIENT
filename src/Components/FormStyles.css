@@ -1,9 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+
+*{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    margin:0;
+}
+
+:root{
+    --dark-grey:#64748b;
+    --blue:#9ac9fb;
+    --black:#111;
+    --red:#db5752;
+}
+
+
 .form-container{
-    width: 60%;
     margin: 15px auto;
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.form-container form{
+    border: 3px solid var(--blue);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 800px;
+    padding:20px;
+    width: 50%;
 }
 
 .input-field{
@@ -29,7 +55,8 @@
 }
 
 .div-error{
-    height: 17px;
-    color:rgb(141, 3, 3);
+    height: 20px;
+    color: var(--red);
     font-size: 14px;
+    
 }
