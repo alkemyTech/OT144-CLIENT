@@ -12,14 +12,22 @@ const MembersForm = () => {
       name: "image",
       placeholder: "Enter the image",
       validate: (value) => {
-        if (!value) {
+        if (!image) {
           return "Image is required";
         }
       },
       onChange: (e, handleChange) => {
+        let fileType = e.target.files[0].type;
+        if (fileType !== "image/png" && fileType !== "image/jpeg") {
+          alert("Only png and jpeg files are allowed");
+          setImage("");
+          handleChange(e);
+          return
+        }
         setImage(e.target.files[0]);
         handleChange(e);
       },
+      accept: ".png, .jpg",
     },
     {
       type: "text",
@@ -87,7 +95,7 @@ const MembersForm = () => {
   const handleSubmit = (values, { setSubmitting }) => {
     const newValues = {
       ...values,
-      ...image,
+      image: image,
       instagram: "https://www.instagram.com/" + values.instagram,
       twitter: "https://www.twitter.com/" + values.twitter,
       facebook: "https://www.facebook.com/" + values.facebook,
@@ -125,6 +133,7 @@ const MembersForm = () => {
                 value={values[item.name]}
                 placeholder={item.placeholder}
                 className="input-field"
+                accept={item?.accept}
               />
               {errors[item.name] && touched[item.name] && errors[item.name]}
             </React.Fragment>
@@ -144,6 +153,13 @@ const MembersForm = () => {
             }}
           />
           <button type="submit" className="submit-btn" disabled={isSubmitting}>
+
+          <button
+            type="submit"
+            className="submit-btn"
+            disabled={isSubmitting}
+            style={{ gridArea: "submit" }}
+          >
             Submit
           </button>
         </form>
