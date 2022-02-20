@@ -22,7 +22,6 @@ const validation = values => {
         errors.password = 'La contraseña debe contener al menos 1 numero, una letra y un caracter especial.';
     }
 
-    console.log(errors);
     return errors;
 }
 
@@ -32,7 +31,6 @@ const LoginForm = () => {
         password: ''
     });
 
-    console.log("afuera", values);
     return (
         <Formik
             initialValues={values}
