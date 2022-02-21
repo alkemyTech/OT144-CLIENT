@@ -137,15 +137,10 @@ const MembersForm = () => {
               <input
                 type={item.type}
                 name={item.name}
-                onChange={(e) =>
-                  item.onChange
-                    ? item.onChange(e, handleChange)
-                    : handleChange(e)
-                }
+                onChange={handleChange}
                 value={values[item.name]}
                 placeholder={item.placeholder}
                 className={`input-field ${item.className}`}
-                accept={item?.accept}
               />
 
               {errors[item.name] && touched[item.name] && errors[item.name]}
