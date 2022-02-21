@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../FormStyles.css";
+import "./MembersForm.css";
 import { Formik } from "formik";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
@@ -23,16 +24,19 @@ const MembersForm = () => {
         let validImageTypes = ["image/jpeg", "image/png"];
         let size = file.size;
         if (!validImageTypes.includes(fileType) || size >= 5000000) {
-          alert("Please upload a valid image. Only jpeg and png are allowed. Max size is 5MB.");
+          alert(
+            "Please upload a valid image. Only jpeg and png are allowed. Max size is 5MB."
+          );
           setImage("");
           handleChange(e);
-          return
+          return;
         }
         setImage(e.target.files[0]);
         handleChange(e);
       },
-      style: { gridArea: "imageInput" },
+      divStyle: { gridArea: "imageInput" },
       accept: ".png, .jpg",
+      className: "create-member-image-input",
     },
     {
       type: "text",
@@ -46,7 +50,7 @@ const MembersForm = () => {
           return "Name must be at least 4 characters";
         }
       },
-      style: { gridArea: "name" },
+      divStyle: { gridArea: "name" },
     },
     {
       type: "text",
@@ -57,7 +61,7 @@ const MembersForm = () => {
           return "Instagram is required";
         }
       },
-      style: { gridArea: "instagram" },
+      divStyle: { gridArea: "instagram" },
     },
     {
       type: "text",
@@ -68,7 +72,7 @@ const MembersForm = () => {
           return "Twitter is required";
         }
       },
-      style: { gridArea: "twitter" },
+      divStyle: { gridArea: "twitter" },
     },
     {
       type: "text",
@@ -79,7 +83,7 @@ const MembersForm = () => {
           return "Facebook is required";
         }
       },
-      style: { gridArea: "facebook" },
+      divStyle: { gridArea: "facebook" },
     },
   ];
 
@@ -91,8 +95,8 @@ const MembersForm = () => {
       }
     });
 
-    if(values.description === ""){
-      errors.description = "Description is required"
+    if (values.description === "") {
+      errors.description = "Description is required";
     }
 
     return errors;
@@ -131,7 +135,13 @@ const MembersForm = () => {
           onSubmit={handleSubmit}
         >
           {formValues.map((item) => (
-            <React.Fragment key={item.name}>
+            <div
+              key={item.name}
+              style={{
+                ...item.divStyle,
+              }}
+              className="create-member-input-field"
+            >
               <input
                 type={item.type}
                 name={item.name}
@@ -142,27 +152,33 @@ const MembersForm = () => {
                 }
                 value={values[item.name]}
                 placeholder={item.placeholder}
-                className="input-field"
-                style={{ ...item.style }}
+                className={`input-field ${item.className}`}
                 accept={item?.accept}
               />
+              
               {errors[item.name] && touched[item.name] && errors[item.name]}
-            </React.Fragment>
+            </div>
           ))}
-          <CKEditor
-            editor={ClassicEditor}
-            data="<p>¡Escribi una descripcion!</p>"
-            onChange={(event, editor) => {
-              const data = editor.getData();
-              let e = {
-                target: {
-                  value: data,
-                  name: "description",
-                },
-              };
-              handleChange(e);
-            }}
-          />
+          <div
+            style={{ gridArea: "description" }}
+            className="create-member-input-field"
+          >
+            <CKEditor
+              editor={ClassicEditor}
+              data="<p>¡Escribi una descripcion!</p>"
+              onChange={(event, editor) => {
+                const data = editor.getData();
+                let e = {
+                  target: {
+                    value: data,
+                    name: "description",
+                  },
+                };
+                handleChange(e);
+              }}
+            />
+            {errors.description && touched.description && errors.description}
+          </div>
           <img
             src={image ? URL.createObjectURL(image) : imageExample}
             alt="images"
