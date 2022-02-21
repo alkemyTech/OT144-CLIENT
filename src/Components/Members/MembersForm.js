@@ -6,6 +6,7 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const MembersForm = () => {
   const [image, setImage] = useState("");
+  const imageExample = "https://www.w3schools.com/howto/img_avatar.png";
   const formValues = [
     {
       type: "file",
@@ -17,9 +18,12 @@ const MembersForm = () => {
         }
       },
       onChange: (e, handleChange) => {
-        let fileType = e.target.files[0].type;
-        if (fileType !== "image/png" && fileType !== "image/jpeg") {
-          alert("Only png and jpeg files are allowed");
+        let file = e.target.files[0];
+        let fileType = file.type;
+        let validImageTypes = ["image/jpeg", "image/png"];
+        let size = file.size;
+        if (!validImageTypes.includes(fileType) || size >= 5000000) {
+          alert("Please upload a valid image. Only jpeg and png are allowed. Max size is 5MB.");
           setImage("");
           handleChange(e);
           return
@@ -27,6 +31,7 @@ const MembersForm = () => {
         setImage(e.target.files[0]);
         handleChange(e);
       },
+      style: { gridArea: "imageInput" },
       accept: ".png, .jpg",
     },
     {
@@ -41,6 +46,7 @@ const MembersForm = () => {
           return "Name must be at least 4 characters";
         }
       },
+      style: { gridArea: "name" },
     },
     {
       type: "text",
@@ -51,6 +57,7 @@ const MembersForm = () => {
           return "Instagram is required";
         }
       },
+      style: { gridArea: "instagram" },
     },
     {
       type: "text",
@@ -61,6 +68,7 @@ const MembersForm = () => {
           return "Twitter is required";
         }
       },
+      style: { gridArea: "twitter" },
     },
     {
       type: "text",
@@ -71,6 +79,7 @@ const MembersForm = () => {
           return "Facebook is required";
         }
       },
+      style: { gridArea: "facebook" },
     },
   ];
 
@@ -82,13 +91,10 @@ const MembersForm = () => {
       }
     });
 
-    if (
-      !errors.password_confirmation &&
-      values.password !== values.password_confirmation
-    ) {
-      errors.password_confirmation =
-        "Password Confirmation must be the same as password";
+    if(values.description === ""){
+      errors.description = "Description is required"
     }
+
     return errors;
   };
 
@@ -119,7 +125,11 @@ const MembersForm = () => {
         handleSubmit,
         isSubmitting,
       }) => (
-        <form className="form-container" onSubmit={handleSubmit}>
+        <form
+          className="form-container"
+          id="form-member-creation"
+          onSubmit={handleSubmit}
+        >
           {formValues.map((item) => (
             <React.Fragment key={item.name}>
               <input
@@ -133,6 +143,7 @@ const MembersForm = () => {
                 value={values[item.name]}
                 placeholder={item.placeholder}
                 className="input-field"
+                style={{ ...item.style }}
                 accept={item?.accept}
               />
               {errors[item.name] && touched[item.name] && errors[item.name]}
@@ -152,7 +163,11 @@ const MembersForm = () => {
               handleChange(e);
             }}
           />
-          <button type="submit" className="submit-btn" disabled={isSubmitting}>
+          <img
+            src={image ? URL.createObjectURL(image) : imageExample}
+            alt="images"
+            className="image"
+          />
 
           <button
             type="submit"
