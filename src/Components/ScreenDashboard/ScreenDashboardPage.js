@@ -3,9 +3,9 @@ import "./stylesScreenDashboardPage.css"
 
 function ScreenDashboardPage(){
     return(
-        <div className="screenDashboardPage">
+        <main className="screenDashboardPage">
             <h2>Bienvenido</h2>
-        </div>
+        </main>
     )
 }
 
