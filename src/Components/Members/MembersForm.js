@@ -184,7 +184,7 @@ const MembersForm = () => {
           <img
             src={image ? URL.createObjectURL(image) : imageExample}
             alt="images"
-            className="image"
+            className="profile-preview-image"
           />
           <button
             type="submit"
