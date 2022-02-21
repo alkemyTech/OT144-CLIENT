@@ -4,40 +4,11 @@ import "./MembersForm.css";
 import { Formik } from "formik";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-
+import ImageInputFormik from "./ImageInputFormik";
 const MembersForm = () => {
   const [image, setImage] = useState("");
   const imageExample = "https://www.w3schools.com/howto/img_avatar.png";
   const formValues = [
-    {
-      type: "file",
-      name: "image",
-      placeholder: "Enter the image",
-      validate: (value) => {
-        if (!image) {
-          return "Image is required";
-        }
-      },
-      onChange: (e, handleChange) => {
-        let file = e.target.files[0];
-        let fileType = file.type;
-        let validImageTypes = ["image/jpeg", "image/png"];
-        let size = file.size;
-        if (!validImageTypes.includes(fileType) || size >= 5000000) {
-          alert(
-            "Please upload a valid image. Only jpeg and png are allowed. Max size is 5MB."
-          );
-          setImage("");
-          handleChange(e);
-          return;
-        }
-        setImage(e.target.files[0]);
-        handleChange(e);
-      },
-      divStyle: { gridArea: "imageInput" },
-      accept: ".png, .jpg",
-      className: "create-member-image-input",
-    },
     {
       type: "text",
       name: "name",
@@ -99,6 +70,10 @@ const MembersForm = () => {
       errors.description = "Description is required";
     }
 
+    if (!image) {
+      errors.image = "Image is required";
+    }
+
     return errors;
   };
 
@@ -113,6 +88,23 @@ const MembersForm = () => {
     console.info(newValues);
     setSubmitting(false);
     localStorage.setItem("token", "tokenValueExample");
+  };
+
+  const handleImageChange = (e, handleChange) => {
+    let file = e.target.files[0];
+    let fileType = file.type;
+    let validImageTypes = ["image/jpeg", "image/png"];
+    let size = file.size;
+    if (!validImageTypes.includes(fileType) || size >= 5000000) {
+      alert(
+        "Please upload a valid image. Only jpeg and png are allowed. Max size is 5MB."
+      );
+      setImage("");
+      handleChange(e);
+      return;
+    }
+    setImage(e.target.files[0]);
+    handleChange(e);
   };
 
   return (
@@ -155,7 +147,7 @@ const MembersForm = () => {
                 className={`input-field ${item.className}`}
                 accept={item?.accept}
               />
-              
+
               {errors[item.name] && touched[item.name] && errors[item.name]}
             </div>
           ))}
@@ -179,12 +171,21 @@ const MembersForm = () => {
             />
             {errors.description && touched.description && errors.description}
           </div>
+          <ImageInputFormik
+            name="image"
+            placeholder="Enter the image"
+            onChange={(e) => handleImageChange(e, handleChange)}
+            style={{ gridArea: "imageInput" }}
+            accept={".png, .jpg"}
+            className="create-member-image-input"
+            errors={errors}
+            touched={touched}
+          />
           <img
             src={image ? URL.createObjectURL(image) : imageExample}
             alt="images"
             className="image"
           />
-
           <button
             type="submit"
             className="submit-btn"
