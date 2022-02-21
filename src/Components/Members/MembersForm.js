@@ -4,7 +4,7 @@ import "./MembersForm.css";
 import { Formik } from "formik";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import ImageInputFormik from "./ImageInputFormik";
+import FileInputFormik from "./FileInputFormik";
 const MembersForm = () => {
   const [image, setImage] = useState("");
   const imageExample = "https://www.w3schools.com/howto/img_avatar.png";
@@ -77,17 +77,28 @@ const MembersForm = () => {
     return errors;
   };
 
-  const handleSubmit = (values, { setSubmitting }) => {
+  const handleSubmit = async (values, { setSubmitting }) => {
+    
+    const getBase64 = (file) => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+      }).then((base64) => {
+        return base64;
+      });
+    };
+
     const newValues = {
       ...values,
-      image: image,
+      image: await getBase64(image),
       instagram: "https://www.instagram.com/" + values.instagram,
       twitter: "https://www.twitter.com/" + values.twitter,
       facebook: "https://www.facebook.com/" + values.facebook,
     };
     console.info(newValues);
     setSubmitting(false);
-    localStorage.setItem("token", "tokenValueExample");
   };
 
   const handleImageChange = (e, handleChange) => {
@@ -166,7 +177,7 @@ const MembersForm = () => {
             />
             {errors.description && touched.description && errors.description}
           </div>
-          <ImageInputFormik
+          <FileInputFormik
             name="image"
             onChange={(e) => handleImageChange(e, handleChange)}
             style={{ gridArea: "imageInput" }}

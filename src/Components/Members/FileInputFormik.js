@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ImageInput({
+export default function FileInput({
   name,
   onChange,
   className,
@@ -11,14 +11,14 @@ export default function ImageInput({
 }) {
   return (
     <div style={{ ...style }}  >
-      <label htmlFor="ImageInputId" className={className}>
+      <label htmlFor={`FileInput-${name}`} className={className}>
         {
           <input
-            id="ImageInputId"
+            id={`FileInput-${name}`}
             type="file"
             name={name}
             onChange={onChange}
-            accept={accept || "image/*"}
+            accept={accept || "*"}
             hidden
           />
         }
