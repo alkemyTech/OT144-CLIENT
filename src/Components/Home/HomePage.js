@@ -3,15 +3,15 @@ import "./stylesHomePage.css"
 
 function HomePage(){
     return(
-        <div className="homePage">
-            <div className="containerSlider">
+        <main className="homePage">
+            <section className="containerSlider">
                 <h2>Aqui va el componente Slider</h2>
-            </div>
+            </section>
 
-            <div className="containerNovedades">
+            <section className="containerNovedades">
                 <h2>Aqui va el componente Novedades</h2>
-            </div>
-        </div>
+            </section>
+        </main>
     )
 }
 
