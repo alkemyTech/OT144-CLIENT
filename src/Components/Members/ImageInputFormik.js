@@ -3,7 +3,6 @@ import React from "react";
 export default function ImageInput({
   name,
   onChange,
-  placeholder,
   className,
   accept,
   style,
@@ -19,7 +18,6 @@ export default function ImageInput({
             type="file"
             name={name}
             onChange={onChange}
-            placeholder={placeholder || "Selecciona una imagen"}
             accept={accept || "image/*"}
             hidden
           />

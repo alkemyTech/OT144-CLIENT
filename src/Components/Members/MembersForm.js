@@ -12,13 +12,13 @@ const MembersForm = () => {
     {
       type: "text",
       name: "name",
-      placeholder: "Enter name",
+      placeholder: "Ingrese su nombre por favor",
       validate: (value) => {
         if (!value) {
-          return "Name is required";
+          return "El nombre es obligatorio";
         }
         if (value.length < 4) {
-          return "Name must be at least 4 characters";
+          return "El nombre debe tener al menos 4 caracteres";
         }
       },
       divStyle: { gridArea: "name" },
@@ -26,10 +26,10 @@ const MembersForm = () => {
     {
       type: "text",
       name: "instagram",
-      placeholder: "Enter instagram",
+      placeholder: "Ingrese el nombre de usuario de Instagram",
       validate: (value) => {
         if (!value) {
-          return "Instagram is required";
+          return "Ingrese el nombre de usuario de Instagram";
         }
       },
       divStyle: { gridArea: "instagram" },
@@ -37,10 +37,10 @@ const MembersForm = () => {
     {
       type: "text",
       name: "twitter",
-      placeholder: "Enter twitter",
+      placeholder: "Ingrese el nombre de usuario de Twitter",
       validate: (value) => {
         if (!value) {
-          return "Twitter is required";
+          return "Ingrese el nombre de usuario de Twitter";
         }
       },
       divStyle: { gridArea: "twitter" },
@@ -48,10 +48,10 @@ const MembersForm = () => {
     {
       type: "text",
       name: "facebook",
-      placeholder: "Enter facebook",
+      placeholder: "Ingrese el nombre de usuario de Facebook",
       validate: (value) => {
         if (!value) {
-          return "Facebook is required";
+          return "Ingrese el nombre de usuario de Facebook";
         }
       },
       divStyle: { gridArea: "facebook" },
@@ -67,11 +67,11 @@ const MembersForm = () => {
     });
 
     if (values.description === "") {
-      errors.description = "Description is required";
+      errors.description = "La descripción es obligatoria";
     }
 
     if (!image) {
-      errors.image = "Image is required";
+      errors.image = "La imagen de perfil es obligatoria";
     }
 
     return errors;
@@ -97,7 +97,7 @@ const MembersForm = () => {
     let size = file.size;
     if (!validImageTypes.includes(fileType) || size >= 5000000) {
       alert(
-        "Please upload a valid image. Only jpeg and png are allowed. Max size is 5MB."
+        "Por favor seleccione una imagen con formato jpeg o png y con un tamaño menor a 5MB"
       );
       setImage("");
       handleChange(e);
@@ -157,7 +157,7 @@ const MembersForm = () => {
           >
             <CKEditor
               editor={ClassicEditor}
-              data="<p>¡Escribi una descripcion!</p>"
+              data="<p>¡Escribe una descripcion!</p>"
               onChange={(event, editor) => {
                 const data = editor.getData();
                 let e = {
@@ -173,7 +173,6 @@ const MembersForm = () => {
           </div>
           <ImageInputFormik
             name="image"
-            placeholder="Enter the image"
             onChange={(e) => handleImageChange(e, handleChange)}
             style={{ gridArea: "imageInput" }}
             accept={".png, .jpg"}
@@ -183,7 +182,7 @@ const MembersForm = () => {
           />
           <img
             src={image ? URL.createObjectURL(image) : imageExample}
-            alt="images"
+            alt="profile images"
             className="profile-preview-image"
           />
           <button
@@ -192,7 +191,7 @@ const MembersForm = () => {
             disabled={isSubmitting}
             style={{ gridArea: "submit" }}
           >
-            Submit
+            Enviar
           </button>
         </form>
       )}
