@@ -1,0 +1,14 @@
+.aboutPrincipal-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.aboutUs-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px;
+    width: 80%;
+}
