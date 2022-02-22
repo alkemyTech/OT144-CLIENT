@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import HomeForm from './Components/Home/HomeForm';
 import ActivitiesForm from './Components/Activities/ActivitiesForm';
 import CategoriesForm from './Components/Categories/CategoriesForm';
 import NewsForm from './Components/News/NewsForm';
@@ -12,6 +13,8 @@ import ToysCampaign from './Campaigns/Toys/ToysCampaign';
 import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
 import HomePage from './Components/Home/HomePage'
+import Register from './Components/Auth/RegisterForm';
+import Contact from './Components/Contact/Contact';
 
 function App() {
   return (
@@ -19,9 +22,11 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={HomePage} />
+          <Route path="/contact" component={Contact} />
           <Route path="/create-activity" component={ActivitiesForm} />
           <Route path="/create-category" component={CategoriesForm} />
           <Route path="/create-news" component={NewsForm} />
+          <Route path="/backoffice/organization/edit-home" component={HomeForm} />
           <Route path="/backoffice/create-slide" component={SlidesForm} />
           <Route path="/create-testimonials" component={TestimonialForm} />
           <Route path="/create-user" component={UserForm} />
@@ -30,6 +35,7 @@ function App() {
           <Route path="/school-campaign" component={SchoolCampaign} />
           <Route path="/toys-campaign" component={ToysCampaign} />
           <Route path="*" exact component={HomePage} />
+          <Route path="/register" component={Register} />
         </Switch>
       </BrowserRouter>
     </>
