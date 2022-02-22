@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from 'prop-types';
 import { Formik, Form, Field } from "formik";
 import "../../Components/FormStyles.css";
 import CKEditorNews from "./CKEditorNews";
@@ -167,3 +168,8 @@ const NewsForm = ({ mode = "create", novelity }) => {
 };
 
 export default NewsForm;
+
+NewsForm.propTypes = {
+  mode: PropTypes.string.isRequired,
+  novelity: PropTypes.object,
+}
