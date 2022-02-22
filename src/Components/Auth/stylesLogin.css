@@ -1,0 +1,14 @@
+.login{
+    height: 100vh;
+    min-height:400px;
+}
+
+.input-field{
+    border:none;
+    border-bottom: 1px solid var(--blue);
+    outline: none;
+    padding: 8px 3px;
+}
+::placeholder{
+    color:var(--black);
+}
