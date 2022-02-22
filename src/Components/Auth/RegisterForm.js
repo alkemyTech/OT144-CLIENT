@@ -6,60 +6,60 @@ const RegisterForm = () => {
     {
       type: "text",
       name: "name",
-      placeholder: "Enter name",
+      placeholder: "Ingrese su nombre",
       validate: (value) => {
         if (!value) {
-          return "Name is required";
+          return "El nombre es requerido";
         }
       },
     },
     {
       type: "text",
       name: "lastName",
-      placeholder: "Enter last name",
+      placeholder: "Ingrese su apellido",
       validate: (value) => {
         if (!value) {
-          return "Lastname is required";
+          return "El apellido es requerido";
         }
       },
     },
     {
       type: "email",
       name: "email",
-      placeholder: "Enter email",
+      placeholder: "Ingrese su email",
       validate: (value) => {
         if (!value) {
-          return "Email is required";
+          return "El email es requerido";
         }
 
         const emailPattern =
           /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!emailPattern.test(value)) {
-          return "Email format is not valid";
+          return "El formato del email es incorrecto";
         }
       },
     },
     {
       type: "password",
       name: "password",
-      placeholder: "Enter password",
+      placeholder: "Ingrese su contraseña",
       validate: (value) => {
         if (!value) {
-          return "Password is required";
+          return "La contraseña es requerida";
         }
         const PasswordPattern =
           /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*()])[\da-zA-Z!@#$%^&*()]{6,}$/; //
         if (!PasswordPattern.test(value)) {
-          return "Password must contain at least one number, one letter, one special character and at least 6 characters";
+          return "Las contraseñas deben tener al menos 6 caracteres, una letra, un número y un caracter especial";
         }
       },
     },
     {
       type: "password",
       name: "password_confirmation",
-      placeholder: "Enter password confirmation",
+      placeholder: "Confirme su contraseña",
       validate: (value) => {
-        return !value && "Confirmation Password is required";
+        return !value && "La confirmación de la contraseña es requerida";
       },
     },
   ];
@@ -77,7 +77,7 @@ const RegisterForm = () => {
       values.password !== values.password_confirmation
     ) {
       errors.password_confirmation =
-        "Password Confirmation must be the same as password";
+        "La confirmación de la contraseña no coincide con la original";
     }
     return errors;
   };
@@ -116,7 +116,7 @@ const RegisterForm = () => {
             </React.Fragment>
           ))}
           <button type="submit" className="submit-btn" disabled={isSubmitting}>
-            Submit
+            Enviar
           </button>
         </form>
       )}
