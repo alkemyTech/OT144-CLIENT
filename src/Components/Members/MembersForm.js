@@ -182,7 +182,6 @@ const MembersForm = () => {
             onChange={(e) => handleImageChange(e, handleChange)}
             style={{ gridArea: "imageInput" }}
             accept={".png, .jpg"}
-            className="create-member-image-input"
             errors={errors}
             touched={touched}
           />

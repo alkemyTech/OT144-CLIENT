@@ -1,5 +1,5 @@
 import React from "react";
-
+import './FileInputFormik.css';
 export default function FileInput({
   name,
   onChange,
@@ -11,7 +11,7 @@ export default function FileInput({
 }) {
   return (
     <div style={{ ...style }}  >
-      <label htmlFor={`FileInput-${name}`} className={className}>
+      <label htmlFor={`FileInput-${name}`} className={`create-member-image-input ${className}`}>
         {
           <input
             id={`FileInput-${name}`}
