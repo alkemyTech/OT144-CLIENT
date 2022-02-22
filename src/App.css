@@ -1,3 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    margin:0;
+}
+
+:root{
+    --lightGrey:#ececec;
+    --grey:#93a3b8;
+    --dark-grey:#64748b;
+    --black:#111;
+    --lightBlue:#9ac9fb;
+    --blue: #2c8ef7;
+    --darkBlue:#085bb3;
+    --red:#db5752;
+    --darkRed: #b6201b;
+    --yellow: #f7f72f;
+
+    --heading1:4rem;
+    --heading2:3rem;
+    --heading3:2.5rem;
+    --heading4:2rem;
+    --heading5:1.5rem;
+    --heading6:1rem;
+
+    --text1:1.5rem;
+    --text2:1rem;
+    --text3:0.5rem;
+}
+
+main {
+  text-align: center;
+  vertical-align: center;
+}
+
+.headerTxt{
+  font-size: var(--heading1)
+}
+
+.title{
+  font-size: var(--heading2)
+}
+
+.subtitle{
+  font-size: var(--heading3)
+}
+
+.paragraph{
+  padding:20px;
+  text-align:justify;
+}
+
+.bodyTxt{
+  font-size: var(--text1);
+}
+
+.detailsTxt{
+  font-size: var(--text2);
+}
+
 .App {
   text-align: center;
 }
@@ -37,3 +101,35 @@
     transform: translateY(0px)
   }
 }
+
+/*MEDIA QUERIES*/
+
+@media all and (max-width: 1024px){
+  .headerTxt{
+    font-size: var(--heading2);
+  }
+  .title{
+    font-size: var(--heading4);
+  }
+  .subtitle{
+    font-size: var(--heading5); 
+  }
+  .bodyTxt{
+    font-size: var(--text2);
+  }
+  .detailsTxt{
+    font-size: var(--text3);
+  }
+}
+
+@media all and (max-width: 768px){
+  .headerTxt{
+    font-size: var(--heading3);
+  }
+  .title{
+    font-size: var(--heading5);
+  }
+  .subtitle{
+    font-size: var(--heading6); 
+  }
+}  
