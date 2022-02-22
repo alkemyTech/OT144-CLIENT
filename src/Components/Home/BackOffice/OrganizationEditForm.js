@@ -24,6 +24,7 @@ const validation = values => {
     return errors;
 }
 
+
 export default function OrganizationEditForm() {
 
     const [values, setValues] = useState({
@@ -31,7 +32,9 @@ export default function OrganizationEditForm() {
         logo: '',
         shortDescription: 'Descripción breve*',
         longDescription: '',
-        socialNetworkLinks: "",
+        facebook:"",
+        twitter:"",
+        instagram:""
     });
 
     const handleChangeLogo = (props) => {
@@ -44,7 +47,7 @@ export default function OrganizationEditForm() {
         <Formik
             initialValues={values}
             onSubmit={((values, actions) => {
-                setValues({ name: values.name, logo: values.logo, shortDescription: values.shortDescription, longDescription: values.longDescription, socialNetworkLinks: values.socialNetworkLinks.split(",") })
+                setValues({ name: values.name, logo: values.logo, shortDescription: values.shortDescription, longDescription: values.longDescription, facebook:values.facebook, twitter:values.twitter, instagram:values.instagram })
             })}
             validate={validation}
         >
@@ -72,11 +75,12 @@ export default function OrganizationEditForm() {
                                 />
                             </div>
                             <textarea name="longDescription" value={props.values.longDescription} onChange={props.handleChange} placeholder="Ingresá una descripción detallada*" className="textarea-field" required/>
-                            <textarea name="socialNetworkLinks" value={props.values.socialNetworkLinks} onChange={props.handleChange} placeholder="Ingresá url de tus redes sociales (separadas por coma)*" className="textarea-field" required/>
+                            <input type="text" name="facebook" value={props.values.facebook} className="input-field" onChange={props.handleChange} placeholder="Ingrese el nombre de usuario de Facebook"/>
+                            <input type="text" name="twitter" value={props.values.twitter} className="input-field" onChange={props.handleChange} placeholder="Ingrese el nombre de usuario de Twitter"/>
+                            <input type="text" name="instagram" value={props.values.instagram} className="input-field" onChange={props.handleChange} placeholder="Ingrese el nombre de usuario de Instagram"/>
                             <div className="div-error">{props.touched.shortDescription && props.errors.shortDescription }</div>
                             <div className="div-error">{props.touched.socialNetworkLinks && props.errors.socialNetworkLinks}</div>
                             <button className="submit-btn" type="submit">Enviar</button>
-
                         </form>
                     </div>
                 )
