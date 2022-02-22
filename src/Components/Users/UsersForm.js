@@ -38,7 +38,7 @@ const UserForm = () => {
                 console.log(values)
                 if(user.id){
                     axios({
-                        method: 'patch',
+                        method: 'put',
                         url: userApi, 
                         data: values,
                     })
