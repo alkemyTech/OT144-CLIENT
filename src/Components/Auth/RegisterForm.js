@@ -33,7 +33,7 @@ const RegisterForm = () => {
         }
 
         const emailPattern =
-          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!emailPattern.test(value)) {
           return "Email format is not valid";
         }
@@ -85,7 +85,6 @@ const RegisterForm = () => {
   const handleSubmit = (values, { setSubmitting }) => {
     console.log(values);
     setSubmitting(false);
-    localStorage.setItem("token", "tokenValueExample");
   };
 
   return (
@@ -104,9 +103,8 @@ const RegisterForm = () => {
       }) => (
         <form className="form-container" onSubmit={handleSubmit}>
           {formValues.map((item) => (
-            <>
+            <React.Fragment key={item.name}>
               <input
-                key={item.name}
                 type={item.type}
                 name={item.name}
                 onChange={handleChange}
@@ -115,7 +113,7 @@ const RegisterForm = () => {
                 className="input-field"
               />
               {errors[item.name] && touched[item.name] && errors[item.name]}
-            </>
+            </React.Fragment>
           ))}
           <button type="submit" className="submit-btn" disabled={isSubmitting}>
             Submit
