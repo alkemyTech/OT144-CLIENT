@@ -24,12 +24,19 @@
     text-align: center;
 }
 
-.input-field{
+.input-field, .textarea-field{
     background-color:transparent;
     border:none;
     border-bottom: 2px solid var(--lightBlue);
     outline: none;
     padding: 8px 3px;
+}
+::placeholder{
+    color:var(--black);
+}
+
+.textarea-field{
+    resize: none;
 }
 
 .select-field{
