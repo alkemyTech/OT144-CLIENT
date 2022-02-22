@@ -15,29 +15,11 @@ export default function EditDataScreen()  {
             })
     }, [])
     
-    const textEdit = (e) => {
+    const handleChange  = (e) => {
         setData({
             ...data,
              data: {...data,
-                name: e.target.value
-            }
-        })
-    }
-
-    const imageEdit = (e) => {
-        setData({
-            ...data, 
-            data: {...data,
-                logo: e.target.files[0]
-            }
-        })
-    }
-    
-    const descriptionEdit = (e) => {
-        setData({
-            ...data,
-            data: {...data,
-                short_description: e.target.value
+                [e.target.name]: e.target.value
             }
         })
     }
@@ -62,21 +44,16 @@ export default function EditDataScreen()  {
         <div>
             <form className='form-container' onSubmit={handleEdit}>
 
-                {/* Name Form */}
                 <label className="name">Edita el nombre</label>
                 <input type="text" className='input-field' name="name" id="name" 
-                defaultValue={data.data?.name || ''} onChange={(e) => textEdit(e)}/>
-
-                {/* Image Form */}
+                defaultValue={data.data?.name || ''} onChange={(e) => handleChange(e)}/>
+             
                 <label className="image">Cambia la imagen</label>
-                <input type="file" className='input-field' name="image" id="image" 
-                onChange={(e) => imageEdit(e)} />
-
-                {/* Description Form */}
+                <input type="file" className='input-field' name="logo" id="image" onChange={(e) => handleChange(e)} />
+               
                 <label className="name">Edita la descripción</label>
-                <input type="text" className='input-field' name="description" id="description" 
-                defaultValue={data.data?.short_description || ''} onChange={(e) => descriptionEdit(e)} 
-                />
+                <input type="text" className='input-field' name="short_description" id="description" 
+                defaultValue={data.data?.short_description || ''} onChange={(e) => handleChange(e)} />
 
                 <button className='submit-btn'>Guardar Cambios</button>
             </form>
