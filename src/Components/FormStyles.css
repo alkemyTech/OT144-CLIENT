@@ -21,6 +21,7 @@
 
 .form-container h2{
     color:var(--black);
+    text-align: center;
 }
 
 .input-field{
