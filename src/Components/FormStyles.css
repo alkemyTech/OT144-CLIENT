@@ -1,62 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
-
-*{
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    margin:0;
-}
-
-:root{
-    --dark-grey:#64748b;
-    --blue:#9ac9fb;
-    --black:#111;
-    --red:#db5752;
-}
-
-
 .form-container{
-    margin: 15px auto;
     display: flex;
+    align-items: center;
+    justify-content:center;
     flex-direction: column;
     gap: 10px;
+   
 }
 
 .form-container form{
-    border: 3px solid var(--blue);
+    background-color: white;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     gap: 15px;
     max-width: 800px;
     padding:20px;
     width: 50%;
+   -webkit-box-shadow: 6px 4px 21px 1px #00000060; 
+    box-shadow: 6px 4px 10px 1px #00000056;
+}
+
+.form-container h2{
+    color:var(--black);
+    text-align: center;
 }
 
 .input-field{
-    padding: 15px 30px;
-    border: 1px solid #c1c1c1;
+    border:none;
+    border-bottom: 2px solid var(--lightBlue);
+    outline: none;
+    padding: 8px 3px;
+    background-color:transparent;
 }
 
 .select-field{
     padding: 10px;
-    border: 1px solid #c1c1c1;
+    border: 1px solid var(--lightBlue);
 }
 
 .submit-btn{
-    background-color: #2E86C1;
-    padding: 10px 15px;
+    align-self: center;
+    background-color: var(--blue);
     border: none;
     color: #fff;
+    padding: 10px 15px;
+    transition: all 0.8s;
+    width: 50%;
 }
 
 .submit-btn:hover{
+    background-color: var(--darkBlue);
     cursor: pointer;
-    background-color: #3498DB;
+    transform: scale(1.07)
 }
 
 .div-error{
     height: 20px;
     color: var(--red);
-    font-size: 14px;
-    
-}
+    font-size: 1rem;
+}   

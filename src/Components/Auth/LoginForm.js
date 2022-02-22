@@ -19,7 +19,7 @@ const validation = values => {
     } else if (
         !/^(?=.*[0-9])(?=.*[A-Za-z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/.test(values.password)
     ) {
-        errors.password = 'La contraseña debe contener al menos 1 numero, una letra y un caracter especial.';
+        errors.password = 'Debe contener un numero, una letra y un caracter especial.';
     }
 
     return errors;
@@ -45,7 +45,7 @@ const LoginForm = () => {
                 return (
                     <div className="form-container login">
                         <form onSubmit={props.handleSubmit}>
-                            <h2>Iniciar sesión</h2>
+                            <h2 className="title">Iniciar sesión</h2>
                             <input className="input-field" type="email" name="email" value={props.values.email} onChange={props.handleChange} placeholder="Correo electrónico"></input>
                             <div className="div-error">{props.touched.email && props.errors.email}</div>
                             <input className="input-field" type="password" name="password" value={props.values.password} onChange={props.handleChange} placeholder="Contraseña"></input>
