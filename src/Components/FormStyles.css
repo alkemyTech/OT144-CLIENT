@@ -4,7 +4,6 @@
     justify-content:center;
     flex-direction: column;
     gap: 10px;
-   
 }
 
 .form-container form{
@@ -25,12 +24,19 @@
     text-align: center;
 }
 
-.input-field{
+.input-field, .textarea-field{
+    background-color:transparent;
     border:none;
     border-bottom: 2px solid var(--lightBlue);
     outline: none;
     padding: 8px 3px;
-    background-color:transparent;
+}
+::placeholder{
+    color:var(--black);
+}
+
+.textarea-field{
+    resize: none;
 }
 
 .select-field{
