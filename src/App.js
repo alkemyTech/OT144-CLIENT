@@ -12,6 +12,7 @@ import SchoolCampaign from './Campaigns/School/SchoolCampaign';
 import ToysCampaign from './Campaigns/Toys/ToysCampaign';
 import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
+import ScreenDashboardPage from './Components/ScreenDashboard/ScreenDashboardPage'
 import HomePage from './Components/Home/HomePage'
 import Register from './Components/Auth/RegisterForm';
 import Contact from './Components/Contact/Contact';
@@ -34,7 +35,7 @@ function App() {
           <Route path="/create-project" component={ProjectsForm} />
           <Route path="/school-campaign" component={SchoolCampaign} />
           <Route path="/toys-campaign" component={ToysCampaign} />
-          <Route path="*" exact component={HomePage} />
+          <Route path="/backoffice" component={ScreenDashboardPage} />
           <Route path="/register" component={Register} />
         </Switch>
       </BrowserRouter>
