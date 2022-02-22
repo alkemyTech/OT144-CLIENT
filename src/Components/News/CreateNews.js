@@ -6,7 +6,7 @@ const CreateNews = () => {
   return (
     <div className="create-news-container">
       <h1>Crear Novedad</h1>
-      <NewsForm />
+      <NewsForm mode="create" />
     </div>
   );
 };
