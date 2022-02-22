@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap");
+
+* {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.form-container {
+  padding: 20px;
+  border-radius: 4px;
+  width: 60%;
+  margin: 15px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 6px 4px 10px 1px #00000056;
+}
+
+label {
+  font-size: 1.4rem;
+  display: block;
+  text-align: center;
+  padding: 10px;
+}
+.input-field {
+  text-align: center;
+  width: 100%;
+  padding: 15px 0;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #2c8ef7;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+.submit-btn {
+  margin: 5px;
+  align-items: center;
+  background-color: #2e86c1;
+  padding: 10px 15px;
+  border: none;
+  font-size: 1.1rem;
+  color: #fff;
+}
+.submit-btn:hover {
+  background-color: #085bb3;
+  cursor: pointer;
+  transform: scale(1.07);
+}
+
+.div-error {
+  height: 20px;
+  color: #db5752;
+  font-size: 1rem;
+}
