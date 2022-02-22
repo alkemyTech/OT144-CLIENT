@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Actividades from '../Activities/Actividades';
 import '../FormStyles.css';
 import TitleComponent from '../title/TitleComponent';
 
@@ -22,12 +23,14 @@ const SlidesForm = () => {
     }
 
     return (
+        <>
         
         <form className="form-container" onSubmit={handleSubmit}>
             <input className="input-field" type="text" name="name" value={initialValues.name} onChange={handleChange} placeholder="Slide Title"></input>
             <input className="input-field" type="text" name="description" value={initialValues.description} onChange={handleChange} placeholder="Write the description"></input>
             <button className="submit-btn" type="submit">Send</button>
         </form>
+        </>
         
     );
 }
