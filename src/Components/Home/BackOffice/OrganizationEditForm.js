@@ -52,6 +52,7 @@ export default function OrganizationEditForm() {
                 return (
                     <div className="form-container organization">
                         <form onSubmit={props.handleSubmit}>
+                            <h2 className="title">Editar organización</h2>
                             <input type="text" name="name" value={props.values.name} className="input-field" onChange={props.handleChange} placeholder="Nombre de la organización*" required/>
                             <div className="logo-container">
                                 <label>Logo: </label>

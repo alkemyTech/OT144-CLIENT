@@ -1,54 +1,12 @@
 
 .organization{
-    align-items: center;
     height: 100vh;
-    justify-content: center;
-    margin:0;
     min-height:400px;
-    width: 100%;
-}
-
-.form-container form{
-    border: 3px solid var(--blue);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 800px;
-    padding:20px;
-    width: 50%;
-}
-
-.input-field, .textarea-field{
-    border:none;
-    border-bottom: 1px solid var(--blue);
-    outline: none;
-    padding: 8px 3px;
-}
-::placeholder{
-    color:var(--black);
-}
-
-.div-error{
-    color: var(--red);
-    font-size: 14px;
-    font-weight: 400;
-    height: 20px;
-}
-
-
-
-.textarea-field{
-    resize: none;
-}
-
-.input-field:focus, .textarea-field:focus{
-    border: 1px solid var(--blue);
 }
 
 .logo-container{
     display: flex;
     gap: 15px;
-   
 }
 
 .logo-container label{
