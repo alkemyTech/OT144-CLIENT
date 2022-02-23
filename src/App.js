@@ -6,7 +6,6 @@ import ActivitiesForm from './Components/Activities/ActivitiesForm';
 import CategoriesForm from './Components/Categories/CategoriesForm';
 import SlidesForm from './Components/Slides/SlidesForm';
 import DataScreen from './Components/Testimonials/DataScreen';
-import EditDataScreen from './Components/Testimonials/EditDataScreen';
 import TestimonialForm from './Components/Testimonials/TestimonialsForm';
 import UserForm from './Components/Users/UsersForm';
 import SchoolCampaign from './Campaigns/School/SchoolCampaign';
@@ -36,7 +35,6 @@ function App() {
           <Route path="/backoffice/create-slide" element={SlidesForm} />
           <Route path="/backoffice/organization/edit" element={OrganizationEditForm} />
           <Route path="/backoffice/organization" element={DataScreen}/>
-          <Route path="/backoffice/organization-edit" element={EditDataScreen}/>
           <Route path="/backoffice/members/edit" element={MembersForm} />
           <Route path="/create-testimonials" element={TestimonialForm} />
           <Route path="/create-user" element={UserForm} />
