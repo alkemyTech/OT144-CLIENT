@@ -1,15 +1,11 @@
 
-
 const TitleComponent = ({text , img, nameImg}) => {
-
-    
 
   return (
     <div>
-        <div
-            className="title"
-        >{text}
-        </div>
+        <h2 className="title">
+        {text}
+        </h2>
         <img
             className="title--img" 
             src={img}
