@@ -24,7 +24,6 @@ const validation = values => {
     return errors;
 }
 
-
 export default function OrganizationEditForm() {
 
     const [values, setValues] = useState({

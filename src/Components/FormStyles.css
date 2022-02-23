@@ -1,9 +1,9 @@
 .form-container{
     display: flex;
     align-items: center;
+    justify-content:center;
     flex-direction: column;
     gap: 10px;
-    justify-content:center;
 }
 
 .form-container form{
@@ -61,7 +61,7 @@
 }
 
 .div-error{
+    height: 20px;
     color: var(--red);
     font-size: 1rem;
-    height: 20px;
 }   

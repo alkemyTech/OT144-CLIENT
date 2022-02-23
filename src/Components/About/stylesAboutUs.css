@@ -1,0 +1,16 @@
+.aboutPrincipal-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.aboutUs-container{
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px;
+    text-align: justify;
+    width: 80%;
+}
