@@ -7,7 +7,6 @@ import CategoriesForm from './Components/Categories/CategoriesForm';
 import NewsForm from './Components/News/NewsForm';
 import SlidesForm from './Components/Slides/SlidesForm';
 import DataScreen from './Components/Testimonials/DataScreen';
-import EditDataScreen from './Components/Testimonials/EditDataScreen';
 import TestimonialForm from './Components/Testimonials/TestimonialsForm';
 import UserForm from './Components/Users/UsersForm';
 import SchoolCampaign from './Campaigns/School/SchoolCampaign';
@@ -15,7 +14,6 @@ import ToysCampaign from './Campaigns/Toys/ToysCampaign';
 import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
 import LoginForm from './Components/Auth/LoginForm';
-import OrganizationEditForm from './Components/Home/BackOffice/OrganizationEditForm';
 import ScreenDashboardPage from './Components/ScreenDashboard/ScreenDashboardPage'
 import HomePage from './Components/Home/HomePage'
 import Register from './Components/Auth/RegisterForm';
@@ -34,7 +32,6 @@ function App() {
           <Route path="/backoffice/organization/edit-home" component={HomeForm} />
           <Route path="/backoffice/create-slide" component={SlidesForm} />
           <Route path="/backoffice/organization" component={DataScreen}/>
-          <Route path="/backoffice/organization-edit" component={EditDataScreen}/>
           <Route path="/backoffice/members/edit" component={MembersForm} />
           <Route path="/create-testimonials" component={TestimonialForm} />
           <Route path="/create-user" component={UserForm} />
