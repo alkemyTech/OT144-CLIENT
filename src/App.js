@@ -4,7 +4,6 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import HomeForm from './Components/Home/HomeForm';
 import ActivitiesForm from './Components/Activities/ActivitiesForm';
 import CategoriesForm from './Components/Categories/CategoriesForm';
-import NewsForm from './Components/News/NewsForm';
 import SlidesForm from './Components/Slides/SlidesForm';
 import DataScreen from './Components/Testimonials/DataScreen';
 import EditDataScreen from './Components/Testimonials/EditDataScreen';
@@ -21,6 +20,7 @@ import ScreenDashboardPage from './Components/ScreenDashboard/ScreenDashboardPag
 import HomePage from './Components/Home/HomePage'
 import Register from './Components/Auth/RegisterForm';
 import Contact from './Components/Contact/Contact';
+import CreateNews from './Components/News/CreateNews';
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
           <Route path="/contact" component={Contact} />
           <Route path="/create-activity" component={ActivitiesForm} />
           <Route path="/create-category" component={CategoriesForm} />
-          <Route path="/create-news" component={NewsForm} />
+          <Route path="/create-news" component={CreateNews} />
           <Route path="/backoffice/organization/edit-home" component={HomeForm} />
           <Route path="/backoffice/create-slide" component={SlidesForm} />
           <Route path="/backoffice/organization" component={DataScreen}/>
