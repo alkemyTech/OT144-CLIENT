@@ -14,6 +14,7 @@ import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
 import AboutPrincipal from './Components/About/AboutPrincipal';
 import LoginForm from './Components/Auth/LoginForm';
+import OrganizationEditForm from './Components/Home/BackOffice/OrganizationEditForm';
 import ScreenDashboardPage from './Components/ScreenDashboard/ScreenDashboardPage'
 import HomePage from './Components/Home/HomePage'
 import Register from './Components/Auth/RegisterForm';
