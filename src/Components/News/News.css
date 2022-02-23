@@ -1,0 +1,23 @@
+.create-news-container {
+  margin: 15px auto;
+  width: 70%;
+  max-width: 768px;
+}
+
+.create-news-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+  .create-news-container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .create-news-container {
+    width: 90%;
+  }
+}
