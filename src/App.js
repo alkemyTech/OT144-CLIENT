@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import HomeForm from './Components/Home/HomeForm';
 import ActivitiesForm from './Components/Activities/ActivitiesForm';
 import CategoriesForm from './Components/Categories/CategoriesForm';
@@ -26,29 +26,29 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/create-activity" component={ActivitiesForm} />
-          <Route path="/create-category" component={CategoriesForm} />
-          <Route path="/create-news" component={CreateNews} />
-          <Route path="/backoffice/organization/edit-home" component={HomeForm} />
-          <Route path="/backoffice/create-slide" component={SlidesForm} />
-          <Route path="/backoffice/organization/edit" component={OrganizationEditForm} />
-          <Route path="/backoffice/organization" component={DataScreen}/>
-          <Route path="/backoffice/organization-edit" component={EditDataScreen}/>
-          <Route path="/backoffice/members/edit" component={MembersForm} />
-          <Route path="/create-testimonials" component={TestimonialForm} />
-          <Route path="/create-user" component={UserForm} />
-          <Route path="/create-member" component={MembersForm} />
-          <Route path="/create-project" component={ProjectsForm} />
-          <Route path="/school-campaign" component={SchoolCampaign} />
-          <Route path="/toys-campaign" component={ToysCampaign} />
-          <Route path="/about-us" component={AboutPrincipal} />
-          <Route path="/login" component={LoginForm} />    
-          <Route path="/backoffice" component={ScreenDashboardPage} />
-          <Route path="/register" component={Register} />
-        </Switch>
+        <Routes>
+          <Route path="/" exact element={HomePage} />
+          <Route path="/contact" element={Contact} />
+          <Route path="/create-activity" element={ActivitiesForm} />
+          <Route path="/create-category" element={CategoriesForm} />
+          <Route path="/create-news" element={CreateNews} />
+          <Route path="/backoffice/organization/edit-home" element={HomeForm} />
+          <Route path="/backoffice/create-slide" element={SlidesForm} />
+          <Route path="/backoffice/organization/edit" element={OrganizationEditForm} />
+          <Route path="/backoffice/organization" element={DataScreen}/>
+          <Route path="/backoffice/organization-edit" element={EditDataScreen}/>
+          <Route path="/backoffice/members/edit" element={MembersForm} />
+          <Route path="/create-testimonials" element={TestimonialForm} />
+          <Route path="/create-user" element={UserForm} />
+          <Route path="/create-member" element={MembersForm} />
+          <Route path="/create-project" element={ProjectsForm} />
+          <Route path="/school-campaign" element={SchoolCampaign} />
+          <Route path="/toys-campaign" element={ToysCampaign} />
+          <Route path="/about-us" element={AboutPrincipal} />
+          <Route path="/login" element={LoginForm} />    
+          <Route path="/backoffice" element={ScreenDashboardPage} />
+          <Route path="/register" element={Register} />
+        </Routes>
       </BrowserRouter>
     </>
   );
