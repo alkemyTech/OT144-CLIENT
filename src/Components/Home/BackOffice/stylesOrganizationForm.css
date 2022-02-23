@@ -1,0 +1,16 @@
+
+.organization{
+    height: 100vh;
+    min-height:400px;
+}
+
+.logo-container{
+    display: flex;
+    gap: 15px;
+}
+
+.logo-container label{
+    color: var(--black);
+    padding-left: 2px;
+}
+
