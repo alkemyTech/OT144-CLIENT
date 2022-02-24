@@ -26,7 +26,6 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-<<<<<<< HEAD
           <Route path="/" exact element={<HomePage/>} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/create-activity" element={<ActivitiesForm/>} />
