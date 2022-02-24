@@ -13,12 +13,12 @@ export const Get = () => {
     .catch(err => console.log(err))
 }
 
-export const postRequest = (url, BodyData) => {
+export const postRequest = (url, bodyData) => {
         try {
             let response = axios({
                 method: 'post',
                 url: config.urlBase+url,
-                data: BodyData,
+                data: bodyData,
                 headers: config.headers
             })
             return response.data
