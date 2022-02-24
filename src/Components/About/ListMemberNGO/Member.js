@@ -11,10 +11,10 @@ const Member = ({ member }) => {
       </div>
       <p className="description"> {member.description}</p>
       <div className="social-media">
-        <a href={member.facebookURL}>
+        <a href={member.facebookUrl}>
           <img src={ImageFacebook} alt="facebook-icon" />
         </a>
-        <a href={member.linkedinURL}>
+        <a href={member.linkedinUrl}>
           <img src={ImageLinkedin} alt="linkedin-icon" />
         </a>
       </div>
