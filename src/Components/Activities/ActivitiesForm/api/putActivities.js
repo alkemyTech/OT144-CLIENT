@@ -11,7 +11,7 @@ const putActivities = async (values) => {
         image: values.image,
       }
     );
-    console.log(putData);
+    alert("La información se actualizo correctamente!")
   } catch (e) {
     alert("Error al actualizar la información!");
     console.log(e.message);

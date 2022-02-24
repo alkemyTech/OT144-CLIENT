@@ -12,10 +12,9 @@ const postActivities = async (values) => {
         image: values.image,
       }
     );
-    console.log(postData);
+    alert('La información se envio correctamente!')
   } catch (e) {
-    alert("Error");
-    console.log(e.message);
+    alert("Error al enviar la información!");
   }
 };
 
