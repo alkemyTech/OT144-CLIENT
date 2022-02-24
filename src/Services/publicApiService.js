@@ -21,10 +21,18 @@ export const postRequest = (url, bodyData) => {
                 data: bodyData,
                 headers: config.headers
             })
-            return response.data
+            return {
+                status: response.status,
+                data: response.data
+            }
         }
         catch (error) {
             console.log(error)
+            return {
+                status: error.response.status,
+                error: error.message,
+                data: error.response.data
+            }
         }
 }
 
