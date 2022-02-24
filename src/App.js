@@ -20,32 +20,34 @@ import HomePage from './Components/Home/HomePage'
 import Register from './Components/Auth/RegisterForm';
 import Contact from './Components/Contact/Contact';
 import CreateNews from './Components/News/CreateNews';
+import Card from './utils/Card';
+
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact element={HomePage} />
-          <Route path="/contact" element={Contact} />
-          <Route path="/create-activity" element={ActivitiesForm} />
-          <Route path="/create-category" element={CategoriesForm} />
-          <Route path="/create-news" element={CreateNews} />
-          <Route path="/backoffice/organization/edit-home" element={HomeForm} />
-          <Route path="/backoffice/create-slide" element={SlidesForm} />
-          <Route path="/backoffice/organization/edit" element={OrganizationEditForm} />
-          <Route path="/backoffice/organization" element={DataScreen}/>
-          <Route path="/backoffice/members/edit" element={MembersForm} />
-          <Route path="/create-testimonials" element={TestimonialForm} />
-          <Route path="/create-user" element={UserForm} />
-          <Route path="/create-member" element={MembersForm} />
-          <Route path="/create-project" element={ProjectsForm} />
-          <Route path="/school-campaign" element={SchoolCampaign} />
-          <Route path="/toys-campaign" element={ToysCampaign} />
-          <Route path="/about-us" element={AboutPrincipal} />
-          <Route path="/login" element={LoginForm} />    
-          <Route path="/backoffice" element={ScreenDashboardPage} />
-          <Route path="/register" element={Register} />
+        <Route path="/" exact element={<HomePage/>} />
+          <Route path="/contact" element={<Contact/>} />
+          <Route path="/create-activity" element={<ActivitiesForm/>} />
+          <Route path="/create-category" element={<CategoriesForm/>} />
+          <Route path="/create-news" element={<CreateNews/>} />
+          <Route path="/backoffice/organization/edit-home" element={<HomeForm/>} />
+          <Route path="/backoffice/create-slide" element={<SlidesForm/>} />
+          <Route path="/backoffice/organization/edit" element={<OrganizationEditForm/>} />
+          <Route path="/backoffice/organization" element={<DataScreen/>}/>
+          <Route path="/backoffice/members/edit" element={<MembersForm/>} />
+          <Route path="/create-testimonials" element={<TestimonialForm/>} />
+          <Route path="/create-user" element={<UserForm/>} />
+          <Route path="/create-member" element={<MembersForm/>} />
+          <Route path="/create-project" element={<ProjectsForm/>} />
+          <Route path="/school-campaign" element={<SchoolCampaign/>} />
+          <Route path="/toys-campaign" element={<ToysCampaign/>} />
+          <Route path="/about-us" element={<AboutPrincipal/>} />
+          <Route path="/login" element={<LoginForm/>} />    
+          <Route path="/backoffice" element={<ScreenDashboardPage/>} />
+          <Route path="/register" element={<Register/>} />
         </Routes>
       </BrowserRouter>
     </>
