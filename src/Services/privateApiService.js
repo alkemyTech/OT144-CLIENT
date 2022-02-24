@@ -12,8 +12,23 @@ export const Get = () => {
     .catch(err => console.log(err))
 }
 
-export const postRequest =  () =>{
-
+export const postRequest =  (url,body,userToken) =>{
+    try {
+        let response = axios({
+            method: 'post',
+            url: url,
+            data: body,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization ':userToken,
+                ...config.headers
+            }
+        })
+        return response.data
+    }
+    catch (error) {
+        console.log(error)
+    }
 }
 
 
