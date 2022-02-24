@@ -8,7 +8,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
     gap: 20px;
-    justify-content: center;
 }
 .card-container * {
     box-sizing: border-box;
@@ -19,10 +18,9 @@
 
 .card-container {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 250px;
     height: 400px;
+    margin: 20px;
     background-color: var(--white);
     border-radius: 10px;
     -webkit-box-shadow: 6px 4px 21px 1px #00000060; 
@@ -43,11 +41,12 @@
     border-radius: 10px 10px 0 0;
 }
  .card-container h1{
-    font-size: 1.5em;
+    font-size: var(--heading5);
     width: 95%;
     margin-top: 10px;
 }
 .card-container p{
+    font-size: var(--text2);
     width: 95%;
     margin-top: 10px;
     display: inline-block;

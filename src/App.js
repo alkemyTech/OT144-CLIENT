@@ -20,7 +20,7 @@ import HomePage from './Components/Home/HomePage'
 import Register from './Components/Auth/RegisterForm';
 import Contact from './Components/Contact/Contact';
 import CreateNews from './Components/News/CreateNews';
-import Card from './utils/Card';
+
 
 
 function App() {
