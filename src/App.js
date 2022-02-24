@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import HomeForm from './Components/Home/HomeForm';
-import ActivitiesForm from './Components/Activities/ActivitiesForm';
+import ActivitiesForm from './Components/Activities/ActivitiesForm/ActivitiesForm';
 import CategoriesForm from './Components/Categories/CategoriesForm';
 import SlidesForm from './Components/Slides/SlidesForm';
 import DataScreen from './Components/Testimonials/DataScreen';
