@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const config = {
+    baseUrl:"",
     headers: {
         Group: "01"                //Aqui va el ID del equipo!!
     }
@@ -12,12 +13,12 @@ export const Get = () => {
     .catch(err => console.log(err))
 }
 
-export const postRequest =  (url,body,userToken) =>{
+export const postRequest =  (url,bodyData,userToken) =>{
     try {
         let response = axios({
             method: 'post',
-            url: url,
-            data: body,
+            url: config.baseUrl+url,
+            data: bodyData,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization ':userToken,
