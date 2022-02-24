@@ -13,9 +13,9 @@ export const Get = () => {
     .catch(err => console.log(err))
 }
 
-export const postRequest = (url, bodyData) => {
+export const postRequest = async(url, bodyData) => {
         try {
-            let response = axios({
+            let response = await axios({
                 method: 'post',
                 url: config.urlBase+url,
                 data: bodyData,
