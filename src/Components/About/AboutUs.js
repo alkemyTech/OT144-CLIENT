@@ -1,10 +1,11 @@
-import "./stylesAboutUs.css"
+import "./stylesAboutUs.css";
+import TitleComponent from "../title/TitleComponent";
 
 export default function AboutUs({ text }) {
     return (
         <div className="aboutUs-container">
-            <h1>Nosotros</h1>{/* Esto se debe renderizar mediante el componente Titulo que aun no está hecho. */}
-            <h2 className="title">Sobre nosotros</h2>
+            <TitleComponent text="Nosotros"/>
+            <h3 className="subtitle">Sobre nosotros</h3>
             <p>{text}</p>
 
         </div>
