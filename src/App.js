@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import HomeForm from './Components/Home/HomeForm';
-import ActivitiesForm from './Components/Activities/ActivitiesForm';
+import ActivitiesForm from './Components/Activities/ActivitiesForm/ActivitiesForm';
 import CategoriesForm from './Components/Categories/CategoriesForm';
 import SlidesForm from './Components/Slides/SlidesForm';
 import DataScreen from './Components/Testimonials/DataScreen';
@@ -12,6 +12,7 @@ import SchoolCampaign from './Campaigns/School/SchoolCampaign';
 import ToysCampaign from './Campaigns/Toys/ToysCampaign';
 import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
+import Actividades from './Components/Activities/Actividades';
 import AboutPrincipal from './Components/About/AboutPrincipal';
 import LoginForm from './Components/Auth/LoginForm';
 import OrganizationEditForm from './Components/Home/BackOffice/OrganizationEditForm';
@@ -28,7 +29,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-        <Route path="/" exact element={<HomePage/>} />
+          <Route path="/" exact element={<HomePage/>} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/create-activity" element={<ActivitiesForm/>} />
           <Route path="/create-category" element={<CategoriesForm/>} />
