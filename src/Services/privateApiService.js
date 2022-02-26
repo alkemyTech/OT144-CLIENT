@@ -11,7 +11,7 @@ export const getRequest =  async (url, getToken, id = null) => {
     try {
         let response = await axios({
             method: 'get',
-            url: id===null ?`${baseURL}${url}` : `${baseURL}${url}/${id}`,
+            url: id === null ? `${baseURL}${url}` : `${baseURL}${url}/${id}`,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization':getToken(),
