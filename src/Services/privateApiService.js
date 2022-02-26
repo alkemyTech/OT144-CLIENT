@@ -2,14 +2,15 @@ import axios from 'axios';
 
 const getToken = () => {
     const token = localStorage.getItem("token") || "";
+    if(token === "undefined") token = "";
     return {
-        Authorization:`Bearer ${token}`
+        Authorization: `Bearer ${token}`
     };
 };
 
 const config = {
     headers: {
-        Group: 01                //Aqui va el ID del equipo!!
+        Group: 144,
     }
 }
 
