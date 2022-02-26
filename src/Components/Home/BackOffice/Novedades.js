@@ -13,13 +13,15 @@ function Novedades(){
                 <table className="table">
                     <thead>
                         <tr>
-                            <Link to="/backoffice/news/create" className="btnAddNovedades">Crear</Link>
+                            <td>
+                                <Link to="/backoffice/news/create" className="btnAddNovedades">Crear</Link>
+                            </td>
                         </tr>
                         <tr>
                             <th>Nombre</th>
                             <th>Imagen</th>
                             <th>Creado</th>
-                            <th colspan="2">Acciones</th>
+                            <th colSpan="2">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
