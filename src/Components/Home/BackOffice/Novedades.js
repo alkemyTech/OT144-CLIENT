@@ -25,7 +25,7 @@ function Novedades(){
                     <tbody>
                         <tr>
                             <td>Mas de 5000 juguetes donados!</td>
-                            <td>http:\/\/ongapi.alkemy.org\/storage\/Vvagcv.jpeg    dfvdvdvdfv fvdvdfvsdvf dfvadfvdavf dafvadvdavfd advadvavav dfvadvadvafv advadvadfvadfvad adfvadfvavdf vadfvadva avfadv dav advfvad vad fvavdavadvfav adfvavavd vadfvadfva vdfavavadfv avdafvadvad dafvadvda vadfvadfva vadfvdv vadf a vad vad a</td>
+                            <td><img src="http:\/\/ongapi.alkemy.org\/storage\/bfHgX3Nr8Q.png" alt="Img novedades"></img></td>
                             <td>2022-02-17T23:53:48.000000Z</td>
                             <td>
                                 <button className="btnUpdateNovedades" type="submit" onClick={handleClickUpdate} >Editar</button>
@@ -36,7 +36,7 @@ function Novedades(){
                         </tr>
                         <tr>
                             <td>Mas de 5000 juguetes donados!</td>
-                            <td>http:\/\/ongapi.alkemy.org\/storage\/Vvagcv.jpeg    dfvdvdvdfv fvdvdfvsdvf dfvadfvdavf dafvadvdavfd advadvavav dfvadvadvafv advadvadfvadfvad adfvadfvavdf vadfvadva avfadv dav advfvad vad fvavdavadvfav adfvavavd vadfvadfva vdfavavadfv avdafvadvad dafvadvda vadfvadfva vadfvdv vadf a vad vad a</td>
+                            <td><img src="http:\/\/ongapi.alkemy.org\/storage\/AOPPkDQDXx.jpeg" alt="Img novedades"></img></td>
                             <td>2022-02-17T23:53:48.000000Z</td>
                             <td>
                                 <button className="btnUpdateNovedades" type="submit" onClick={handleClickUpdate} >Editar</button>
