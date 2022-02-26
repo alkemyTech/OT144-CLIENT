@@ -1,4 +1,4 @@
-.novedadesSection{
+.sectionTable{
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -75,9 +75,9 @@ thead th{
 }
   
 
-.btnAddNovedades,
-.btnUpdateNovedades,
-.btnDeleteNovedades{
+.btnAddTable,
+.btnUpdateTable,
+.btnDeleteTable{
     color: var(--lightGrey);
     width: 130px;
     height: 30px;
@@ -85,7 +85,7 @@ thead th{
     margin: 0;
 }
 
-.btnAddNovedades {
+.btnAddTable{
     background-color: rgb(56, 201, 68);
     display: block;
     text-decoration: none;
@@ -93,18 +93,18 @@ thead th{
     justify-content: center;
     align-items: center;
 }
-.btnUpdateNovedades {
+.btnUpdateTable{
     background-color: var(--darkBlue);
     border: none;
 }
-.btnDeleteNovedades {
+.btnDeleteTable{
     background-color: var(--darkRed);
     border: none;
 }
 
-.btnAddNovedades:hover,
-.btnUpdateNovedades:hover,
-.btnDeleteNovedades:hover{
+.btnAddTable:hover,
+.btnUpdateTable:hover,
+.btnDeleteTable:hover{
     opacity: 0.8;
     transition: 0.5s;
 }

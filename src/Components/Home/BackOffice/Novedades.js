@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom"
-import './stylesNovedades.css'
+import './stylesTable.css'
 
 function Novedades(){
 
@@ -9,12 +9,12 @@ function Novedades(){
     const handleClickDelete=()=>{}
 
     return(
-        <section className="novedadesSection">
+        <section className="sectionTable">
                 <table className="table">
                     <thead>
                         <tr>
                             <td>
-                                <Link to="/backoffice/news/create" className="btnAddNovedades">Crear</Link>
+                                <Link to="/backoffice/news/create" className="btnAddTable">Crear</Link>
                             </td>
                         </tr>
                         <tr>
@@ -30,10 +30,10 @@ function Novedades(){
                             <td><img src="http:\/\/ongapi.alkemy.org\/storage\/bfHgX3Nr8Q.png" alt="Img novedades"></img></td>
                             <td>2022-02-17T23:53:48.000000Z</td>
                             <td>
-                                <button className="btnUpdateNovedades" type="submit" onClick={handleClickUpdate} >Editar</button>
+                                <button className="btnUpdateTable" type="submit" onClick={handleClickUpdate} >Editar</button>
                             </td>
                             <td>    
-                                <button className="btnDeleteNovedades" type="submit" onClick={handleClickDelete} style={{marginLeft:5}} >Eliminar</button>
+                                <button className="btnDeleteTable" type="submit" onClick={handleClickDelete} style={{marginLeft:5}} >Eliminar</button>
                             </td>
                         </tr>
                         <tr>
@@ -41,10 +41,10 @@ function Novedades(){
                             <td><img src="http:\/\/ongapi.alkemy.org\/storage\/AOPPkDQDXx.jpeg" alt="Img novedades"></img></td>
                             <td>2022-02-17T23:53:48.000000Z</td>
                             <td>
-                                <button className="btnUpdateNovedades" type="submit" onClick={handleClickUpdate} >Editar</button>
+                                <button className="btnUpdateTable" type="submit" onClick={handleClickUpdate} >Editar</button>
                             </td>
                             <td>    
-                                <button className="btnDeleteNovedades" type="submit" onClick={handleClickDelete} style={{marginLeft:5}} >Eliminar</button>
+                                <button className="btnDeleteTable" type="submit" onClick={handleClickDelete} style={{marginLeft:5}} >Eliminar</button>
                             </td>
                         </tr>
                     </tbody>
