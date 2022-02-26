@@ -21,6 +21,7 @@ import HomePage from './Components/Home/HomePage'
 import Register from './Components/Auth/RegisterForm';
 import Contact from './Components/Contact/Contact';
 import CreateNews from './Components/News/CreateNews';
+import Novedades from './Components/Home/BackOffice/Novedades';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Route path="/login" element={<LoginForm/>} />    
           <Route path="/backoffice" element={<ScreenDashboardPage/>} />
           <Route path="/register" element={<Register/>} />
+          <Route path="/backoffice/news" element={<Novedades/>} />
         </Routes>
       </BrowserRouter>
     </>
