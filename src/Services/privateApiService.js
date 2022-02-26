@@ -1,23 +1,23 @@
 import axios from 'axios';
+import { baseURL } from './Api';
 
 const config = {
     headers: {
-        Group: 144
+        "Group": 144
     }
 }
 
-export const getRequest =  async(url,id,getToken) =>{
+export const getRequest =  async(url,getToken,id = null) =>{
     try {
         let response = await axios({
             method: 'get',
-            url: `${url}/${id}`,
+            url: id===null ?`${baseURL}${url}` : `${baseURL}${url}/${id}`,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization':getToken(),
-                ...config.headers
             }
         })
-
+        
         return {
             status: response.status,
             data: response.data
