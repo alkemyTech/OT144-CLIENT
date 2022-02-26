@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
-import "./stylesTable.css"
+import "./stylesNovedades.css"
 
 export default function Categories() {
 
