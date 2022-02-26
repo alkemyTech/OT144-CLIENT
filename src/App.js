@@ -21,6 +21,7 @@ import HomePage from './Components/Home/HomePage'
 import Register from './Components/Auth/RegisterForm';
 import Contact from './Components/Contact/Contact';
 import CreateNews from './Components/News/CreateNews';
+import UsersList from './Components/Users/UsersList/UsersList';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/backoffice/organization/edit" element={<OrganizationEditForm/>} />
           <Route path="/backoffice/organization" element={<DataScreen/>}/>
           <Route path="/backoffice/members/edit" element={<MembersForm/>} />
+          <Route path="/backoffice/users" element={<UsersList/>} />
           <Route path="/create-testimonials" element={<TestimonialForm/>} />
           <Route path="/create-user" element={<UserForm/>} />
           <Route path="/create-member" element={<MembersForm/>} />
