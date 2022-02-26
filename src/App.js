@@ -22,8 +22,6 @@ import Register from './Components/Auth/RegisterForm';
 import Contact from './Components/Contact/Contact';
 import CreateNews from './Components/News/CreateNews';
 
-
-
 function App() {
   return (
     <>
