@@ -7,7 +7,7 @@ const config = {
     }
 }
 
-export const getRequest =  async(url,getToken,id = null) =>{
+export const getRequest =  async (url, getToken, id = null) => {
     try {
         let response = await axios({
             method: 'get',
