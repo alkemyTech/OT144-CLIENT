@@ -3,11 +3,11 @@ import { baseURL } from './Api';
 
 const config = {
     headers: {
-        "Group": 144
+        Group: 144
     }
 }
 
-export const getRequest =  async (url, getToken, id = null) => {
+export const getRequest =  async (url, id = null) => {
     try {
         let response = await axios({
             method: 'get',
