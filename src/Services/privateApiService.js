@@ -14,7 +14,7 @@ export const getRequest =  async (url, getToken, id = null) => {
             url: id === null ? `${baseURL}${url}` : `${baseURL}${url}/${id}`,
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization':getToken(),
+                'Authorization': getToken(),
             }
         })
         
