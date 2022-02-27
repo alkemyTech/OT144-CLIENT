@@ -1,6 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom"
-import './stylesTable.css'
+import {Link} from "react-router-dom";
+import '../../TableStyles.css';
 
 function Novedades(){
 
@@ -10,6 +10,7 @@ function Novedades(){
 
     return(
         <section className="sectionTable">
+            <div className='table-container-responsive'>
                 <table className="table">
                     <thead>
                         <tr>
@@ -49,6 +50,7 @@ function Novedades(){
                         </tr>
                     </tbody>
                 </table>
+            </div>
         </section>
     )
 }
