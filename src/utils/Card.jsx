@@ -23,24 +23,20 @@ const Card = (props) => {
             <p>{cardItem.description}</p> :
             <p>Descripción de prueba. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error facilis commodi illum? asdasdasdasdasdas dasdasdas</p>
         }
-        <>
+        <section className='social'>
         { 
-        cardItem.facebookUrl ?
+        cardItem.facebookUrl &&
           <a href={cardItem.facebookUrl}>
             <img src={ImageFacebook} alt="" />
           </a>
-          :
-          null
         }
         {
-          cardItem.linkedinUrl ?
+          cardItem.linkedinUrl &&
             <a href={cardItem.linkedinUrl}>
               <img src={ImageLinkedin} alt="" />
             </a>
-          :
-          null
         }
-        </>
+        </section>
       </section>
     </div>
   )
