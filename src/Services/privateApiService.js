@@ -9,7 +9,7 @@ const config = {
 
 export const getRequest =  async (url, id = null) => {
     try {
-        let response = await axios({
+        const response = await axios({
             method: 'get',
             url: id === null ? `${baseURL}${url}` : `${baseURL}${url}/${id}`,
             headers: {
