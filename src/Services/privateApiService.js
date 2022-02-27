@@ -1,9 +1,19 @@
 import axios from 'axios';
 import { baseURL } from './Api';
 
+const getToken = () => {
+    const token = localStorage.getItem("token") === "undefined"
+    ? ""
+    : localStorage.getItem("token")
+    || "";
+    return {
+        Authorization: `Bearer ${token}`
+    };
+};
+
 const config = {
     headers: {
-        Group: 144
+        Group: 144,
     }
 }
 
