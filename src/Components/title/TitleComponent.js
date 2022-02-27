@@ -2,6 +2,7 @@ import "./TitleComponent.css"
 
 const TitleComponent = ({title , img, nameImg}) => {
 
+  const image = "./logo-somos_mas.png"
   return (
     <div className="container-title">
         <h2 className="title">
@@ -16,9 +17,9 @@ const TitleComponent = ({title , img, nameImg}) => {
   )
 }
 TitleComponent.defaultProps = {
-    text: 'Tu titulo',
-    img: 'https://image.shutterstock.com/image-vector/volunteer-day-design-hand-heart-260nw-2083207180.jpg',
-    nameImg: 'Volunteer Day'
+    title: 'Tu titulo',
+    img: "./logo-somos_mas.png",
+    nameImg: 'logo-somos-mas'
 }
 
 export default TitleComponent
