@@ -1,10 +1,11 @@
+import "./TitleComponent.css"
 
-const TitleComponent = ({text , img, nameImg}) => {
+const TitleComponent = ({title , img, nameImg}) => {
 
   return (
-    <div>
+    <div className="container-title">
         <h2 className="title">
-        {text}
+        {title}
         </h2>
         <img
             className="title--img" 
