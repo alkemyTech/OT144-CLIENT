@@ -1,41 +1,27 @@
 import React from "react";
 
-const UsersTable = () => {
+const UsersTable = ({ users }) => {
   return (
-    <div>
-      <table>
+    <div className="table-container-responsive">
+      <table className="table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Actions</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Maria</td>
-            <td>maria@gmail.com</td>
-            <td>
-              <button>Edit</button>
-              <button>Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Paul</td>
-            <td>paul@gmail.com</td>
-            <td>
-              <button>Edit</button>
-              <button>Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>John</td>
-            <td>john@gmail.com</td>
-            <td>
-              <button>Edit</button>
-              <button>Delete</button>
-            </td>
-          </tr>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              <td className="actions">
+                <button className="btnUpdateTable">Editar</button>
+                <button className="btnDeleteTable">Eliminar</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
