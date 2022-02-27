@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
-import "./stylesNovedades.css"
+import "./stylesTable.css"
 
 export default function Categories() {
 
@@ -15,12 +15,12 @@ export default function Categories() {
     const handleClickDelete = (id) => {}
 
     return (
-        <section className="novedadesSection">
+        <section className="sectionTable">
             <table className="table">
                 <thead>
                     <tr>
                         <td>
-                            <Link to="/backoffice/categories/create" className="btnAddNovedades">Crear</Link>
+                            <Link to="/backoffice/categories/create" className="btnAddTable">Crear</Link>
                         </td>
                     </tr>
                     <tr>
@@ -36,8 +36,8 @@ export default function Categories() {
                                 <td>{category.name}</td>
                                 <td>{category.createdAt}</td>
                                 <td>
-                                    <button className="btnUpdateNovedades" type = "submit" onClick = {() => handleClickUpdate(category.id)}>Editar</button>
-                                    <button className="btnDeleteNovedades" type = "submit" onClick = {() => handleClickDelete(category.id)}>Eliminar</button>
+                                    <button className="btnUpdateTable" type = "submit" onClick = {() => handleClickUpdate(category.id)}>Editar</button>
+                                    <button className="btnDeleteTable" type = "submit" onClick = {() => handleClickDelete(category.id)}>Eliminar</button>
                                 </td>
                             </tr>
                         )
