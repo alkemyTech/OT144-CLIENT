@@ -1,0 +1,16 @@
+.list-member-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .list-member-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .list-member-container {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+}

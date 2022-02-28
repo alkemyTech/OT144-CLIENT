@@ -1,0 +1,1 @@
+export const baseURL = "http://ongapi.alkemy.org/api/";

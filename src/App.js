@@ -22,6 +22,8 @@ import Register from './Components/Auth/RegisterForm';
 import Contact from './Components/Contact/Contact';
 import CreateNews from './Components/News/CreateNews';
 import UsersList from './Components/Users/UsersList/UsersList';
+import Donacion from './Components/Donations/Donacion';
+import Gracias from './Components/Donations/Gracias';
 
 function App() {
   return (
@@ -49,6 +51,8 @@ function App() {
           <Route path="/login" element={<LoginForm/>} />    
           <Route path="/backoffice" element={<ScreenDashboardPage/>} />
           <Route path="/register" element={<Register/>} />
+          <Route path="/donar" element={<Donacion/>} />
+          <Route path="/gracias" element={<Gracias/>} />
         </Routes>
       </BrowserRouter>
     </>
