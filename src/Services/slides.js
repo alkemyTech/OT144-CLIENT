@@ -5,27 +5,32 @@ import {
   deleteRequest,
 } from "./publicApiService";
 
-export const getSlides = (search = "", skip = "", limit = "") => {
+export const getSlides = async (search = "", skip = "", limit = "") => {
   const endPoint = `/slides?search=${search}&skip=${skip}&limit=${limit}`;
-  const response = getRequest(endPoint);
+  const response = await getRequest(endPoint);
+  return response;
 };
 
-export const getSlide = (id) => {
+export const getSlide = async (id) => {
   const endPoint = `/slides/${id}`;
-  const response = getRequest(endPoint);
+  const response = await getRequest(endPoint);
+  return response;
 };
 
-export const createSlide = (data) => {
+export const createSlide = async (data) => {
   const endPoint = `/slides`;
-  const response = postRequest(endPoint, data);
+  const response = await postRequest(endPoint, data);
+  return response;
 };
 
-export const updateSlide = (data) => {
+export const updateSlide = async (data) => {
   const endPoint = `/slides/${data.id}`;
-  const response = putRequest(endPoint, data);
+  const response = await putRequest(endPoint, data);
+  return response;
 };
 
-export const deleteSlide = (id) => {
+export const deleteSlide = async (id) => {
   const endPoint = `/slides/${id}`;
-  const response = deleteRequest(endPoint);
+  const response = await deleteRequest(endPoint);
+  return response;
 };
