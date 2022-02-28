@@ -29,22 +29,22 @@ const CategoriesForm = (props) => {
         description:initialValues.description, 
     }]
 
-    const [msjFormIncomplete, setMsjFormIncomplete] = useState(false)
-    const [msjFormIncompleteImg, setMsjFormIncompleteImg] = useState(false)
-    const [msjFormIncompleteDes, setMsjFormIncompleteDes] = useState(false)
-
-    const [loandingForm,setLoandingForm] = useState(false)
-    const [messageErrorCategory,setMessageErrorCategory] = useState(false)
-    const [messageOkCategory,setMessageOkCategory] = useState(false)
+    const [messageAlert, setMessageAlert] = useState({
+        msjFormIncomplete: false,
+        msjFormIncompleteImg: false,
+        msjFormIncompleteDes: false,
+        loandingForm: false,
+        messageErrorCategory:false,
+        messageOkCategory:false,
+    })
 
 
     function getBase64(file) { 
         var reader = new FileReader(); 
         reader.readAsDataURL(file); 
         reader.onload = function () { 
-            //console.log(reader.result); 
             setImgPost(reader.result)
-            setMsjFormIncompleteImg(false)
+            setMessageAlert({...messageAlert,msjFormIncompleteImg:false})
         }; 
         reader.onerror = function (error) {
              console.log('Error: ', error);
@@ -55,14 +55,14 @@ const CategoriesForm = (props) => {
     const handleChange = (e) => {
         if(e.target.name === 'name'){
             setInitialValues({...initialValues, name: e.target.value})
-            setMsjFormIncomplete(false)
+            setMessageAlert({...messageAlert,msjFormIncomplete:false})
         } 
     }
 
     const handleCkreditor =(e,editor)=>{
         const data = editor.getData()
         setInitialValues({...initialValues, description: data})
-        setMsjFormIncompleteDes(false)
+        setMessageAlert({...messageAlert,msjFormIncompleteDes:false})
     }
 
     const handleSubmit = (e) => {
@@ -70,18 +70,17 @@ const CategoriesForm = (props) => {
     }
 
     const handleClick =()=>{
-        setMessageErrorCategory(false)
-        setMessageOkCategory(false)
+        setMessageAlert({...messageAlert,messageOkCategory:false,messageErrorCategory:false,loandingForm:true})
         if(initialValues.name === '' || initialValues.name.length < 4){
-            setMsjFormIncomplete(true)
+            setMessageAlert({...messageAlert,msjFormIncomplete:true})
         }
         else if(initialValues.description === ''){
-            setMsjFormIncompleteDes(true)
+            setMessageAlert({...messageAlert,msjFormIncompleteDes:true})
         }
         else{
             if(categoriesBtn === true){
                 if(imgPost === '' || !(/\.(jpg|png)$/i).test(initialValues.image?.current?.files[0].name)){
-                    setMsjFormIncompleteImg(true)    
+                    setMessageAlert({...messageAlert,msjFormIncompleteImg:true})    
                 }else{
                 console.log('agregar')
                 addCategory()
@@ -89,7 +88,7 @@ const CategoriesForm = (props) => {
             }else{
                 if(imgPost !== ''){
                     if(!(/\.(jpg|png)$/i).test(initialValues.image?.current?.files[0].name)){
-                        setMsjFormIncompleteImg(true)    
+                        setMessageAlert({...messageAlert,msjFormIncompleteImg:true})   
                     }else{
                     console.log('actualizar')
                     updateCategory(0) 
@@ -104,36 +103,30 @@ const CategoriesForm = (props) => {
 
 
     const addCategory = async()=>{
-        setLoandingForm(true)
         await axios.post('http://ongapi.alkemy.org/api/categories', bodyFormCategory[0])
         .then(res=>{
             console.log(res.data)
             if(res.data){
-                setMessageOkCategory(true)
-                setLoandingForm(false)
+                setMessageAlert({...messageAlert,loandingForm:false,messageOkCategory:true,messageErrorCategory:false})
             }
         })
         .catch(error=>{
-            console.log(error.message);
-            setMessageErrorCategory(true)
-            setLoandingForm(false)
+            console.log(error.message)
+            setMessageAlert({...messageAlert,loandingForm:false,messageErrorCategory:true,messageOkCategory:false})
         })
     }
 
     const updateCategory = async(numArray)=>{
-        setLoandingForm(true)
         await axios.put(`http://ongapi.alkemy.org/api/categories/${id}`, bodyFormCategory[numArray])
         .then(res=>{
             console.log(res.data)
             if(res.data){
-                setMessageOkCategory(true)
-                setLoandingForm(false)
+                setMessageAlert({...messageAlert,loandingForm:false,messageOkCategory:true,messageErrorCategory:false})
             }
         })
         .catch(error=>{
-            console.log(error.message);
-            setMessageErrorCategory(true)
-            setLoandingForm(false)
+            console.log(error.message)
+            setMessageAlert({...messageAlert,loandingForm:false,messageErrorCategory:true,messageOkCategory:false})
         })
     }
 
@@ -143,7 +136,7 @@ const CategoriesForm = (props) => {
         <section className="categoriesForm">
         <form className="form-container form-container-Category" onSubmit={handleSubmit}>
             <input className="input-field input-field-Category" type="text" name="name" value={initialValues.name} onChange={handleChange} placeholder="Título"></input>
-            {msjFormIncomplete && 
+            {messageAlert.msjFormIncomplete && 
                 <p className="msjIncompleteForm">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-circle" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -153,7 +146,7 @@ const CategoriesForm = (props) => {
             }
 
             <CKEditor className='ckeditorForm' editor={ ClassicEditor } onChange={handleCkreditor} data={categories?.description ? categories.description : '' }/>
-            {msjFormIncompleteDes && 
+            {messageAlert.msjFormIncompleteDes && 
                 <p className="msjIncompleteForm">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-circle" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -163,7 +156,7 @@ const CategoriesForm = (props) => {
             }
 
             <input className="input-field input-field-Category" type="file" ref={initialValues.image} name='image' onChange={()=>getBase64(initialValues.image?.current?.files[0])}></input>
-            {msjFormIncompleteImg && 
+            {messageAlert.msjFormIncompleteImg && 
                 <p className="msjIncompleteForm">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-circle" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -172,13 +165,13 @@ const CategoriesForm = (props) => {
                 Campo obligatorio y debe ser formato .jpg o .png</p>
             }
 
-            {loandingForm ?
+            {messageAlert.loandingForm ?
                 <p className="subtitle">Cargando...</p>
             :
                 <button className="submit-btn" type="submit" onClick={handleClick}>Send</button>
             }
 
-            {messageErrorCategory &&
+            {messageAlert.messageErrorCategory &&
                 <div className="msjErrorCategory">
                     <p className="subtitle">
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-x-circle" viewBox="0 0 16 16">
@@ -188,7 +181,7 @@ const CategoriesForm = (props) => {
                     Error</p>
                 </div>
             }
-            {messageOkCategory &&
+            {messageAlert.messageOkCategory &&
                 <div className="msjOkCategory">
                     <p className="subtitle">
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-check2-circle" viewBox="0 0 16 16">
