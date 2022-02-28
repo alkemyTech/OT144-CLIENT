@@ -46,7 +46,7 @@ export const deleteRequest = async (url, id) => {
     try{
         const response = await axios({
             method: 'delete',
-            url: id ? `${baseURL}/${url}` : `${baseURL}/${url}/${id}`,
+            url: `${baseURL}/${url}/${id}`,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': getToken(),
