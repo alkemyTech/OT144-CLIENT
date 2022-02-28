@@ -1,23 +1,11 @@
 import React from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
-import "../Home/BackOffice/stylesTable.css"
+import '../../TableStyles.css';
 
 const MemberList = () => {
 
-    const [members, setMembers] = React.useState([])
-
-    React.useEffect(() => {
-        const fetchMembers = async () => {
-            const result = await axios.get('http://ongapi.alkemy.org/api/members')
-            console.log(result.data.data)
-            setMembers(result.data.data)
-        }
-        fetchMembers()
-    }, [])
-
-    const deleteMember = () => {}
-    const editMember = () => {}
+    const handleClickUpdate = () => {}
+    const handleClickDelete = () => {}
 
     return (
         <section className='sectionTable'>
@@ -42,22 +30,20 @@ const MemberList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                {members.map(member => (
-                    <tr key={member.id} className='card-container'>
-                        <td>{member.name}</td>
+                    <tr className='card-container'>
+                        <td>Miembro 1</td>
                         <td>
-                            <img src={member.image} alt='thumbnail'/>
+                            <img src={'/images/SomosMas.png'} alt='thumbnail'/>
                         </td>
                         <td>
-                            <button className="btnUpdateTable" onClick={() => editMember()}>
+                            <button className="btnUpdateTable" onClick={() => handleClickUpdate()}>
                                 Edit
                             </button>
-                            <button className="btnDeleteTable" onClick={() => deleteMember()}>
+                            <button className="btnDeleteTable" onClick={() => handleClickDelete()}>
                                 Delete
                             </button>
                         </td>
                     </tr>
-                ))}
                 </tbody>
             </table>
         </section>

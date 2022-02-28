@@ -7,11 +7,15 @@
     align-items: center;
 }
 
+.table-container-responsive {
+    overflow-x: auto;
+    width: 100%;
+}
+
 .table{
     position: relative;
     width: 100%;
     border-collapse: collapse;
-    /*table-layout: fixed;*/
     border: 3px solid  var(--darkBlue);
     background-color: var(--darkBlue);
 }
@@ -33,7 +37,7 @@ thead th:nth-child(4) {
 }
 
 th, td {
-    padding: 20px;
+    padding: 16px;
 }
 
 th {
@@ -65,7 +69,7 @@ tbody tr:nth-child(even) {
 }
 
 thead{
-    color: white;
+    color: #ffffff;
     text-shadow: 1px 1px 1px black;
 }
 
@@ -79,19 +83,20 @@ thead th{
 .btnUpdateTable,
 .btnDeleteTable{
     color: var(--lightGrey);
-    width: 130px;
-    height: 30px;
+    min-width: 100px;
+    min-height: 30px;
     border-radius: 5px;
-    margin: 0;
+    padding: 4px;
 }
 
 .btnAddTable{
-    background-color: rgb(56, 201, 68);
+    background-color: var(--green);
     display: block;
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
 }
 .btnUpdateTable{
     background-color: var(--darkBlue);
@@ -107,4 +112,4 @@ thead th{
 .btnDeleteTable:hover{
     opacity: 0.8;
     transition: 0.5s;
-} 
+}
