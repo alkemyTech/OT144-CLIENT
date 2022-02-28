@@ -10,8 +10,8 @@ export default function ActivitiesDetail(){
     mediante el id */
     const [activity, setActivity] = useState({"id":1352,"name":"Actividad","slug":null,"description":"Descripcion","image":"http:\/\/ongapi.alkemy.org\/storage\/RVaOs4LmMs.jpeg","user_id":null,"category_id":null,"created_at":"2022-02-20T20:30:08.000000Z","updated_at":"2022-02-20T20:30:08.000000Z","deleted_at":null,"group_id":36})
     return(
-        <section className = "containerActivity">
-            <TitleComponent text = {activity.name} img = {activity.image}/>
+        <section className="containerActivity">
+            <TitleComponent text={activity.name} img={activity.image}/>
             <p>{activity.description}</p>
         </section>
     )
