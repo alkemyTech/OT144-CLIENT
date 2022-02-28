@@ -42,4 +42,28 @@ export const getRequest =  async (url, id = null) => {
     }
 }
 
+export const deleteRequest = async (url, id) => {
+    try{
+        const response = await axios({
+            method: 'delete',
+            url: id ? `${baseURL}/${url}` : `${baseURL}/${url}/${id}`,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': getToken(),
+                ...config.headers
+                }
+        })
+        return {
+            status: response.status,
+            data: response.data
+        }
+    }
+    catch(error){
+        return {
+            status: error.response.status,
+            error: error.message,
+            data: error.response.data
+        }
+    }
 
+}
