@@ -1,14 +1,10 @@
 
-const ActivitiesContenct = ({data}) => {
+const ActivitiesContenct = ({activitie}) => {
   return (
-
-    (data.map((activitie) => 
         <div>
             <div dangerouslySetInnerHTML={{__html: activitie }}></div>
-        </div>  
-    ))
-
-  )
+        </div>
+  )  
 }
 
 export default ActivitiesContenct
