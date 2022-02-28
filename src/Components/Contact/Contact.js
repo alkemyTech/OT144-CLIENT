@@ -6,18 +6,17 @@ import TitleComponent from "../title/TitleComponent";
 const Contact = ({img, name, phone, email}) => {
   
   return (
-
     <div className="contact-container">
       <TitleComponent 
         title="Contacto"
         img={img}
       />
 
-      <div>
-        <p> Nombre:<span> {name} </span> </p>
-        <p> Email: <span> {email} </span></p>
-        <p> Phone: <span> {phone} </span>  </p>
-      </div>
+      <ul className="contact-list">
+        <li> Nombre:<span> {name} </span> </li>
+        <li> Email: <span> {email} </span></li>
+        <li> Phone: <span> {phone} </span>  </li>
+      </ul>
 
       <h3 className="subtitle">Contactanos</h3>
 

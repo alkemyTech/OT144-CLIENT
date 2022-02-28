@@ -1,4 +1,4 @@
-import "./TitleComponent.css"
+
 
 const TitleComponent = ({title , img, nameImg}) => {
 
