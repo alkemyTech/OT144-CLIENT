@@ -35,6 +35,7 @@ export const postRequest =  async(endpoint,bodyData) =>{
                 ...config.headers
             }
         })
+        // console.log(response)
         return {
             status: response.status,
             data: response.data
