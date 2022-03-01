@@ -12,4 +12,5 @@ const Get = () => {
     .catch(err => console.log(err))
 }
 
+
 export default Get
