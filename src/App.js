@@ -10,6 +10,7 @@ import TestimonialForm from './Components/Testimonials/TestimonialsForm';
 import UserForm from './Components/Users/UsersForm';
 import SchoolCampaign from './Campaigns/School/SchoolCampaign';
 import ToysCampaign from './Campaigns/Toys/ToysCampaign';
+import MemberList from './Components/Members/MemberList';
 import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
 import Actividades from './Components/Activities/Actividades';
@@ -41,6 +42,7 @@ function App() {
           <Route path="/backoffice/create-slide" element={<SlidesForm/>} />
           <Route path="/backoffice/organization/edit" element={<OrganizationEditForm/>} />
           <Route path="/backoffice/organization" element={<DataScreen/>}/>
+          <Route path="/backoffice/members" element={<MemberList/>}/>
           <Route path="/backoffice/categories" element={<Categories/>}/>
           <Route path="/backoffice/members/edit" element={<MembersForm/>} />
           <Route path="/create-testimonials" element={<TestimonialForm/>} />
