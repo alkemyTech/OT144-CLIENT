@@ -1,0 +1,34 @@
+.users-list-container {
+  margin: 15px auto;
+  width: 70%;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+}
+
+.users-list-container h1 {
+  text-align: center;
+}
+
+.main-action {
+  display: flex;
+  margin: 16px 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+@media screen and (max-width: 1024px) {
+  .users-list-container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .users-list-container {
+    width: 90%;
+  }
+}
