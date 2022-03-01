@@ -42,7 +42,7 @@ export const getRequest =  async (url, id = null) => {
     }
 }
 
-export const patchApi = async( enpoint, id, data  ) => {
+export const patchRequest = async(enpoint, id, data) => {
     try {
         const resp = await axios({
             method: 'patch',
