@@ -19,7 +19,7 @@ export const putRequest = async (endpoint, id, body) => {
         const response = await axios({
             method: 'put',
             url:`${baseURL}${endpoint}/${id}`,
-            body: body,
+            data: body,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': getToken(),
