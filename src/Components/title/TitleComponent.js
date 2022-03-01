@@ -1,9 +1,9 @@
-
+import "./TitleComponent.css";
 const TitleComponent = ({text , img, nameImg}) => {
 
   return (
     <div>
-        <h2 className="title">
+        <h2 className="headerTxt">
         {text}
         </h2>
         <img
