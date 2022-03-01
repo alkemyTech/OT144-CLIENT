@@ -23,8 +23,4 @@ export const postRequest = async (url, body) => {
   }
 };
 
-console.log(
-  postRequest("comments", { visible: true, text: "PERRRRO QUE ONDAAA!!" })
-);
-
 export default Get;
