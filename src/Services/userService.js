@@ -1,0 +1,1 @@
+import {getRequest,deleteRequest,postRequest,putRequest} from './privateApiService'
