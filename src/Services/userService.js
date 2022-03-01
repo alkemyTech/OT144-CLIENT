@@ -1,5 +1,5 @@
-import {getRequest,deleteRequest,postRequest,putRequest} from './privateApiService'
-const endpoint = '/users'
+import {getRequest,deleteRequest,putRequest} from './privateApiService'
+const endpoint = 'users'
 
 export const getUsers = async () => {
     try{
@@ -21,7 +21,7 @@ export const getUser = async (id) => {
     }
 }
 
-export const createUser = async (user) => {
+/*export const createUser = async (user) => {
     try{
         const response = await postRequest(endpoint,user)
         return response.data
@@ -29,7 +29,7 @@ export const createUser = async (user) => {
     catch(error){
         throw error
     }
-}
+}*/
 
 export const updateUser = async (id,user) => {
     try{

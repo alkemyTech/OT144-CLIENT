@@ -65,6 +65,7 @@ export const deleteRequest = async (url, id) => {
             data: error.response.data
         }
     }
+}
 
 export const putRequest = async (endpoint, id, body) => {
     try {
