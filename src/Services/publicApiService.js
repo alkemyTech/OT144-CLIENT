@@ -15,10 +15,8 @@ const Get = () => {
 };
 
 export const postRequest = async (url, body) => {
-  // url -> string | body -> object
   try {
     const response = await axios.post(baseURL + url, body);
-    console.log(response);
     return response;
   } catch (e) {
     alert("Error al enviar la información!");
