@@ -23,7 +23,7 @@ export const Get = () => {
     .catch(err => console.log(err))
 }
 
-export const postRequest =  async(endpoint,bodyData,userToken) =>{
+export const postRequest =  async(endpoint,bodyData) =>{
     try {
         let  response = await axios({
             method: 'post',
