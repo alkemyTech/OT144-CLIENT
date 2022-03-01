@@ -42,11 +42,12 @@ export const getRequest =  async (url, id = null) => {
     }
 }
 
-export const deleteRequest = async (url, id) => {
+export const deleteRequest = async (url, id, bodyData) => {
     try{
         const response = await axios({
             method: 'delete',
             url: `${baseURL}/${url}/${id}`,
+            data: bodyData,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': getToken(),
