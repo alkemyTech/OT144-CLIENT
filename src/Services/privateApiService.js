@@ -2,8 +2,8 @@ import axios from 'axios';
 
 const config = {
     headers: {
-        Group: 01                //Aqui va el ID del equipo!!
-    }
+        Group: 144                //Aqui va el ID del equipo!!
+    },
 }
 
 const Get = () => {
