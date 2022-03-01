@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import ArticleCard from "./ArticleCard";
+import Title from "../title/TitleComponent";
 export default function Home({ news }) {
   const newsProp = [
     { title: "Titulo1 Titulo1Titulo1 Titulo1", id:"23",description: "Laborum qui eiusmod ex cupidatat. Esse ut commodo occaecat in culpa cillum ex ad labore laboris laboris enim elit. Eu et cillum mollit proident labore ex esse non in. Voluptate nostrud culpa veniam amet anim dolor.", image: "https://images.unsplash.com/photo-1646036185413-150ec1d0e74f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80" },
@@ -10,7 +11,7 @@ export default function Home({ news }) {
   ];
   return (
     <div style={{width:'80%',margin:"auto",marginTop:'3rem'}}>
-      <h1>Novedades</h1>
+      <Title title={"Novedades"}/>
       <div className="new-list-container">
         {newsProp.map((data, index) => (
           <ArticleCard  index={index} data={data}/>
