@@ -33,7 +33,7 @@ const DetailNew = () => {
       {data ? (
         <>
           <TitleComponent
-            text={data.text}
+            title={data.text}
             img={data.img}
             nameImg={data.nameImg}
           />
