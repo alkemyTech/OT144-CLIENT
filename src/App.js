@@ -22,8 +22,11 @@ import HomePage from './Components/Home/HomePage'
 import Register from './Components/Auth/RegisterForm';
 import Contact from './Components/Contact/Contact';
 import CreateNews from './Components/News/CreateNews';
+import Novedades from './Components/Home/BackOffice/Novedades';
 import Donacion from './Components/Donations/Donacion';
 import Gracias from './Components/Donations/Gracias';
+import ActivitiesDetail from './Components/Activities/Detail/ActivitiesDetail';
+import Categories from './Components/Home/BackOffice/Categories';
 
 function App() {
   return (
@@ -40,6 +43,7 @@ function App() {
           <Route path="/backoffice/organization/edit" element={<OrganizationEditForm/>} />
           <Route path="/backoffice/organization" element={<DataScreen/>}/>
           <Route path="/backoffice/members" element={<MemberList/>}/>
+          <Route path="/backoffice/categories" element={<Categories/>}/>
           <Route path="/backoffice/members/edit" element={<MembersForm/>} />
           <Route path="/create-testimonials" element={<TestimonialForm/>} />
           <Route path="/create-user" element={<UserForm/>} />
@@ -51,8 +55,10 @@ function App() {
           <Route path="/login" element={<LoginForm/>} />    
           <Route path="/backoffice" element={<ScreenDashboardPage/>} />
           <Route path="/register" element={<Register/>} />
+          <Route path="/backoffice/news" element={<Novedades/>} />
           <Route path="/donar" element={<Donacion/>} />
           <Route path="/gracias" element={<Gracias/>} />
+          <Route path="/activities/:id" element={<ActivitiesDetail/>} />
         </Routes>
       </BrowserRouter>
     </>
