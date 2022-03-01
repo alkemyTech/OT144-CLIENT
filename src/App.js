@@ -28,6 +28,7 @@ import Donacion from './Components/Donations/Donacion';
 import Gracias from './Components/Donations/Gracias';
 import ActivitiesDetail from './Components/Activities/Detail/ActivitiesDetail';
 import Categories from './Components/Home/BackOffice/Categories';
+import SlidesList from './Components/Slides/SlidesList';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/create-category" element={<CategoriesForm/>} />
           <Route path="/create-news" element={<CreateNews/>} />
           <Route path="/backoffice/organization/edit-home" element={<HomeForm/>} />
+          <Route path="//backoffice/Slides" element={<SlidesList/>} />
           <Route path="/backoffice/create-slide" element={<SlidesForm/>} />
           <Route path="/backoffice/organization/edit" element={<OrganizationEditForm/>} />
           <Route path="/backoffice/organization" element={<DataScreen/>}/>
