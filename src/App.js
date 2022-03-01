@@ -23,6 +23,7 @@ import Contact from './Components/Contact/Contact';
 import CreateNews from './Components/News/CreateNews';
 import Donacion from './Components/Donations/Donacion';
 import Gracias from './Components/Donations/Gracias';
+import DetailNew from './Components/News/Detail/DetailNew';
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
           <Route path="/register" element={<Register/>} />
           <Route path="/donar" element={<Donacion/>} />
           <Route path="/gracias" element={<Gracias/>} />
+          <Route path="/novedades/:id" element={<DetailNew/>} />
         </Routes>
       </BrowserRouter>
     </>
