@@ -1,9 +1,19 @@
 import axios from 'axios';
+import { baseURL } from './Api';
+
+const getToken = () => {
+    const token = localStorage.getItem("token") === "undefined"
+    ? ""
+    : localStorage.getItem("token")
+    || "";
+    return {
+        Authorization: `Bearer ${token}`
+    };
+};
 
 const config = {
-    baseUrl:"",
     headers: {
-        Group: "01"                //Aqui va el ID del equipo!!
+        Group: "01"                
     }
 }
 
@@ -13,15 +23,15 @@ export const Get = () => {
     .catch(err => console.log(err))
 }
 
-export const postRequest =  async(url,bodyData,userToken) =>{
+export const postRequest =  async(endpoint,bodyData,userToken) =>{
     try {
         let  response = await axios({
             method: 'post',
-            url: config.baseUrl+url,
+            url: baseURL+endpoint,
             data: bodyData,
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization ':userToken,
+                ...getToken(),
                 ...config.headers
             }
         })
@@ -34,7 +44,7 @@ export const postRequest =  async(url,bodyData,userToken) =>{
         console.log(error)
         return {
             status: error.response.status,
-            error: error.message,
+            error: error,
             data: error.response.data
         }
     }
