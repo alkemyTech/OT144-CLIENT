@@ -66,4 +66,27 @@ export const deleteRequest = async (url, id) => {
         }
     }
 
+export const putRequest = async (endpoint, id, body) => {
+    try {
+        const response = await axios({
+            method: 'put',
+            url:`${baseURL}${endpoint}/${id}`,
+            data: body,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': getToken(),
+            }
+        })
+        return {
+            status: response.status,
+            data: response.data
+        }
+    }
+    catch (error) {
+        return {
+            status: error.response.status,
+            error: error.message,
+            data: error.response.data
+        }
+    }
 }
