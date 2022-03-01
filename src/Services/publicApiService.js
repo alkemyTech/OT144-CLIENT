@@ -7,7 +7,7 @@ const config = {
   },
 };
 
-const Get = () => {
+export const Get = () => {
   axios
     .get("https://jsonplaceholder.typicode.com/users", config)
     .then((res) => console.log(res))
@@ -16,11 +16,9 @@ const Get = () => {
 
 export const postRequest = async (url, body) => {
   try {
-    const response = await axios.post(baseURL + url, body);
+    const response = await axios.post(`${baseURL}${url}`, body);
     return response;
   } catch (e) {
     alert("Error al enviar la información!");
   }
 };
-
-export default Get;
