@@ -44,7 +44,7 @@ export const getRequest =  async (url, id = null) => {
 
 export const patchRequest = async(enpoint, id, data) => {
     try {
-        const resp = await axios({
+        const response = await axios({
             method: 'patch',
             url: `${baseURL}${enpoint}/${id}`,
             data:data,
