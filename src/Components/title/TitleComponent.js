@@ -1,3 +1,5 @@
+import './TitleComponent.css'
+
 const TitleComponent = ({title , img, nameImg}) => {
 
   const image = "./logo-somos_mas.png"
