@@ -13,9 +13,9 @@ const Get = () => {
     .catch(err => console.log(err))
 }
 
-export const patchApi = async( enpoint, id, data  ) => {
+export const patchRequest = async(enpoint, id, data) => {
     try {
-        const resp = await axios({
+        const response = await axios({
             method: 'patch',
             url: `${baseURL}${enpoint}/${id}`,
             data:data,
@@ -25,14 +25,14 @@ export const patchApi = async( enpoint, id, data  ) => {
             }
         })
         return {
-            status: resp.status,
-            data: resp.data
+            status: response.status,
+            data: response.data
         }
     } catch (error) {
         return {
-            status: error.resp.status,
+            status: error.response.status,
             error: error.message,
-            data: error.resp.data
+            data: error.response.data
         }
     }
 }
