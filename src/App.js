@@ -24,6 +24,7 @@ import CreateNews from './Components/News/CreateNews';
 import Novedades from './Components/Home/BackOffice/Novedades';
 import Donacion from './Components/Donations/Donacion';
 import Gracias from './Components/Donations/Gracias';
+import ActivitiesDetail from './Components/Activities/Detail/ActivitiesDetail';
 import Categories from './Components/Home/BackOffice/Categories';
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
           <Route path="/backoffice/news" element={<Novedades/>} />
           <Route path="/donar" element={<Donacion/>} />
           <Route path="/gracias" element={<Gracias/>} />
+          <Route path="/activities/:id" element={<ActivitiesDetail/>} />
         </Routes>
       </BrowserRouter>
     </>
