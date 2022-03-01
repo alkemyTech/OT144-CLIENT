@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../../TableStyles.css';
+import '../TableStyles.css'
 
 const MemberList = () => {
 
