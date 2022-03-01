@@ -1,32 +1,29 @@
 import { getRequest, postRequest, deleteRequest, putRequest } from "../../Services/privateApiService"
+const endpointNews = "news"
 
 export const getNews = async () => {
-    const response = await( getRequest("news"))
-    return response
+    const response = await getRequest(endpointNews)
+    return response;
 }
 
-export function getNewsById(id){
-    return (
-        getRequest("news", id)
-    )
+export const getNewsById = async (id) => {
+    const response = await getRequest(endpointNews, id)
+    return response;
 }
 
-export function postNews(bodyData){
-   return (
-       postRequest("news", bodyData)
-    )
+export const postNews = async (bodyData) => {
+    const response = await postRequest(endpointNews, bodyData)
+    return response;
 }
 
-export function deleteNews(id){
-    return(
-        deleteRequest("news", id)
-     )
+export const deleteNews = async (id) => {
+    const response = await deleteRequest(endpointNews, id)
+    return response;
  }
 
-export function updateNews(id, bodyData){
-    return (
-        putRequest("news", id, bodyData)
-    )
+export const updateNews = async (id, bodyData) => {
+    const response = await putRequest(endpointNews, id, bodyData)
+    return response;
  }
 
 
