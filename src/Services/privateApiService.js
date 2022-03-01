@@ -14,27 +14,27 @@ const Get = () => {
 }
 
 
-export const PutRequest = async(endpoint,id,body) => {
+export const putRequest = async (endpoint, id, body) => {
     try {
-        let res = await axios({
+        const response = await axios({
             method: 'put',
             url:`${baseURL}${endpoint}/${id}`,
             body: body,
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization':getToken(),
+                'Authorization': getToken(),
             }
         })
         return {
-            status: res.status,
-            data: res.data
+            status: response.status,
+            data: response.data
         }
     }
     catch (error) {
         return {
-            status: error.res.status,
+            status: error.response.status,
             error: error.message,
-            data: error.res.data
+            data: error.response.data
         }
     }
 }
