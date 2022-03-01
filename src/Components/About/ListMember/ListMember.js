@@ -1,4 +1,4 @@
-import Card from "../../../utils/Card";
+import Card from "../../UI/Card/Card";
 import './ListMember.css'
 
 const ListMember = ({ members }) => {
