@@ -38,6 +38,14 @@ main {
   vertical-align: center;
 }
 
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
 .headerTxt{
   font-size: var(--heading1)
 }

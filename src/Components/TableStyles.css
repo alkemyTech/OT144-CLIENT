@@ -108,7 +108,7 @@ thead th{
 
 .btnAddTable:hover,
 .btnUpdateTable:hover,
-.btnDeleteTable:hover{
+.btnDeleteTable:hover {
     opacity: 0.8;
     transition: 0.5s;
 }

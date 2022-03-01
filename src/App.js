@@ -22,6 +22,7 @@ import HomePage from './Components/Home/HomePage'
 import Register from './Components/Auth/RegisterForm';
 import Contact from './Components/Contact/Contact';
 import CreateNews from './Components/News/CreateNews';
+import UsersList from './Components/Users/UsersList/UsersList';
 import Novedades from './Components/Home/BackOffice/Novedades';
 import Donacion from './Components/Donations/Donacion';
 import Gracias from './Components/Donations/Gracias';
@@ -45,6 +46,7 @@ function App() {
           <Route path="/backoffice/members" element={<MemberList/>}/>
           <Route path="/backoffice/categories" element={<Categories/>}/>
           <Route path="/backoffice/members/edit" element={<MembersForm/>} />
+          <Route path="/backoffice/users" element={<UsersList/>} />
           <Route path="/create-testimonials" element={<TestimonialForm/>} />
           <Route path="/create-user" element={<UserForm/>} />
           <Route path="/create-member" element={<MembersForm/>} />
