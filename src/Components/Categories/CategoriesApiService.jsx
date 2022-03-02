@@ -13,19 +13,19 @@ export const createCategories = async (data) => {
 }
 
 export const getCategory = async (id) => {
-    const endPoint = `/categories/${id}`;
-    const response = await getRequest(endPoint);
+    const endPoint = `/categories`;
+    const response = await getRequest(endPoint, id);
     return response;
 }
 
 export const updateCategory = async (id, data) => {
-    const endPoint = `/categories/${id}`;
-    const response = await putRequest(endPoint, data);
+    const endPoint = `/categories`;
+    const response = await putRequest(endPoint, id, data);
     return response;
 }
 
 export const deleteCategory = async (id) => {
-    const endPoint = `/categories/${id}`;
-    const response = await deleteRequest(endPoint);
+    const endPoint = `/categories`;
+    const response = await deleteRequest(endPoint, id);
     return response;
 }
