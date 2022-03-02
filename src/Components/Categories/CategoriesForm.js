@@ -20,13 +20,13 @@ const CategoriesForm = (props) => {
 
     const bodyFormCategory = [    
     {
-        name:initialValues.name, 
-        description:initialValues.description, 
+        name: initialValues.name, 
+        description: initialValues.description, 
         image: imgPost,
     },
     {
-        name:initialValues.name, 
-        description:initialValues.description, 
+        name: initialValues.name, 
+        description: initialValues.description, 
     }]
 
     const [messageAlert, setMessageAlert] = useState({
@@ -34,8 +34,8 @@ const CategoriesForm = (props) => {
         msjFormIncompleteImg: false,
         msjFormIncompleteDes: false,
         loandingForm: false,
-        messageErrorCategory:false,
-        messageOkCategory:false,
+        messageErrorCategory: false,
+        messageOkCategory: false,
     })
 
 
@@ -44,7 +44,7 @@ const CategoriesForm = (props) => {
         reader.readAsDataURL(file); 
         reader.onload = function () { 
             setImgPost(reader.result)
-            setMessageAlert({...messageAlert,msjFormIncompleteImg:false})
+            setMessageAlert({...messageAlert, msjFormIncompleteImg: false})
         }; 
         reader.onerror = function (error) {
              console.log('Error: ', error);
@@ -55,14 +55,14 @@ const CategoriesForm = (props) => {
     const handleChange = (e) => {
         if(e.target.name === 'name'){
             setInitialValues({...initialValues, name: e.target.value})
-            setMessageAlert({...messageAlert,msjFormIncomplete:false})
+            setMessageAlert({...messageAlert, msjFormIncomplete: false})
         } 
     }
 
     const handleCkreditor =(e,editor)=>{
         const data = editor.getData()
         setInitialValues({...initialValues, description: data})
-        setMessageAlert({...messageAlert,msjFormIncompleteDes:false})
+        setMessageAlert({...messageAlert, msjFormIncompleteDes: false})
     }
 
     const handleSubmit = (e) => {
@@ -70,17 +70,17 @@ const CategoriesForm = (props) => {
     }
 
     const handleClick =()=>{
-        setMessageAlert({...messageAlert,messageOkCategory:false,messageErrorCategory:false,loandingForm:true})
+        setMessageAlert({...messageAlert, messageOkCategory: false, messageErrorCategory: false, loandingForm: true})
         if(initialValues.name === '' || initialValues.name.length < 4){
-            setMessageAlert({...messageAlert,msjFormIncomplete:true})
+            setMessageAlert({...messageAlert, msjFormIncomplete: true})
         }
         else if(initialValues.description === ''){
-            setMessageAlert({...messageAlert,msjFormIncompleteDes:true})
+            setMessageAlert({...messageAlert, msjFormIncompleteDes: true})
         }
         else{
             if(categoriesBtn === true){
                 if(imgPost === '' || !(/\.(jpg|png)$/i).test(initialValues.image?.current?.files[0].name)){
-                    setMessageAlert({...messageAlert,msjFormIncompleteImg:true})    
+                    setMessageAlert({...messageAlert, msjFormIncompleteImg: true})    
                 }else{
                 console.log('agregar')
                 addCategory()
@@ -88,7 +88,7 @@ const CategoriesForm = (props) => {
             }else{
                 if(imgPost !== ''){
                     if(!(/\.(jpg|png)$/i).test(initialValues.image?.current?.files[0].name)){
-                        setMessageAlert({...messageAlert,msjFormIncompleteImg:true})   
+                        setMessageAlert({...messageAlert, msjFormIncompleteImg: true})   
                     }else{
                     console.log('actualizar')
                     updateCategory(0) 
@@ -107,12 +107,12 @@ const CategoriesForm = (props) => {
         .then(res=>{
             console.log(res.data)
             if(res.data){
-                setMessageAlert({...messageAlert,loandingForm:false,messageOkCategory:true,messageErrorCategory:false})
+                setMessageAlert({...messageAlert, loandingForm: false, messageOkCategory: true, messageErrorCategory: false})
             }
         })
         .catch(error=>{
             console.log(error.message)
-            setMessageAlert({...messageAlert,loandingForm:false,messageErrorCategory:true,messageOkCategory:false})
+            setMessageAlert({...messageAlert, loandingForm: false, messageErrorCategory: true, messageOkCategory: false})
         })
     }
 
@@ -121,12 +121,12 @@ const CategoriesForm = (props) => {
         .then(res=>{
             console.log(res.data)
             if(res.data){
-                setMessageAlert({...messageAlert,loandingForm:false,messageOkCategory:true,messageErrorCategory:false})
+                setMessageAlert({...messageAlert, loandingForm: false, messageOkCategory: true, messageErrorCategory: false})
             }
         })
         .catch(error=>{
             console.log(error.message)
-            setMessageAlert({...messageAlert,loandingForm:false,messageErrorCategory:true,messageOkCategory:false})
+            setMessageAlert({...messageAlert, loandingForm: false, messageErrorCategory: true, messageOkCategory: false})
         })
     }
 
