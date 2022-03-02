@@ -13,6 +13,7 @@ export const createCategories = async (data) => {
 }
 
 export const getCategory = async (id) => {
+
     const endPoint = `/categories`;
     const response = await getRequest(endPoint, id);
     return response;
