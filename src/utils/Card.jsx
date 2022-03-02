@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Components/CardListStyles.css'
-import ImageLinkedin from "../../../assets/linkedin.svg";
-import ImageFacebook from "../../../assets/facebook.svg";
+import ImageLinkedin from "../assets/linkedin.svg"
+import ImageFacebook from "../assets/facebook.svg";
 
 const Card = (props) => {
 

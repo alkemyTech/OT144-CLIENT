@@ -22,6 +22,7 @@ import HomePage from './Components/Home/HomePage'
 import Register from './Components/Auth/RegisterForm';
 import Contact from './Components/Contact/Contact';
 import CreateNews from './Components/News/CreateNews';
+import NewsHome from './Components/News/Home';
 import UsersList from './Components/Users/UsersList/UsersList';
 import Novedades from './Components/Home/BackOffice/Novedades';
 import Donacion from './Components/Donations/Donacion';
@@ -63,6 +64,7 @@ function App() {
           <Route path="/gracias" element={<Gracias/>} />
           <Route path="/novedades/:id" element={<DetailNew/>} />
           <Route path="/activities/:id" element={<ActivitiesDetail/>} />
+          <Route path="/Novedades" element={<NewsHome/>} />
         </Routes>
       </BrowserRouter>
     </>
