@@ -1,7 +1,7 @@
 import {getRequest, postRequest, deleteRequest, putRequest} from "../../Services/privateApiService"
 
-export const getAllMembers = async (search = "") => {
-    const endPoint = `/members?search=${search}`
+export const getAllMembers = async () => {
+    const endPoint = `/members`
     const response =  await getRequest(endPoint)
     return response
 }
