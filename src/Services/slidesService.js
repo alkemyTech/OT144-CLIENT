@@ -12,8 +12,8 @@ export const getSlides = async (search = "", skip = "", limit = "") => {
 };
 
 export const getSlide = async (id) => {
-  const endPoint = `/slides/${id}`;
-  const response = await getRequest(endPoint);
+  const endPoint = `/slides`;
+  const response = await getRequest(endPoint, id);
   return response;
 };
 
@@ -24,13 +24,13 @@ export const createSlide = async (data) => {
 };
 
 export const updateSlide = async (data) => {
-  const endPoint = `/slides/${data.id}`;
-  const response = await putRequest(endPoint, data);
+  const endPoint = `/slides`;
+  const response = await putRequest(endPoint, data.id, data);
   return response;
 };
 
 export const deleteSlide = async (id) => {
-  const endPoint = `/slides/${id}`;
-  const response = await deleteRequest(endPoint);
+  const endPoint = `/slides`;
+  const response = await deleteRequest(endPoint, id);
   return response;
 };
