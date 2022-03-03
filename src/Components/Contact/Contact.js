@@ -4,7 +4,7 @@ import "./Contact.css";
 import TitleComponent from "../title/TitleComponent";
 
 const Contact = ({img, name, phone, email}) => {
-  
+ 
   return (
     <div className="contact-container">
       <TitleComponent 
