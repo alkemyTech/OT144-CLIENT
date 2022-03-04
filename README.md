@@ -28,3 +28,20 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### Skeleton Componente
+
+Componente para dar feedback al usuario cuando se esté realizando la carga de contenido.
+
+El componente Skeleton espera recibir por props un objeto con dos propiedades "width" y "heigth" cuyos valores deben ser iguales a las del contenido que se desea reemplazar.
+
+Forma de uso:
+
+    const sizeSkeleton = { width: '150px', height: '150px'}
+
+    {loading ? 
+    <Skeleton skeletonSize={sizeSkeleton}/>
+    :
+    <img src={data.img} alt="img"></img>
+    }
+

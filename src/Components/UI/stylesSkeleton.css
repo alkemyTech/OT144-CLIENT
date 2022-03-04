@@ -1,0 +1,28 @@
+.containerSkeleton{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skeleton{
+    position: relative;
+    background-color: var(--grey);
+    animation: parpadeo 2s infinite;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+@keyframes parpadeo {
+    from {
+        opacity: 0.5;
+        transition: 0.5s;
+    }
+  
+    to {
+        opacity: 1;
+        transition: 0.5s;
+    }
+}
