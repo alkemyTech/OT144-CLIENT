@@ -1,7 +1,8 @@
 import React from "react";
 import "./Home.css";
 import Title from "../title/TitleComponent";
-import Card from "../../utils/Card.jsx";
+import Card from "../UI/Card/Card";
+
 export default function Home({ news }) {
   const newsProp = [
     {
