@@ -1,4 +1,4 @@
-import types from "../types";
+import * as types from "../types";
 
 const initialState = {
   checking: true,
@@ -9,7 +9,7 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.authLogin:
+    case types.AUTH_LOGIN:
       return {
         ...state,
         user: action.payload.user,
@@ -18,7 +18,7 @@ const authReducer = (state = initialState, action) => {
         isAuthenticated: true,
       };
 
-    case types.authLogout:
+    case types.AUTH_LOGOUT:
       return {
         ...initialState,
         checking: false,
