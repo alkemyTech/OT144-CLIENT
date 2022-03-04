@@ -21,7 +21,7 @@ export const getUser = async (id) => {
     }
 }
 
-/*export const createUser = async (user) => {
+export const createUser = async (user) => {
     try{
         const response = await postRequest(endpoint,user)
         return response.data
@@ -29,7 +29,7 @@ export const getUser = async (id) => {
     catch(error){
         throw error
     }
-}*/
+}
 
 export const updateUser = async (id,user) => {
     try{
