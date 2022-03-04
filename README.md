@@ -33,7 +33,12 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 Componente para dar feedback al usuario cuando se esté realizando la carga de contenido.
 
-El componente Skeleton espera recibir por props un objeto con dos propiedades "width" y "heigth" cuyos valores deben ser iguales a las del contenido que se desea reemplazar.
+El componente Skeleton espera recibir por props un objeto con tres propiedades "width", "heigth" y "radius" cuyos valores deben ser iguales a las del contenido que se desea reemplazar.
+
+Valores para radius en cada caso de contenido a reemplazar:
+ .-Texto: se recomienda no pasar ningun valor
+ .-Avatar: utilizar el valor 50%
+ .-Título: utilizar el valor 5px
 
 Forma de uso:
 

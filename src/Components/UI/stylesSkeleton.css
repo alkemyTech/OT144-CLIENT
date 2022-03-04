@@ -13,6 +13,7 @@
     animation: parpadeo 2s infinite;
     opacity: 0.5;
     transition: 0.5s;
+    margin: 5px 0;
 }
 
 @keyframes parpadeo {
