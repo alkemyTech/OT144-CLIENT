@@ -37,7 +37,7 @@ El componente Skeleton espera recibir por props un objeto con dos propiedades "w
 
 Forma de uso:
 
-    const sizeSkeleton = { width: '150px', height: '150px'}
+    const sizeSkeleton = { width: '150px', height: '150px', radius: '50%' }
 
     {loading ? 
     <Skeleton skeletonSize={sizeSkeleton}/>

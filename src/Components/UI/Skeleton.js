@@ -7,6 +7,7 @@ function Skeleton(props){
         sizeSkeleton: {
             width: props.skeletonSize.width,
             height: props.skeletonSize.height,
+            borderRadius: props.skeletonSize.radius,
         }
     }
 
