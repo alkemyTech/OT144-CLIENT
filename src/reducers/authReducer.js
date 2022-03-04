@@ -12,7 +12,8 @@ const authReducer = (state = initialState, action) => {
     case types.authLogin:
       return {
         ...state,
-        ...action.payload,
+        user: action.payload.user,
+        token: action.payload.token,
         checking: false,
         isAuthenticated: true,
       };
