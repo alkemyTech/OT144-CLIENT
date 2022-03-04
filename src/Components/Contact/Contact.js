@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ContactForm from "./ContactForm";
 import "./Contact.css";
 import TitleComponent from "../title/TitleComponent";
+import { getContact } from "./ServiceAPIContact";
 
 const Contact = ({img, name, phone, email}) => {
+  const [limitedData, setLimitedData] = useState([])
+
+  useEffect(() => {
+    getContact().then(response => {
+      setLimitedData(response.data.data.slice(0,10))
+    })
+  }, [])  
  
   return (
     <div className="contact-container">
