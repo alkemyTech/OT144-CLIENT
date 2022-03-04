@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 const DataScreen = () => {
     let navigate = useNavigate();
     const [data, setData] = React.useState([])
-
+    const endpoint = process.env.REACT_APP_URL_ORGANIZATION
     React.useEffect(() => {
-        axios.get('http://ongapi.alkemy.org/api/organization')
+        axios.get(`http://ongapi.alkemy.org/api${endpoint}`)
             .then(res => {
                 setData(res.data)
             })

@@ -4,9 +4,9 @@ import axios from 'axios'
 export default function EditDataScreen()  {
 
     const [data, setData] = React.useState([])
-
+    const endpoint = process.env.REACT_APP_URL_ORGANIZATION
     React.useEffect(() => {
-        axios.get('http://ongapi.alkemy.org/api/organization')
+        axios.get(`http://ongapi.alkemy.org/api${endpoint}`)
             .then(res => {
                 setData(res.data)
             })
@@ -28,7 +28,7 @@ export default function EditDataScreen()  {
         e.preventDefault()
         axios({
             method: 'put',
-            url: 'http://ongapi.alkemy.org/api/organization/' + data.data?.id,
+            url: `http://ongapi.alkemy.org/api${endpoint}/${data.data?.id}`,
             data: data
             })
             .then(res => {
