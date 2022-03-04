@@ -1,8 +1,3 @@
-const types = {
-  //AUTH
-  authLogin: "[AUTH]Login",
-  authRegister: "[AUTH]Register",
-  authLogout: "[AUTH]Logout",
-};
-
-export default types;
+export const AUTH_LOGIN = "[AUTH]Login";
+export const AUTH_REGISTER = "[AUTH]Register";
+export const AUTH_LOGOUT = "[AUTH]Logout";
