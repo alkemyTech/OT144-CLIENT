@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "../Ui/Table";
+import Table from "../UI/Table";
 import { Link } from "react-router-dom";
 export default function SlidesList() {
   return (

@@ -7,6 +7,7 @@ import {
   MIN_LENGTH_NAME,
   MIN_LENGTH_PHONE,
 } from "../../constants";
+import { postContact } from "./ServiceAPIContact";
 
 const validate = (values) => {
   const errors = {};
@@ -56,6 +57,13 @@ const ContactForm = () => {
   const handleSubmit = (data) => {
     //Se elimina los espacios en blanco al inicio, los largos del intermedio y al final del nombre.
     data.name = data.name.replace(/\s+/g, " ").trim();
+    try{
+      postContact(data);
+    }
+    catch(error){
+      alert(error);
+      //BasicAlert('Algo no salió bien!', 'Al parecer, no se ha podido enviar el formulario');
+    }
   };
 
   return (
