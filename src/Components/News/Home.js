@@ -1,7 +1,8 @@
 import React from "react";
 import "./Home.css";
 import Title from "../title/TitleComponent";
-import Card from "../UI/Card/Card.jsx";
+import Card from "../UI/Card/Card";
+
 export default function Home({ news }) {
   const newsProp = [
     {
@@ -44,10 +45,7 @@ export default function Home({ news }) {
         {newsProp.map((data, index) => (
           <Card
             key={index}
-            title={data.title}
-            description={data.description}
-            image={data.image}
-            date={data.date}
+            cardItem={data}
           />
         ))}
       </div>
