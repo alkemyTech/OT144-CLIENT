@@ -1,19 +1,16 @@
 import React from 'react'
-import axios from 'axios'
 import { useNavigate } from "react-router-dom";
+import { getAllOrganizationData } from '../../Services/organizationService';
 
 const DataScreen = () => {
     let navigate = useNavigate();
     const [data, setData] = React.useState([])
-
     React.useEffect(() => {
-        axios.get('http://ongapi.alkemy.org/api/organization')
-            .then(res => {
-                setData(res.data)
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        const getOrganizationData = async () => {
+            const response = await getAllOrganizationData();
+            setData(response.data);
+        }
+        getOrganizationData();
     }, [])
 
   return (
