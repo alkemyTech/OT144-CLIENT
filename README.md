@@ -29,6 +29,27 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### Skeleton Componente
+
+Componente para dar feedback al usuario cuando se esté realizando la carga de contenido.
+
+El componente Skeleton espera recibir por props un objeto con tres propiedades "width", "heigth" y "radius" cuyos valores deben ser iguales a las del contenido que se desea reemplazar.
+
+Valores para radius en cada caso de contenido a reemplazar:
+ .-Texto: se recomienda no pasar ningun valor
+ .-Avatar: utilizar el valor 50%
+ .-Título: utilizar el valor 5px
+
+Forma de uso:
+
+    const sizeSkeleton = { width: '150px', height: '150px', radius: '50%' }
+
+    {loading ? 
+    <Skeleton skeletonSize={sizeSkeleton}/>
+    :
+    <img src={data.img} alt="img"></img>
+    }
+
 ### Running Spinner
 Each loader has their own default properties. You can overwrite the defaults by passing props.
 
