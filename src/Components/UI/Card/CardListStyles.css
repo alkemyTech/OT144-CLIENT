@@ -6,6 +6,7 @@
 .wrapper{ 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+    grid-template-rows: repeat(auto-fit, 350px);
     gap: 20px;
 }
 .card-container {
@@ -30,6 +31,8 @@
     padding: 0;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
+    height: 45%;
+    width: 100%;
 }
  .card-container h1{
     font-size: var(--heading5);
