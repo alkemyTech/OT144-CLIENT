@@ -2,7 +2,7 @@ import { getRequest, postRequest, putRequest } from "./publicApiService";
 
 const endpoint = process.env.REACT_APP_URL_ORGANIZATION;
 
-export const getAllOrganizationData = async (url) => {
+export const getAllOrganizationData = async () => {
   const response = await getRequest(endpoint);
   return response;
 };
