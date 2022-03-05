@@ -28,3 +28,14 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### Running Spinner
+Each loader has their own default properties. You can overwrite the defaults by passing props.
+
+default properties:
+(color: "#2c8ef7",
+  loading: false,
+  size: 50)
+
+Each loader accepts a loading prop as a boolean. The loader will render null if loading is false.
+(const [loading, setLoading] = useState(false))
