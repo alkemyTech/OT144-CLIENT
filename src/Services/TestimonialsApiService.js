@@ -1,5 +1,5 @@
 import {getRequest, postRequest, putRequest, deleteRequest} from '../../Services/publicApiService';
-const endPoint = process.env.REACT_APP_API_TESTIMONIALS
+const endpoint = process.env.REACT_APP_API_TESTIMONIALS
 
 export const getTestimonials = async () => {
     const response = await getRequest(endPoint);
