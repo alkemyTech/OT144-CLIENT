@@ -50,3 +50,13 @@ Forma de uso:
     <img src={data.img} alt="img"></img>
     }
 
+### Running Spinner
+Each loader has their own default properties. You can overwrite the defaults by passing props.
+
+default properties:
+(color: "#2c8ef7",
+  loading: false,
+  size: 50)
+
+Each loader accepts a loading prop as a boolean. The loader will render null if loading is false.
+(const [loading, setLoading] = useState(false))
