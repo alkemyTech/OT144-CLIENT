@@ -32,6 +32,7 @@ import ActivitiesDetail from './Components/Activities/Detail/ActivitiesDetail';
 import Categories from './Components/Home/BackOffice/Categories';
 import SlidesList from './Components/Slides/SlidesList';
 
+
 function App() {
   return (
     <>
