@@ -45,10 +45,7 @@ export default function Home({ news }) {
         {newsProp.map((data, index) => (
           <Card
             key={index}
-            title={data.title}
-            description={data.description}
-            image={data.image}
-            date={data.date}
+            cardItem={data}
           />
         ))}
       </div>
