@@ -4,40 +4,25 @@ import ErrorAlert from "../UI/Alerts/ErrorAlert";
 import "./stylesHomePage.css";
 
 function HomePage() {
-  const [state, setState] = useState({
-    loading: false,
-    data: [],
-    error: null,
-  });
-
-  const { loading, data, error } = state;
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const doFetchData = async () => {
-      setState({
-        loading: true,
-        data: [],
-        error: null,
-      });
+      setLoading(true);
       try {
-        const data = await fetch("x"); // Acá va el GET a la API
-        setState({
-          loading: false,
-          data: data,
-          error: null,
-        });
+        const data = await fe1h("x"); // Acá va el GET a la API
+        setData(data);
       } catch (e) {
-        setState({
-          loading: false,
-          data: [],
-          error: e.message,
-        });
+        setError(e.message);
       }
+      setLoading(false);
     };
     doFetchData();
   }, []);
 
-  if (loading === true) {
+  if (loading) {
     return (
       <div className="spinner-container">
         <SpinnerComponent loading={true} />
