@@ -1,4 +1,4 @@
-import {getRequest, postRequest, putRequest, deleteRequest} from '../../Services/publicApiService';
+import {getRequest, postRequest, putRequest, deleteRequest} from './publicApiService';
 const endPoint = '/categories';
 
 export const getCategories = async () => {
