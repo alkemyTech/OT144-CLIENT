@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import "../../Components/FormStyles.css";
 import { getBase64 } from "../../utils";
 import CKEditorNews from '../News/CKEditorNews';
+import { createSlide, updateSlide } from '../../Services/slidesService';
 
 const SlidesForm = ({ mode = "create", slides }) => {
 
@@ -58,21 +59,12 @@ const SlidesForm = ({ mode = "create", slides }) => {
         };
         //If the mode is "create", the api is called via the POST verb, if not, the PUT verb is called with ID of slides
         if (mode === "create") {
-            await axios.post("http://ongapi.alkemy.org/api/slides", dataObject, {
-              "Content-Type": "application/json",
-            });
-          } else {
-            await axios.patch(
-              `http://ongapi.alkemy.org/api/slides/${slides.id}`,
-              dataObject,
-              {
-                "Content-Type": "application/json",
-              }
-            );
-          }
-       
+            createSlide(dataObject)
+        }else {
+            updateSlide(slides.id, dataObject)
+        }
         console.log('Desde Handle', dataObject)
-    };
+    }
 
     return (
         <Formik
@@ -133,7 +125,7 @@ const SlidesForm = ({ mode = "create", slides }) => {
                                 
                             </div >
                             <Field  className="submit-btn" type="submit" name="enviar" value="Enviar"/>
-                            <button type="submit" className="submit-btn">enviar</button>
+                            <button type="submit" className="submit-btn">Enviar</button>
                     </Form>
                     )
             } }

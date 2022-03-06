@@ -1,16 +1,44 @@
-import React from "react";
-import Table from "../UI/Table"
+import React, { useState, useEffect } from "react";
+import Table from "../UI/Table";
 import { Link } from "react-router-dom";
+import { getSlides, deleteSlide } from '../../Services/slidesService'
+
 
 export default function SlidesList() {
+
+  const [slidesData, setSlidesData] = useState([])
+  const [count, setCount] = useState(0)
+
+  useEffect(
+    ()=>{
+      getSlides()
+      var cast = Promise.resolve(getSlides())
+      cast.then(res => {
+        console.log('data', res.data)
+        if(res.data){
+          setSlidesData(res.data.data)
+        }
+      })
+      .catch(error => {
+        console.log(error.message)
+      })  
+    },
+    [count]
+  )
+
+  const handleClickDelete = (id) => {
+    deleteSlide(id)
+    setCount(count + 1)
+  }
+
   return (
     <div>
       <Table
         header={{
           title: "Listado Slides",
           button: () => (
-            <Link to="/backoffice/Slides/create">
-              <button className="btnAddTable">Crear Slide</button>
+            <Link to="/backoffice/create-slide">
+              <button className="btnAddTable" >Crear Slide</button>
             </Link>
           ),
         }}
@@ -27,35 +55,16 @@ export default function SlidesList() {
               <h1>{order}</h1>
             </td>
           ),
-          actions: ({}) => (
-            <td >
-              <button className="btnUpdateTable">Editar</button>
-              <button className="btnDeleteTable">Eliminar</button>
+          actions: ({ id }) => (
+            <td>
+              <Link to="/backoffice/create-slide">
+                <button className="btnUpdateTable">Editar</button>
+              </Link>
+              <button className="btnDeleteTable" onClick={ () => handleClickDelete(id) }>Eliminar</button>
             </td>
           ),
         }}
-        data={[
-          {
-            name: "Maria",
-            email: "gfalotioc123@gmail.com",
-            order: 13,
-            image: "https://picsum.photos/200/300",
-          },
-          {
-            name: "Maria",
-            email: "gfalotioc123@gmail.com",
-            order: 1,
-            image:
-              "https://images.unsplash.com/photo-1609591281156-3ca8c3836c5c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-          },
-          {
-            name: "Maria",
-            email: "gfalotioc123@gmail.com",
-            order: 23,
-            image:
-              "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
-          },
-        ]}
+        data={slidesData}
       />
     </div>
   );

@@ -21,7 +21,7 @@ export const postRequest = async (url, bodyData) => {
   try {
     let response = await axios({
       method: "post",
-      url: `${baseURL}/${url}`,
+      url: `${baseURL}${url}`,
       data: bodyData,
       headers: {
         "Content-Type": "application/json",
@@ -97,7 +97,7 @@ export const deleteRequest = async (url, id) => {
     try{
         const response = await axios({
             method: 'delete',
-            url: `${baseURL}/${url}/${id}`,
+            url: `${baseURL}${url}/${id}`,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': getToken(),
