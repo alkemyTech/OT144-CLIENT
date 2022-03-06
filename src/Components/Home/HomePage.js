@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import SpinnerComponent from "../UI/spinner/SpinnerComponent";
+import ErrorAlert from "../UI/Alerts/ErrorAlert";
 import "./stylesHomePage.css";
 
 function HomePage() {
@@ -36,17 +38,15 @@ function HomePage() {
   }, []);
 
   if (loading === true) {
-    return <p>loading...</p>; // Acá va el spinner!
+    return (
+      <div className="spinner-container">
+        <SpinnerComponent loading={true} />
+      </div>
+    );
   }
 
   if (error) {
-    return (
-      // Acá va el Alert Error!
-      <div>
-        <p>Error!!!</p>
-        <p>{error.message}</p>
-      </div>
-    );
+    return <ErrorAlert />;
   }
   return (
     <main className="homePage">

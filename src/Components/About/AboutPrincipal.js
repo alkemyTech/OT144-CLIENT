@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+import SpinnerComponent from "../UI/spinner/SpinnerComponent";
+import ErrorAlert from "../UI/Alerts/ErrorAlert";
 import AboutUs from "./AboutUs";
+import "./stylesAboutUs.css";
 
 export default function AboutPrincipal() {
   const [state, setState] = useState({
@@ -39,22 +42,19 @@ export default function AboutPrincipal() {
   }, []);
 
   if (loading === true) {
-    return <p>loading...</p>; // Acá va el spinner!
+    return (
+      <div className="spinner-container">
+        <SpinnerComponent loading={true} />
+      </div>
+    );
   }
 
   if (error) {
-    return (
-      // Acá va el Alert Error!
-      <div>
-        <p>Error!!!</p>
-        <p>{error.message}</p>
-      </div>
-    );
-  } else {
-    return (
-      <main className="aboutPrincipal-container">
-        <AboutUs text={principalText} />
-      </main>
-    );
+    return <ErrorAlert />;
   }
+  return (
+    <main className="aboutPrincipal-container">
+      <AboutUs text={principalText} />
+    </main>
+  );
 }
