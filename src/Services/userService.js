@@ -1,4 +1,4 @@
-import {getRequest,deleteRequest,putRequest} from './privateApiService'
+import {getRequest,deleteRequest,putRequest, postRequest} from './privateApiService'
 const endpoint = 'users'
 
 export const getUsers = async () => {
