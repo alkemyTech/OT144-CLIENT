@@ -1,6 +1,6 @@
 import LazyLoad from 'react-lazyload';
 
-export default function LazyLoadImages({ src, altText, classText }) {
+export default function LazyLoadImages({ src, altText, classText = '' }) {
   return (
     <LazyLoad>
       <img
