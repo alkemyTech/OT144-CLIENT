@@ -23,7 +23,6 @@ const newsReducer = (state = initialState, action) => {
         return {
         news: state.news.filter(elem => elem.id !== action.payload)}
       default:
-          console.log("default");
         return { ...state };}
   }
 
