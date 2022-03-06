@@ -1,46 +1,60 @@
-import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TitleComponent from "../../title/TitleComponent";
 import DetailContent from "./DetailContent";
+import { getNewsById } from '../../../Services/Http-news';
+import Skeleton from '../../UI/Skeleton';
 
 const DetailNew = () => {
-  const [data, setData] = React.useState({
-    text: "",
-    img: "",
-    nameImg: "",
-    content: "",
-  });
+
+  const [data, setData] = useState({})
+  const [loading, setLoading] = useState(true)
+
+  const sizeSkeleton = {
+    sizeSkeletonTitle : { width: '80%', height: '30px', radius: '5px' },
+    sizeSkeletonImg : { width: '90%', height: '400px', radius: '' },
+    sizeSkeletonTxt : { width: '80%', height: '80px', radius: '' }
+  }
+
   const urlParams = useParams();
 
-  useEffect(() => {
-    const getDataNew = async () => {
-      const { data } = await axios.get(
-        `http://ongapi.alkemy.org/api/news/${urlParams.id}`
-      );
-      setData({
-        text: data.data.name,
-        img: data.data.image,
-        nameImg: data.data.name,
-        content: data.data.content,
-      });
-    };
-    getDataNew();
-  }, []);
+  useEffect(
+    ()=>{
+      getNewsById(urlParams.id)
+      var cast = Promise.resolve(getNewsById(urlParams.id))
+      cast.then(res => {
+        console.log('data', res.data)
+        if(res.data){
+          setData(res.data.data)
+          setLoading(false)
+        }
+      })
+      .catch(error => {
+        console.log(error.message)
+      })  
+    },
+    []
+  )
 
   return (
     <main>
-      {data ? (
+      {loading ?  (
+        <>
+          <Skeleton skeletonSize={sizeSkeleton.sizeSkeletonTitle}/>
+          <Skeleton skeletonSize={sizeSkeleton.sizeSkeletonImg}/>
+          <Skeleton skeletonSize={sizeSkeleton.sizeSkeletonTxt}/>
+        </>
+      ) 
+      : 
+      (
         <>
           <TitleComponent
-            title={data.text}
-            img={data.img}
-            nameImg={data.nameImg}
+            title={data.name}
+            img={data.image}
+            nameImg={data.name}
           />
           <DetailContent data={data} />
         </>
-      ) : (
-        <div>Loading...</div>
       )}
     </main>
   );
