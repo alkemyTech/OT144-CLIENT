@@ -7,8 +7,8 @@ import {
   MIN_LENGTH_NAME,
   MIN_LENGTH_PHONE,
 } from "../../constants";
-import { postContact } from "../../Services/ServiceAPIContact";
-import BasicAlert from '../../UI/Alerts/BasicAlert'
+import { postContact } from "../../Services/ContactApiService";
+import ErrorAlert from '../UI/Alerts/ErrorAlert'
 
 const validate = (values) => {
   const errors = {};
@@ -62,7 +62,7 @@ const ContactForm = () => {
       postContact(data);
     }
     catch(error){
-      return <BasicAlert />
+      return <ErrorAlert />
     }
   };
 

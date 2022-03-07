@@ -2,8 +2,8 @@ import React from "react";
 import ContactForm from "./ContactForm";
 import "./Contact.css";
 import TitleComponent from "../title/TitleComponent";
-import { getContact } from "../../Services/ServiceAPIContact";
-import BasicAlert from '../../UI/Alerts/BasicAlert';
+import { getContact } from "../../Services/ContactApiService";
+import ErrorAlert from '../UI/Alerts/ErrorAlert';
 
 const Contact = ({img, name, phone, email}) => {
 
@@ -18,7 +18,7 @@ const Contact = ({img, name, phone, email}) => {
   }, []);
 
   if(error) {
-    return <BasicAlert />
+    return <ErrorAlert />
   }
  
   return (
