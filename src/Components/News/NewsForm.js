@@ -6,6 +6,7 @@ import CKEditorNews from "./CKEditorNews";
 import axios from "axios";
 import { getBase64 } from "../../utils";
 import { MIN_LENGTH_TITLE_NEWS } from "../../constants";
+import BasicAlert from "../UI/Alerts/BasicAlert";
 
 const validate = (values) => {
   const errors = {};
@@ -78,17 +79,31 @@ const NewsForm = ({ mode = "create", novelity }) => {
     };
     //If the mode is "create", the api is called via the POST verb, if not, the PUT verb is called with ID of novelity
     if (mode === "create") {
-      await axios.post("http://ongapi.alkemy.org/api/news", dataObject, {
-        "Content-Type": "application/json",
-      });
-    } else {
-      await axios.put(
-        `http://ongapi.alkemy.org/api/news/${novelity.id}`,
-        dataObject,
-        {
+      try {
+        await axios.post("http://ongapi.alkemy.org/api/news", dataObject, {
           "Content-Type": "application/json",
-        }
-      );
+        });
+      } catch (error) {
+        <BasicAlert 
+          text={error}
+        />
+      }
+
+      
+    } else {
+      try {
+        await axios.put(
+          `http://ongapi.alkemy.org/api/news/${novelity.id}`,
+          dataObject,
+          {
+            "Content-Type": "application/json",
+          }
+        );
+      } catch (error) {
+        <BasicAlert 
+          text={error}
+        />
+      }
     }
   };
 
