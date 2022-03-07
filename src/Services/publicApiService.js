@@ -8,7 +8,7 @@ const config = {
 };
 
 export const getRequest = async (url, id = null) => {
-  const endpoint = id === null ? `${baseURL}${url}` : `${baseURL}${url}/${id}`;
+  const endpoint = !id  ? `${baseURL}${url}` : `${baseURL}${url}/${id}`;
   try {
     const response = await axios.get(endpoint);
     return response;
