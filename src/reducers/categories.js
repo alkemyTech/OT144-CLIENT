@@ -6,7 +6,6 @@ const initialState = {
 };
 
 const categoriesReducer = (state = initialState, action) => {
-  console.log(action);
 
   switch (action.type) {
     case types.CATEGORIES_SET:
@@ -39,7 +38,6 @@ const categoriesReducer = (state = initialState, action) => {
         ...state,
       };
     default:
-      console.log("default");
       return { ...state };
   }
 };
