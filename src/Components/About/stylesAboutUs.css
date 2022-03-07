@@ -1,19 +1,23 @@
-.aboutPrincipal-container{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
+.aboutPrincipal-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.aboutUs-container{
-    color: var(--black);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 15px;
-    width: 100%;
+.aboutUs-container {
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px;
+  width: 100%;
 }
 
-.aboutUs-container p{
-    text-align: justify;
+.aboutUs-container p {
+  text-align: justify;
+}
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
