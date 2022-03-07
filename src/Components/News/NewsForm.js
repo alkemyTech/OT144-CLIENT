@@ -88,8 +88,6 @@ const NewsForm = ({ mode = "create", novelity }) => {
           text={error}
         />
       }
-
-      
     } else {
       try {
         await axios.put(
