@@ -7,6 +7,8 @@ import {
   MIN_LENGTH_NAME,
   MIN_LENGTH_PHONE,
 } from "../../constants";
+import { postContact } from "../../Services/ServiceAPIContact";
+import BasicAlert from '../../UI/Alerts/BasicAlert'
 
 const validate = (values) => {
   const errors = {};
@@ -56,6 +58,12 @@ const ContactForm = () => {
   const handleSubmit = (data) => {
     //Se elimina los espacios en blanco al inicio, los largos del intermedio y al final del nombre.
     data.name = data.name.replace(/\s+/g, " ").trim();
+    try{
+      postContact(data);
+    }
+    catch(error){
+      return <BasicAlert />
+    }
   };
 
   return (
