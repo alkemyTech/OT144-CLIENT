@@ -104,3 +104,18 @@ default properties:
 
 Each loader accepts a loading prop as a boolean. The loader will render null if loading is false.
 (const [loading, setLoading] = useState(false))
+
+
+### Running Linear Progress 
+Each Progress has their own default properties. You can overwrite the defaults by passing props.
+
+Props: {
+  width => 600px,
+  percent,
+  colorPrimary,
+  colorSecondary,
+  containerClassName,
+}
+
+In case of not passing the prop percent the component will animate itself showing a common loader.
+
