@@ -1,8 +1,39 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import '../../TableStyles.css';
+import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
+import {getNews} from '../../../Services/NewsApiServices'
+import BasicAlert from '../../UI/Alerts/BasicAlert'
 
 function Novedades(){
+
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+    const [news, setNews] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await getNews();
+                setNews(response);
+                setLoading(false);
+                console.log(response);
+            } catch (error) {
+                setError(true);
+            }
+        };
+        fetchData();
+    }, []);
+
+
+
+    if(loading){
+        return <SpinnerComponent />
+    }
+
+    if(error){
+        return <BasicAlert />
+    }
 
     const handleClickUpdate=()=>{}
 
