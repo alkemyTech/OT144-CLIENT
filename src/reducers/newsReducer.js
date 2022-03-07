@@ -5,7 +5,6 @@ const initialState = {
 };
 
 const newsReducer = (state = initialState, action) => {
-    console.log(action);
   switch (action.type) {
     case types.NEWS_GET:
         return {
