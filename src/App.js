@@ -40,6 +40,7 @@ function App() {
         <Routes>
           <Route path="/" exact element={<HomePage/>} />
           <Route path="/contact" element={<Contact/>} />
+          <Route path="/actividades" element={<Actividades/>} />
           <Route path="/create-activity" element={<ActivitiesForm/>} />
           <Route path="/create-category" element={<CategoriesForm/>} />
           <Route path="/create-news" element={<CreateNews/>} />
