@@ -1,5 +1,5 @@
-import {getRequest, postRequest, putRequest, deleteRequest} from '../../Services/publicApiService';
-const endPoint = '/categories';
+import {getRequest, postRequest, putRequest, deleteRequest} from './publicApiService';
+const endPoint = process.env.REACT_APP_URL_CATEGORIES;
 
 export const getCategories = async () => {
     const response = await getRequest(endPoint);
