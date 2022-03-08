@@ -9,9 +9,9 @@ const Contact = ({img, name, phone, email}) => {
 
   const [error, setError] = React.useState(false);
 
-  React.useEffect(() => {
+  React.useEffect(async () => {
     try {
-      getContact();
+      const response = await getContact();
     } catch (error) {
       setError(true);
     }
