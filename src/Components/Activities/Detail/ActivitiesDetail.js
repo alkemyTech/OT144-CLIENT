@@ -1,31 +1,45 @@
 import TitleComponent from "../../title/TitleComponent";
 import { useParams } from "react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getActividadesId } from "../../../Services/ActivityApiService";
+import ErrorAlert from "../../UI/Alerts/ErrorAlert"
+import SpinnerComponent from "../../UI/spinner/SpinnerComponent";
 import "./stylesActivity.css"
 
-export default function ActivitiesDetail(){
+export default function ActivitiesDetail() {
 
     const { id } = useParams();
-    /* En el estado activity se va a guardar la informacion de la actividad buscandola 
-    mediante el id */
-    const [activity, setActivity] = useState({
-        "id":1352,
-        "name":"Actividad",
-        "slug":null,
-        "description":"Descripcion",
-        "image":"http:\/\/ongapi.alkemy.org\/storage\/RVaOs4LmMs.jpeg",
-        "user_id":null,
-        "category_id":null,
-        "created_at":"2022-02-20T20:30:08.000000Z",
-        "updated_at":"2022-02-20T20:30:08.000000Z",
-        "deleted_at":null,
-        "group_id":36
-    })
 
-    return(
-        <section className="containerActivity">
-            <TitleComponent text={activity.name} img={activity.image}/>
-            <p>{activity.description}</p>
-        </section>
-    )
+    const [dataLoading, setDataLoading] = useState({
+        loading: true,
+        data: [],
+        error: ""
+    });
+
+    useEffect(() => {
+        try {
+            (async () => {
+                const response = await getActividadesId(id);
+                response.status === 200 ? setDataLoading({ ...dataLoading, data: response.data.data, loading: false }) : setDataLoading({ ...dataLoading, error: response.error, loading: false })
+            })()
+        }
+        catch (error) {
+            setDataLoading({ ...dataLoading, error: error.message, loading: false })
+        }
+    }, []);
+
+    {
+        return (
+            dataLoading.loading ?
+                <div className="spinner-container">
+                    < SpinnerComponent loading={dataLoading.loading} />
+                </div >
+                : (dataLoading.error ?
+                    <ErrorAlert />
+                    :
+                    <section className="containerActivity">
+                    <TitleComponent title={dataLoading.data.name} img={dataLoading.data.image} />
+                    <p>{dataLoading.data.description}</p>
+                </section>))
+    }
 }

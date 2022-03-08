@@ -12,7 +12,7 @@ function HomePage() {
     const doFetchData = async () => {
       setLoading(true);
       try {
-        const data = await fe1h("x"); // Acá va el GET a la API
+        const data = await fetch("x"); // Acá va el GET a la API
         setData(data);
       } catch (e) {
         setError(e.message);

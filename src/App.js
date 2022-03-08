@@ -13,7 +13,7 @@ import ToysCampaign from './Campaigns/Toys/ToysCampaign';
 import MemberList from './Components/Members/MemberList';
 import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
-import Actividades from './Components/Activities/Actividades';
+import Activities from './Components/Activities/Actividades';
 import AboutPrincipal from './Components/About/AboutPrincipal';
 import LoginForm from './Components/Auth/LoginForm';
 import OrganizationEditForm from './Components/Home/BackOffice/OrganizationEditForm';
@@ -44,7 +44,7 @@ function App() {
           <Route path="/create-category" element={<CategoriesForm/>} />
           <Route path="/create-news" element={<CreateNews/>} />
           <Route path="/backoffice/organization/edit-home" element={<HomeForm/>} />
-          <Route path="//backoffice/Slides" element={<SlidesList/>} />
+          <Route path="/backoffice/Slides" element={<SlidesList/>} />
           <Route path="/backoffice/create-slide" element={<SlidesForm/>} />
           <Route path="/backoffice/organization/edit" element={<OrganizationEditForm/>} />
           <Route path="/backoffice/organization" element={<DataScreen/>}/>
@@ -66,6 +66,7 @@ function App() {
           <Route path="/donar" element={<Donacion/>} />
           <Route path="/gracias" element={<Gracias/>} />
           <Route path="/novedades/:id" element={<DetailNew/>} />
+          <Route path="/activities" element={<Activities/>} />
           <Route path="/activities/:id" element={<ActivitiesDetail/>} />
           <Route path="/Novedades" element={<NewsHome/>} />
         </Routes>
