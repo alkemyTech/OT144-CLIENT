@@ -11,8 +11,6 @@ const RedirecSlides = () => {
                 return <SlidesForm mode='create' />
             case 'edit':
                 return <SlidesForm slides={{'id':'1006', 'title': "Test Slide",  'description': "<p>ASDAS<p>"}}/>
-            default:
-                return <SlidesList />
         }
     }
     return show(action)
