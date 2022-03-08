@@ -1,5 +1,5 @@
-import { getRequest, postRequest, deleteRequest, putRequest } from "../../Services/privateApiService"
-const endpointNews = "news"
+import { getRequest, postRequest, deleteRequest, putRequest } from "./privateApiService"
+const endpointNews = "/news"
 
 export const getNews = async () => {
     const response = await getRequest(endpointNews)

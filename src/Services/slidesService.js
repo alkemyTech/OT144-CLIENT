@@ -2,8 +2,9 @@ import {
   getRequest,
   postRequest,
   putRequest,
-  deleteRequest,
 } from "./publicApiService";
+
+import { deleteRequest } from "./privateApiService";
 
 export const getSlides = async (url) => {
   const response = await getRequest(url);

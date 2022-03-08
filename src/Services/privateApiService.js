@@ -21,7 +21,7 @@ export const postRequest = async (url, bodyData) => {
   try {
     let response = await axios({
       method: "post",
-      url: `${baseURL}/${url}`,
+      url: `${baseURL}${url}`,
       data: bodyData,
       headers: {
         "Content-Type": "application/json",
@@ -44,22 +44,22 @@ export const postRequest = async (url, bodyData) => {
   }
 };
 
-export const getRequest = async (url, id = null) => {
+export const getRequest = async (endpoint, id = null) => {
   try {
     const response = await axios({
       method: "get",
-      url: id === null ? `${baseURL}${url}` : `${baseURL}${url}/${id}`,
+      url: !id ? `${baseURL}${endpoint}` : `${baseURL}${endpoint}/${id}`,
       headers: {
         "Content-Type": "application/json",
-        Authorization: getToken(),
+        "Authorization": getToken(),
       },
     });
-
     return {
       status: response.status,
       data: response.data,
     };
   } catch (error) {
+    console.log(error);
     return {
       status: error.response.status,
       error: error.message,
@@ -97,7 +97,7 @@ export const deleteRequest = async (url, id) => {
     try{
         const response = await axios({
             method: 'delete',
-            url: `${baseURL}/${url}/${id}`,
+            url: `${baseURL}${url}/${id}`,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': getToken(),

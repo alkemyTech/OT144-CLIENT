@@ -5,7 +5,6 @@ import { getBase64 } from "../../utils";
 import CKEditorNews from '../News/CKEditorNews';
 import axios from 'axios';
 
-
 const SlidesForm = ({ mode = "create", slides }) => {
 
     const [ formValues ] = useState({

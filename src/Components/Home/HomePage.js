@@ -2,24 +2,33 @@ import React, { useEffect, useState } from "react";
 import SpinnerComponent from "../UI/spinner/SpinnerComponent";
 import ErrorAlert from "../UI/Alerts/ErrorAlert";
 import "./stylesHomePage.css";
+import { getSlides } from "../../Services/slidesService";
 
 function HomePage() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const doFetchData = async () => {
+    (async () => {
       setLoading(true);
       try {
-        const data = await fetch("x"); // Acá va el GET a la API
-        setData(data);
+        const response = await Promise.allSettled([
+          getSlides("/slides"),
+          //getNews("/news"),
+        ]);
+        setData(
+          response.map((res) => {
+            if ((res.status = "fulfilled")) {
+              return res.value;
+            }
+            return null;
+          })
+        );
+        setLoading(false);
       } catch (e) {
-        setError(e.message);
+        ErrorAlert();
       }
-      setLoading(false);
-    };
-    doFetchData();
+    })();
   }, []);
 
   if (loading) {
@@ -30,9 +39,6 @@ function HomePage() {
     );
   }
 
-  if (error) {
-    return <ErrorAlert />;
-  }
   return (
     <main className="homePage">
       <section className="containerSlider">
