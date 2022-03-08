@@ -50,13 +50,11 @@ const validate = (values) => {
   return errors;
 };
 
-const ContactForm = () => {
+const ContactForm = async () => {
   const handleSubmit = (data) => {
     data.name = data.name.replace(/\s+/g, " ").trim();
     try{
-      (async () => {
-        const response = await postContact(data);
-      })()
+      const response = await postContact(data);
     }
     catch(error){
       return <ErrorAlert />
