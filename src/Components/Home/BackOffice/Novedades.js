@@ -1,12 +1,42 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
 import '../../TableStyles.css';
+import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
+import BasicAlert from '../../UI/Alerts/BasicAlert'
 import { store } from "../../../app/store";
 import { getNews, postNews, updateNews, deleteNews } from "../../../Services/newsService";
 import { setNewsAction, addNewsAction,updateNewsAction, deleteNewsAction } from "../../../actions/actions";
 
 
 function Novedades() {
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+    const [news, setNews] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await getNews();
+                setNews(response);
+                setLoading(false);
+            } catch (error) {
+                setError(true);
+            }
+        };
+        fetchData();
+    }, []);
+
+
+
+    if(loading){
+        return <SpinnerComponent />
+    }
+
+    if(error){
+        return <BasicAlert />
+    }
+
+    const handleClickUpdate=()=>{}
 
     const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
 
