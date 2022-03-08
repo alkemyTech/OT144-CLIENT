@@ -17,7 +17,6 @@ function Novedades(){
                 const response = await getNews();
                 setNews(response);
                 setLoading(false);
-                console.log(response);
             } catch (error) {
                 setError(true);
             }
