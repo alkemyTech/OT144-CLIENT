@@ -1,9 +1,32 @@
+import { useState, useEffect } from "react";
+import ErrorAlert from "../../UI/Alerts/ErrorAlert";
+import SpinnerComponent from "../../UI/spinner/SpinnerComponent";
 import ActivitiesTable from "./ActivitiesTable";
 import { Link } from "react-router-dom";
 import "../../TableStyles.css";
 import "./ActivitiesList.css";
 
 const ActivitiesList = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      setLoading(true);
+      try {
+        const response = await fetch("x"); //Acá va el GET
+        setData(response.data.data);
+      } catch (e) {
+        return <ErrorAlert />;
+      }
+      setLoading(false);
+    })();
+  }, []);
+
+  if (loading) {
+    return <SpinnerComponent loading={true} />;
+  }
+
   const Activities = [
     {
       id: 1,
