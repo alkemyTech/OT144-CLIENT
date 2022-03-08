@@ -1,12 +1,8 @@
 import React from "react";
 import "./Home.css";
 import Title from "../title/TitleComponent";
-<<<<<<< HEAD
-import Card from "../UI/Card/Card.jsx";
-=======
 import Card from "../UI/Card/Card";
 
->>>>>>> 727b0483be4e0a74d926846dd8421301da36f761
 export default function Home({ news }) {
   const newsProp = [
     {

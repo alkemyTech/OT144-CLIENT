@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-import Table from "../UI/Table";
-=======
 import Table from "../UI/Table"
->>>>>>> 727b0483be4e0a74d926846dd8421301da36f761
 import { Link } from "react-router-dom";
 
 export default function SlidesList() {
