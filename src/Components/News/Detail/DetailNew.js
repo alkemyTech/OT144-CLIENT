@@ -23,21 +23,27 @@ const DetailNew = () => {
     sizeSkeletonTxt : { width: '80%', height: '80px', radius: '' }
   }
 
-  const urlParams = useParams();
+  const urlParams = useParams()
 
-  const peticionGet = ()=>{
-    getNewsById(urlParams.id)
-    var cast = Promise.resolve(getNewsById(urlParams.id))
-    cast.then(res => {
-      console.log('data', res.data)
-      if(res.data){
-        setData(res.data.data)
+  useEffect(
+    ()=>{
+      if(data){
         setLoading(false)
       }
-    })
-    .catch(error => {
-      console.log(error.message)
-    })  
+    },[data]
+  )
+
+  const peticionGet = async () => {
+    try{
+      const response = await Promise.resolve(getNewsById(urlParams.id))
+      return (setData(response.data.data))
+    }catch(error) {
+      return {
+        status: error.response.status,
+        error: error.message,
+        data: error.response.data,
+      }
+    }  
   }
 
   /*Determinar altura elemento*/
