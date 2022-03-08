@@ -46,3 +46,11 @@ export const deleteCategoriesActions = (id) => ({
   type: types.CATEGORIES_DELETE,
   payload: id,
 });
+
+export const setNewsAction = (news) => ({ type: types.NEWS_GET, payload: news });
+
+export const addNewsAction = (news) => ({ type: types.NEWS_ADD, payload: news });
+
+export const updateNewsAction = (news) => ({ type: types.NEWS_UPDATE, payload: news });
+
+export const deleteNewsAction = (id) => ({ type: types.NEWS_DELETE, payload: id });

@@ -7,11 +7,14 @@ const config = {
   },
 };
 
-export const Get = () => {
-  axios
-    .get("https://jsonplaceholder.typicode.com/users", config)
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
+export const getRequest = async (url, id = null) => {
+  const endpoint = !id  ? `${baseURL}${url}` : `${baseURL}${url}/${id}`;
+  try {
+    const response = await axios.get(endpoint);
+    return response;
+  } catch (e) {
+    alert("Error al traer la data");
+  }
 };
 
 export const postRequest = async (url, body) => {
@@ -20,5 +23,13 @@ export const postRequest = async (url, body) => {
     return response;
   } catch (e) {
     alert("Error al enviar la información!");
+  }
+};
+
+export const putRequest = async (url, body) => {
+  try {
+    const response = await axios.put(`${baseURL}${url}`, body);
+  } catch (e) {
+    alert("Error al actualizar la información!");
   }
 };
