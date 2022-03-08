@@ -81,7 +81,7 @@ const NewsForm = ({ mode = "create", novelity }) => {
     //If the mode is "create", the api is called via the POST verb, if not, the PUT verb is called with ID of novelity
     if (mode === "create") {
       try {
-        await axios.post("http://ongapi.alkemy.org/api/new", dataObject, {
+        await axios.post("http://ongapi.alkemy.org/api/news", dataObject, {
           "Content-Type": "application/json",
         });
       } catch (error) {
