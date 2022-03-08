@@ -52,7 +52,7 @@ const NewsForm = ({ mode = "create", novelity }) => {
     image: mode === "create" ? "" : novelity.image,
     content: mode === "create" ? "" : novelity.content,
   });
-  
+  const [error, setError] = useState(false)
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -84,9 +84,8 @@ const NewsForm = ({ mode = "create", novelity }) => {
           "Content-Type": "application/json",
         });
       } catch (error) {
-        <BasicAlert 
-          text={error}
-        />
+        error && setError(true)
+        
       }
     } else {
       try {
@@ -98,9 +97,7 @@ const NewsForm = ({ mode = "create", novelity }) => {
           }
         );
       } catch (error) {
-        <BasicAlert 
-          text={error}
-        />
+        error && setError(true)
       }
     }
   };
@@ -169,11 +166,18 @@ const NewsForm = ({ mode = "create", novelity }) => {
           ? (<div className="alert-danger">{errors.image}</div>)
           : null
           }
+          {
+            error
+            ? <BasicAlert
+                title="ERROR"
+                text="Error, vuelva a intentarlo"
+              />
+            : <button className="submit-btn" type="submit">
+                Enviar
+              </button>
 
-          <button className="submit-btn" type="submit">
-            Enviar
-          </button>
-
+          }
+          
         </Form>
       )}
     </Formik>
