@@ -6,7 +6,7 @@ import CKEditorNews from "./CKEditorNews";
 import axios from "axios";
 import { getBase64 } from "../../utils";
 import { MIN_LENGTH_TITLE_NEWS } from "../../constants";
-import BasicAlert from "../UI/Alerts/BasicAlert";
+import ErrorAlert from "../UI/Alerts/ErrorAlert";
 
 const validate = (values) => {
   const errors = {};
@@ -77,10 +77,11 @@ const NewsForm = ({ mode = "create", novelity }) => {
       image: data.image,
       content: data.content,
     };
+    console.log(data)
     //If the mode is "create", the api is called via the POST verb, if not, the PUT verb is called with ID of novelity
     if (mode === "create") {
       try {
-        await axios.post("http://ongapi.alkemy.org/api/news", dataObject, {
+        await axios.post("http://ongapi.alkemy.org/api/new", dataObject, {
           "Content-Type": "application/json",
         });
       } catch (error) {
@@ -166,19 +167,15 @@ const NewsForm = ({ mode = "create", novelity }) => {
           ? (<div className="alert-danger">{errors.image}</div>)
           : null
           }
+            
+          <button className="submit-btn" type="submit">
+            Enviar
+          </button>
           {
-            error
-            ? <BasicAlert
-                title="ERROR"
-                text="Error, vuelva a intentarlo"
-              />
-            : <button className="submit-btn" type="submit">
-                Enviar
-              </button>
-
-          }
-          
+            error && <ErrorAlert />
+          } 
         </Form>
+        
       )}
     </Formik>
   );
