@@ -5,11 +5,10 @@ import { getBase64 } from "../../utils";
 import CKEditorNews from '../News/CKEditorNews';
 import { createSlide, updateSlide } from '../../Services/slidesService';
 
-const SlidesForm = ({ mode = "create", slides }) => {
+const SlidesForm = ({ mode = "", slides }) => {
 
     const [ formValues ] = useState({
-        title: mode === "create" ? "" : slides.title,
-        order: mode === "create" ? "" : slides.order,
+        name: mode === "create" ? "" : slides.title,
         image: mode === "create" ? "" : slides.image,
         description: mode === "create" ? "" : slides.description
     })
@@ -21,10 +20,6 @@ const SlidesForm = ({ mode = "create", slides }) => {
                 errores.name = 'Por favor ingresa un nombre'
             }else if(!/^[a-zA-ZÀ-ÿ\s]{4,40}$/.test(values.name)){
                 errores.name = 'El nombre solo puede contener letras y espacios'
-            }
-            //Validacion Order
-            if(!values.order){
-                errores.order = 'Por favor ingrese un numero de orden'
             }
             //Validacion Imagen
             if (!values.image) {
@@ -39,7 +34,7 @@ const SlidesForm = ({ mode = "create", slides }) => {
                     "Seleccione una imagen con formato jpeg o png y con un tamaño menor a 5MB";
                 }
               }
-            //Validacion Order
+            //Validacion Description
             if(!values.description){
                 errores.description = 'Por favor ingrese una descripción'
             }
@@ -53,18 +48,52 @@ const SlidesForm = ({ mode = "create", slides }) => {
 
         const dataObject = {
         name: data.name,
-        order: data.order,
         image: data.image,
         description: data.description,
         };
         //If the mode is "create", the api is called via the POST verb, if not, the PUT verb is called with ID of slides
         if (mode === "create") {
-            createSlide(dataObject)
+            handleClickCreate(dataObject)
         }else {
-            updateSlide(slides.id, dataObject)
+            handleClickUpdate(slides.id, dataObject)
         }
         console.log('Desde Handle', dataObject)
     }
+
+    const handleClickCreate = async (dataObject) => {
+        try{
+          const response = await Promise.resolve(createSlide(dataObject))
+          return {
+            status: response.status,
+            data: response.data
+          }
+        }catch(error) {
+          return {
+            status: error.response.status,
+            error: error.message,
+            data: error.response.data,
+          }
+        }
+    }
+
+    const handleClickUpdate = async (id, dataObject) => {
+        try{
+          const response = await Promise.resolve(updateSlide(id, dataObject))
+          return {
+            status: response.status,
+            data: response.data
+          }
+        }catch(error) {
+          return {
+            status: error.response.status,
+            error: error.message,
+            data: error.response.data,
+          }
+        }
+    }
+
+
+
 
     return (
         <Formik
@@ -93,20 +122,7 @@ const SlidesForm = ({ mode = "create", slides }) => {
                                         { errors.name}
                                     </div>
                                 )} />
-                                   
-                                <Field
-                                    className="input-field"
-                                    id="order"
-                                    name= "order"
-                                    type="text"
-                                    placeholder="Order"
-                                />
-                                <ErrorMessage name="order" component={() => (
-                                    <div className="alert-danger">
-                                        { errors.order}
-                                    </div>
-                                )} />
-                                
+                                                                   
                                 <input
                                     type="file"
                                     name="image"

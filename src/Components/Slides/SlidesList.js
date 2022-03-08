@@ -9,26 +9,43 @@ export default function SlidesList() {
   const [slidesData, setSlidesData] = useState([])
   const [count, setCount] = useState(0)
 
+
   useEffect(
     ()=>{
-      getSlides()
-      var cast = Promise.resolve(getSlides())
-      cast.then(res => {
-        console.log('data', res.data)
-        if(res.data){
-          setSlidesData(res.data.data)
-        }
-      })
-      .catch(error => {
-        console.log(error.message)
-      })  
+
+      const cast = async () => {
+        try{
+            const response = await Promise.resolve(getSlides())
+            return ( setSlidesData(response.data.data) )
+        }catch(error) {
+          return {
+            status: error.response.status,
+            error: error.message,
+            data: error.response.data,
+          }
+        }  
+      }
+
+      cast()
     },
     [count]
   )
 
-  const handleClickDelete = (id) => {
-    deleteSlide(id)
+  const handleClickDelete = async (id) => {
     setCount(count + 1)
+    try{
+      const response = await Promise.resolve(deleteSlide(id))
+      return {
+        status: response.status,
+        data: response.data
+      }
+    }catch(error) {
+      return {
+        status: error.response.status,
+        error: error.message,
+        data: error.response.data,
+      }
+    }
   }
 
   return (
@@ -37,7 +54,7 @@ export default function SlidesList() {
         header={{
           title: "Listado Slides",
           button: () => (
-            <Link to="/backoffice/create-slide">
+            <Link to="/backoffice/slides/create">
               <button className="btnAddTable" >Crear Slide</button>
             </Link>
           ),
@@ -57,7 +74,7 @@ export default function SlidesList() {
           ),
           actions: ({ id }) => (
             <td>
-              <Link to="/backoffice/create-slide">
+              <Link to="/backoffice/slides/edit">
                 <button className="btnUpdateTable">Editar</button>
               </Link>
               <button className="btnDeleteTable" onClick={ () => handleClickDelete(id) }>Eliminar</button>
