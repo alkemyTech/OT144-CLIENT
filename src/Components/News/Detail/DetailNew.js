@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import TitleComponent from "../../title/TitleComponent";
 import DetailContent from "./DetailContent";
 import { getNewsById } from '../../../Services/Http-news';
-import Skeleton from '../../UI/Skeleton';
+import Skeleton from '../../UI/Skeleton/Skeleton';
+import './stylesDetailNew.css'
 
 const DetailNew = () => {
 
@@ -25,7 +26,7 @@ const DetailNew = () => {
 
   const urlParams = useParams()
 
-  const peticionGet = async () => {
+  const actionGet = async () => {
     try{
       const response = await Promise.resolve(getNewsById(urlParams.id))
       if(response.data){
@@ -69,7 +70,7 @@ const DetailNew = () => {
   const mostrarScroll = () => {
     if(scrollY > height){
       setStopScroll(false)
-      peticionGet()
+      actionGet()
     }
   } 
   /*Fin determinar altura elemento*/
@@ -78,7 +79,7 @@ const DetailNew = () => {
     <main>
       {loading ?  (
         <>
-        <div style={{ width: "100%", height:'1000px'}}></div>
+        <div className="spaceScroll"></div>
         <div ref={refCom}>
           <Skeleton skeletonSize={sizeSkeleton.sizeSkeletonTitle}/>
           <Skeleton skeletonSize={sizeSkeleton.sizeSkeletonImg}/>
