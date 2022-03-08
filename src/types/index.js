@@ -2,7 +2,18 @@ export const AUTH_LOGIN = "[AUTH]Login";
 export const AUTH_REGISTER = "[AUTH]Register";
 export const AUTH_LOGOUT = "[AUTH]Logout";
 
-export const ACTIVITY_GET = "[ACTIVITY]Get";
-export const ACTIVITY_ADD = "[ACTIVITY]Add";
-export const ACTIVITY_DELETE = "[ACTIVITY]Delete";
-export const ACTIVITY_UPDATE = "[ACTIVITY]Update"; 
+export const CATEGORIES_GET = "[CATEGORIES]Get";
+export const CATEGORIES_SET = "[CATEGORIES]set";
+export const CATEGORIES_ADD = "[CATEGORIES]Add";
+export const CATEGORIES_DELETE = "[CATEGORIES]Delete";
+export const CATEGORIES_UPDATE = "[CATEGORIES]Update";
+
+export const NEWS_GET = "[NEWS]Get";
+export const NEWS_ADD = "[NEWS]Add";
+export const NEWS_DELETE = "[NEWS]Delete";
+export const NEWS_UPDATE = "[NEWS]Update";
+
+export const ACTIVITIES_GET = "[ACTIVITIES]Get";
+export const ACTIVITIES_ADD = "[ACTIVITIES]Add";
+export const ACTIVITIES_DELETE = "[ACTIVITIES]Delete";
+export const ACTIVITIES_UPDATE = "[ACTIVITIES]Update"; 

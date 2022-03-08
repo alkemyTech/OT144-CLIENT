@@ -22,10 +22,58 @@ export const register = (user) => {
 
 export const logout = () => ({ type: types.AUTH_LOGOUT });
 
-export const setActivityAction = (activity) => ({ type: types.ACTIVITY_GET, payload: activity });
 
-export const addActivityAction = (activity) => ({ type: types.ACTIVITY_ADD, payload: activity });
 
-export const updateActivityAction = (activity) => ({ type: types.ACTIVITY_UPDATE, payload: activity });
+export const setCategoriesActions = (categories) => ({
+  type: types.CATEGORIES_SET,
+  payload: categories,
+});
 
-export const deleteActivityAction = (id) => ({ type: types.ACTIVITY_DELETE, payload: id });
+export const getCategoriesActions = (category) => ({
+  type: types.CATEGORIES_GET,
+  payload: category,
+});
+
+export const addCategoriesActions = (category) => ({
+  type: types.CATEGORIES_ADD,
+  payload: category,
+});
+
+export const updateCategoriessActions = (category) => ({
+  type: types.CATEGORIES_UPDATE,
+  payload: category ,
+});
+
+export const deleteCategoriesActions = (id) => ({
+  type: types.CATEGORIES_DELETE,
+  payload: id,
+});
+
+export const setNewsAction = (news) => ({ type: types.NEWS_GET, payload: news });
+
+export const addNewsAction = (news) => ({ type: types.NEWS_ADD, payload: news });
+
+export const updateNewsAction = (news) => ({ type: types.NEWS_UPDATE, payload: news });
+
+export const deleteNewsAction = (id) => ({ type: types.NEWS_DELETE, payload: id });
+
+
+export const setActivitiesAction = (activity) => ({ 
+  type: types.ACTIVITIES_GET, 
+  payload: activity 
+});
+
+export const addActivitiesAction = (activity) => ({ 
+  type: types.ACTIVITIES_ADD, 
+  payload: activity 
+});
+
+export const updateActivitiesAction = (activity) => ({ 
+  type: types.ACTIVITIES_UPDATE, 
+  payload: activity 
+});
+
+export const deleteActivitiesAction = (id) => ({ 
+  type: types.ACTIVITIES_DELETE, 
+  payload: id 
+});

@@ -1,28 +1,35 @@
 import * as types from "../types";
 
 const initialState = {
-  news: [],
+  activities: [],
 };
 
-const newsReducer = (state = initialState, action) => {
+const activitiesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.NEWS_GET:
+    case types.ACTIVITIES_GET:
         return {
-            news: action.payload,
+          ...state,
+          activities: action.payload,
         };
-    case types.NEWS_ADD:
+    case types.ACTIVITIES_ADD:
         return {
-            news: [ ...state.news, action.payload]
+          ...state,
+          activities: [ ...state.activities, action.payload]
         };
-    case types.NEWS_UPDATE:
+    case types.ACTIVITIES_UPDATE:
         return {
-        news: state.news.map((elem) => elem.id === action.payload.id ?
-                 action.payload : elem)}
-      case types.NEWS_DELETE:
+          ...state,
+          activities: state.activities.map((elem) => 
+            (elem.id === action.payload.id ?
+                action.payload 
+                : elem
+            ))}
+      case types.ACTIVITIES_DELETE:
         return {
-        news: state.news.filter(elem => elem.id !== action.payload)}
+          ...state,
+          activities: state.activities.filter(elem => elem.id !== action.payload)}
       default:
         return { ...state };}
   }
 
-export default newsReducer; 
+export default activitiesReducer; 

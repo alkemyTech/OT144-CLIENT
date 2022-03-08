@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import HomeForm from './Components/Home/HomeForm';
@@ -32,15 +31,14 @@ import ActivitiesDetail from './Components/Activities/Detail/ActivitiesDetail';
 import Categories from './Components/Home/BackOffice/Categories';
 import SlidesList from './Components/Slides/SlidesList';
 
-
 function App() {
+
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" exact element={<HomePage/>} />
           <Route path="/contact" element={<Contact/>} />
-          <Route path="/actividades" element={<Actividades/>} />
           <Route path="/create-activity" element={<ActivitiesForm/>} />
           <Route path="/create-category" element={<CategoriesForm/>} />
           <Route path="/create-news" element={<CreateNews/>} />
