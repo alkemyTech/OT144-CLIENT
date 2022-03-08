@@ -54,3 +54,12 @@ export const addNewsAction = (news) => ({ type: types.NEWS_ADD, payload: news })
 export const updateNewsAction = (news) => ({ type: types.NEWS_UPDATE, payload: news });
 
 export const deleteNewsAction = (id) => ({ type: types.NEWS_DELETE, payload: id });
+
+
+export const getUsuariosAction = (usuarios) => ({ type: types.USUARIOS_GET, payload: usuarios });
+
+export const addUsuariosAction = (usuarios) => ({ type: types.USUARIOS_ADD, payload: usuarios });
+
+export const updateUsuariosAction = (usuarios) => ({ type: types.USUARIOS_UPDATE, payload: usuarios });
+
+export const deleteUsuariosAction = (id) => ({ type: types.USUARIOS_DELETE, payload: id });
