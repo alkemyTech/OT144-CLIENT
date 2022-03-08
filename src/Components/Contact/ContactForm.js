@@ -59,7 +59,9 @@ const ContactForm = () => {
     //Se elimina los espacios en blanco al inicio, los largos del intermedio y al final del nombre.
     data.name = data.name.replace(/\s+/g, " ").trim();
     try{
-      postContact(data);
+      (async () => {
+        const response = await postContact(data);
+      })()
     }
     catch(error){
       return <ErrorAlert />
