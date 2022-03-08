@@ -25,18 +25,13 @@ const DetailNew = () => {
 
   const urlParams = useParams()
 
-  useEffect(
-    ()=>{
-      if(data){
-        setLoading(false)
-      }
-    },[data]
-  )
-
   const peticionGet = async () => {
     try{
       const response = await Promise.resolve(getNewsById(urlParams.id))
-      return (setData(response.data.data))
+      if(response.data){
+        setLoading(false)
+        return (setData(response.data.data))
+      }
     }catch(error) {
       return {
         status: error.response.status,
