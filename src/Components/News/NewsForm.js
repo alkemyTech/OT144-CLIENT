@@ -77,7 +77,6 @@ const NewsForm = ({ mode = "create", novelity }) => {
       image: data.image,
       content: data.content,
     };
-    console.log(data)
     //If the mode is "create", the api is called via the POST verb, if not, the PUT verb is called with ID of novelity
     if (mode === "create") {
       try {
