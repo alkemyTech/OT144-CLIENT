@@ -8,8 +8,7 @@ import {
 const initialState = {
   sliders: [],
 };
-
-export const sliderReducer = (state = initialState, action) => {
+const sliderReducer = (state = initialState, action) => {
   switch (action.type) {
     case SLIDER_GET:
       return {
@@ -34,3 +33,5 @@ export const sliderReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default sliderReducer;
