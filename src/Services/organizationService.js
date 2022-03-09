@@ -1,5 +1,5 @@
-import { getRequest, postRequest, putRequest } from "./privateApiService";
-import { postRequest } from "./publicApiService";
+import { getRequest, postRequest } from "./privateApiService";
+import { putRequest } from "./publicApiService";
 
 const endpoint = process.env.REACT_APP_URL_ORGANIZATION;
 

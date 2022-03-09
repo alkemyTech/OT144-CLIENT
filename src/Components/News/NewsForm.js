@@ -7,6 +7,8 @@ import axios from "axios";
 import { getBase64 } from "../../utils";
 import { MIN_LENGTH_TITLE_NEWS } from "../../constants";
 import ErrorAlert from "../UI/Alerts/ErrorAlert";
+import { getNews, postNews, updateNews  } from "../../Services/newsService";
+
 
 const validate = (values) => {
   const errors = {};
@@ -57,10 +59,7 @@ const NewsForm = ({ mode = "create", novelity }) => {
 
   useEffect(() => {
     const getCategories = async () => {
-      const response = await axios.get(
-        "http://ongapi.alkemy.org/api/categories",
-        { "Content-Type": "application/json" }
-      );
+      const response = await getNews();
       setCategories(response.data.data);
     };
     getCategories();
@@ -80,22 +79,14 @@ const NewsForm = ({ mode = "create", novelity }) => {
     //If the mode is "create", the api is called via the POST verb, if not, the PUT verb is called with ID of novelity
     if (mode === "create") {
       try {
-        await axios.post("http://ongapi.alkemy.org/api/news", dataObject, {
-          "Content-Type": "application/json",
-        });
+        await postNews(dataObject)
       } catch (error) {
         error && setError(true)
         
       }
     } else {
       try {
-        await axios.put(
-          `http://ongapi.alkemy.org/api/news/${novelity.id}`,
-          dataObject,
-          {
-            "Content-Type": "application/json",
-          }
-        );
+        await updateNews(novelity.id, dataObject)
       } catch (error) {
         error && setError(true)
       }
