@@ -8,12 +8,8 @@ import {
 const endpoint = process.env.REACT_APP_API_ACTIVITIES;
 
 export const getActivities = async () => {
-  try {
-    const response = await getRequest(endpoint);
-    return response;
-  } catch (e) {
-    alert;
-  }
+  const response = await getRequest(endpoint);
+  return response;
 };
 
 export const getActivitiesId = async (id) => {
