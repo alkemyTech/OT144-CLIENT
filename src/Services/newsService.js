@@ -1,5 +1,5 @@
 import { getRequest, postRequest, deleteRequest, putRequest } from "./privateApiService"
-const endpointNews = "/news"
+const endpointNews = process.env.REACT_APP_URL_NEWS
 
 export const getNews = async () => {
     const response = await getRequest(endpointNews)
@@ -25,5 +25,3 @@ export const updateNews = async (id, bodyData) => {
     const response = await putRequest(endpointNews, id, bodyData)
     return response;
  }
-
-
