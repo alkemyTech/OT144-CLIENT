@@ -1,21 +1,116 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import '../../TableStyles.css';
+import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
+import BasicAlert from '../../UI/Alerts/BasicAlert'
+import { store } from "../../../app/store";
+import { getNews, postNews, updateNews, deleteNews } from "../../../Services/newsService";
+import { setNewsAction, addNewsAction,updateNewsAction, deleteNewsAction } from "../../../actions/actions";
 
-function Novedades(){
+
+function Novedades() {
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+    const [news, setNews] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await getNews();
+                setNews(response);
+                setLoading(false);
+            } catch (error) {
+                setError(true);
+            }
+        };
+        fetchData();
+    }, []);
+
+
+
+    if(loading){
+        return <SpinnerComponent />
+    }
+
+    if(error){
+        return <BasicAlert />
+    }
 
     const handleClickUpdate=()=>{}
 
-    const handleClickDelete=()=>{}
+    const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
 
-    return(
+    useEffect(() => {
+        try {
+            (async () => {
+                const response = await getNews();
+                store.dispatch(setNewsAction(response.data.data))
+                setDataNews(store.getState().news.news)
+            })()
+        }
+        catch (error) {
+            //Alert setNews failed
+        }
+
+    }, [])  
+
+    const fetchAddNews = (bodyNews) => {
+        try {
+            (async () => {
+                const response = await postNews(bodyNews);
+                store.dispatch(addNewsAction(response.data.data))
+                setDataNews(store.getState().news)
+            })()
+        }
+        catch (error) {
+            //Alert addNews failed
+        }
+    };
+
+    //Utilizar en la pagina de crear novedad
+    const fetchUpdateNews = (bodyNews) => {
+        try {
+            (async () => {
+                await updateNews(bodyNews.id, bodyNews);
+                store.dispatch(updateNewsAction(bodyNews))
+                setDataNews(store.getState().news.news);
+            })()
+        }
+        catch (error) {
+            //Alert updateNews failed
+        }
+    }
+
+    const fetchDeleteNews = (id) => {
+        try {
+            (async () => {
+                await deleteNews(id);
+                store.dispatch(deleteNewsAction(id))
+                setDataNews(store.getState().news.news);
+            })()
+        }
+        catch (error) {
+            //Alert deleteNews failed
+        }
+    }
+    const body= {name:"pruebaUpdate"}/*REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR */
+
+    const handleClickUpdate = (body, event) => {
+        fetchUpdateNews({id: parseInt(event.target.id), ...body});
+     }
+
+    const handleClickDelete = (event) => {
+        fetchDeleteNews(parseInt(event.target.id))
+    }
+
+    return (
         <section className="sectionTable">
             <div className='table-container-responsive'>
                 <table className="table">
                     <thead>
                         <tr>
                             <td>
-                                <Link to="/backoffice/news/create" className="btnAddTable">Crear</Link>
+                                <Link to="/backoffice/news/create" onClick= {fetchAddNews} className="btnAddTable">Crear</Link>
                             </td>
                         </tr>
                         <tr>
@@ -26,28 +121,21 @@ function Novedades(){
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Mas de 5000 juguetes donados!</td>
-                            <td><img src="http:\/\/ongapi.alkemy.org\/storage\/bfHgX3Nr8Q.png" alt="Img novedades"></img></td>
-                            <td>2022-02-17T23:53:48.000000Z</td>
-                            <td>
-                                <button className="btnUpdateTable" onClick={handleClickUpdate} >Editar</button>
-                            </td>
-                            <td>    
-                                <button className="btnDeleteTable" onClick={handleClickDelete} >Eliminar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Mas de 5000 juguetes donados!</td>
-                            <td><img src="http:\/\/ongapi.alkemy.org\/storage\/AOPPkDQDXx.jpeg" alt="Img novedades"></img></td>
-                            <td>2022-02-17T23:53:48.000000Z</td>
-                            <td>
-                                <button className="btnUpdateTable" onClick={handleClickUpdate} >Editar</button>
-                            </td>
-                            <td>    
-                                <button className="btnDeleteTable" onClick={handleClickDelete} >Eliminar</button>
-                            </td>
-                        </tr>
+                        {dataNews.length > 0 ? dataNews.map((news) => {
+                            return (
+                                <tr key={news.id}>
+                                    <td>{news.name}</td>
+                                    <td><img src={news.image}></img></td>
+                                    <td>{news.created_at}</td>
+                                    <td>
+                                        <button id={news.id} className="btnUpdateTable" onClick={(event) => handleClickUpdate(body, event)} >Editar</button>
+                                    </td>
+                                    <td>
+                                        <button id={news.id} className="btnDeleteTable" onClick={handleClickDelete}>Eliminar</button>
+                                    </td>
+                                </tr>
+                            )
+                        }) : null}
                     </tbody>
                 </table>
             </div>

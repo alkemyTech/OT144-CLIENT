@@ -7,10 +7,11 @@ import {
   MIN_LENGTH_NAME,
   MIN_LENGTH_PHONE,
 } from "../../constants";
+import { postContact } from "../../Services/ContactApiService";
+import ErrorAlert from '../UI/Alerts/ErrorAlert'
 
 const validate = (values) => {
   const errors = {};
-  //Validaciones para el input "name"
   if (!values.name) {
     errors.name = "Campo requerido";
   } else if (values.name.length < MIN_LENGTH_NAME) {
@@ -25,7 +26,6 @@ const validate = (values) => {
     errors.name = "El nombre solo puede tener letras";
   }
 
-  //Validaciones para el input "email"
   if (!values.email) {
     errors.email = "Campo requerido";
   } else if (values.email.length > MAX_LENGTH_EMAIL) {
@@ -34,7 +34,6 @@ const validate = (values) => {
     errors.email = "Formato de Email no valido";
   }
 
-  //Validaciones para el input "phone"
   if (!values.phone) {
     errors.phone = "Campo requerido";
   } else if (values.phone.length < MIN_LENGTH_PHONE) {
@@ -45,17 +44,21 @@ const validate = (values) => {
     errors.phone = "El celular debe contener solo numeros";
   }
 
-  //Validaciones para el input "message"
   if (!values.message) {
     errors.message = "Campo requerido";
   }
   return errors;
 };
 
-const ContactForm = () => {
+const ContactForm = async () => {
   const handleSubmit = (data) => {
-    //Se elimina los espacios en blanco al inicio, los largos del intermedio y al final del nombre.
     data.name = data.name.replace(/\s+/g, " ").trim();
+    try{
+      const response = await postContact(data);
+    }
+    catch(error){
+      return <ErrorAlert />
+    }
   };
 
   return (

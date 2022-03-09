@@ -3,7 +3,7 @@ import {
   postRequest,
   deleteRequest,
   putRequest,
-} from "../../Services/privateApiService";
+} from "./privateApiService";
 
 export const getContact = async () => await getRequest(`${process.env.REACT_APP_URL_CONTACTS}`);
 export const getContactId = async (id) => await getRequest(`${process.env.REACT_APP_URL_CONTACTS}`, id);
