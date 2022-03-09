@@ -1,10 +1,8 @@
-import React from 'react';
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import HomeForm from './Components/Home/HomeForm';
 import ActivitiesForm from './Components/Activities/ActivitiesForm/ActivitiesForm';
 import CategoriesForm from './Components/Categories/CategoriesForm';
-import SlidesForm from './Components/Slides/SlidesForm';
 import DataScreen from './Components/Testimonials/DataScreen';
 import TestimonialForm from './Components/Testimonials/TestimonialsForm';
 import UserForm from './Components/Users/UsersForm';
@@ -30,10 +28,11 @@ import Gracias from './Components/Donations/Gracias';
 import DetailNew from './Components/News/Detail/DetailNew';
 import ActivitiesDetail from './Components/Activities/Detail/ActivitiesDetail';
 import Categories from './Components/Home/BackOffice/Categories';
+import RedirecSlides from './Components/Slides/RedirecSlides'
 import SlidesList from './Components/Slides/SlidesList';
 
-
 function App() {
+
   return (
     <>
       <BrowserRouter>
@@ -44,8 +43,8 @@ function App() {
           <Route path="/create-category" element={<CategoriesForm/>} />
           <Route path="/create-news" element={<CreateNews/>} />
           <Route path="/backoffice/organization/edit-home" element={<HomeForm/>} />
-          <Route path="//backoffice/Slides" element={<SlidesList/>} />
-          <Route path="/backoffice/create-slide" element={<SlidesForm/>} />
+          <Route path="/backoffice/slides/:action" element={<RedirecSlides/>} />
+          <Route path="/backoffice/slides" element={<SlidesList/>} />
           <Route path="/backoffice/organization/edit" element={<OrganizationEditForm/>} />
           <Route path="/backoffice/organization" element={<DataScreen/>}/>
           <Route path="/backoffice/members" element={<MemberList/>}/>
