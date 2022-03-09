@@ -28,18 +28,21 @@ export default function ActivitiesDetail() {
         }
     }, []);
 
+    if (dataLoading.loading) {
+        return <div className="spinner-container">
+            < SpinnerComponent loading={dataLoading.loading} />
+        </div >
+    }
+
+    if (dataLoading.error) {
+        return <ErrorAlert />
+    }
+
     {
         return (
-            dataLoading.loading ?
-                <div className="spinner-container">
-                    < SpinnerComponent loading={dataLoading.loading} />
-                </div >
-                : (dataLoading.error ?
-                    <ErrorAlert />
-                    :
-                    <section className="containerActivity">
-                    <TitleComponent title={dataLoading.data.name} img={dataLoading.data.image} />
-                    <p>{dataLoading.data.description}</p>
-                </section>))
+            <section className="containerActivity">
+                <TitleComponent title={dataLoading.data.name} img={dataLoading.data.image} />
+                <p>{dataLoading.data.description}</p>
+            </section>)
     }
 }

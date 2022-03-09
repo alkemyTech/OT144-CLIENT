@@ -17,7 +17,12 @@ const Actividades = () => {
     try {
       (async () => {
         const response = await getActividades();
-        response.status === 200 ? setDataLoading({ ...dataLoading, data: response.data.data, loading: false }) : setDataLoading({ ...dataLoading, error: response.error, loading: false })
+        if (response.status === 200) {
+          setDataLoading({ ...dataLoading, data: response.data.data, loading: false })
+        } else {
+          setDataLoading({ ...dataLoading, error: response.error, loading: false })
+        }
+
       })()
     }
     catch (error) {
@@ -25,23 +30,26 @@ const Actividades = () => {
     }
   }, []);
 
+  if (dataLoading.loading) {
+    return  <div className="spinner-container">
+              < SpinnerComponent loading={dataLoading.loading} />
+            </div >
+  }
+
+  if (dataLoading.error) {
+    return <ErrorAlert />
+  }
+
   {
     return (
-      dataLoading.loading ?
-        <div className="spinner-container">
-          < SpinnerComponent loading={dataLoading.loading} />
-        </div >
-        : (dataLoading.error ?
-          <ErrorAlert />
-          :
-          <div>
-            <TitleComponent
-              title="Actividades"
-            />
-            <div className="new-list-container">
-              {dataLoading.data.map((activity, index) => <Card key={index} cardItem={activity} />)}
-            </div>
-          </div>))
+      <div>
+        <TitleComponent
+          title="Actividades"
+        />
+        <div className="new-list-container">
+          {dataLoading.data.map((activity, index) => <Card key={index} cardItem={activity} />)}
+        </div>
+      </div>)
   }
 }
 
