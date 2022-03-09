@@ -12,3 +12,8 @@ export const NEWS_GET = "[NEWS]Get";
 export const NEWS_ADD = "[NEWS]Add";
 export const NEWS_DELETE = "[NEWS]Delete";
 export const NEWS_UPDATE = "[NEWS]Update";
+
+export const USERS_GET = "[USERS]Get";
+export const USERS_ADD = "[USERS]Add";
+export const USERS_DELETE = "[USERS]Delete";
+export const USERS_UPDATE = "[USERS]Update";
