@@ -27,7 +27,6 @@ function Novedades() {
         }
 
     }, [])  
-    console.log(store.getState());
 
     if(loading){
         return <SpinnerComponent />
