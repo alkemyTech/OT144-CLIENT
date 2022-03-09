@@ -12,3 +12,8 @@ export const NEWS_GET = "[NEWS]Get";
 export const NEWS_ADD = "[NEWS]Add";
 export const NEWS_DELETE = "[NEWS]Delete";
 export const NEWS_UPDATE = "[NEWS]Update";
+
+export const SLIDER_GET = "[SLIDER]Get";
+export const SLIDER_ADD = "[SLIDER]Add";
+export const SLIDER_DELETE = "[SLIDER]Delete";
+export const SLIDER_UPDATE = "[SLIDER]Update";
