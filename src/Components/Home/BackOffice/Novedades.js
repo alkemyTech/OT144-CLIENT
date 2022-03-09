@@ -36,8 +36,6 @@ function Novedades() {
         return <BasicAlert />
     }
 
-    const handleClickUpdate=()=>{}
-
     const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
 
     useEffect(() => {
