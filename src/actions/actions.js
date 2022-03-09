@@ -77,3 +77,10 @@ export const deleteActivitiesAction = (id) => ({
   type: types.ACTIVITIES_DELETE, 
   payload: id 
 });
+export const getUsersAction = (users) => ({ type: types.USERS_GET, payload: users });
+
+export const addUsersAction = (users) => ({ type: types.USERS_ADD, payload: users });
+
+export const updateUsersAction = (users) => ({ type: types.USERS_UPDATE, payload: users });
+
+export const deleteUsersAction = (id) => ({ type: types.USERS_DELETE, payload: id });
