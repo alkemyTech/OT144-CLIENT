@@ -21,43 +21,37 @@ const Actividades = () => {
 		}
 	}, []);
 
-  const fetchAddActivities = (bodyData) => { //Revisar este atributo
+  const fetchAddActivities = async (bodyData) => { 
     try {
-        (async () => {
-            const response = await postActivities(bodyData);
-            store.dispatch(addActivitiesAction(response.data.data))
-            setDataActivities(store.getState().activity)
-        })()
+        const response = await postActivities(bodyData);
+        store.dispatch(addActivitiesAction(response.data.data))
+        setDataActivities(store.getState().activity)
     }
     catch (error) {
         setError(true)
     }
   }
 
-  const fetchUpdateActivities = (bodyData) => {
-      try {
-          (async () => {
-              await updateActivities(bodyData.id, bodyData);
-              store.dispatch(updateActivitiesAction(bodyData))
-              setDataActivities(store.getState().activity.activity);
-          })()
-      }
-      catch (error) {
-         setError(true)
-      }
+  const fetchUpdateActivities = async (bodyData) => {
+    try {
+        await updateActivities(bodyData.id, bodyData);
+        store.dispatch(updateActivitiesAction(bodyData))
+        setDataActivities(store.getState().activity.activity);
+    }
+    catch (error) {
+        setError(true)
+    }
   }
 
-  const fetchDeleteActivities = (id) => {
-      try {
-          (async () => {
-              await deleteActivities(id);
-              store.dispatch(deleteActivitiesAction(id))
-              setDataActivities(store.getState().activity.activity);
-          })()
-      }
-      catch (error) {
-         setError(true)
-      }
+  const fetchDeleteActivities = async (id) => {
+    try {
+        await deleteActivities(id);
+        store.dispatch(deleteActivitiesAction(id))
+        setDataActivities(store.getState().activity.activity);
+    }
+    catch (error) {
+        setError(true)
+    }
   }
 
   return (
