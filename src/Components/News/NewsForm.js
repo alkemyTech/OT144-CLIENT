@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Formik, Form, Field } from "formik";
 import "../../Components/FormStyles.css";
 import CKEditorNews from "./CKEditorNews";
-import axios from "axios";
 import { getBase64 } from "../../utils";
 import { MIN_LENGTH_TITLE_NEWS } from "../../constants";
 import ErrorAlert from "../UI/Alerts/ErrorAlert";
@@ -81,14 +80,13 @@ const NewsForm = ({ mode = "create", novelity }) => {
       try {
         await postNews(dataObject)
       } catch (error) {
-        error && setError(true)
-        
+        setError(true)
       }
     } else {
       try {
         await updateNews(novelity.id, dataObject)
       } catch (error) {
-        error && setError(true)
+       setError(true)
       }
     }
   };
@@ -165,7 +163,6 @@ const NewsForm = ({ mode = "create", novelity }) => {
             error && <ErrorAlert />
           } 
         </Form>
-        
       )}
     </Formik>
   );
