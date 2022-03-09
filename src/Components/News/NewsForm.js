@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { Formik, Form, Field } from "formik";
 import "../../Components/FormStyles.css";
 import CKEditorNews from "./CKEditorNews";
-import axios from "axios";
 import { getBase64 } from "../../utils";
 import { MIN_LENGTH_TITLE_NEWS } from "../../constants";
+import ErrorAlert from "../UI/Alerts/ErrorAlert";
+import { getNews, postNews, updateNews  } from "../../Services/newsService";
+
 
 const validate = (values) => {
   const errors = {};
@@ -51,15 +53,12 @@ const NewsForm = ({ mode = "create", novelity }) => {
     image: mode === "create" ? "" : novelity.image,
     content: mode === "create" ? "" : novelity.content,
   });
-  
+  const [error, setError] = useState(false)
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const getCategories = async () => {
-      const response = await axios.get(
-        "http://ongapi.alkemy.org/api/categories",
-        { "Content-Type": "application/json" }
-      );
+      const response = await getNews();
       setCategories(response.data.data);
     };
     getCategories();
@@ -78,17 +77,17 @@ const NewsForm = ({ mode = "create", novelity }) => {
     };
     //If the mode is "create", the api is called via the POST verb, if not, the PUT verb is called with ID of novelity
     if (mode === "create") {
-      await axios.post("http://ongapi.alkemy.org/api/news", dataObject, {
-        "Content-Type": "application/json",
-      });
+      try {
+        await postNews(dataObject)
+      } catch {
+        setError(true)
+      }
     } else {
-      await axios.put(
-        `http://ongapi.alkemy.org/api/news/${novelity.id}`,
-        dataObject,
-        {
-          "Content-Type": "application/json",
-        }
-      );
+      try {
+        await updateNews(novelity.id, dataObject)
+      } catch {
+       setError(true)
+      }
     }
   };
 
@@ -156,11 +155,13 @@ const NewsForm = ({ mode = "create", novelity }) => {
           ? (<div className="alert-danger">{errors.image}</div>)
           : null
           }
-
+            
           <button className="submit-btn" type="submit">
             Enviar
           </button>
-
+          {
+            error && <ErrorAlert />
+          } 
         </Form>
       )}
     </Formik>
