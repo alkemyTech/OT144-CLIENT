@@ -79,13 +79,13 @@ const NewsForm = ({ mode = "create", novelity }) => {
     if (mode === "create") {
       try {
         await postNews(dataObject)
-      } catch (error) {
+      } catch {
         setError(true)
       }
     } else {
       try {
         await updateNews(novelity.id, dataObject)
-      } catch (error) {
+      } catch {
        setError(true)
       }
     }
