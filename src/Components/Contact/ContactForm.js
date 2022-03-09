@@ -54,18 +54,10 @@ const ContactForm = async () => {
   const handleSubmit = (data) => {
     data.name = data.name.replace(/\s+/g, " ").trim();
     try{
-<<<<<<< HEAD
-      postContact(data);
-    }
-    catch(error){
-      alert(error);
-      //BasicAlert('Algo no salió bien!', 'Al parecer, no se ha podido enviar el formulario');
-=======
       const response = await postContact(data);
     }
     catch(error){
       return <ErrorAlert />
->>>>>>> 71ff05256a8c92bc42e5c6383aca905db220485f
     }
   };
 
