@@ -4,6 +4,7 @@ import "../../Components/FormStyles.css";
 import { getBase64 } from "../../utils";
 import CKEditorNews from '../News/CKEditorNews';
 import { createSlide, updateSlide } from '../../Services/slidesService';
+import axios from 'axios';
 
 const SlidesForm = ({ mode = "", slides }) => {
 
