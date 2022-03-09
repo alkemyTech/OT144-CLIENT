@@ -20,7 +20,7 @@ const sliderReducer = (state = initialState, action) => {
       };
     case SLIDER_UPDATE:
       return {
-        sliders: state.sliders.map(() =>
+        sliders: state.sliders.map((el) =>
           el.id === action.payload.id ? action.payload : el
         ),
       };
