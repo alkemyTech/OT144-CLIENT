@@ -49,14 +49,6 @@ function Novedades() {
     }
   }, []);
 
-  if (loading) {
-    return <SpinnerComponent />;
-  }
-
-  if (error) {
-    return <BasicAlert />;
-  }
-
   const fetchAddNews = (bodyNews) => {
     try {
       (async () => {
@@ -104,6 +96,14 @@ function Novedades() {
   const handleClickDelete = (event) => {
     fetchDeleteNews(parseInt(event.target.id));
   };
+
+  if (loading) {
+    return <SpinnerComponent />;
+  }
+
+  if (error) {
+    return <BasicAlert />;
+  }
 
   return (
     <section className="sectionTable">

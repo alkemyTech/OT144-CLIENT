@@ -9,6 +9,7 @@ import {
 } from "../../constants";
 import { postContact } from "../../Services/ServiceAPIContact";
 import ErrorAlert from "../UI/Alerts/ErrorAlert";
+import BasicAlert from "../UI/Alerts/BasicAlert";
 
 const validate = (values) => {
   const errors = {};
@@ -50,11 +51,12 @@ const validate = (values) => {
   return errors;
 };
 
-const ContactForm = async () => {
+const ContactForm = () => {
   const handleSubmit = async (data) => {
     data.name = data.name.replace(/\s+/g, " ").trim();
     try {
       const response = await postContact(data);
+      BasicAlert("success", "Mensaje enviado!", "Estaremos en contacto en la proximidad", 1500);
     } catch (error) {
       return <ErrorAlert />;
     }
@@ -80,9 +82,7 @@ const ContactForm = async () => {
             type="text"
             onBlur={handleBlur}
           />
-          {touched.name && errors.name ? (
-            <div className="alert-danger">{errors.name}</div>
-          ) : null}
+          {(touched.name && errors.name) && <div className="alert-danger">{errors.name}</div>}
 
           <Field
             className="input-field"
@@ -91,9 +91,7 @@ const ContactForm = async () => {
             type="text"
             onBlur={handleBlur}
           />
-          {touched.email && errors.email ? (
-            <div className="alert-danger">{errors.email}</div>
-          ) : null}
+          {(touched.email && errors.email) && <div className="alert-danger">{errors.email}</div>}
 
           <Field
             className="input-field"
@@ -102,9 +100,7 @@ const ContactForm = async () => {
             type="text"
             onBlur={handleBlur}
           />
-          {touched.phone && errors.phone ? (
-            <div className="alert-danger">{errors.phone}</div>
-          ) : null}
+          {(touched.phone && errors.phone) && <div className="alert-danger">{errors.phone}</div>}
 
           <Field
             as="textarea"
@@ -118,9 +114,7 @@ const ContactForm = async () => {
             type="text"
             onBlur={handleBlur}
           />
-          {touched.message && errors.message ? (
-            <div className="alert-danger">{errors.message}</div>
-          ) : null}
+          {(touched.message && errors.message) && <div className="alert-danger">{errors.message}</div>}
 
           <button className="btn-submit" type="submit">
             Enviar
