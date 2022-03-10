@@ -12,6 +12,7 @@ function Novedades() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [news, setNews] = useState([]);
+    const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,18 +27,6 @@ function Novedades() {
         fetchData();
     }, []);
 
-
-
-    if(loading){
-        return <SpinnerComponent />
-    }
-
-    if(error){
-        return <BasicAlert />
-    }
-
-    const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
-
     useEffect(() => {
         try {
             (async () => {
@@ -50,7 +39,18 @@ function Novedades() {
             //Alert setNews failed
         }
 
-    }, [])  
+    }, []) 
+
+
+
+    if(loading){
+        return <SpinnerComponent />
+    }
+
+    if(error){
+        return <BasicAlert />
+    }
+
 
     const fetchAddNews = (bodyNews) => {
         try {

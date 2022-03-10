@@ -7,7 +7,7 @@ import {
   MIN_LENGTH_NAME,
   MIN_LENGTH_PHONE,
 } from "../../constants";
-import { postContact } from "../../Services/ContactApiService";
+import { postContact } from "../../Services/ServiceAPIContact";
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 
 const validate = (values) => {
@@ -50,11 +50,11 @@ const validate = (values) => {
   return errors;
 };
 
-const ContactForm = async () => {
-  const handleSubmit = (data) => {
-    data.name = data.name.replace(/\s+/g, " ").trim();
+const ContactForm = () => {
+  const handleSubmit = async (data) => {
+    data.name = await data.name.replace(/\s+/g, " ").trim();
     try{
-      const response = await postContact(data);
+      const response = postContact(data);
     }
     catch(error){
       return <ErrorAlert />
