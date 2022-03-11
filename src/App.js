@@ -11,7 +11,7 @@ import ToysCampaign from './Campaigns/Toys/ToysCampaign';
 import MemberList from './Components/Members/MemberList';
 import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
-import Actividades from './Components/Activities/Actividades';
+import Activities from './Components/Activities/Actividades';
 import AboutPrincipal from './Components/About/AboutPrincipal';
 import LoginForm from './Components/Auth/LoginForm';
 import OrganizationEditForm from './Components/Home/BackOffice/OrganizationEditForm';

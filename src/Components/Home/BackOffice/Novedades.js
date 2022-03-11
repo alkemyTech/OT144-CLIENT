@@ -11,14 +11,15 @@ import { setNewsAction, addNewsAction,updateNewsAction, deleteNewsAction } from 
 function Novedades() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
-
+    const [dataNews, setDataNews] = useState([])
+ 
     useEffect(() => {
         try {
             (async () => {
                 const response = await getNews();
-                store.dispatch(setNewsAction(response.data.data))
-                setDataNews(store.getState().news.news)
+                store.dispatch(setNewsAction(response.data))
+                setDataNews(store.getState().news.news.data)
+                setLoading(false);
             })()
         }
         catch (error) {
@@ -27,7 +28,6 @@ function Novedades() {
 
     }, [])  
 
-
     if(loading){
         return <SpinnerComponent />
     }
@@ -35,10 +35,6 @@ function Novedades() {
     if(error){
         return <BasicAlert />
     }
-
-   
-
-    
 
     const fetchAddNews = (bodyNews) => {
         try {
@@ -49,7 +45,7 @@ function Novedades() {
             })()
         }
         catch (error) {
-            //Alert addNews failed
+            setError(true);
         }
     };
 
@@ -63,7 +59,7 @@ function Novedades() {
             })()
         }
         catch (error) {
-            //Alert updateNews failed
+            setError(true);
         }
     }
 
@@ -76,7 +72,7 @@ function Novedades() {
             })()
         }
         catch (error) {
-            //Alert deleteNews failed
+            setError(true);
         }
     }
     const body= {name:"pruebaUpdate"}/*REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR */
