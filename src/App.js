@@ -67,7 +67,7 @@ function App() {
           <Route path="/novedades/:id" element={<DetailNew/>} />
           <Route path="/activities" element={<Activities/>} />
           <Route path="/activities/:id" element={<ActivitiesDetail/>} />
-          <Route path="/Novedades" element={<NewsHome/>} />
+          <Route path="/novedades" element={<NewsHome/>} />
         </Routes>
       </BrowserRouter>
     </>
