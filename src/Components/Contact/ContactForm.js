@@ -8,7 +8,7 @@ import {
   MIN_LENGTH_PHONE,
 } from "../../constants";
 import { postContact } from "../../Services/ServiceAPIContact";
-import ErrorAlert from "../UI/Alerts/ErrorAlert";
+import ErrorAlert from '../UI/Alerts/ErrorAlert'
 
 const validate = (values) => {
   const errors = {};
@@ -50,7 +50,7 @@ const validate = (values) => {
   return errors;
 };
 
-const ContactForm = async () => {
+const ContactForm = () => {
   const handleSubmit = async (data) => {
     data.name = data.name.replace(/\s+/g, " ").trim();
     try {
