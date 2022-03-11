@@ -52,14 +52,14 @@ const validate = (values) => {
 
 const ContactForm = () => {
   const handleSubmit = async (data) => {
-    data.name = await data.name.replace(/\s+/g, " ").trim();
+    data.name = data.name.replace(/\s+/g, " ").trim();
     try{
-      const response = postContact(data);
+      const response = await postContact(data);
     }
     catch(error){
       return <ErrorAlert />
     }
-  };
+}
 
   return (
     <Formik
