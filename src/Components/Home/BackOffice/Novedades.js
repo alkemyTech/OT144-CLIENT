@@ -4,7 +4,6 @@ import "../../TableStyles.css";
 import SpinnerComponent from "../../UI/spinner/SpinnerComponent";
 import BasicAlert from "../../UI/Alerts/BasicAlert";
 import { store } from "../../../app/store";
-<<<<<<< HEAD
 import {
   getNews,
   postNews,
