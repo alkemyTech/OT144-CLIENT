@@ -18,6 +18,7 @@ module.exports = {
   plugins: [
     'react'
   ],
+  "ignorePatterns": ["/public"],
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off'
