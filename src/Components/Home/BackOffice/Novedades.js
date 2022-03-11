@@ -18,15 +18,14 @@ function Novedades() {
             (async () => {
                 const response = await getNews();
                 store.dispatch(setNewsAction(response.data.data))
-                setDataNews(store.getState().news.news)
+                setDataNews(store.getState().news.news.data)
+                setLoading(false);
             })()
         }
         catch (error) {
             setError(true);
         }
-
     }, [])  
-
 
     if(loading){
         return <SpinnerComponent />
@@ -35,10 +34,6 @@ function Novedades() {
     if(error){
         return <BasicAlert />
     }
-
-   
-
-    
 
     const fetchAddNews = (bodyNews) => {
         try {
@@ -49,7 +44,7 @@ function Novedades() {
             })()
         }
         catch (error) {
-            //Alert addNews failed
+            setError(true);
         }
     };
 
@@ -63,7 +58,7 @@ function Novedades() {
             })()
         }
         catch (error) {
-            //Alert updateNews failed
+            setError(true);
         }
     }
 
@@ -76,7 +71,7 @@ function Novedades() {
             })()
         }
         catch (error) {
-            //Alert deleteNews failed
+            setError(true);
         }
     }
     const body= {name:"pruebaUpdate"}/*REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR */
