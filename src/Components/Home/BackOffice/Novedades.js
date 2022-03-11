@@ -4,29 +4,29 @@ import '../../TableStyles.css';
 import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
 import BasicAlert from '../../UI/Alerts/BasicAlert'
 import { store } from "../../../app/store";
-import { getNews, postNews, updateNews, deleteNews } from "../../../Services/newsService";
+import { getNews, postNews, updateNews, deleteNews } from "../../../Services/NewsApiServices";
 import { setNewsAction, addNewsAction,updateNewsAction, deleteNewsAction } from "../../../actions/actions";
 
 
 function Novedades() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    const [news, setNews] = useState([]);
+    const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
+        try {
+            (async () => {
                 const response = await getNews();
-                setNews(response);
+                store.dispatch(setNewsAction(response.data))
+                setDataNews(store.getState().news.news.data)
                 setLoading(false);
-            } catch (error) {
-                setError(true);
-            }
-        };
-        fetchData();
-    }, []);
+            })()
+        }
+        catch (error) {
+            setError(true);
+        }
 
-
+    }, [])  
 
     if(loading){
         return <SpinnerComponent />
@@ -35,24 +35,6 @@ function Novedades() {
     if(error){
         return <BasicAlert />
     }
-
-    const handleClickUpdate=()=>{}
-
-    const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
-
-    useEffect(() => {
-        try {
-            (async () => {
-                const response = await getNews();
-                store.dispatch(setNewsAction(response.data.data))
-                setDataNews(store.getState().news.news)
-            })()
-        }
-        catch (error) {
-            //Alert setNews failed
-        }
-
-    }, [])  
 
     const fetchAddNews = (bodyNews) => {
         try {
@@ -63,7 +45,7 @@ function Novedades() {
             })()
         }
         catch (error) {
-            //Alert addNews failed
+            setError(true);
         }
     };
 
@@ -77,7 +59,7 @@ function Novedades() {
             })()
         }
         catch (error) {
-            //Alert updateNews failed
+            setError(true);
         }
     }
 
@@ -90,7 +72,7 @@ function Novedades() {
             })()
         }
         catch (error) {
-            //Alert deleteNews failed
+            setError(true);
         }
     }
     const body= {name:"pruebaUpdate"}/*REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR */

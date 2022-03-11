@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TitleComponent from "../../title/TitleComponent";
 import DetailContent from "./DetailContent";
-import { getNewsById } from '../../../Services/Http-news';
+import { getNewsById } from '../../../Services/NewsApiServices';
 import Skeleton from '../../UI/Skeleton/Skeleton';
 import './stylesDetailNew.css'
 
