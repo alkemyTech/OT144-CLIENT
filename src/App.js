@@ -40,36 +40,37 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact element={<HomePage />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/create-activity" element={<ActivitiesForm />} />
-          <Route path="/create-category" element={<CategoriesForm />} />
-          <Route path="/create-news" element={<CreateNews />} />
-          <Route path="/backoffice/organization/edit-home" element={<HomeForm />} />
-          <Route path="/backoffice/slides/:action" element={<RedirecSlides />} />
-          <Route path="/backoffice/slides" element={<SlidesList />} />
-          <Route path="/backoffice/organization/edit" element={<OrganizationEditForm />} />
-          <Route path="/backoffice/organization" element={<DataScreen />} />
-          <Route path="/backoffice/members" element={<MemberList />} />
-          <Route path="/backoffice/categories" element={<Categories />} />
-          <Route path="/backoffice/members/edit" element={<MembersForm />} />
-          <Route path="/backoffice/users" element={<UsersList />} />
-          <Route path="/create-testimonials" element={<TestimonialForm />} />
-          <Route path="/create-user" element={<UserForm />} />
-          <Route path="/create-member" element={<MembersForm />} />
-          <Route path="/create-project" element={<ProjectsForm />} />
-          <Route path="/school-campaign" element={<SchoolCampaign />} />
-          <Route path="/toys-campaign" element={<ToysCampaign />} />
-          <Route path="/about-us" element={<AboutPrincipal />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/backoffice" element={<ScreenDashboardPage />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/backoffice/news" element={<Novedades />} />
-          <Route path="/donar" element={<Donacion />} />
-          <Route path="/gracias" element={<Gracias />} />
-          <Route path="/novedades/:id" element={<DetailNew />} />
-          <Route path="/activities/:id" element={<ActivitiesDetail />} />
-          <Route path="/Novedades" element={<NewsHome />} />
+          <Route path="/" exact element={<HomePage/>} />
+          <Route path="/contact" element={<Contact/>} />
+          <Route path="/create-activity" element={<ActivitiesForm/>} />
+          <Route path="/create-category" element={<CategoriesForm/>} />
+          <Route path="/create-news" element={<CreateNews/>} />
+          <Route path="/backoffice/organization/edit-home" element={<HomeForm/>} />
+          <Route path="/backoffice/slides/:action" element={<RedirecSlides/>} />
+          <Route path="/backoffice/slides" element={<SlidesList/>} />
+          <Route path="/backoffice/organization/edit" element={<OrganizationEditForm/>} />
+          <Route path="/backoffice/organization" element={<DataScreen/>}/>
+          <Route path="/backoffice/members" element={<MemberList/>}/>
+          <Route path="/backoffice/categories" element={<Categories/>}/>
+          <Route path="/backoffice/members/edit" element={<MembersForm/>} />
+          <Route path="/backoffice/users" element={<UsersList/>} />
+          <Route path="/create-testimonials" element={<TestimonialForm/>} />
+          <Route path="/create-user" element={<UserForm/>} />
+          <Route path="/create-member" element={<MembersForm/>} />
+          <Route path="/create-project" element={<ProjectsForm/>} />
+          <Route path="/school-campaign" element={<SchoolCampaign/>} />
+          <Route path="/toys-campaign" element={<ToysCampaign/>} />
+          <Route path="/about-us" element={<AboutPrincipal/>} />
+          <Route path="/login" element={<LoginForm/>} />    
+          <Route path="/backoffice" element={<ScreenDashboardPage/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/backoffice/news" element={<Novedades/>} />
+          <Route path="/donar" element={<Donacion/>} />
+          <Route path="/gracias" element={<Gracias/>} />
+          <Route path="/novedades/:id" element={<DetailNew/>} />
+          <Route path="/activities" element={<Activities/>} />
+          <Route path="/activities/:id" element={<ActivitiesDetail/>} />
+          <Route path="/Novedades" element={<NewsHome/>} />
           <Route path="/newsletter" element={isLogin() ? <Newsletter /> : <UserNotLogged/>}/>
         </Routes>
       </BrowserRouter>

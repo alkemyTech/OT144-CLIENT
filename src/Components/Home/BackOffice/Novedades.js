@@ -25,7 +25,6 @@ function Novedades() {
         catch (error) {
             setError(true);
         }
-
     }, [])  
 
     if(loading){
