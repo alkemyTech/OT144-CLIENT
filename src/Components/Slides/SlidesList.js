@@ -1,51 +1,46 @@
 import React, { useState, useEffect } from "react";
 import Table from "../UI/Table";
 import { Link } from "react-router-dom";
-import { getSlides, deleteSlide } from '../../Services/slidesService'
-
+import { getSlides, deleteSlide } from "../../Services/slidesService";
+import { store } from "../../app/store";
+import { getSliderActions } from "../../actions/slider";
+import SpinnerComponent from "../UI/spinner/SpinnerComponent";
+import ErrorAlert from "../UI/Alerts/ErrorAlert";
 
 export default function SlidesList() {
+  const [slidesData, setSlidesData] = useState([]);
+  const [count, setCount] = useState(0);
+  const [loading, setLoading] = useState(false);
 
-  const [slidesData, setSlidesData] = useState([])
-  const [count, setCount] = useState(0)
-
-
-  useEffect(
-    ()=>{
-
-      const cast = async () => {
-        try{
-            const response = await Promise.resolve(getSlides())
-            return ( setSlidesData(response.data.data) )
-        }catch(error) {
-          return {
-            status: error.response.status,
-            error: error.message,
-            data: error.response.data,
-          }
-        }  
+  useEffect(() => {
+    (async () => {
+      setLoading(true);
+      try {
+        const response = await Promise.resolve(getSlides());
+        store.dispatch(getSliderActions(response.data.data));
+        setLoading(false);
+        return setSlidesData(response.data.data);
+      } catch (error) {
+        return <ErrorAlert />;
       }
-
-      cast()
-    },
-    [count]
-  )
+    })();
+  }, [count]);
 
   const handleClickDelete = async (id) => {
-    setCount(count + 1)
-    try{
-      const response = await Promise.resolve(deleteSlide(id))
+    setCount(count + 1);
+    try {
+      const response = await Promise.resolve(deleteSlide(id));
       return {
         status: response.status,
-        data: response.data
-      }
-    }catch(error) {
-      return {
-        status: error.response.status,
-        error: error.message,
-        data: error.response.data,
-      }
+        data: response.data,
+      };
+    } catch (error) {
+      return <ErrorAlert />;
     }
+  };
+
+  if (loading) {
+    return <SpinnerComponent loading={loading} />;
   }
 
   return (
@@ -55,7 +50,7 @@ export default function SlidesList() {
           title: "Listado Slides",
           button: () => (
             <Link to="/backoffice/slides/create">
-              <button className="btnAddTable" >Crear Slide</button>
+              <button className="btnAddTable">Crear Slide</button>
             </Link>
           ),
         }}
@@ -77,7 +72,12 @@ export default function SlidesList() {
               <Link to="/backoffice/slides/edit">
                 <button className="btnUpdateTable">Editar</button>
               </Link>
-              <button className="btnDeleteTable" onClick={ () => handleClickDelete(id) }>Eliminar</button>
+              <button
+                className="btnDeleteTable"
+                onClick={() => handleClickDelete(id)}
+              >
+                Eliminar
+              </button>
             </td>
           ),
         }}
