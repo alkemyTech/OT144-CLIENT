@@ -26,16 +26,6 @@ function Novedades() {
         fetchData();
     }, []);
 
-
-
-    if(loading){
-        return <SpinnerComponent />
-    }
-
-    if(error){
-        return <BasicAlert />
-    }
-
     const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
 
     useEffect(() => {
@@ -99,6 +89,14 @@ function Novedades() {
 
     const handleClickDelete = (event) => {
         fetchDeleteNews(parseInt(event.target.id))
+    }
+    
+    if(loading){
+        return <SpinnerComponent />
+    }
+
+    if(error){
+        return <BasicAlert />
     }
 
     return (
