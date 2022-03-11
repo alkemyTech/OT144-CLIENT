@@ -8,14 +8,17 @@
     height: 110px;
     justify-content: space-between;
     padding: 0 20px;
+    position: fixed;
+    top:0;
+    width: 100%;
 }
 
 .containerLogo img{
-    width: 180px;
+    width: 170px;
 }
 
 .containerHeaderNav ul, .containerHeaderButtons{
-    gap:15px;
+    gap:13px;
 }
 
 .containerHeaderNav ul li{
@@ -28,6 +31,7 @@
 }
 .containerHeaderButtons button{
     background-color: var(--lightGrey);
+    border:none;
     border-radius: 8px;
     padding: 7px 20px;
     transition: 0.5s;

@@ -51,7 +51,7 @@ export const getRequest = async (endpoint, id = null) => {
       url: !id ? `${baseURL}${endpoint}` : `${baseURL}${endpoint}/${id}`,
       headers: {
         "Content-Type": "application/json",
-        "Authorization": getToken(),
+        Authorization: getToken(),
       },
     });
     return {
