@@ -44,17 +44,16 @@ export const postRequest = async (url, bodyData) => {
   }
 };
 
-export const getRequest = async (url, id = null) => {
+export const getRequest = async (endpoint, id = null) => {
   try {
     const response = await axios({
       method: "get",
-      url: id === null ? `${baseURL}${url}` : `${baseURL}${url}/${id}`,
+      url: !id ? `${baseURL}${endpoint}` : `${baseURL}${endpoint}/${id}`,
       headers: {
         "Content-Type": "application/json",
-        Authorization: getToken(),
+        "Authorization": getToken(),
       },
     });
-
     return {
       status: response.status,
       data: response.data,
@@ -93,30 +92,30 @@ export const patchRequest = async(enpoint, id, data) => {
         }
     }
 }
+
 export const deleteRequest = async (url, id) => {
     try{
         const response = await axios({
             method: 'delete',
             url: `${baseURL}${url}/${id}`,
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': getToken(),
-                ...config.headers
-                }
-        })
-        
+              "Content-Type": "application/json",
+              Authorization: getToken(),
+            },
+        });
+      
         return {
-            status: response.status,
-            data: response.data
-        }
-    } catch (error) {
+          status: response.status,
+          data: response.data,
+        };
+      } catch (error) {
         return {
-            status: error.response.status,
-            error: error.message,
-            data: error.response.data
-        }
-    }
-}
+          status: error.response.status,
+          error: error.message,
+          data: error.response.data,
+        };
+      }
+};
 
 export const putRequest = async (endpoint, id, body) => {
   try {
