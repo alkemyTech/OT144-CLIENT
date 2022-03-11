@@ -44,17 +44,16 @@ export const postRequest = async (url, bodyData) => {
   }
 };
 
-export const getRequest = async (url, id = null) => {
+export const getRequest = async (endpoint, id = null) => {
   try {
     const response = await axios({
       method: "get",
-      url: id === null ? `${baseURL}${url}` : `${baseURL}${url}/${id}`,
+      url: !id ? `${baseURL}${endpoint}` : `${baseURL}${endpoint}/${id}`,
       headers: {
         "Content-Type": "application/json",
-        Authorization: getToken(),
+        "Authorization": getToken(),
       },
     });
-
     return {
       status: response.status,
       data: response.data,

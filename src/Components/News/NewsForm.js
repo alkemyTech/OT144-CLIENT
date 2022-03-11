@@ -6,7 +6,7 @@ import CKEditorNews from "./CKEditorNews";
 import { getBase64 } from "../../utils";
 import { MIN_LENGTH_TITLE_NEWS } from "../../constants";
 import ErrorAlert from "../UI/Alerts/ErrorAlert";
-import { getNews, postNews, updateNews  } from "../../Services/newsService";
+import { getNews, postNews, updateNews  } from "../../Services/NewsApiServices";
 
 const validate = (values) => {
   const errors = {};

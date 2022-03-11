@@ -4,6 +4,7 @@ import "../../TableStyles.css";
 import SpinnerComponent from "../../UI/spinner/SpinnerComponent";
 import BasicAlert from "../../UI/Alerts/BasicAlert";
 import { store } from "../../../app/store";
+<<<<<<< HEAD
 import {
   getNews,
   postNews,
@@ -58,6 +59,78 @@ function Novedades() {
       })();
     } catch (error) {
       //Alert addNews failed
+=======
+import { getNews, postNews, updateNews, deleteNews } from "../../../Services/NewsApiServices";
+import { setNewsAction, addNewsAction,updateNewsAction, deleteNewsAction } from "../../../actions/actions";
+
+
+function Novedades() {
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+    const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
+
+    useEffect(() => {
+        try {
+            (async () => {
+                const response = await getNews();
+                store.dispatch(setNewsAction(response.data))
+                setDataNews(store.getState().news.news.data)
+                setLoading(false);
+            })()
+        }
+        catch (error) {
+            setError(true);
+        }
+
+    }, [])  
+
+    if(loading){
+        return <SpinnerComponent />
+    }
+
+    if(error){
+        return <BasicAlert />
+    }
+
+    const fetchAddNews = (bodyNews) => {
+        try {
+            (async () => {
+                const response = await postNews(bodyNews);
+                store.dispatch(addNewsAction(response.data.data))
+                setDataNews(store.getState().news)
+            })()
+        }
+        catch (error) {
+            setError(true);
+        }
+    };
+
+    //Utilizar en la pagina de crear novedad
+    const fetchUpdateNews = (bodyNews) => {
+        try {
+            (async () => {
+                await updateNews(bodyNews.id, bodyNews);
+                store.dispatch(updateNewsAction(bodyNews))
+                setDataNews(store.getState().news.news);
+            })()
+        }
+        catch (error) {
+            setError(true);
+        }
+    }
+
+    const fetchDeleteNews = (id) => {
+        try {
+            (async () => {
+                await deleteNews(id);
+                store.dispatch(deleteNewsAction(id))
+                setDataNews(store.getState().news.news);
+            })()
+        }
+        catch (error) {
+            setError(true);
+        }
+>>>>>>> 679c110cf90c2ce8ef572b30ff357c8c4c53f162
     }
   };
 
