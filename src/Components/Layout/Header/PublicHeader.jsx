@@ -1,36 +1,37 @@
 import { Link } from "react-router-dom"
 import Logo from "./LOGO-SOMOS MAS.png"
+import "./PublicHeader.css"
 
 export default function PublicHeader() {
     const datos = [
-        { nombre: "Inicio", url: "/" }, 
+        { nombre: "Inicio", url: "/" },
         { nombre: "Nosotros", url: "/about-us" },
         { nombre: "Actividades", url: "/activities" },
         { nombre: "Novedades", url: "/novedades" },
         { nombre: "Testimonios", url: "" },
         { nombre: "Contacto", url: "/contact" },
-        { nombre: "Contribuye", url: "" },
+        { nombre: "Contribuye", url: "/donar" },
     ]
 
     return (
-        <header>
-            <div>
-                <img src={Logo} alt= "logo"/>
+        <header className="containerHeader">
+            <div className="containerLogo">
+                <img src={Logo} alt="logo" />
             </div>
-            <nav>
+            <nav className="containerHeaderNav">
                 <ul>
                     {datos.map((dato, index) => {
-                        return(
-                        <li key={index}>
-                            <Link to={dato.url}>{dato.nombre}</Link>
-                        </li>
+                        return (
+                            <li key={index} id={dato.url === window.location.pathname ? "activePath" : null}>
+                                <Link to={dato.url} >{dato.nombre}</Link>
+                            </li>
                         )
                     })}
                 </ul>
             </nav>
-            <div>
-                <button>Inicia sesión</button>
-                <button>Registrate</button>
+            <div className="containerHeaderButtons">
+                <Link to="/login"><button>Inicia sesión</button></Link>
+                <Link to="/register"><button>Registrate</button></Link>
             </div>
         </header>
     )

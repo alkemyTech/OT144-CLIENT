@@ -1,0 +1,51 @@
+.containerHeader, .containerHeaderNav ul, .containerHeaderButtons{
+    display: flex;
+    align-items: center;
+}
+
+.containerHeader{
+    background-color: var(--darkBlue);
+    height: 110px;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.containerLogo img{
+    width: 180px;
+}
+
+.containerHeaderNav ul, .containerHeaderButtons{
+    gap:15px;
+}
+
+.containerHeaderNav ul li{
+    list-style: none;
+}
+
+.containerHeaderNav ul li a{
+    color: white;
+    font-size: 1.25rem;
+}
+.containerHeaderButtons button{
+    background-color: var(--lightGrey);
+    border-radius: 8px;
+    padding: 7px 20px;
+    transition: 0.5s;
+}
+
+.containerHeaderButtons button{
+    color: var(--darkBlue);
+    font-size: 1.25rem;
+}
+
+.containerHeaderButtons button:hover{
+    background-color: var(--lightBlue);
+    transform: scale(1.1);
+}
+
+#activePath a{
+    background-color: var(--lightGrey);
+    border-radius: 5px;
+    color: var(--darkBlue);
+    padding: 2px 8px;
+}
