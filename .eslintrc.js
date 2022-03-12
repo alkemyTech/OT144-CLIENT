@@ -23,4 +23,9 @@ module.exports = {
 		'react/prop-types': 'off',
 		indent: ['error', 'tab'],
 	},
+	settings: {
+		react: {
+			version: 'detect',
+		},
+	},
 }
