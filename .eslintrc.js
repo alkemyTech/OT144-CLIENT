@@ -3,7 +3,12 @@ module.exports = {
 		browser: true,
 		es2021: true,
 	},
-	extends: ['plugin:react/recommended', 'standard', 'prettier'],
+	extends: [
+		'plugin:react/recommended',
+		'standard',
+		'prettier',
+		'plugin:sonarjs/recommended',
+	],
 	parserOptions: {
 		ecmaFeatures: {
 			jsx: true,
@@ -11,7 +16,7 @@ module.exports = {
 		ecmaVersion: 12,
 		sourceType: 'module',
 	},
-	plugins: ['react'],
+	plugins: ['react', 'sonarjs'],
 	ignorePatterns: ['/public'],
 	rules: {
 		'react/react-in-jsx-scope': 'off',
