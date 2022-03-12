@@ -5,49 +5,9 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 100px;
+    padding: 10px 50px;
     background-color: var(--darkBlue);
     width: 100%;
-}
-
-#navegador{
-    position: relative;
-    cursor: default;
-}
-
-.nav-menu{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-menu li{
-    display: inline;
-    margin-right: 25px;
-    color: var(--lightGrey);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.nav-menu li p{
-    margin: 0;
-}
-
-.nav-menu a{
-    display: inline-block;
-    color: var(--lightGrey);
-    font-size: var(--text2);
-    text-decoration: none;
-    text-align: center;
-}
-
-.nav-menu li:hover{
-    transform: scale(1.1);
-    transition: 0.5s;
 }
 
 /*MENU HAMBURGUESA*/
@@ -55,9 +15,8 @@ header{
     position:relative;
     cursor: pointer;
     top: 38px;
-    right:20px;
+    right:50px;
     z-index:999999;
-    display: none;
     position: fixed;
     line-height: 30px;
 }
@@ -72,11 +31,6 @@ header{
 }
 /*FIN MENU HAMBURGUESA*/
 
-/*NAME ONG*/
-.nameOng{
-    display: none;
-}
-/*FIN NAME ONG*/
 
 @media all and (max-width: 600px){
     header{
@@ -86,97 +40,11 @@ header{
 
 
 @media all and (max-width: 960px){
-
     header{
         padding: 10px 20px;
     }
 
-    /*NAME ONG*/
-    .nameOng{
-        display: block;
-        color: var(--lightGrey);
-        font-size: var(--heading5);
-        position: absolute;
-        top: 35px;
-        left: 15px;
-        z-index: 999999999;
-    }
-    /*FIN NAME ONG*/
-
-    /*MENU HAMBURGUESA*/
     .menu-btn{
-        display:block;
+        right:20px;
     }
-    
-    header #navegador ul.nav-menu{
-        display: block;
-        transition:transform .5s ease-in-out;
-        transform:translateX(-400px);
-        background: var(--black);
-        padding: 70px 0;
-        margin: 0;
-        height: 100%;
-        width: 170px;
-    }
-    
-    header #navegador.show ul.nav-menu{
-        transform: translate(-20px);
-        transition:transform .5s ease-in-out;
-        margin: 0;
-        padding: 70px 0;
-        z-index: 99999999;
-        height: 100%;
-        display: block;
-        width: 173px;
-    }
-    
-    header #navegador{
-        height: 100%;
-        top: 0;
-        position: fixed;
-        width: 150px;
-        padding: 0;
-        display: block;
-        z-index: 99999999;
-        background: var(--black);
-        transform:translateX(-400px);
-        transition:transform .5s ease-in-out;
-    }
-    
-    header #navegador.show{
-        transform: translate(-0px);
-    }
-    
-    header #navegador ul li{
-        margin: 20px 20px 0 20px;
-        text-align: center;
-        display: block;
-        position: relative;
-        top: 15%;
-    }    
-    
-    header #navegador ul li a{
-        color: var(--lightGrey);
-    }
-    /*FIN MENU HAMBURGUESA*/
-    
-    /*BOTONERA DE PERFIL*/
-    
-    #navegador .nav-menu #solapa {
-    display: none;
-    margin: 0;
-    position: absolute;
-    top: 420px;
-    }
-    
-    #navegador .nav-menu #solapa li{
-    display: block;
-    }
-    
-    #navegador .nav-menu #solapa.showw{
-    display: block;
-    transition: all 1s;
-    }
-    
-    /*FIN BOTONERA DE PERFIL*/
 }
