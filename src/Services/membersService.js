@@ -1,9 +1,4 @@
-import {
-  getRequest,
-  postRequest,
-  deleteRequest,
-  putRequest,
-} from "./privateApiService";
+import {getRequest, postRequest, deleteRequest, putRequest} from "./privateApiService"
 
 export const getAllMembers = async () => {
   const endPoint = `${process.env.REACT_APP_URL_MEMBERS}`;
