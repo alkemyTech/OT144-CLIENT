@@ -13,7 +13,7 @@ function Novedades() {
     const [error, setError] = useState(false);
     const [news, setNews] = useState([]);
     const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
-
+    
     useEffect(() => {
         try {
             (async () => {
@@ -39,8 +39,7 @@ function Novedades() {
         catch (error) {
             //Alert setNews failed
         }
-
-    }, []) 
+    }, [])  
 
     if(loading){
         return <SpinnerComponent />

@@ -1,11 +1,11 @@
 import Swal from "sweetalert2";
 
-const ErrorAlert = (
+const ErrorAlert = ({
   type = "error",
   title = "Error",
   text = "Ha ocurrido un error, por favor inténtelo de nuevo mas tarde.",
   timer = 2000
-) => {
+}) => {
   return Swal.fire({
     icon: type,
     title,
