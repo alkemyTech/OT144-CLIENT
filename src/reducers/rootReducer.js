@@ -5,6 +5,7 @@ import newsReducer from "./newsReducer";
 import categoriesReducer from "./categories";
 import activitiesReducer from "./activitiesReducer";
 import usersReducer from "./usersReducer";
+import sliderReducer from "./sliderReducer";
 
 export const rootReducer = combineReducers({
   auth: authReducer,
@@ -13,4 +14,5 @@ export const rootReducer = combineReducers({
   activities: activitiesReducer,
   users: usersReducer,
   members: memberReducer,
+  sliders: sliderReducer,
 });
