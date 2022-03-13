@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomeForm from './Components/Home/HomeForm';
 import ActivitiesForm from './Components/Activities/ActivitiesForm/ActivitiesForm';
 import CategoriesForm from './Components/Categories/CategoriesForm';
@@ -30,6 +30,9 @@ import ActivitiesDetail from './Components/Activities/Detail/ActivitiesDetail';
 import Categories from './Components/Home/BackOffice/Categories';
 import RedirecSlides from './Components/Slides/RedirecSlides'
 import SlidesList from './Components/Slides/SlidesList';
+import Newsletter from './Components/Newsletter/Newsletter';
+import UserNotLogged from './Components/UI/Errors/UserNotLogged';
+import { isLogin } from './Components/UI/Errors/UserNotLogged';
 
 function App() {
 
@@ -68,6 +71,7 @@ function App() {
           <Route path="/activities" element={<Activities/>} />
           <Route path="/activities/:id" element={<ActivitiesDetail/>} />
           <Route path="/Novedades" element={<NewsHome/>} />
+          <Route path="/newsletter" element={isLogin() ? <Newsletter /> : <UserNotLogged/>}/>
         </Routes>
       </BrowserRouter>
     </>

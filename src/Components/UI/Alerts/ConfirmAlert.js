@@ -1,12 +1,12 @@
 import Swal from "sweetalert2";
 
-const ConfirmAlert = async (
+const ConfirmAlert = async ({
   type = "warning",
   title = "",
   text = "",
   confirmButtonText = "Sí",
   cancelButtonText = "No"
-) => {
+}) => {
   const result = await Swal.fire({
     icon: type,
     title,

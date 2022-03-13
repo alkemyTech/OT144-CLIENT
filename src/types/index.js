@@ -13,6 +13,11 @@ export const NEWS_ADD = "[NEWS]Add";
 export const NEWS_DELETE = "[NEWS]Delete";
 export const NEWS_UPDATE = "[NEWS]Update";
 
+export const ACTIVITIES_GET = "[ACTIVITIES]Get";
+export const ACTIVITIES_ADD = "[ACTIVITIES]Add";
+export const ACTIVITIES_DELETE = "[ACTIVITIES]Delete";
+export const ACTIVITIES_UPDATE = "[ACTIVITIES]Update"; 
+
 export const USERS_GET = "[USERS]Get";
 export const USERS_ADD = "[USERS]Add";
 export const USERS_DELETE = "[USERS]Delete";
