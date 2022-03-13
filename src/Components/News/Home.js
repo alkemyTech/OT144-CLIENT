@@ -7,6 +7,8 @@ import { store } from "../../app/store";
 import { setNewsAction } from "../../actions/actions";
 import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
+import { ReactSocialPlugins } from "react-social-plugins";
+
 
 export default function Home() {
 
@@ -38,6 +40,7 @@ export default function Home() {
   }
   return (
     <div style={{ width: "80%", margin: "auto", marginTop: "3rem" }}>
+      <ReactSocialPlugins/>
       <Title title={"Novedades"} />
       <div className="new-list-container">
         {dataNews.map((data, index) => (
