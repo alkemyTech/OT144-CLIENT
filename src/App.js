@@ -33,6 +33,7 @@ import SlidesList from './Components/Slides/SlidesList';
 import Newsletter from './Components/Newsletter/Newsletter';
 import UserNotLogged from './Components/UI/Errors/UserNotLogged';
 import { isLogin } from './Components/UI/Errors/UserNotLogged';
+import PageNoFound from './Components/Auth/PageNoFound';
 
 function App() {
 
@@ -72,6 +73,7 @@ function App() {
           <Route path="/activities/:id" element={<ActivitiesDetail/>} />
           <Route path="/Novedades" element={<NewsHome/>} />
           <Route path="/newsletter" element={isLogin() ? <Newsletter /> : <UserNotLogged/>}/>
+          <Route component={PageNoFound} />
         </Routes>
       </BrowserRouter>
     </>

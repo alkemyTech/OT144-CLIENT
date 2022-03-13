@@ -21,10 +21,10 @@ function Novedades() {
                 store.dispatch(setNewsAction(response.data))
                 setDataNews(store.getState().news.news.data)
                 setLoading(false);
-            } catch (error) {
+            })} catch (error) {
                 setError(true);
             }
-        };
+      
         fetchData();
     }, []);
 
@@ -41,55 +41,48 @@ function Novedades() {
         }
     }, [])  
 
-    if(loading){
-        return <SpinnerComponent />
-    }
-
-    if(error){
-        return <BasicAlert />
-    }
-
+    
     const fetchAddNews = (bodyNews) => {
-        try {
-            (async () => {
-                const response = await postNews(bodyNews);
-                store.dispatch(addNewsAction(response.data.data))
-                setDataNews(store.getState().news)
-            })()
-        }
-        catch (error) {
-            setError(true);
-        }
+      try {
+        (async () => {
+          const response = await postNews(bodyNews);
+          store.dispatch(addNewsAction(response.data.data))
+          setDataNews(store.getState().news)
+        })()
+      }
+      catch (error) {
+        setError(true);
+      }
     };
-
+    
     //Utilizar en la pagina de crear novedad
     const fetchUpdateNews = (bodyNews) => {
-        try {
-            (async () => {
-                await updateNews(bodyNews.id, bodyNews);
-                store.dispatch(updateNewsAction(bodyNews))
-                setDataNews(store.getState().news.news);
-            })()
-        }
-        catch (error) {
-            setError(true);
-        }
+      try {
+        (async () => {
+          await updateNews(bodyNews.id, bodyNews);
+          store.dispatch(updateNewsAction(bodyNews))
+          setDataNews(store.getState().news.news);
+        })()
+      }
+      catch (error) {
+        setError(true);
+      }
     }
-
+    
     const fetchDeleteNews = (id) => {
-        try {
-            (async () => {
-                await deleteNews(id);
-                store.dispatch(deleteNewsAction(id))
-                setDataNews(store.getState().news.news);
-            })()
-        }
-        catch (error) {
-            setError(true);
-        }
+      try {
+        (async () => {
+          await deleteNews(id);
+          store.dispatch(deleteNewsAction(id))
+          setDataNews(store.getState().news.news);
+        })()
+      }
+      catch (error) {
+        setError(true);
+      }
     }
   };
-
+  
   //Utilizar en la pagina de crear novedad
   const fetchUpdateNews = (bodyNews) => {
     try {
@@ -102,7 +95,7 @@ function Novedades() {
       //Alert updateNews failed
     }
   };
-
+  
   const fetchDeleteNews = (id) => {
     try {
       (async () => {
@@ -117,23 +110,31 @@ function Novedades() {
   const body = {
     name: "pruebaUpdate",
   }; /*REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR */
-
+  
   const handleClickUpdate = (body, event) => {
     fetchUpdateNews({ id: parseInt(event.target.id), ...body });
   };
-
+  
   const handleClickDelete = (event) => {
     fetchDeleteNews(parseInt(event.target.id));
   };
-
+  
   if (loading) {
     return <SpinnerComponent />;
   }
-
+  
   if (error) {
     return <BasicAlert />;
   }
+  
+  if(loading){
+      return <SpinnerComponent />
+  }
 
+  if(error){
+      return <BasicAlert />
+  }
+  
   return (
     <section className="sectionTable">
       <div className="table-container-responsive">
