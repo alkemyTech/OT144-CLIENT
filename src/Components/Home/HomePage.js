@@ -3,6 +3,7 @@ import SpinnerComponent from "../UI/spinner/SpinnerComponent";
 import ErrorAlert from "../UI/Alerts/ErrorAlert";
 import "./stylesHomePage.css";
 import { getSlides } from "../../Services/slidesService";
+import HeaderComponent from "./BackOffice/HeaderComponent";
 
 function HomePage() {
   const [loading, setLoading] = useState(false);
@@ -41,6 +42,9 @@ function HomePage() {
 
   return (
     <main className="homePage">
+
+      <HeaderComponent />
+
       <section className="containerSlider">
         <h2>Aqui va el componente Slider</h2>
       </section>

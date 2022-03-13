@@ -8,7 +8,6 @@ import {
   MIN_LENGTH_PHONE,
 } from "../../constants";
 import { postContact } from "../../Services/ServiceAPIContact";
-import ErrorAlert from "../UI/Alerts/ErrorAlert";
 import BasicAlert from "../UI/Alerts/BasicAlert";
 
 const validate = (values) => {
@@ -60,7 +59,7 @@ const ContactForm = () => {
     } catch (error) {
       return <ErrorAlert />;
     }
-  };
+}
 
   return (
     <Formik

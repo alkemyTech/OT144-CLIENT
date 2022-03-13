@@ -4,62 +4,6 @@ import "../../TableStyles.css";
 import SpinnerComponent from "../../UI/spinner/SpinnerComponent";
 import BasicAlert from "../../UI/Alerts/BasicAlert";
 import { store } from "../../../app/store";
-<<<<<<< HEAD
-import {
-  getNews,
-  postNews,
-  updateNews,
-  deleteNews,
-} from "../../../Services/newsService";
-import {
-  setNewsAction,
-  addNewsAction,
-  updateNewsAction,
-  deleteNewsAction,
-} from "../../../actions/actions";
-
-function Novedades() {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [news, setNews] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getNews();
-        setNews(response);
-        setLoading(false);
-      } catch (error) {
-        setError(true);
-      }
-    };
-    fetchData();
-  }, []);
-
-  const [dataNews, setDataNews] = useState([]); //news a renderizar con el loading
-
-  useEffect(() => {
-    try {
-      (async () => {
-        const response = await getNews();
-        store.dispatch(setNewsAction(response.data.data));
-        setDataNews(store.getState().news.news);
-      })();
-    } catch (error) {
-      //Alert setNews failed
-    }
-  }, []);
-
-  const fetchAddNews = (bodyNews) => {
-    try {
-      (async () => {
-        const response = await postNews(bodyNews);
-        store.dispatch(addNewsAction(response.data.data));
-        setDataNews(store.getState().news);
-      })();
-    } catch (error) {
-      //Alert addNews failed
-=======
 import { getNews, postNews, updateNews, deleteNews } from "../../../Services/NewsApiServices";
 import { setNewsAction, addNewsAction,updateNewsAction, deleteNewsAction } from "../../../actions/actions";
 
@@ -67,6 +11,7 @@ import { setNewsAction, addNewsAction,updateNewsAction, deleteNewsAction } from 
 function Novedades() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+    const [news, setNews] = useState([]);
     const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
 
     useEffect(() => {
@@ -76,13 +21,26 @@ function Novedades() {
                 store.dispatch(setNewsAction(response.data))
                 setDataNews(store.getState().news.news.data)
                 setLoading(false);
+            } catch (error) {
+                setError(true);
+            }
+        };
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        try {
+            (async () => {
+                const response = await getNews();
+                store.dispatch(setNewsAction(response.data.data))
+                setDataNews(store.getState().news.news)
             })()
         }
         catch (error) {
-            setError(true);
+            //Alert setNews failed
         }
 
-    }, [])  
+    }, []) 
 
     if(loading){
         return <SpinnerComponent />
@@ -130,7 +88,6 @@ function Novedades() {
         catch (error) {
             setError(true);
         }
->>>>>>> 679c110cf90c2ce8ef572b30ff357c8c4c53f162
     }
   };
 
