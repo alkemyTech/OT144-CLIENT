@@ -2,8 +2,9 @@ import React from "react";
 import ContactForm from "./ContactForm";
 import "./Contact.css";
 import TitleComponent from "../title/TitleComponent";
-import { getContact } from "../../Services/ContactApiService";
+import { getContact } from "../../Services/ServiceAPIContact";
 import ErrorAlert from '../UI/Alerts/ErrorAlert';
+
 
 const Contact = ({img, name, phone, email}) => {
 

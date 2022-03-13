@@ -4,15 +4,16 @@ import '../../TableStyles.css';
 import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
 import BasicAlert from '../../UI/Alerts/BasicAlert'
 import { store } from "../../../app/store";
-import { getNews, postNews, updateNews, deleteNews } from "../../../Services/newsService";
+import { getNews, postNews, updateNews, deleteNews } from "../../../Services/NewsApiServices";
 import { setNewsAction, addNewsAction,updateNewsAction, deleteNewsAction } from "../../../actions/actions";
 
 
 function Novedades() {
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [news, setNews] = useState([]);
-
+    
+    const [loading, setLoading] = useState(true);
+    const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -28,16 +29,8 @@ function Novedades() {
 
 
 
-    if(loading){
-        return <SpinnerComponent />
-    }
-
-    if(error){
-        return <BasicAlert />
-    }
-
-    const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
-
+    
+    
     useEffect(() => {
         try {
             (async () => {
@@ -92,15 +85,23 @@ function Novedades() {
         }
     }
     const body= {name:"pruebaUpdate"}/*REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR */
-
+    
     const handleClickUpdate = (body, event) => {
         fetchUpdateNews({id: parseInt(event.target.id), ...body});
-     }
-
+    }
+    
     const handleClickDelete = (event) => {
         fetchDeleteNews(parseInt(event.target.id))
     }
+    
+    if(loading){
+        return <SpinnerComponent />
+    }
 
+    if(error){
+        return <BasicAlert />
+    }
+    
     return (
         <section className="sectionTable">
             <div className='table-container-responsive'>
