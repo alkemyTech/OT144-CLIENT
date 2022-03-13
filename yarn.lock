@@ -11877,15 +11877,9 @@
     "schema-utils" "^3.0.0"
 
 "url-parse@^1.4.3", "url-parse@^1.5.3":
-<<<<<<< HEAD
-  "integrity" "sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ=="
-  "resolved" "https://registry.npmjs.org/url-parse/-/url-parse-1.5.10.tgz"
-  "version" "1.5.10"
-=======
   "integrity" "sha512-xj3QdUJ1DttD1LeSfvJlU1eiF1RvBSBfUu8GplFGdUzSO28y5yUtEl7wb//PI4Af6qh0o/K8545vUmucRrfWsw=="
   "resolved" "https://registry.npmjs.org/url-parse/-/url-parse-1.5.6.tgz"
   "version" "1.5.6"
->>>>>>> 2a7635f3e172675b3ae6285f9ce9a2e14505b529
   dependencies:
     "querystringify" "^2.1.1"
     "requires-port" "^1.0.0"
