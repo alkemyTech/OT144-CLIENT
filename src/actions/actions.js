@@ -22,6 +22,8 @@ export const register = (user) => {
 
 export const logout = () => ({ type: types.AUTH_LOGOUT });
 
+
+
 export const setCategoriesActions = (categories) => ({
   type: types.CATEGORIES_SET,
   payload: categories,
@@ -56,6 +58,25 @@ export const updateNewsAction = (news) => ({ type: types.NEWS_UPDATE, payload: n
 export const deleteNewsAction = (id) => ({ type: types.NEWS_DELETE, payload: id });
 
 
+export const setActivitiesAction = (activity) => ({ 
+  type: types.ACTIVITIES_GET, 
+  payload: activity 
+});
+
+export const addActivitiesAction = (activity) => ({ 
+  type: types.ACTIVITIES_ADD, 
+  payload: activity 
+});
+
+export const updateActivitiesAction = (activity) => ({ 
+  type: types.ACTIVITIES_UPDATE, 
+  payload: activity 
+});
+
+export const deleteActivitiesAction = (id) => ({ 
+  type: types.ACTIVITIES_DELETE, 
+  payload: id 
+});
 export const getUsersAction = (users) => ({ type: types.USERS_GET, payload: users });
 
 export const addUsersAction = (users) => ({ type: types.USERS_ADD, payload: users });
