@@ -28,7 +28,7 @@ const Actividades = () => {
     catch (error) {
       setDataLoading({ ...dataLoading, error: error, loading: false })
     }
-  }, []);
+  }, [dataLoading]);
 
   if (dataLoading.loading) {
     return  <div className="spinner-container">
@@ -40,7 +40,7 @@ const Actividades = () => {
     return <ErrorAlert />
   }
 
-  {
+  
     return (
       <div>
         <TitleComponent
@@ -50,7 +50,7 @@ const Actividades = () => {
           {dataLoading.data.map((activity, index) => <Card key={index} cardItem={activity} />)}
         </div>
       </div>)
-  }
+  
 }
 
 export default Actividades
