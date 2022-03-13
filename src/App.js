@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomeForm from './Components/Home/HomeForm';
 import ActivitiesForm from './Components/Activities/ActivitiesForm/ActivitiesForm';
 import CategoriesForm from './Components/Categories/CategoriesForm';
@@ -11,7 +11,7 @@ import ToysCampaign from './Campaigns/Toys/ToysCampaign';
 import MemberList from './Components/Members/MemberList';
 import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
-import Actividades from './Components/Activities/Actividades';
+import Activities from './Components/Activities/Actividades';
 import AboutPrincipal from './Components/About/AboutPrincipal';
 import LoginForm from './Components/Auth/LoginForm';
 import OrganizationEditForm from './Components/Home/BackOffice/OrganizationEditForm';
@@ -30,6 +30,9 @@ import ActivitiesDetail from './Components/Activities/Detail/ActivitiesDetail';
 import Categories from './Components/Home/BackOffice/Categories';
 import RedirecSlides from './Components/Slides/RedirecSlides'
 import SlidesList from './Components/Slides/SlidesList';
+import Newsletter from './Components/Newsletter/Newsletter';
+import UserNotLogged from './Components/UI/Errors/UserNotLogged';
+import { isLogin } from './Components/UI/Errors/UserNotLogged';
 
 function App() {
 
@@ -65,8 +68,10 @@ function App() {
           <Route path="/donar" element={<Donacion/>} />
           <Route path="/gracias" element={<Gracias/>} />
           <Route path="/novedades/:id" element={<DetailNew/>} />
+          <Route path="/activities" element={<Activities/>} />
           <Route path="/activities/:id" element={<ActivitiesDetail/>} />
           <Route path="/Novedades" element={<NewsHome/>} />
+          <Route path="/newsletter" element={isLogin() ? <Newsletter /> : <UserNotLogged/>}/>
         </Routes>
       </BrowserRouter>
     </>

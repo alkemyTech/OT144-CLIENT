@@ -1,5 +1,5 @@
 import React from 'react';
-import '../CardListStyles.css';
+import '../UI/Card/CardListStyles.css'; 
 
 const ActivitiesList = () => {
     const activitiesMock = [
