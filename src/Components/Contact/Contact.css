@@ -1,47 +1,46 @@
 .alert-danger {
-  color: #b50400;
+	color: #b50400;
 }
 .contact-container {
-  margin: 15px auto;
-  width: 60%;
-  max-width: 700px;
+	margin: 15px auto;
+	width: 60%;
+	max-width: 700px;
 }
 .form-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 .btn-submit {
-  padding: 10px 15px;
-  border-radius: 5px;
-  background-color: #18a0fb;
-  border: none;
-  color: #fff;
-  max-width: 128px;
-  cursor: pointer;
+	padding: 10px 15px;
+	border-radius: 5px;
+	background-color: #18a0fb;
+	border: none;
+	color: #fff;
+	max-width: 128px;
+	cursor: pointer;
 }
 .btn-submit:hover {
-  filter: brightness(1.1);
+	filter: brightness(1.1);
 }
 
 @media screen and (max-width: 1024px) {
-  .contact-container {
-    width: 80%;
-  }
+	.contact-container {
+		width: 80%;
+	}
 }
 
 @media screen and (max-width: 768px) {
-  .contact-container {
-    width: 90%;
-  }
+	.contact-container {
+		width: 90%;
+	}
 }
 
-
 .subtitle {
-  text-align: center;
-  font-weight: bold;
+	text-align: center;
+	font-weight: bold;
 }
 
 .contact-list {
-  list-style-type: none;
+	list-style-type: none;
 }
