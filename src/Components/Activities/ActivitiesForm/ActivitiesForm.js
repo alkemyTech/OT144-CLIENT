@@ -5,6 +5,7 @@ import { Formik } from 'formik'
 import postActivities from './api/postActivities'
 import putActivities from './api/putActivities'
 import './ActivitiesForm.css'
+import { getBase64 } from '../../../utils'
 
 const ActivitiesForm = ({ props }) => {
 	const [initialValues, setInitialValues] = useState({
@@ -28,17 +29,6 @@ const ActivitiesForm = ({ props }) => {
 			})
 		}
 	}, [])
-
-	const getBase64 = (file) => {
-		const reader = new FileReader()
-		reader.readAsDataURL(file)
-		reader.onload = () => {
-			return reader.result
-		}
-		reader.onerror = (error) => {
-			console.log('Error: ', error)
-		}
-	}
 
 	const validate = (values) => {
 		const errors = {}

@@ -13,9 +13,8 @@ const getToken = () => {
 
 const config = {
 	headers: {
-		'Content-Type': 'application/json',
-		Authorization: getToken(),
 		Group: 144,
+		'Content-Type': 'application/json',
 	},
 }
 
@@ -26,6 +25,7 @@ export const postRequest = async (url, bodyData) => {
 			url: `${baseURL}${url}`,
 			data: bodyData,
 			headers: {
+				Authorization: getToken(),
 				...config.headers,
 			},
 		})
@@ -50,10 +50,10 @@ export const getRequest = async (endpoint, id = null) => {
 			method: 'get',
 			url: !id ? `${baseURL}${endpoint}` : `${baseURL}${endpoint}/${id}`,
 			headers: {
+				Authorization: getToken(),
 				...config.headers,
 			},
 		})
-		console.log(response)
 		return {
 			status: response.status,
 			data: response.data,
@@ -74,6 +74,7 @@ export const patchRequest = async (enpoint, id, data) => {
 			url: `${baseURL}${enpoint}/${id}`,
 			data: data,
 			headers: {
+				Authorization: getToken(),
 				...config.headers,
 			},
 		})
@@ -97,6 +98,7 @@ export const deleteRequest = async (url, id) => {
 			method: 'delete',
 			url: `${baseURL}${url}/${id}`,
 			headers: {
+				Authorization: getToken(),
 				...config.headers,
 			},
 		})
@@ -121,6 +123,7 @@ export const putRequest = async (endpoint, id, body) => {
 			url: `${baseURL}${endpoint}/${id}`,
 			data: body,
 			headers: {
+				Authorization: getToken(),
 				...config.headers,
 			},
 		})

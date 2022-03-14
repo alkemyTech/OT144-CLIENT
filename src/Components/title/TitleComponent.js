@@ -1,7 +1,6 @@
 import './TitleComponent.css'
 
 const TitleComponent = ({ title, img, nameImg }) => {
-	// const image = "./logo-somos_mas.png"
 	return (
 		<div className="container-title">
 			<h2 className="title">{title}</h2>

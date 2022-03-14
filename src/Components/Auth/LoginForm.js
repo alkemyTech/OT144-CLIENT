@@ -8,10 +8,7 @@ const validation = (values) => {
 
 	if (!values.email) {
 		errors.email = 'El correo electrónico es requerido'
-	} else if (
-		// eslint-disable-next-line
-		!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-	) {
+	} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
 		errors.email = 'El correo es inválido.'
 	}
 

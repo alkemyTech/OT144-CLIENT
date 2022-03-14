@@ -12,7 +12,7 @@ const Contact = ({ img, name, phone, email }) => {
 	React.useEffect(() => {
 		const fetchData = async () => {
 			try {
-				return await getContact()
+				await getContact()
 			} catch (error) {
 				setError(true)
 			}

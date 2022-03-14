@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import '../FormStyles.css'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
-import axios from 'axios'
 import './stylesCategoriesForm.css'
+import {
+	createCategories,
+	updateCategory,
+} from '../../Services/categoriesService'
 
 const CategoriesForm = (props) => {
 	const categories = props?.data
@@ -67,7 +70,7 @@ const CategoriesForm = (props) => {
 		e.preventDefault()
 	}
 	// eslint-disable-next-line
-	const handleClick = () => {
+	const handleClick = async () => {
 		setMessageAlert({
 			...messageAlert,
 			messageOkCategory: false,
@@ -87,7 +90,25 @@ const CategoriesForm = (props) => {
 					setMessageAlert({ ...messageAlert, msjFormIncompleteImg: true })
 				} else {
 					console.log('agregar')
-					addCategory()
+					try {
+						const response = await createCategories(bodyFormCategory[0])
+						if (response.data) {
+							setMessageAlert({
+								...messageAlert,
+								loandingForm: false,
+								messageOkCategory: true,
+								messageErrorCategory: false,
+							})
+						}
+					} catch (error) {
+						console.log(error.message)
+						setMessageAlert({
+							...messageAlert,
+							loandingForm: false,
+							messageErrorCategory: true,
+							messageOkCategory: false,
+						})
+					}
 				}
 			} else {
 				if (imgPost !== '') {
@@ -97,68 +118,50 @@ const CategoriesForm = (props) => {
 						setMessageAlert({ ...messageAlert, msjFormIncompleteImg: true })
 					} else {
 						console.log('actualizar')
-						updateCategory(0)
+						try {
+							const response = await updateCategory(id, bodyFormCategory[0])
+							if (response.data) {
+								setMessageAlert({
+									...messageAlert,
+									loandingForm: false,
+									messageOkCategory: true,
+									messageErrorCategory: false,
+								})
+							}
+						} catch (error) {
+							console.log(error.message)
+							setMessageAlert({
+								...messageAlert,
+								loandingForm: false,
+								messageErrorCategory: true,
+								messageOkCategory: false,
+							})
+						}
 					}
 				} else {
-					updateCategory(1)
+					try {
+						const response = await updateCategory(id, bodyFormCategory[1])
+						if (response.data) {
+							setMessageAlert({
+								...messageAlert,
+								loandingForm: false,
+								messageOkCategory: true,
+								messageErrorCategory: false,
+							})
+						}
+						// eslint-disable-next-line
+					} catch (error) {
+						console.log(error.message)
+						setMessageAlert({
+							...messageAlert,
+							loandingForm: false,
+							messageErrorCategory: true,
+							messageOkCategory: false,
+						})
+					}
 				}
 			}
 		}
-	}
-
-	const addCategory = async () => {
-		await axios
-			.post('http://ongapi.alkemy.org/api/categories', bodyFormCategory[0])
-			.then((res) => {
-				console.log(res.data)
-				if (res.data) {
-					setMessageAlert({
-						...messageAlert,
-						loandingForm: false,
-						messageOkCategory: true,
-						messageErrorCategory: false,
-					})
-				}
-			})
-			.catch((error) => {
-				console.log(error.message)
-				setMessageAlert({
-					...messageAlert,
-					loandingForm: false,
-					messageErrorCategory: true,
-					messageOkCategory: false,
-				})
-			})
-	}
-
-	const updateCategory = async (numArray) => {
-		await axios
-			.put(
-				`http://ongapi.alkemy.org/api/categories/${id}`,
-				bodyFormCategory[numArray]
-			)
-			// eslint-disable-next-line
-			.then((res) => {
-				console.log(res.data)
-				if (res.data) {
-					setMessageAlert({
-						...messageAlert,
-						loandingForm: false,
-						messageOkCategory: true,
-						messageErrorCategory: false,
-					})
-				}
-			})
-			// eslint-disable-next-line
-			.catch((error) => {
-				console.log(error.message)
-				setMessageAlert({
-					...messageAlert,
-					loandingForm: false,
-					messageErrorCategory: true,
-					messageOkCategory: false,
-				})
-			})
 	}
 
 	return (

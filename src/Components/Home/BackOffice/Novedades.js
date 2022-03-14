@@ -92,9 +92,10 @@ function Novedades() {
 		}
 	}
 
+	// REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR
 	const body = {
 		name: 'pruebaUpdate',
-	} /* REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR */
+	}
 
 	const handleClickUpdate = (body, event) => {
 		fetchUpdateNews({ id: parseInt(event.target.id), ...body })
