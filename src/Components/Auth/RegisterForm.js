@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../FormStyles.css'
 import { Formik } from 'formik'
+import { useNavigate } from 'react-router-dom'
+
 const RegisterForm = () => {
+	const navigate = useNavigate()
+
+	useEffect(() => {
+		const isLogin = JSON.parse(localStorage.getItem('token'))
+			? [JSON.parse(localStorage.getItem('token'))]
+			: []
+		if (Object.keys(isLogin).length !== 0) {
+			navigate('/')
+		}
+	}, [])
+
 	const formValues = [
 		{
 			type: 'text',
