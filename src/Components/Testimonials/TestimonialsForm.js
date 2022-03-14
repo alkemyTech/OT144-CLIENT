@@ -10,8 +10,7 @@ const TestimonialForm = () => {
 	const handleChange = (e) => {
 		if (e.target.name === 'name') {
 			setInitialValues({ ...initialValues, name: e.target.value })
-		}
-		if (e.target.name === 'description') {
+		} else if (e.target.name === 'description') {
 			setInitialValues({ ...initialValues, description: e.target.value })
 		}
 	}

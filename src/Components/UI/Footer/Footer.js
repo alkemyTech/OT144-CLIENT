@@ -65,17 +65,29 @@ const Footer = () => {
 				<div className="col col-3">
 					<ul className="social-media">
 						<li>
-							<a target="_blank" href="http://www.facebook.com" rel="noreferrer">
+							<a
+								target="_blank"
+								href="http://www.facebook.com"
+								rel="noreferrer"
+							>
 								<img src={FacebookIcon} />
 							</a>
 						</li>
 						<li>
-							<a target="_blank" href="http://www.instagram.com" rel="noreferrer">
+							<a
+								target="_blank"
+								href="http://www.instagram.com"
+								rel="noreferrer"
+							>
 								<img src={InstagramIcon} />
 							</a>
 						</li>
 						<li>
-							<a target="_blank" href="http://www.linkedin.com" rel="noreferrer">
+							<a
+								target="_blank"
+								href="http://www.linkedin.com"
+								rel="noreferrer"
+							>
 								<img src={LinkedinIcon} />
 							</a>
 						</li>

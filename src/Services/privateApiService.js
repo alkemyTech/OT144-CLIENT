@@ -13,8 +13,8 @@ const getToken = () => {
 
 const config = {
 	headers: {
-		'Content-Type': 'application/json',
 		Group: 144,
+		'Content-Type': 'application/json',
 	},
 }
 

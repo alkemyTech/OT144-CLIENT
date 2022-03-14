@@ -5,13 +5,13 @@ const NewsList = () => {
 	const newsMock = [
 		{
 			id: 2,
-			name: 'Titulo de prueba 2',
-			description: 'Descripcion de prueba 2',
+			name: 'Titulo de prueba 1',
+			description: 'Descripcion de prueba 1',
 		},
 		{
 			id: 1,
-			name: 'Titulo de prueba 1',
-			description: 'Descripcion de prueba 1',
+			name: 'Titulo de prueba 2',
+			description: 'Descripcion de prueba 2',
 		},
 		{
 			id: 3,

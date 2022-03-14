@@ -41,9 +41,9 @@ const ActivitiesForm = ({ props }) => {
 		return errors
 	}
 
-	const changeHandleFile = (e) => {
+	const changeHandleFile = async (e) => {
 		const file = e.target.files[0]
-		const fileConvert = getBase64(file)
+		const fileConvert = await getBase64(file)
 		console.log(fileConvert, file)
 		setInitialValues({ ...initialValues, image: fileConvert })
 	}

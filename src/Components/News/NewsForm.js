@@ -4,28 +4,27 @@ import { Formik, Form, Field } from 'formik'
 import '../../Components/FormStyles.css'
 import CKEditorNews from './CKEditorNews'
 import { getBase64 } from '../../utils'
-import { MIN_LENGTH_TITLE_NEWS } from '../../constants'
+import { MIN_LENGTH_TITLE_NEWS, TEXT_INPUT_REQUIRED } from '../../constants'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import { getNews, postNews, updateNews } from '../../Services/NewsApiServices'
 
 const validate = (values) => {
 	const errors = {}
-	const campo = 'Campo requerido'
 	// Validations for title
 	if (!values.title) {
-		errors.title = campo
+		errors.title = TEXT_INPUT_REQUIRED
 	} else if (values.title.length < MIN_LENGTH_TITLE_NEWS) {
 		errors.title = `El título debe tener al menos ${MIN_LENGTH_TITLE_NEWS} caracteres`
 	}
 
 	// Validations for category
 	if (!values.category) {
-		errors.category = campo
+		errors.category = TEXT_INPUT_REQUIRED
 	}
 
 	// Validations for image
 	if (!values.image) {
-		errors.image = campo
+		errors.image = TEXT_INPUT_REQUIRED
 	} else if (values.image) {
 		const file = document.querySelector('input[name=image]').files[0]
 		const fileType = file.type
@@ -39,7 +38,7 @@ const validate = (values) => {
 
 	// Validations for content
 	if (!values.content) {
-		errors.content = campo
+		errors.content = TEXT_INPUT_REQUIRED
 	}
 
 	return errors

@@ -6,17 +6,16 @@ import {
 	MAX_LENGTH_PHONE,
 	MIN_LENGTH_NAME,
 	MIN_LENGTH_PHONE,
+	TEXT_INPUT_REQUIRED,
 } from '../../constants'
 import { postContact } from '../../Services/ServiceAPIContact'
 import BasicAlert from '../UI/Alerts/BasicAlert'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 
-const campo = 'Campo requerido'
-
 const validate = (values) => {
 	const errors = {}
 	if (!values.name) {
-		errors.name = campo
+		errors.name = TEXT_INPUT_REQUIRED
 	} else if (values.name.length < MIN_LENGTH_NAME) {
 		errors.name = `El nombre debe tener al menos ${MIN_LENGTH_NAME} caracteres`
 	} else if (values.name.length > MAX_LENGTH_NAME) {
@@ -30,7 +29,7 @@ const validate = (values) => {
 	}
 
 	if (!values.email) {
-		errors.email = campo
+		errors.email = TEXT_INPUT_REQUIRED
 	} else if (values.email.length > MAX_LENGTH_EMAIL) {
 		errors.email = `El email no puede tener más de ${MAX_LENGTH_EMAIL} caracteres`
 	} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
@@ -38,7 +37,7 @@ const validate = (values) => {
 	}
 
 	if (!values.phone) {
-		errors.phone = campo
+		errors.phone = TEXT_INPUT_REQUIRED
 	} else if (values.phone.length < MIN_LENGTH_PHONE) {
 		errors.phone = `El celular debe tener al menos ${MIN_LENGTH_PHONE} caracteres`
 	} else if (values.phone.length > MAX_LENGTH_PHONE) {
@@ -48,7 +47,7 @@ const validate = (values) => {
 	}
 
 	if (!values.message) {
-		errors.message = campo
+		errors.message = TEXT_INPUT_REQUIRED
 	}
 	return errors
 }
