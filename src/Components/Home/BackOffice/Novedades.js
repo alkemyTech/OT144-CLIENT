@@ -9,6 +9,7 @@ import { setNewsAction, deleteNewsAction } from "../../../actions/actions";
 
 
 function Novedades() {
+
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [dataNews, setDataNews] = useState([])//news a renderizar con el loading
@@ -27,15 +28,7 @@ function Novedades() {
         }
     }, [])  
 
-    if(loading){
-        return <SpinnerComponent />
-    }
-
-    if(error){
-        return <BasicAlert />
-    }
-
-    const fetchDeleteNews = (id) => {
+    const handleClickDelete = (id) => {
         try {
             (async () => {
                 await deleteNews(id);
@@ -48,8 +41,12 @@ function Novedades() {
         }
     }
 
-    const handleClickDelete = (event) => {
-        fetchDeleteNews(event)
+    if(loading){
+        return <SpinnerComponent />
+    }
+
+    if(error){
+        return <BasicAlert />
     }
 
     return (
