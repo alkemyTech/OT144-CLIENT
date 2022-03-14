@@ -2,6 +2,7 @@ module.exports = {
 	env: {
 		browser: true,
 		es2021: true,
+		jest: true,
 	},
 	extends: [
 		'plugin:react/recommended',
@@ -17,7 +18,7 @@ module.exports = {
 		sourceType: 'module',
 	},
 	plugins: ['react', 'sonarjs'],
-	ignorePatterns: ['/public'],
+	ignorePatterns: ['/public', '/src/Components/Categories/CategoriesForm.js'],
 	rules: {
 		'react/react-in-jsx-scope': 'off',
 		'react/prop-types': 'off',
