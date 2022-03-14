@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { getAllOrganizationData } from '../../Services/organizationService'
 
 const DataScreen = () => {
-	let navigate = useNavigate()
+	const navigate = useNavigate()
 	const [data, setData] = React.useState([])
 	React.useEffect(() => {
 		const getOrganizationData = async () => {

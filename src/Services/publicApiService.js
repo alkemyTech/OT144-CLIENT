@@ -31,3 +31,26 @@ export const putRequest = async (url, body) => {
 		alert('Error al actualizar la información!')
 	}
 }
+
+export const deleteRequest = async (url, id) => {
+	try {
+		const response = await axios({
+			method: 'delete',
+			url: `${baseURL}${url}/${id}`,
+			headers: {
+				...config.headers,
+			},
+		})
+
+		return {
+			status: response.status,
+			data: response.data,
+		}
+	} catch (error) {
+		return {
+			status: error.response.status,
+			error: error.message,
+			data: error.response.data,
+		}
+	}
+}

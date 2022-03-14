@@ -4,7 +4,7 @@ import ImageLinkedin from '../../../assets/linkedin.svg'
 import ImageFacebook from '../../../assets/facebook.svg'
 
 const Card = (props) => {
-	let cardItem = {
+	const cardItem = {
 		...props.cardItem,
 	}
 

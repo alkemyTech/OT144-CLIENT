@@ -1,7 +1,7 @@
 import TitleComponent from '../../title/TitleComponent'
 import { useParams } from 'react-router'
 import { useState, useEffect } from 'react'
-import { getActividadesId } from '../../../Services/ActivityApiService'
+import { getActivitiesId } from '../../../Services/ActivityApiService'
 import ErrorAlert from '../../UI/Alerts/ErrorAlert'
 import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
 import './stylesActivity.css'
@@ -18,7 +18,7 @@ export default function ActivitiesDetail() {
 	useEffect(() => {
 		try {
 			;(async () => {
-				const response = await getActividadesId(id)
+				const response = await getActivitiesId(id)
 				response.status === 200
 					? setDataLoading({
 						...dataLoading,

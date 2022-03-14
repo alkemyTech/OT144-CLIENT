@@ -3,14 +3,8 @@ import { Link } from 'react-router-dom'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import { store } from '../../app/store'
-import { getAllMembers, updateMember } from '../../Services/membersService'
-import {
-	setMemberActions,
-	getMemberActions,
-	addMemberActions,
-	updateMemberActions,
-	deleteMemberActions,
-} from '../../actions/memberActions'
+import { getAllMembers } from '../../Services/membersService'
+import { getMemberActions } from '../../actions/memberActions'
 import '../TableStyles.css'
 import './MemberList.css'
 

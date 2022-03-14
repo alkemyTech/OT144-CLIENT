@@ -4,7 +4,7 @@ const SUPPORTED_FORMATS = ['image/x-png', 'image/x-jpg']
 const HomeForm = () => {
 	const [welcome, setWelcome] = React.useState(
 		'Bienvenido a la página de Inicio'
-	) //Estado que serviria de muestra para la edición
+	) // Estado que serviria de muestra para la edición
 	const [welcomeError, setWelcomeError] = React.useState(false)
 	const [slides, setSlides] = React.useState([
 		{ id: 1, text: '', image: null, error: false },
@@ -36,7 +36,7 @@ const HomeForm = () => {
 
 	const handleWelcomeSubmit = (e) => {
 		if (welcome.length > 20) {
-			//Actualizar estado proveniente de Home
+			// Actualizar estado proveniente de Home
 		} else {
 			e.preventDefault()
 			setWelcomeError(true)
@@ -59,9 +59,7 @@ const HomeForm = () => {
 
 		if (slides.filter((slide) => slide.error).length === 0) {
 			e.preventDefault()
-			//Actualizar estado proveniente de Home
-		} else {
-			e.preventDefault()
+			// Actualizar estado proveniente de Home
 		}
 	}
 

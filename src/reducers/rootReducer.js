@@ -3,7 +3,7 @@ import authReducer from './authReducer'
 import { memberReducer } from './memberReducer'
 import newsReducer from './newsReducer'
 import categoriesReducer from './categories'
-import activitiesReducer from './activitiesReducer'
+import activitiesReducer from './ActivitiesReducer'
 import usersReducer from './usersReducer'
 import sliderReducer from './sliderReducer'
 

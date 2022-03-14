@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import TitleComponent from '../title/TitleComponent'
-import { getActividades } from '../../Services/ActivityApiService'
+import { getActivities } from '../../Services/ActivityApiService'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import Card from '../UI/Card/Card'
@@ -15,7 +15,7 @@ const Actividades = () => {
 	useEffect(() => {
 		try {
 			;(async () => {
-				const response = await getActividades()
+				const response = await getActivities()
 				if (response.status === 200) {
 					setDataLoading({
 						...dataLoading,
