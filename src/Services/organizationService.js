@@ -1,24 +1,20 @@
-import { getRequest, postRequest } from "./privateApiService";
-import { putRequest } from "./publicApiService";
+import { getRequest, postRequest } from './privateApiService'
+import { putRequest } from './publicApiService'
 
-const endpoint = process.env.REACT_APP_URL_ORGANIZATION;
+const endpoint = process.env.REACT_APP_URL_ORGANIZATION
 
 export const getAllOrganizationData = async () => {
-  const response = await getRequest(endpoint);
-  return response;
-};
+	return await getRequest(endpoint)
+}
 
 export const getOrganizationData = async (id) => {
-  const response = await getRequest(endpoint, id);
-  return response;
-};
+	return await getRequest(endpoint, id)
+}
 
 export const createOrganizationData = async (data) => {
-  const response = await postRequest(endpoint, data);
-  return response;
-};
+	return await postRequest(endpoint, data)
+}
 
 export const updateOrganizationData = async (data) => {
-  const response = await putRequest(endpoint, data.id, data);
-  return response;
-};
+	return await putRequest(endpoint, data.id, data)
+}
