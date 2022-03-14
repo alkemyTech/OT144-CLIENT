@@ -4,8 +4,8 @@ import '../../TableStyles.css';
 import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
 import BasicAlert from '../../UI/Alerts/BasicAlert'
 import { store } from "../../../app/store";
-import { getNews, postNews, updateNews, deleteNews } from "../../../Services/NewsApiServices";
-import { setNewsAction, addNewsAction,updateNewsAction, deleteNewsAction } from "../../../actions/actions";
+import { getNews, deleteNews } from "../../../Services/NewsApiServices";
+import { setNewsAction, deleteNewsAction } from "../../../actions/actions";
 
 
 function Novedades() {
@@ -35,33 +35,6 @@ function Novedades() {
         return <BasicAlert />
     }
 
-    /*const fetchAddNews = (bodyNews) => {
-        try {
-            (async () => {
-                const response = await postNews(bodyNews);
-                store.dispatch(addNewsAction(response.data.data))
-                setDataNews(store.getState().news)
-            })()
-        }
-        catch (error) {
-            setError(true);
-        }
-    };*/
-
-    //Utilizar en la pagina de crear novedad
-    /*const fetchUpdateNews = (bodyNews) => {
-        try {
-            (async () => {
-                await updateNews(bodyNews.id, bodyNews);
-                store.dispatch(updateNewsAction(bodyNews))
-                setDataNews(store.getState().news.news);
-            })()
-        }
-        catch (error) {
-            setError(true);
-        }
-    }*/
-
     const fetchDeleteNews = (id) => {
         try {
             (async () => {
@@ -74,11 +47,6 @@ function Novedades() {
             setError(true);
         }
     }
-    //const body= {name:"pruebaUpdate"}/*REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR */
-
-    /*const handleClickUpdate = (body, event) => {
-        fetchUpdateNews({id: parseInt(event.target.id), ...body});
-    }*/
 
     const handleClickDelete = (event) => {
         fetchDeleteNews(event)
