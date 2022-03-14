@@ -7,6 +7,8 @@ import { getBase64 } from "../../utils";
 import { MIN_LENGTH_TITLE_NEWS } from "../../constants";
 import ErrorAlert from "../UI/Alerts/ErrorAlert";
 import { getNews, postNews, updateNews  } from "../../Services/NewsApiServices";
+import { addNewsAction } from "../../actions/actions";
+import { store } from "../../app/store";
 
 const validate = (values) => {
   const errors = {};
@@ -78,7 +80,8 @@ const NewsForm = ({ mode = "create", novelity }) => {
     //If the mode is "create", the api is called via the POST verb, if not, the PUT verb is called with ID of novelity
     if (mode === "create") {
       try {
-        await postNews(dataObject)
+        const response = await postNews(dataObject)
+        store.dispatch(addNewsAction(response.data.data))
       } catch {
         setError(true)
       }

@@ -18,10 +18,11 @@ const newsReducer = (state = initialState, action) => {
         return {
         news: state.news.map((elem) => elem.id === action.payload.id ?
                  action.payload : elem)}
-      case types.NEWS_DELETE:
+    case types.NEWS_DELETE:
         return {
-        news: state.news.filter(elem => elem.id !== action.payload)}
-      default:
+        ...state, news: state.news.filter(elem => elem.id !== action.payload)
+        }
+    default:
         return { ...state };}
   }
 

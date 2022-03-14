@@ -17,15 +17,14 @@ function Novedades() {
         try {
             (async () => {
                 const response = await getNews();
-                store.dispatch(setNewsAction(response.data))
-                setDataNews(store.getState().news.news.data)
+                store.dispatch(setNewsAction(response.data.data))
+                setDataNews(store.getState().news.news)
                 setLoading(false);
             })()
         }
         catch (error) {
             setError(true);
         }
-
     }, [])  
 
     if(loading){
@@ -36,7 +35,7 @@ function Novedades() {
         return <BasicAlert />
     }
 
-    const fetchAddNews = (bodyNews) => {
+    /*const fetchAddNews = (bodyNews) => {
         try {
             (async () => {
                 const response = await postNews(bodyNews);
@@ -47,10 +46,10 @@ function Novedades() {
         catch (error) {
             setError(true);
         }
-    };
+    };*/
 
     //Utilizar en la pagina de crear novedad
-    const fetchUpdateNews = (bodyNews) => {
+    /*const fetchUpdateNews = (bodyNews) => {
         try {
             (async () => {
                 await updateNews(bodyNews.id, bodyNews);
@@ -61,7 +60,7 @@ function Novedades() {
         catch (error) {
             setError(true);
         }
-    }
+    }*/
 
     const fetchDeleteNews = (id) => {
         try {
@@ -75,14 +74,14 @@ function Novedades() {
             setError(true);
         }
     }
-    const body= {name:"pruebaUpdate"}/*REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR */
+    //const body= {name:"pruebaUpdate"}/*REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR */
 
-    const handleClickUpdate = (body, event) => {
+    /*const handleClickUpdate = (body, event) => {
         fetchUpdateNews({id: parseInt(event.target.id), ...body});
-     }
+    }*/
 
     const handleClickDelete = (event) => {
-        fetchDeleteNews(parseInt(event.target.id))
+        fetchDeleteNews(event)
     }
 
     return (
@@ -92,7 +91,7 @@ function Novedades() {
                     <thead>
                         <tr>
                             <td>
-                                <Link to="/backoffice/news/create" onClick= {fetchAddNews} className="btnAddTable">Crear</Link>
+                                <Link to="/create-news" className="btnAddTable">Crear</Link>
                             </td>
                         </tr>
                         <tr>
@@ -110,10 +109,12 @@ function Novedades() {
                                     <td><img src={news.image}></img></td>
                                     <td>{news.created_at}</td>
                                     <td>
-                                        <button id={news.id} className="btnUpdateTable" onClick={(event) => handleClickUpdate(body, event)} >Editar</button>
+                                        <Link to="/create-news">
+                                            <button id={news.id} className="btnUpdateTable" >Editar</button>
+                                        </Link>
                                     </td>
                                     <td>
-                                        <button id={news.id} className="btnDeleteTable" onClick={handleClickDelete}>Eliminar</button>
+                                        <button id={news.id} className="btnDeleteTable" onClick={() => handleClickDelete(news.id)}>Eliminar</button>
                                     </td>
                                 </tr>
                             )
