@@ -1,32 +1,30 @@
-import * as types from "../types";
+import * as types from '../types'
 
 const initialState = {
-  checking: true,
-  isAuthenticated: false,
-  user: {},
-  token: "",
-};
+	checking: true,
+	isAuthenticated: false,
+	user: {},
+	token: '',
+}
 
 const authReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case types.AUTH_LOGIN:
-      return {
-        ...state,
-        user: action.payload.user,
-        token: action.payload.token,
-        checking: false,
-        isAuthenticated: true,
-      };
+	switch (action.type) {
+	case types.AUTH_LOGIN:
+		return {
+			...state,
+			user: action.payload.user,
+			token: action.payload.token,
+			checking: false,
+			isAuthenticated: true,
+		}
+	case types.AUTH_LOGOUT:
+		return {
+			...initialState,
+			checking: false,
+		}
+	default:
+		return state
+	}
+}
 
-    case types.AUTH_LOGOUT:
-      return {
-        ...initialState,
-        checking: false,
-      };
-
-    default:
-      return state;
-  }
-};
-
-export default authReducer;
+export default authReducer

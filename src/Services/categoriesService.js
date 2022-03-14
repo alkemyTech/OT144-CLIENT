@@ -1,27 +1,27 @@
-import {getRequest, postRequest, putRequest, deleteRequest} from './publicApiService';
-const endPoint = process.env.REACT_APP_URL_CATEGORIES;
+import {
+	getRequest,
+	postRequest,
+	putRequest,
+	deleteRequest,
+} from './publicApiService'
+const endPoint = process.env.REACT_APP_URL_CATEGORIES
 
 export const getCategories = async () => {
-    const response = await getRequest(endPoint);
-    return response;
-};
+	return await getRequest(endPoint)
+}
 
 export const createCategories = async (data) => {
-    const response = await postRequest(endPoint, data);
-    return response;
+	return await postRequest(endPoint, data)
 }
 
 export const getCategory = async (id) => {
-    const response = await getRequest(endPoint, id);
-    return response;
+	return await getRequest(endPoint, id)
 }
 
 export const updateCategory = async (id, data) => {
-    const response = await putRequest(endPoint, id, data);
-    return response;
+	return await putRequest(endPoint, id, data)
 }
 
 export const deleteCategory = async (id) => {
-    const response = await deleteRequest(endPoint, id);
-    return response;
+	return await deleteRequest(endPoint, id)
 }
