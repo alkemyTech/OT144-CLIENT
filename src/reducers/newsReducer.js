@@ -1,8 +1,8 @@
-import * as types from "../types";
+import * as types from '../types'
 
 const initialState = {
-  news: [],
-};
+	news: [],
+}
 
 const newsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -26,4 +26,4 @@ const newsReducer = (state = initialState, action) => {
         return { ...state };}
   }
 
-export default newsReducer;
+export default newsReducer
