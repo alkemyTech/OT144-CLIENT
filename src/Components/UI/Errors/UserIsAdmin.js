@@ -20,5 +20,5 @@ function getRole() {
 
 export default function userIsAdmin() {
 	getRole()
-	return localStorage.getItem('role') === 1
+	return localStorage.getItem('role') === '1'
 }
