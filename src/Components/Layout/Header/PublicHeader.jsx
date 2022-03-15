@@ -2,6 +2,7 @@ import React,{ useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import Logo from "./LOGO-SOMOS MAS.png"
 import "./PublicHeader.css"
+import { isLogin } from '../../../Components/UI/Errors/UserNotLogged'
 
 export default function PublicHeader() {
 	const datos = [
@@ -18,10 +19,7 @@ export default function PublicHeader() {
 
 	useEffect(
 		()=>{
-			const isLogin = JSON.parse(localStorage.getItem('token'))
-				? [JSON.parse(localStorage.getItem('token'))]
-				: []
-			if (Object.keys(isLogin).length !== 0) {
+			if (isLogin === true) {
 				setIsLoginRegister(true)
 			}
 		},
