@@ -1,3 +1,4 @@
+import React,{ useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import Logo from "./LOGO-SOMOS MAS.png"
 import "./PublicHeader.css"
@@ -12,6 +13,20 @@ export default function PublicHeader() {
 		{ nombre: "Contacto", url: "/contact" },
 		{ nombre: "Contribuye", url: "/donar" },
 	]
+
+	const [isLoginRegister, setIsLoginRegister] = useState(false)
+
+	useEffect(
+		()=>{
+			const isLogin = JSON.parse(localStorage.getItem('token'))
+				? [JSON.parse(localStorage.getItem('token'))]
+				: []
+			if (Object.keys(isLogin).length !== 0) {
+				setIsLoginRegister(true)
+			}
+		},
+		[]
+	)
 
 	return (
 		<header className="containerHeader">
@@ -30,7 +45,9 @@ export default function PublicHeader() {
 			</nav>
 			<div className="containerHeaderButtons">
 				<Link to="/login"><button>Inicia sesión</button></Link>
-				<Link to="/register"><button>Registrate</button></Link>
+				{!isLoginRegister &&
+					<Link to="/register"><button>Registrate</button></Link>
+				}
 			</div>
 		</header>
 	)
