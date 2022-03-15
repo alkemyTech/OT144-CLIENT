@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../../TableStyles.css'
@@ -20,7 +21,7 @@ import {
 function Novedades() {
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState(false)
-	const [dataNews, setDataNews] = useState([]) // news a renderizar con el loading
+	const [dataNews, setDataNews] = useState([])
 
 	useEffect(() => {
 		try {
@@ -46,14 +47,6 @@ function Novedades() {
 			// Alert setNews failed
 		}
 	}, [])
-
-	if (loading) {
-		return <SpinnerComponent />
-	}
-
-	if (error) {
-		return <BasicAlert />
-	}
 
 	const fetchAddNews = (bodyNews) => {
 		try {
@@ -91,7 +84,6 @@ function Novedades() {
 			setError(true)
 		}
 	}
-
 	// REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR
 	const body = {
 		name: 'pruebaUpdate',
@@ -166,13 +158,13 @@ function Novedades() {
 										</td>
 									</tr>
 								)
-							  })
+							})
 							: null}
 					</tbody>
 				</table>
 			</div>
 		</section>
-	)
+)
 }
 
 export default Novedades
