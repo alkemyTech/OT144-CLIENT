@@ -8,13 +8,11 @@ import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import '../FormStyles.css'
 import GoogleMaps from '../UI/GoogleMaps/googleMaps'
 import SearchLocationInput from './SearchLocationInput'
-
-
 const SUPPORTED_FORMATS = ['image/png', 'image/jpg']
 
 const UserForm = (props) => {
 
-    const userApi = `http://ongapi.alkemy.org/api/users/${props.id}` //{user.id} Acá se debería reemplazar el numero por el id del usuario
+    const userApi = `http://ongapi.alkemy.org/api/users/${props.id}` 
     const [user, setUser] = React.useState({
         id: null,
         name: '',
