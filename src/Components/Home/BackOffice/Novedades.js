@@ -168,4 +168,3 @@ function Novedades() {
 }
 
 export default Novedades
-
