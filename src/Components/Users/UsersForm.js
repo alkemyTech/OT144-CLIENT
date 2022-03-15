@@ -86,10 +86,7 @@ const UserForm = (props) => {
                     onChange={handleChange} placeholder='Password' validate={validatePass}/>
                     {errors.password && touched.password && <div className='input-feedback'>{errors.password}</div>}
 
-                    {/* <Field className='input-field' type='text' name='address' value={values.address} 
-                    onChange={handleChange} placeholder='Domicilio'/> */}
-                    <SearchLocationInput onChange={() => null} />
-
+                    <SearchLocationInput value={values.address} onChange={(e) => setUser(...user, e.target.value)} />
                     
                     {values.file && <ImagePreview file={values.file} />}
                     <Field className='input-field' type='file' accept={[SUPPORTED_FORMATS]} value={values.profilePhoto} 

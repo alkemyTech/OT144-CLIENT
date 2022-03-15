@@ -51,15 +51,13 @@ function SearchLocationInput() {
   }, []);
 
   return (
-    <div className="search-location-input" style={{width:  '1000px'}}>
       <input
+        className='input-field'
         ref={autoCompleteRef}
         onChange={event => setQuery(event.target.value)}
-        placeholder="Enter a City"
+        placeholder="Domicilio"
         value={query}
-        style={{width: '1000px'}}
       />
-    </div>
   );
 }
 
