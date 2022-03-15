@@ -1,0 +1,45 @@
+.reactSocialPlugins{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.reactSocialPlugins h1{
+    margin: 20px 0;
+}
+
+.containerSocial{
+    position: relative;
+    width: 100%;
+    min-height: 85vh;
+    background-color: rgb(41, 90, 90);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgSocial{
+    position: relative;
+    min-width: 30%;
+    max-width: 30%;
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(82, 109, 109);
+}
+
+.containerTweet{
+    position: relative;
+    min-width: 70%;
+    max-width: 70%;
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

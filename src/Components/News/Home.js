@@ -39,17 +39,19 @@ export default function Home() {
       return <ErrorAlert />
   }
   return (
-    <div style={{ width: "80%", margin: "auto", marginTop: "3rem" }}>
-      <ReactSocialPlugins/>
-      <Title title={"Novedades"} />
-      <div className="new-list-container">
-        {dataNews.map((data, index) => (
-          <Card
-            key={index}
-            cardItem={data}
-          />
-        ))}
-      </div>
+    <div className="homeNews">
+        <ReactSocialPlugins/>
+        <div style={{ width: "80%", margin: "auto", marginTop: "3rem" }}>
+          <Title title={"Novedades"} />
+          <div className="new-list-container">
+            {dataNews.map((data, index) => (
+              <Card
+                key={index}
+                cardItem={data}
+              />
+            ))}
+          </div>
+        </div>
     </div>
-  );
+  )
 }
