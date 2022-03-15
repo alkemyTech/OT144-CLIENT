@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../../TableStyles.css'
@@ -47,14 +48,6 @@ function Novedades() {
 		}
 	}, [])
 
-	if (loading) {
-		return <SpinnerComponent />
-	}
-
-	if (error) {
-		return <BasicAlert />
-	}
-
 	const fetchAddNews = (bodyNews) => {
 		try {
 			;(async () => {
@@ -91,7 +84,6 @@ function Novedades() {
 			setError(true)
 		}
 	}
-
 	// REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR
 	const body = {
 		name: 'pruebaUpdate',
@@ -166,13 +158,14 @@ function Novedades() {
 										</td>
 									</tr>
 								)
-							  })
+							})
 							: null}
 					</tbody>
 				</table>
 			</div>
 		</section>
-	)
+)
 }
 
 export default Novedades
+
