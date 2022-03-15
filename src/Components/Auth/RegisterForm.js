@@ -90,7 +90,6 @@ const RegisterForm = () => {
   const registerUser = async (values) => {
     try {
       const response = await createUser(values);
-      console.log(response);
     } catch (e) {
       alert(e);
     }
