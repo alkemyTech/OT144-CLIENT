@@ -66,101 +66,77 @@ const CategoriesForm = (props) => {
 		setMessageAlert({ ...messageAlert, msjFormIncompleteDes: false })
 	}
 
+	const customSetAlert = (status) => {
+		setMessageAlert({
+			...messageAlert,
+			loandingForm: status.loading,
+			messageOkCategory: status.messageOk,
+			messageErrorCategory: status.messageCategory,
+		})
+	}
+
+	const customUpdateCategory = async (data, status) => {
+		const response = await updateCategory(id, data)
+		if (response.data) {
+			customSetAlert({ loading: status.loading, messageOk: status.messageOk, messageCategory: status.messageCategory })
+		}
+	}
+
+	const checkImg = imgPost === '' || !/\.(jpg|png)$/i.test(initialValues.image?.current?.files[0].name)
+
+	const checkImgPost = () => {
+		if (imgPost !== '') {
+			if (
+				!/\.(jpg|png)$/i.test(initialValues.image?.current?.files[0].name)
+			) {
+				setMessageAlert({ ...messageAlert, msjFormIncompleteImg: true })
+			} else {
+				try {
+					customUpdateCategory(bodyFormCategory[0], { loading: false, messageOk: true, messageCategory: false })
+				} catch (error) {
+					customSetAlert({ loading: false, messageOk: false, messageCategory: true })
+				}
+			}
+
+			return
+		}
+		
+		try {
+			customUpdateCategory(bodyFormCategory[1], { loading: false, messageOk: true, messageCategory: false })
+		} catch (error) {
+			customSetAlert({ loading: false, messageOk: false, messageCategory: true })
+		}
+	}
+
+	const checkCategoriesBtn = async () => {
+		if (categoriesBtn === true) {
+			if (checkImg) return setMessageAlert({ ...messageAlert, msjFormIncompleteImg: true })
+
+			try {
+				const response = await createCategories(bodyFormCategory[0])
+				if (response.data) {
+					customSetAlert({ loading: false, messageOk: true, messageCategory: false })
+				}
+			} catch (error) {
+				customSetAlert({ loading: false, messageOk: false, messageCategory: true })
+			}
+		} else {
+			checkImgPost()
+		}
+	}
+
 	const handleSubmit = (e) => {
 		e.preventDefault()
 	}
-	// eslint-disable-next-line
+
 	const handleClick = async () => {
-		setMessageAlert({
-			...messageAlert,
-			messageOkCategory: false,
-			messageErrorCategory: false,
-			loandingForm: true,
-		})
+		customSetAlert({ loading: true, messageOk: false, messageCategory: false })
 		if (initialValues.name === '' || initialValues.name.length < 4) {
 			setMessageAlert({ ...messageAlert, msjFormIncomplete: true })
 		} else if (initialValues.description === '') {
 			setMessageAlert({ ...messageAlert, msjFormIncompleteDes: true })
 		} else {
-			if (categoriesBtn === true) {
-				if (
-					imgPost === '' ||
-					!/\.(jpg|png)$/i.test(initialValues.image?.current?.files[0].name)
-				) {
-					setMessageAlert({ ...messageAlert, msjFormIncompleteImg: true })
-				} else {
-					console.log('agregar')
-					try {
-						const response = await createCategories(bodyFormCategory[0])
-						if (response.data) {
-							setMessageAlert({
-								...messageAlert,
-								loandingForm: false,
-								messageOkCategory: true,
-								messageErrorCategory: false,
-							})
-						}
-					} catch (error) {
-						console.log(error.message)
-						setMessageAlert({
-							...messageAlert,
-							loandingForm: false,
-							messageErrorCategory: true,
-							messageOkCategory: false,
-						})
-					}
-				}
-			} else {
-				if (imgPost !== '') {
-					if (
-						!/\.(jpg|png)$/i.test(initialValues.image?.current?.files[0].name)
-					) {
-						setMessageAlert({ ...messageAlert, msjFormIncompleteImg: true })
-					} else {
-						console.log('actualizar')
-						try {
-							const response = await updateCategory(id, bodyFormCategory[0])
-							if (response.data) {
-								setMessageAlert({
-									...messageAlert,
-									loandingForm: false,
-									messageOkCategory: true,
-									messageErrorCategory: false,
-								})
-							}
-						} catch (error) {
-							console.log(error.message)
-							setMessageAlert({
-								...messageAlert,
-								loandingForm: false,
-								messageErrorCategory: true,
-								messageOkCategory: false,
-							})
-						}
-					}
-				} else {
-					try {
-						const response = await updateCategory(id, bodyFormCategory[1])
-						if (response.data) {
-							setMessageAlert({
-								...messageAlert,
-								loandingForm: false,
-								messageOkCategory: true,
-								messageErrorCategory: false,
-							})
-						}
-						// eslint-disable-next-line
-					} catch (error) {
-						console.log(error.message)
-						setMessageAlert({
-							...messageAlert,
-							loandingForm: false,
-							messageErrorCategory: true,
-							messageOkCategory: false,
-						})
-					}
-				}
-			}
+			checkCategoriesBtn()
 		}
 	}
 

@@ -23,7 +23,7 @@
 		"sweetalert2": "^11.4.4"
 	},
 	"scripts": {
-		"start": "react-scripts start",
+		"start": "husky install && react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
