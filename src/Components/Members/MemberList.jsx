@@ -14,7 +14,7 @@ const MemberList = () => {
 	const [error, setError] = useState(null)
 
 	useEffect(() => {
-		;(async () => {
+		; (async () => {
 			setLoading(true)
 			try {
 				const response = await getAllMembers()
@@ -27,9 +27,9 @@ const MemberList = () => {
 		})()
 	}, [])
 
-	const handleClickUpdate = () => {}
+	const handleClickUpdate = () => { }
 
-	const handleClickDelete = () => {}
+	const handleClickDelete = () => { }
 
 	if (loading) {
 		return (
@@ -55,7 +55,7 @@ const MemberList = () => {
 							<button
 								className="btnAddTable"
 								onClick={() => {
-									;<Link to="/backoffice/members/create">Nuevo Miembro</Link>
+									; <Link to="/backoffice/members/create">Nuevo Miembro</Link>
 								}}
 							>
 								Nuevo Miembro

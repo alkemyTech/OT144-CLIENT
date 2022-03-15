@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import ErrorAlert from '../Alerts/ErrorAlert'
 import { getAllOrganizationData } from '../../../Services/organizationService'
+import { getUser } from '../../../Services/userService'
 import { Link } from 'react-router-dom'
 import './Footer.css'
 import FacebookIcon from '../../../assets/facebook.svg'
@@ -9,6 +10,8 @@ import InstagramIcon from '../../../assets/instagram.svg'
 
 const Footer = () => {
 	const [data, setData] = useState([])
+	const [user, setUser] = useState([])
+	const [admin, setAdmin] = useState(false)
 
 	useEffect(() => {
 		;(async () => {
@@ -20,6 +23,20 @@ const Footer = () => {
 			}
 		})()
 	}, [])
+
+	const fetchUser = () => {
+		try {
+			const response = getUser()
+			setUser(response.data.data)
+		} catch (e) {
+			return <ErrorAlert />
+		}
+	}
+	fetchUser()
+
+	if(user.role_id === 1) {
+		setAdmin(true)
+	}
 
 	return (
 		<div className="main-footer">
@@ -40,11 +57,13 @@ const Footer = () => {
 								Nosotros
 							</Link>
 						</li>
+						{admin && 
 						<li>
 							<Link target="_blank" to="/contact">
 								Contacto
 							</Link>
 						</li>
+						}
 						<li>
 							<Link target="_blank" to="/Novedades">
 								Novedades

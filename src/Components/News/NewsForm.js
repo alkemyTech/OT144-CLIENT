@@ -163,3 +163,4 @@ NewsForm.propTypes = {
 	mode: PropTypes.string.isRequired,
 	novelity: PropTypes.object,
 }
+
