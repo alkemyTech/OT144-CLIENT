@@ -7,7 +7,7 @@ import { store } from "../../app/store";
 import { setNewsAction } from "../../actions/actions";
 import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
-import { ReactSocialPlugins } from "react-social-plugins";
+import ReactSocialPlugins from '../UI/ReactSocialPlugins/ReactSocialPlugins';
 
 
 export default function Home() {
