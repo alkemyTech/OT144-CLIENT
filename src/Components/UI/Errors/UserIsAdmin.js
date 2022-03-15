@@ -14,7 +14,10 @@ function getRole() {
 		const user = response.filter((user) => {
 			return user.email === localStorage.getItem('email')
 		})
-		localStorage.setItem('role', user[0].role_id)
+
+		if (user) {
+			localStorage.setItem('role', user[0].role_id)
+		}
 	})
 }
 
