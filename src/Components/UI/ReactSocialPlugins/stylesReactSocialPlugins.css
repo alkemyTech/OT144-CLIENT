@@ -2,7 +2,6 @@
     position: relative;
     width: 100%;
     min-height: 100vh;
-    background-color: aqua;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +16,6 @@
     position: relative;
     width: 100%;
     min-height: 85vh;
-    background-color: rgb(41, 90, 90);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +29,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(82, 109, 109);
+    flex-direction: column;
+}
+
+.ImageSocial{
+    margin: 15px 0;
+    cursor: pointer;
 }
 
 .containerTweet{
@@ -42,4 +45,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media all and (max-width: 550px){
+    .imgSocial{
+        width: 100%;
+        min-height: 15vh;
+    }
+    .containerTweet{
+        width: 100%;
+    }
 }
