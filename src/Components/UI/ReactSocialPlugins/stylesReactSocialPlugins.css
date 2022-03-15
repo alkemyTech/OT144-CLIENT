@@ -23,8 +23,8 @@
 
 .imgSocial{
     position: relative;
-    min-width: 30%;
-    max-width: 30%;
+    min-width: 6%;
+    max-width: 6%;
     min-height: 85vh;
     display: flex;
     justify-content: center;
@@ -33,26 +33,44 @@
 }
 
 .ImageSocial{
+    width: 30px;
     margin: 15px 0;
     cursor: pointer;
 }
 
-.containerTweet{
+.ImageSocial:hover{
+    transform: scale(0.9);
+    transition: 0.5s;
+}
+
+.containerRedes{
     position: relative;
-    min-width: 70%;
-    max-width: 70%;
+    min-width: 94%;
+    max-width: 94%;
     min-height: 85vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
-@media all and (max-width: 550px){
+@media all and (max-width: 750px){
+    .containerSocial{
+        flex-direction: column;
+    }
+
     .imgSocial{
         width: 100%;
         min-height: 15vh;
+        flex-direction:row;
     }
-    .containerTweet{
+
+    .ImageSocial{
+        width: 35px;
+        margin: 35px 30px;
+    }
+
+    .containerRedes{
         width: 100%;
+        flex-direction: column;
     }
 }
