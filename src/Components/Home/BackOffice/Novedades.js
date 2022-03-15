@@ -21,7 +21,7 @@ import {
 function Novedades() {
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState(false)
-	const [dataNews, setDataNews] = useState([]) // news a renderizar con el loading
+	const [dataNews, setDataNews] = useState([])
 
 	useEffect(() => {
 		try {
