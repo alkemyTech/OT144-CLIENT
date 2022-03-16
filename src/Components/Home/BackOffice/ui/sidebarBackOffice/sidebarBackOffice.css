@@ -1,114 +1,114 @@
 .SideBarMenu {
-    background-color: var(--blue);
-    color: white;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    transition: width 1s;
-    font-weight: bold;
+	background-color: var(--blue);
+	color: white;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	transition: width 1s;
+	font-weight: bold;
 }
 
 .SideBarMenu.expanded {
-    width: 300px;
+	width: 300px;
 }
 .SideBarMenu.collapsed {
-    width: 55px;
+	width: 55px;
 }
 .menuButton {
-    display: flex;
-    justify-content: flex-end;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .hamburgerIcon {
-    cursor: pointer;
-    border: none;
-    background-color: var(--blue);
-    color: white;
-    padding: 10px;
-    width: 68px;
+	cursor: pointer;
+	border: none;
+	background-color: var(--blue);
+	color: white;
+	padding: 10px;
+	width: 68px;
 }
 
 .title--img {
-    max-height: 150px;
-    min-height: 70px;
-    padding: 5px;
+	max-height: 150px;
+	min-height: 70px;
+	padding: 5px;
 }
 
 .nav-link {
-    color: white;
-    text-decoration: none;
-    display: block;
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
+	color: white;
+	text-decoration: none;
+	display: block;
+	padding: 10px;
+	width: 100%;
+	border-radius: 5px;
 }
-.nav-link:hover{
-    background-color: rgb(71, 114, 233);
+.nav-link:hover {
+	background-color: rgb(71, 114, 233);
 }
 
 .nav-link:hover .tooltip {
-    display: inline-block;
-    animation-duration: 0.4s;
-    animation-name: toolpip;
+	display: inline-block;
+	animation-duration: 0.4s;
+	animation-name: toolpip;
 }
 .tooltip {
-    position: absolute;
-    background-color: rgb(71, 114, 233);
-    left: 70px;
-    padding: 10px;
-    text-transform: capitalize;
-    border-radius: 5px;
-    display: none;
+	position: absolute;
+	background-color: rgb(71, 114, 233);
+	left: 70px;
+	padding: 10px;
+	text-transform: capitalize;
+	border-radius: 5px;
+	display: none;
 }
 .itemContent {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    width: 100%;
-    white-space: nowrap;
-    transition: width 1s;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	width: 100%;
+	white-space: nowrap;
+	transition: width 1s;
 }
 
 .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 42px;
-    height: 42px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 42px;
+	height: 42px;
 }
 
 .img-icon {
-    width: 100%;
+	width: 100%;
 }
 .img-icon-d {
-    width: 40px;
+	width: 40px;
 }
 
 .label {
-    font-weight: 500;
-    margin-left: 10px;
-    overflow: hidden;
+	font-weight: 500;
+	margin-left: 10px;
+	overflow: hidden;
 }
 
 .SideBarMenuItem {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 5px;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 5px;
 }
 
 .SideBarMenuItem.nav-link {
-    color: white;
-    text-decoration: none;
-    display: block;
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
+	color: white;
+	text-decoration: none;
+	display: block;
+	padding: 10px;
+	width: 100%;
+	border-radius: 5px;
 }
