@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom'
 import organization from '../../../../../assets/organization_.svg'
 import slides from '../../../../../assets/slides.svg'
 import user from '../../../../../assets/user.svg'
