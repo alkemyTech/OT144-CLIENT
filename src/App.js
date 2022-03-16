@@ -32,8 +32,9 @@ import RedirecSlides from './Components/Slides/RedirecSlides'
 import SlidesList from './Components/Slides/SlidesList'
 import Newsletter from './Components/Newsletter/Newsletter'
 import UserNotLogged, { isLogin } from './Components/UI/Errors/UserNotLogged'
-import { contactRestrict } from './Components/Contact/ContactRestrict';
+import { contactRestrict } from './Components/Contact/ContactRestrict'
 import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
+import Testimonials from './Components/Testimonials/Testimonials'
 
 function App() {
 	return (
@@ -41,7 +42,10 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" exact element={<HomePage />} />
-					<Route path="/contact" element={ contactRestrict() ? <Contact/> : <HomePage/>} />
+					<Route
+						path="/contact"
+						element={contactRestrict() ? <Contact /> : <HomePage />}
+					/>
 					<Route path="/create-activity" element={<ActivitiesForm />} />
 					<Route path="/create-category" element={<CategoriesForm />} />
 					<Route path="/create-news" element={<CreateNews />} />
@@ -112,6 +116,7 @@ function App() {
 						path="/newsletter"
 						element={isLogin() ? <Newsletter /> : <UserNotLogged />}
 					/>
+					<Route path="/testimonials" element={<Testimonials />} />
 				</Routes>
 			</BrowserRouter>
 		</>

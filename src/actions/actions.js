@@ -105,9 +105,9 @@ export const getTestimonialsAction = (testimonials) => ({
 	payload: testimonials,
 })
 
-export const addTestimonialsAction = (testimonial) => ({
+export const addTestimonialsAction = (testimonials) => ({
 	type: types.TESTIMONIALS_ADD,
-	payload: testimonial,
+	payload: testimonials,
 })
 
 export const updateTestimonialAction = (testimonials) => ({
