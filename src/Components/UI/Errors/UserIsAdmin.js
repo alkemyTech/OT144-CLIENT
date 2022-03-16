@@ -3,7 +3,7 @@ import { getRequest } from '../../../Services/publicApiService'
 const getUsers = async () => {
 	try {
 		const response = await getRequest('/users')
-		return response.data.data
+		return response.data
 	} catch (error) {
 		console.log(error)
 	}

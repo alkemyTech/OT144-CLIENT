@@ -1,5 +1,10 @@
 import './App.css'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Redirect,
+} from 'react-router-dom'
 import HomeForm from './Components/Home/HomeForm'
 import ActivitiesForm from './Components/Activities/ActivitiesForm/ActivitiesForm'
 import CategoriesForm from './Components/Categories/CategoriesForm'
@@ -32,56 +37,59 @@ import RedirecSlides from './Components/Slides/RedirecSlides'
 import SlidesList from './Components/Slides/SlidesList'
 import Newsletter from './Components/Newsletter/Newsletter'
 import UserNotLogged, { isLogin } from './Components/UI/Errors/UserNotLogged'
-import { contactRestrict } from './Components/Contact/ContactRestrict';
+import { contactRestrict } from './Components/Contact/ContactRestrict'
 import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
 
 function App() {
 	return (
 		<>
-			<BrowserRouter>
-				<Routes>
+			<Router>
+				<Switch>
 					<Route path="/" exact element={<HomePage />} />
-					<Route path="/contact" element={ contactRestrict() ? <Contact/> : <HomePage/>} />
+					<Route
+						path="/contact"
+						element={contactRestrict() ? <Contact /> : <HomePage />}
+					/>
 					<Route path="/create-activity" element={<ActivitiesForm />} />
 					<Route path="/create-category" element={<CategoriesForm />} />
 					<Route path="/create-news" element={<CreateNews />} />
 					<Route
 						path="/backoffice/organization/edit-home"
-						element={userIsAdmin() ? <HomeForm /> : <Navigate to="/" />}
+						element={userIsAdmin() ? <HomeForm /> : <Redirect to="/" />}
 					/>
 					<Route
 						path="/backoffice/slides/:action"
-						element={userIsAdmin() ? <RedirecSlides /> : <Navigate to="/" />}
+						element={userIsAdmin() ? <RedirecSlides /> : <Redirect to="/" />}
 					/>
 					<Route
 						path="/backoffice/slides"
-						element={userIsAdmin() ? <SlidesList /> : <Navigate to="/" />}
+						element={userIsAdmin() ? <SlidesList /> : <Redirect to="/" />}
 					/>
 					<Route
 						path="/backoffice/organization/edit"
 						element={
-							userIsAdmin() ? <OrganizationEditForm /> : <Navigate to="/" />
+							userIsAdmin() ? <OrganizationEditForm /> : <Redirect to="/" />
 						}
 					/>
 					<Route
 						path="/backoffice/organization"
-						element={userIsAdmin() ? <DataScreen /> : <Navigate to="/" />}
+						element={userIsAdmin() ? <DataScreen /> : <Redirect to="/" />}
 					/>
 					<Route
 						path="/backoffice/members"
-						element={userIsAdmin() ? <MemberList /> : <Navigate to="/" />}
+						element={userIsAdmin() ? <MemberList /> : <Redirect to="/" />}
 					/>
 					<Route
 						path="/backoffice/categories"
-						element={userIsAdmin() ? <Categories /> : <Navigate to="/" />}
+						element={userIsAdmin() ? <Categories /> : <Redirect to="/" />}
 					/>
 					<Route
 						path="/backoffice/members/edit"
-						element={userIsAdmin() ? <MembersForm /> : <Navigate to="/" />}
+						element={userIsAdmin() ? <MembersForm /> : <Redirect to="/" />}
 					/>
 					<Route
 						path="/backoffice/users"
-						element={userIsAdmin() ? <UsersList /> : <Navigate to="/" />}
+						element={userIsAdmin() ? <UsersList /> : <Redirect to="/" />}
 					/>
 					<Route path="/create-testimonials" element={<TestimonialForm />} />
 					<Route path="/create-user" element={<UserForm />} />
@@ -94,13 +102,13 @@ function App() {
 					<Route
 						path="/backoffice"
 						element={
-							userIsAdmin() ? <ScreenDashboardPage /> : <Navigate to="/" />
+							userIsAdmin() ? <ScreenDashboardPage /> : <Redirect to="/" />
 						}
 					/>
 					<Route path="/register" element={<Register />} />
 					<Route
 						path="/backoffice/news"
-						element={userIsAdmin() ? <Novedades /> : <Navigate to="/" />}
+						element={userIsAdmin() ? <Novedades /> : <Redirect to="/" />}
 					/>
 					<Route path="/donar" element={<Donacion />} />
 					<Route path="/gracias" element={<Gracias />} />
@@ -112,8 +120,8 @@ function App() {
 						path="/newsletter"
 						element={isLogin() ? <Newsletter /> : <UserNotLogged />}
 					/>
-				</Routes>
-			</BrowserRouter>
+				</Switch>
+			</Router>
 		</>
 	)
 }
