@@ -3,7 +3,7 @@ import { getUser } from '../../../Services/userService'
 
 export const ContactRestrict = () => {
 	const [user, setUser] = React.useState({})
-	const [, setError] = React.useState(null)
+	const [error, setError] = React.useState(null)
 
 	React.useEffect(() => {
 		const getUserData = async () => {
@@ -17,5 +17,9 @@ export const ContactRestrict = () => {
 		getUserData()
 	}, [])
 
-	return user.role_id === 0
+	if (user.role_id === 0) {
+		return true
+	} else {
+		return error
+	}
 }
