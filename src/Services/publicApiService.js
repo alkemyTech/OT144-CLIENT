@@ -12,6 +12,7 @@ export const getRequest = async (url, id = null) => {
 	try {
 		return await axios.get(endpoint, { ...config.headers })
 	} catch (e) {
+		console.log(e)
 		alert('Error al traer la data')
 	}
 }

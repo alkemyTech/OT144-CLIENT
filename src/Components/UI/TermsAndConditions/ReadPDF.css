@@ -1,0 +1,25 @@
+.amount-page {
+	text-align: center;
+}
+
+nav {
+	margin: 8px;
+	display: flex;
+	justify-content: center;
+}
+
+nav button {
+	margin: 8px;
+	padding: 5px 8px;
+	border: none;
+	border-radius: 8px;
+	color: var(--darkBlue);
+	font-size: var(--text2);
+	cursor: pointer;
+}
+
+nav button:hover {
+	background-color: var(--darkBlue);
+	color: var(--lightGrey);
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
