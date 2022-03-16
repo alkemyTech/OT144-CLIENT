@@ -9,6 +9,8 @@
     border: 1px solid rgba(233, 229, 233);
     border-radius: 15px;
     cursor: default;
+    animation-duration: 4s;
+    animation-name: animateLinkedin;
 }
 
 .cardLinkedin:hover{
@@ -80,7 +82,7 @@
 }
 
 .txtLinkedin a{
-    font-size: var(--heading5);
+    font-size: var(--heading6);
     font-weight: 600;
     text-decoration: none;
     color: rgb(0, 119, 181);
@@ -88,10 +90,25 @@
     border-radius: 20px;
     text-align: center;
     width: 130px;
-    margin-top: 8px;
+    margin-top: 10px;
     padding: 6px 0;
 }
 
 .txtLinkedin a:hover{
     opacity: 0.7;
+}
+
+@keyframes animateLinkedin{
+    from {
+        transform: scale(0);
+        transition: 0.5s;
+        opacity: 0;
+      }
+    
+      to {
+        width: 280px;
+        height: 320px;
+        transition: 0.5s;
+        opacity: 1;
+      }
 }

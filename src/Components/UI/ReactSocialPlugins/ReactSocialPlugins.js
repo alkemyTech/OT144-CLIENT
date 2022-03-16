@@ -15,6 +15,7 @@ function ReactSocialPlugins(){
         <div className='containerSocial'>
 
             <div className='containerRedes'>
+                <div className='containerTweet'>
                 <TwitterTweet
                   align='left'
                   coversation='none'
@@ -22,6 +23,7 @@ function ReactSocialPlugins(){
                   theme='light'
                   width={325}
                 /> 
+                </div>
                 <CardLinkedin/>
             </div>   
 

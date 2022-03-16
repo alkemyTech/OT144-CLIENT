@@ -53,6 +53,14 @@
     align-items: center;
 }
 
+.containerTweet{
+    position: relative;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media all and (max-width: 750px){
     .containerSocial{
         flex-direction: column;
@@ -72,5 +80,10 @@
     .containerRedes{
         width: 100%;
         flex-direction: column;
+    }
+
+    .containerTweet{
+        width: 100%;
+        margin-bottom: 30px;
     }
 }
