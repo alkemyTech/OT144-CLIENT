@@ -4,6 +4,7 @@ import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import './stylesHomePage.css'
 import { getSlides } from '../../Services/slidesService'
 import HeaderComponent from './BackOffice/HeaderComponent'
+import SidebarBackOffice from './BackOffice/ui/sidebarBackOffice/SidebarBackOffice'
 
 function HomePage() {
 	const [loading, setLoading] = useState(false)
@@ -43,14 +44,15 @@ function HomePage() {
 	return (
 		<main className="homePage">
 			<HeaderComponent />
+			<SidebarBackOffice />
 
-			<section className="containerSlider">
+			{/* <section className="containerSlider">
 				<h2>Aqui va el componente Slider</h2>
 			</section>
 
 			<section className="containerNovedades">
 				<h2>Aqui va el componente Novedades</h2>
-			</section>
+			</section> */}
 		</main>
 	)
 }
