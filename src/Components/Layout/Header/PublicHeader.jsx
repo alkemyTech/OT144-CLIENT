@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom'
-import { isLogin } from '../../UI/Errors/UserNotLogged'
-import Logo from './LOGO-SOMOS MAS.png'
-import './PublicHeader.css'
+import React,{ useState, useEffect } from "react"
+import { Link } from "react-router-dom"
+import Logo from "./LOGO-SOMOS MAS.png"
+import "./PublicHeader.css"
+import { isLogin } from '../../../Components/UI/Errors/UserNotLogged'
 
 export default function PublicHeader() {
 	const datos = [
@@ -13,6 +14,17 @@ export default function PublicHeader() {
 		{ nombre: 'Contacto', url: '/contact' },
 		{ nombre: 'Contribuye', url: '/donar' },
 	]
+
+	const [isLoginRegister, setIsLoginRegister] = useState(false)
+
+	useEffect(
+		()=>{
+			if (isLogin === true) {
+				setIsLoginRegister(true)
+			}
+		},
+		[]
+	)
 
 	return (
 		<header className="containerHeader">
@@ -31,15 +43,12 @@ export default function PublicHeader() {
 					))}
 				</ul>
 			</nav>
-			{isLogin() && (
-				<div className="containerHeaderButtons">
-					<Link to="/login">
-						<button>Inicia sesión</button>
-					</Link>
-					<Link to="/register"></Link>
-					<button>Registrate</button>
-				</div>
-			)}
+			<div className="containerHeaderButtons">
+				{!isLoginRegister ?
+					<Link to="/register"><button>Registrate</button></Link> :
+          <Link to="/login"><button>Inicia sesión</button></Link>
+				}
+			</div>
 		</header>
 	)
 }
