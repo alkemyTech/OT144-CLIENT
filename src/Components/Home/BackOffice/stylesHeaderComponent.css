@@ -1,0 +1,48 @@
+header {
+	position: relative;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 50px;
+	background-color: var(--darkBlue);
+	width: 100%;
+}
+
+/*MENU HAMBURGUESA*/
+.menu-btn {
+	position: relative;
+	cursor: pointer;
+	top: 38px;
+	right: 50px;
+	z-index: 999999;
+	position: fixed;
+	line-height: 30px;
+}
+
+.menu-btn img {
+	width: 40px;
+}
+
+.menu-btn:hover {
+	transform: scale(1.1);
+	transition: 0.5s;
+}
+/*FIN MENU HAMBURGUESA*/
+
+@media all and (max-width: 600px) {
+	header {
+		align-items: flex-start;
+	}
+}
+
+@media all and (max-width: 960px) {
+	header {
+		padding: 10px 20px;
+	}
+
+	.menu-btn {
+		right: 20px;
+	}
+}
