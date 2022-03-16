@@ -1,52 +1,45 @@
-import React from 'react'
-import ContactForm from './ContactForm'
-import './Contact.css'
-import TitleComponent from '../title/TitleComponent'
-import { getContact } from '../../Services/ServiceAPIContact'
-import ErrorAlert from '../UI/Alerts/ErrorAlert'
+import React from "react";
+import ContactForm from "./ContactForm";
+import "./Contact.css";
+import TitleComponent from "../title/TitleComponent";
+import { getContact } from "../../Services/ServiceAPIContact";
+import ErrorAlert from '../UI/Alerts/ErrorAlert';
 
-const Contact = ({ img, name, phone, email }) => {
-	const [error, setError] = React.useState(false)
 
-	React.useEffect(() => {
-		const fetchData = async () => {
-			try {
-				await getContact()
-			} catch (error) {
-				setError(true)
-			}
-		}
-		fetchData()
-	}, [])
+const Contact = ({img, name, phone, email}) => {
 
-	if (error) {
-		return <ErrorAlert />
-	}
+  const [error, setError] = React.useState(false);
 
-	return (
-		<div className="contact-container">
-			<TitleComponent title="Contacto" img={img} />
+  React.useEffect(async () => {
+    try {
+      const response = await getContact();
+    } catch (error) {
+      setError(true);
+    }
+  }, []);
 
-			<ul className="contact-list">
-				<li>
-					{' '}
-					Nombre:<span> {name} </span>{' '}
-				</li>
-				<li>
-					{' '}
-					Email: <span> {email} </span>
-				</li>
-				<li>
-					{' '}
-					Phone: <span> {phone} </span>{' '}
-				</li>
-			</ul>
+  if(error) {
+    return <ErrorAlert />
+  }
+ 
+  return (
+    <div className="contact-container">
+      <TitleComponent 
+        title="Contacto"
+        img={img}
+      />
 
-			<h3 className="subtitle">Contactanos</h3>
+      <ul className="contact-list">
+        <li> Nombre:<span> {name} </span> </li>
+        <li> Email: <span> {email} </span></li>
+        <li> Phone: <span> {phone} </span>  </li>
+      </ul>
 
-			<ContactForm />
-		</div>
-	)
-}
+      <h3 className="subtitle">Contactanos</h3>
 
-export default Contact
+     <ContactForm />
+    </div>
+  );
+};
+
+export default Contact;
