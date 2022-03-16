@@ -12,7 +12,7 @@ import '../FormStyles.css'
 const SUPPORTED_FORMATS = ['image/png', 'image/jpg']
 
 const UserForm = () => {
-	const userApi = `https://ongapi.alkemy.org/api/users/1312` // {user.id} Acá se debería reemplazar el numero por el id del usuario
+	const userApi = `http://ongapi.alkemy.org/api/users` // {user.id} Acá se debería reemplazar el numero por el id del usuario
 	const [user, setUser] = React.useState({
 		id: null,
 		name: '',

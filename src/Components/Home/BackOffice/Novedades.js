@@ -47,14 +47,6 @@ function Novedades() {
 		}
 	}, [])
 
-	if (loading) {
-		return <SpinnerComponent />
-	}
-
-	if (error) {
-		return <BasicAlert />
-	}
-
 	const fetchAddNews = (bodyNews) => {
 		try {
 			;(async () => {
@@ -91,7 +83,6 @@ function Novedades() {
 			setError(true)
 		}
 	}
-
 	// REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR
 	const body = {
 		name: 'pruebaUpdate',
