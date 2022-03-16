@@ -29,7 +29,6 @@ import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
 import MembersForm from './Components/Members/MembersForm'
 
-// eslint-disable-next-line
 function App() {
 	return (
 		<>
