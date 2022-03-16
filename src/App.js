@@ -43,9 +43,15 @@ function App() {
 				<Routes>
 					<Route path="/" exact element={<HomePage />} />
 					<Route path="/contact" element={ contactRestrict() ? <Contact/> : <HomePage/>} />
-					<Route path="/create-activity" element={<ActivitiesForm />} />
-					<Route path="/create-category" element={<CategoriesForm />} />
-					<Route path="/create-news" element={<CreateNews />} />
+					<Route 
+						path="/create-activity" 
+						element={isLogin() ? <ActivitiesForm /> : <Navigate to="/login" />} />
+					<Route 
+						path="/create-category" 
+						element={isLogin() ? <CategoriesForm /> : <Navigate to="/login" />} />
+					<Route 
+						path="/create-news" 
+						element={isLogin() ? <CreateNews /> : <Navigate to="/login" />} />
 					<Route
 						path="/backoffice/organization/edit-home"
 						element={userIsAdmin() ? <HomeForm /> : <Navigate to="/" />}
@@ -84,10 +90,18 @@ function App() {
 						path="/backoffice/users"
 						element={userIsAdmin() ? <UsersList /> : <Navigate to="/" />}
 					/>
-					<Route path="/create-testimonials" element={<TestimonialForm />} />
-					<Route path="/create-user" element={<UserForm />} />
-					<Route path="/create-member" element={<MembersForm />} />
-					<Route path="/create-project" element={<ProjectsForm />} />
+					<Route 
+						path="/create-testimonials" 
+						element={isLogin() ? <TestimonialForm /> : <Navigate to="/login" />} />
+					<Route 
+						path="/create-user" 
+						element={isLogin() ? <UserForm /> : <Navigate to="/login" />} />
+					<Route 
+						path="/create-member" 
+						element={isLogin() ? <MembersForm /> : <Navigate to="/login" />} />
+					<Route 
+						path="/create-project" 
+						element={isLogin() ? <ProjectsForm /> : <Navigate to="/login" />} />
 					<Route path="/school-campaign" element={<SchoolCampaign />} />
 					<Route path="/toys-campaign" element={<ToysCampaign />} />
 					<Route path="/about-us" element={<AboutPrincipal />} />
