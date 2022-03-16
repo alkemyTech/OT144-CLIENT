@@ -4,7 +4,7 @@ import {
 	putRequest,
 	postRequest,
 } from './privateApiService'
-const endpoint = 'users'
+const endpoint = '/users'
 
 export const getUsers = async () => {
 	const response = await getRequest(endpoint)

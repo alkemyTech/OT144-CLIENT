@@ -9,10 +9,10 @@ export const login = (user) => {
 		},
 	}
 }
-// eslint-disable-next-line
+
 export const register = (user) => {
 	return {
-		type: types.AUTH_LOGIN,
+		type: types.AUTH_REGISTER,
 		payload: {
 			token: user.token,
 			user: user.user,
@@ -97,5 +97,25 @@ export const updateUsersAction = (users) => ({
 
 export const deleteUsersAction = (id) => ({
 	type: types.USERS_DELETE,
+	payload: id,
+})
+
+export const getTestimonialsAction = (testimonials) => ({
+	type: types.TESTIMONIALS_GET,
+	payload: testimonials,
+})
+
+export const addTestimonialsAction = (testimonials) => ({
+	type: types.TESTIMONIALS_ADD,
+	payload: testimonials,
+})
+
+export const updateTestimonialAction = (testimonials) => ({
+	type: types.TESTIMONIALS_UPDATE,
+	payload: testimonials,
+})
+
+export const deleteTestimonialAction = (id) => ({
+	type: types.TESTIMONIALS_DELETE,
 	payload: id,
 })

@@ -1,4 +1,5 @@
 import { getRequest } from '../../../Services/publicApiService'
+import { Navigate } from 'react-router'
 
 const getUsers = async () => {
 	try {
@@ -14,11 +15,18 @@ function getRole() {
 		const user = response.filter((user) => {
 			return user.email === localStorage.getItem('email')
 		})
-		localStorage.setItem('role', user[0].role_id)
+
+		if (user) {
+			localStorage.setItem('role', user[0].role_id)
+		}
 	})
 }
 
-export default function userIsAdmin() {
+export default function userIsAdmin(Componente) {
 	getRole()
-	return localStorage.getItem('role') === 1
+	if (localStorage.getItem('role') === '1') {
+		return <Componente />
+	} else {
+		;<Navigate to="/" />
+	}
 }
