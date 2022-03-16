@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../../TableStyles.css'
@@ -158,13 +157,13 @@ function Novedades() {
 										</td>
 									</tr>
 								)
-							})
+							  })
 							: null}
 					</tbody>
 				</table>
 			</div>
 		</section>
-)
+	)
 }
 
 export default Novedades
