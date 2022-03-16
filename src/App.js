@@ -34,6 +34,7 @@ import Newsletter from './Components/Newsletter/Newsletter'
 import UserNotLogged, { isLogin } from './Components/UI/Errors/UserNotLogged'
 import { contactRestrict } from './Components/Contact/ContactRestrict';
 import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
+import PageNoFound from './Components/Auth/PageNoFound';
 
 function App() {
 	return (
@@ -112,6 +113,7 @@ function App() {
 						path="/newsletter"
 						element={isLogin() ? <Newsletter /> : <UserNotLogged />}
 					/>
+          <Route component={PageNoFound} />
 				</Routes>
 			</BrowserRouter>
 		</>
