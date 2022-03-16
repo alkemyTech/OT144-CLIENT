@@ -8,15 +8,12 @@ import ErrorAlert from '../UI/Alerts/ErrorAlert'
 const Contact = ({ img, name, phone, email }) => {
 	const [error, setError] = React.useState(false)
 
-	React.useEffect(() => {
-		const fetchData = async () => {
-			try {
-				await getContact()
-			} catch (error) {
-				setError(true)
-			}
+	React.useEffect(async () => {
+		try {
+			await getContact()
+		} catch (error) {
+			setError(true)
 		}
-		fetchData()
 	}, [])
 
 	if (error) {

@@ -9,10 +9,10 @@ export const login = (user) => {
 		},
 	}
 }
-// eslint-disable-next-line
+
 export const register = (user) => {
 	return {
-		type: types.AUTH_LOGIN,
+		type: types.AUTH_REGISTER,
 		payload: {
 			token: user.token,
 			user: user.user,
