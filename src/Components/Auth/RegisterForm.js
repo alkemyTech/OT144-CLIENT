@@ -1,6 +1,7 @@
 import React from 'react'
 import '../FormStyles.css'
 import { Formik } from 'formik'
+
 const RegisterForm = () => {
 	const formValues = [
 		{
