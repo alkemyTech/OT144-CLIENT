@@ -1,3 +1,4 @@
+
 import { NavLink } from 'react-router-dom'
 import { classNames } from './classes.js'
 import './sidebarBackOffice.css'
@@ -21,6 +22,7 @@ const SidebarItemsNav = ({ isOpen, item }) => {
 					</div>
 					<span className="label">{item.nombre}</span>
 					{!isOpen ? <div className="tooltip">{item.nombre}</div> : ''}
+
 				</div>
 			</NavLink>
 		</div>

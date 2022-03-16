@@ -12,7 +12,6 @@ export const usReducer = (state = initialState, action) => {
 		return {
 			...state,
 		}
-
 	default:
 		return state
 	}
