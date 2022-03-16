@@ -31,6 +31,21 @@ header {
 }
 /*FIN MENU HAMBURGUESA*/
 
+.btn-logout {
+	all: unset;
+	color: white;
+	background-color: var(--blue);
+	cursor: pointer;
+	width: auto;
+	min-height: 30px;
+	padding: 10px 15px;
+}
+
+.btn-logout:hover {
+	filter: brightness(1.1);
+	transition: 0.5s;
+}
+
 @media all and (max-width: 600px) {
 	header {
 		align-items: flex-start;

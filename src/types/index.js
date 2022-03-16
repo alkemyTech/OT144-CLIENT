@@ -22,3 +22,8 @@ export const USERS_GET = '[USERS]Get'
 export const USERS_ADD = '[USERS]Add'
 export const USERS_DELETE = '[USERS]Delete'
 export const USERS_UPDATE = '[USERS]Update'
+
+export const TESTIMONIALS_GET = '[TESTIMONIALS]Get'
+export const TESTIMONIALS_ADD = '[TESTIMONIALS]Add'
+export const TESTIMONIALS_DELETE = '[TESTIMONIALS]Delete'
+export const TESTIMONIALS_UPDATE = '[TESTIMONIALS]Update'

@@ -1,109 +1,109 @@
 .send {
-  color: #ffffff;
+	color: #ffffff;
 }
 
 .terms-and-cond {
-  color: var(--darkBlue);
-  cursor: pointer;
-  border-bottom: 1px solid var(--darkBlue);
+	color: var(--darkBlue);
+	cursor: pointer;
+	border-bottom: 1px solid var(--darkBlue);
 }
 
 .terms-and-cond:hover {
-  color: var(--blue);
-  border-bottom: 1px solid var(--blue);
+	color: var(--blue);
+	border-bottom: 1px solid var(--blue);
 }
 
 .container-modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 a {
-  color: var(--blue);
+	color: var(--blue);
 }
 a:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .terms-text {
-  font-size: var(--text2);
+	font-size: var(--text2);
 }
 
 .terms-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .terms-checkbox {
-  margin-right: 8px;
-  cursor: pointer;
+	margin-right: 8px;
+	cursor: pointer;
 }
 
 .modal {
-  font-size: 12px;
-  background-color: var(--darkBlue);
-  color: var(--lightGrey);
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+	font-size: 12px;
+	background-color: var(--darkBlue);
+	color: var(--lightGrey);
+	border-radius: 8px;
+	padding: 16px;
+	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 .modal > .header {
-  width: 100%;
-  border-bottom: 2px solid white;
-  font-size: var(--heading4);
-  text-align: center;
-  padding: 5px;
+	width: 100%;
+	border-bottom: 2px solid white;
+	font-size: var(--heading4);
+	text-align: center;
+	padding: 5px;
 }
 .modal > .content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 16px;
-  font-size: var(--text2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 16px;
+	font-size: var(--text2);
 }
 .modal > .actions {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 10px 5px;
-  margin: auto;
-  text-align: center;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding: 10px 5px;
+	margin: auto;
+	text-align: center;
 }
 
 .button {
-  padding: 8px;
-  margin: 0 8px;
-  border-radius: 8px;
-  border: none;
+	padding: 8px;
+	margin: 0 8px;
+	border-radius: 8px;
+	border: none;
 }
 
 .button:hover {
-  opacity: 0.8;
+	opacity: 0.8;
 }
 
 .accept {
-  background-color: var(--darkBlue);
-  border: 1px solid var(--lightGrey);
-  color: var(--lightGrey);
+	background-color: var(--darkBlue);
+	border: 1px solid var(--lightGrey);
+	color: var(--lightGrey);
 }
 
 .cancel {
-  color: var(--darkBlue);
+	color: var(--darkBlue);
 }
 
 .modal > .close {
-  cursor: pointer;
-  position: absolute;
-  display: block;
-  padding: 2px 5px;
-  line-height: 20px;
-  right: -10px;
-  top: -10px;
-  font-size: 24px;
-  background: #ffffff;
-  border-radius: 18px;
-  border: 5px solid var(--darkBlue);
-  color: var(--darkBlue);
+	cursor: pointer;
+	position: absolute;
+	display: block;
+	padding: 2px 5px;
+	line-height: 20px;
+	right: -10px;
+	top: -10px;
+	font-size: 24px;
+	background: #ffffff;
+	border-radius: 18px;
+	border: 5px solid var(--darkBlue);
+	color: var(--darkBlue);
 }
