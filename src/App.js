@@ -34,6 +34,7 @@ import Newsletter from './Components/Newsletter/Newsletter'
 import UserNotLogged, { isLogin } from './Components/UI/Errors/UserNotLogged'
 import { contactRestrict } from './Components/Contact/ContactRestrict'
 import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
+import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
 
 function App() {
 	return (
@@ -107,7 +108,7 @@ function App() {
 					/>
 					<Route
 						path="/donar"
-						element={isLogin() ? <Donacion /> : <HomePage />}
+						element={LoginAndAdmin() ? <Donacion /> : <HomePage />}
 					/>
 					<Route path="/gracias" element={<Gracias />} />
 					<Route path="/novedades/:id" element={<DetailNew />} />

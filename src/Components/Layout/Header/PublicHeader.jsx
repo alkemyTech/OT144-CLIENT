@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import Logo from "./LOGO-SOMOS MAS.png"
 import "./PublicHeader.css"
 import { isLogin } from '../../../Components/UI/Errors/UserNotLogged'
+import {LoginAndAdmin} from '../../UI/Restrictions/LoginAndAdmin'
 
 export default function PublicHeader() {
 	const datos = [
@@ -15,11 +16,16 @@ export default function PublicHeader() {
 	]
 
 	const [isLoginRegister, setIsLoginRegister] = useState(false)
+	const [ btnDonar, setBtnDonar] = useState(true)
 
 	useEffect(
 		()=>{
 			if (isLogin === true) {
 				setIsLoginRegister(true)
+			}
+
+			if (LoginAndAdmin === false) {
+				setBtnDonar(false)
 			}
 		},
 		[]
@@ -41,7 +47,7 @@ export default function PublicHeader() {
 				</ul>
 			</nav>
 			<div className="containerHeaderButtons">
-				{isLoginRegister &&
+				{btnDonar &&
 					<Link to="/donar"><button className="btnDonar">Donar</button></Link>
 				}
 				<Link to="/login"><button>Inicia sesión</button></Link>
