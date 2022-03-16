@@ -1,31 +1,26 @@
 import {
-  getRequest,
-  postRequest,
-  putRequest,
-  deleteRequest,
-} from "./privateApiService";
+	getRequest,
+	postRequest,
+	putRequest,
+	deleteRequest,
+} from './privateApiService'
 
 export const getSlides = async () => {
-  const response = await getRequest(`${process.env.REACT_APP_URL_SLIDES}`);
-  return response;
-};
+	return await getRequest(`${process.env.REACT_APP_URL_SLIDES}`)
+}
 
 export const getSlide = async (id) => {
-  const response = await getRequest(`${process.env.REACT_APP_URL_SLIDES}`, id);
-  return response;
-};
+	return await getRequest(`${process.env.REACT_APP_URL_SLIDES}`, id)
+}
 
 export const createSlide = async (data) => {
-  const response = await postRequest(`${process.env.REACT_APP_URL_SLIDES}`, data);
-  return response;
-};
+	return await postRequest(`${process.env.REACT_APP_URL_SLIDES}`, data)
+}
 
 export const updateSlide = async (id, data) => {
-  const response = await putRequest(`${process.env.REACT_APP_URL_SLIDES}`, id, data);
-  return response;
-};
+	return await putRequest(`${process.env.REACT_APP_URL_SLIDES}`, id, data)
+}
 
 export const deleteSlide = async (id) => {
-  const response = await deleteRequest(`${process.env.REACT_APP_URL_SLIDES}`, id);
-  return response;
-};
+	return await deleteRequest(`${process.env.REACT_APP_URL_SLIDES}`, id)
+}

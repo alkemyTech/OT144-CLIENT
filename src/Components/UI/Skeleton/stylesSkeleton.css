@@ -1,29 +1,29 @@
-.containerSkeleton{
-    position: relative;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.containerSkeleton {
+	position: relative;
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.skeleton{
-    position: relative;
-    background-color: var(--grey);
-    animation: parpadeo 2s infinite;
-    opacity: 0.5;
-    transition: 0.5s;
-    margin: 5px 0;
+.skeleton {
+	position: relative;
+	background-color: var(--grey);
+	animation: parpadeo 2s infinite;
+	opacity: 0.5;
+	transition: 0.5s;
+	margin: 5px 0;
 }
 
 @keyframes parpadeo {
-    from {
-        opacity: 0.5;
-        transition: 0.5s;
-    }
-  
-    to {
-        opacity: 1;
-        transition: 0.5s;
-    }
+	from {
+		opacity: 0.5;
+		transition: 0.5s;
+	}
+
+	to {
+		opacity: 1;
+		transition: 0.5s;
+	}
 }

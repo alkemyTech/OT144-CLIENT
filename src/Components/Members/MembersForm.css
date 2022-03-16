@@ -1,66 +1,65 @@
 #form-member-creation {
-  display: grid;
-  grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr) minmax(
-      100px,
-      1fr
-    );
-  grid-template-rows: auto;
-  grid-gap: 15px;
-  grid-template-areas:
-    "image name name"
-    "image instagram twitter"
-    "imageInput facebook   ."
-    "description description description"
-    ".   submit   .";
+	display: grid;
+	grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr) minmax(
+			100px,
+			1fr
+		);
+	grid-template-rows: auto;
+	grid-gap: 15px;
+	grid-template-areas:
+		'image name name'
+		'image instagram twitter'
+		'imageInput facebook   .'
+		'description description description'
+		'.   submit   .';
 }
 
 .profile-preview-image {
-  grid-area: image;
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 1px solid #c1c1c1;
-  margin: auto;
+	grid-area: image;
+	width: 130px;
+	height: 130px;
+	object-fit: cover;
+	border-radius: 50%;
+	border: 1px solid #c1c1c1;
+	margin: auto;
 }
 
 .create-member-input-field {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
-
 @media (max-width: 768px) {
-  #form-member-creation {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    grid-gap: 15px;
-    grid-template-areas:
-      "image  ."
-      " imageInput ."
-      " name   name"
-      " instagram   facebook"
-      "twitter . "
-      "description description"
-      "submit submit";
-  }
+	#form-member-creation {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
+		grid-gap: 15px;
+		grid-template-areas:
+			'image  .'
+			' imageInput .'
+			' name   name'
+			' instagram   facebook'
+			'twitter . '
+			'description description'
+			'submit submit';
+	}
 }
 
 @media (max-width: 425px) {
-  #form-member-creation {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: auto;
-    grid-gap: 15px;
-    grid-template-areas:
-      "image"
-      " imageInput "
-      " name "
-      " instagram"
-      "twitter "
-      "facebook "
-      "description"
-      "submit ";
-  }
+	#form-member-creation {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: auto;
+		grid-gap: 15px;
+		grid-template-areas:
+			'image'
+			' imageInput '
+			' name '
+			' instagram'
+			'twitter '
+			'facebook '
+			'description'
+			'submit ';
+	}
 }
