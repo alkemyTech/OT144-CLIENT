@@ -38,5 +38,7 @@ export const startRegister = (name, email, password) => async (dispatch) => {
 
 export const startLogout = () => (dispatch) => {
 	localStorage.removeItem('token')
+	localStorage.removeItem('email')
+	localStorage.removeItem('role')
 	dispatch(logout())
 }
