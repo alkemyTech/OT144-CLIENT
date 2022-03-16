@@ -24,8 +24,12 @@ import UserNotLogged, { isLogin } from './Components/UI/Errors/UserNotLogged'
 import { contactRestrict } from './Components/Contact/ContactRestrict'
 import RuteoBackoffice from './BackofficeRoutes/RuteoBackoffice'
 import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
+import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
+import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
+import MembersForm from './Components/Members/MembersForm'
 
+// eslint-disable-next-line
 function App() {
 	return (
 		<>
@@ -58,8 +62,8 @@ function App() {
 						element={isLogin() ? <UserForm /> : <Navigate to="/login" />}
 					/>
 					<Route
-						path="/login"
-						element={isLogin() ? <HomePage /> : <LoginForm />}
+						path="/create-member"
+						element={isLogin() ? <MembersForm /> : <Navigate to="/login" />}
 					/>
 					<Route
 						path="/create-project"
@@ -68,12 +72,18 @@ function App() {
 					<Route path="/school-campaign" element={<SchoolCampaign />} />
 					<Route path="/toys-campaign" element={<ToysCampaign />} />
 					<Route path="/about-us" element={<AboutPrincipal />} />
-					<Route path="/login" element={<LoginForm />} />
+					<Route
+						path="/login"
+						element={isLogin() ? <HomePage /> : <LoginForm />}
+					/>
 					<Route
 						path="/register"
 						element={isLogin() ? <HomePage /> : <Register />}
 					/>
-					<Route path="/donar" element={<Donacion />} />
+					<Route
+						path="/donar"
+						element={LoginAndAdmin() ? <Donacion /> : <HomePage />}
+					/>
 					<Route path="/gracias" element={<Gracias />} />
 					<Route path="/novedades/:id" element={<DetailNew />} />
 					<Route path="/activities" element={<Activities />} />
@@ -83,6 +93,7 @@ function App() {
 						path="/newsletter"
 						element={isLogin() ? <Newsletter /> : <UserNotLogged />}
 					/>
+					<Route path="/testimonials" element={<Testimonials />} />
 					<Route component={PageNoFound} />
 				</Routes>
 			</BrowserRouter>

@@ -11,8 +11,8 @@ import './sidebarBackOffice.css'
 
 // eslint-disable-next-line
 const SidebarItemsNav = ({ isOpen }) => {
+	// eslint-disable-next-line
 	const imgIcon = ' img-icon-d'
-
 	return (
 		<div className="SideBarMenuItem">
 			<NavLink
