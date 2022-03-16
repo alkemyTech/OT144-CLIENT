@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../FormStyles.css'
 import { Formik } from 'formik'
+import { createUser } from '../../Services/userService'
+import TermsAndConditions from '../UI/TermsAndConditions/TermsAndConditions'
+import '../UI/TermsAndConditions/TermsAndConditions.css'
+
 const RegisterForm = () => {
+	const [acceptTerms, setAcceptTerms] = useState(false)
 	const formValues = [
 		{
 			type: 'text',
@@ -31,6 +36,7 @@ const RegisterForm = () => {
 				if (!value) {
 					return 'El email es requerido'
 				}
+
 				const emailPattern =
 					// eslint-disable-next-line
 					/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -82,10 +88,22 @@ const RegisterForm = () => {
 		return errors
 	}
 
-	const handleSubmit = (values, { setSubmitting }) => {
-		console.log(values)
-		setSubmitting(false)
+	const registerUser = async (values) => {
+		try {
+			await createUser(values)
+		} catch (e) {
+			alert(e)
+		}
 	}
+
+	const handleSubmit = (values, { setSubmitting }) => {
+		setSubmitting(false)
+		acceptTerms
+			? registerUser(values)
+			: alert('Debe aceptar los terminos y condiciones para registrarte')
+	}
+
+	const handleChangeCheckbox = () => setAcceptTerms(!acceptTerms)
 
 	return (
 		<Formik
@@ -115,6 +133,19 @@ const RegisterForm = () => {
 							{errors[item.name] && touched[item.name] && errors[item.name]}
 						</React.Fragment>
 					))}
+
+					<div className="terms-container">
+						<input
+							className="terms-checkbox"
+							type="checkbox"
+							value={acceptTerms}
+							onChange={handleChangeCheckbox}
+						/>
+						<label className="terms-text">
+							Aceptar Terminos y condiciones de uso
+						</label>
+					</div>
+					<TermsAndConditions />
 					<button type="submit" className="submit-btn" disabled={isSubmitting}>
 						Enviar
 					</button>
