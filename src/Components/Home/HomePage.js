@@ -3,7 +3,6 @@ import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import './stylesHomePage.css'
 import { getSlides } from '../../Services/slidesService'
-import LayoutPublic from '../Layout/LayoutPublic'
 
 function HomePage() {
 	const [loading, setLoading] = useState(false)
@@ -41,16 +40,14 @@ function HomePage() {
 	}
 
 	return (
-		<LayoutPublic>
-			<main className="homePage">
-				<section className="containerSlider">
-					<h2>Aqui va el componente Slider</h2>
-				</section>
-				<section className="containerNovedades">
-					<h2>Aqui va el componente Novedades</h2>
-				</section>
-			</main>
-		</LayoutPublic>
+		<main className="homePage">
+			<section className="containerSlider">
+				<h2>Aqui va el componente Slider</h2>
+			</section>
+			<section className="containerNovedades">
+				<h2>Aqui va el componente Novedades</h2>
+			</section>
+		</main>
 	)
 }
 

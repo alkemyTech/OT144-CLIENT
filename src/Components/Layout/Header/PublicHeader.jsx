@@ -10,7 +10,7 @@ export default function PublicHeader() {
 		{ nombre: 'Nosotros', url: '/about-us' },
 		{ nombre: 'Actividades', url: '/activities' },
 		{ nombre: 'Novedades', url: '/novedades' },
-		{ nombre: 'Testimonios', url: '' },
+		{ nombre: 'Testimonios', url: 'testimonials' },
 		{ nombre: 'Contacto', url: '/contact' },
 		{ nombre: 'Contribuye', url: '/donar' },
 	]

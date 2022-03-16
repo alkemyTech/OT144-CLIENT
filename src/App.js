@@ -28,74 +28,86 @@ import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
 import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
 import MembersForm from './Components/Members/MembersForm'
+import LayoutPublic from './Components/Layout/LayoutPublic'
 
 // eslint-disable-next-line
 function App() {
 	return (
 		<>
 			<BrowserRouter>
-				<Routes>
-					<Route path="/" exact element={<HomePage />} />
-					<Route path="/backoffice/*" element={userIsAdmin(RuteoBackoffice)} />
-					<Route
-						path="/contact"
-						element={contactRestrict() ? <Contact /> : <HomePage />}
-					/>
-					<Route
-						path="/create-activity"
-						element={isLogin() ? <ActivitiesForm /> : <Navigate to="/login" />}
-					/>
-					<Route
-						path="/create-category"
-						element={isLogin() ? <CategoriesForm /> : <Navigate to="/login" />}
-					/>
-					<Route
-						path="/create-news"
-						element={isLogin() ? <CreateNews /> : <Navigate to="/login" />}
-					/>
-					<Route
-						path="/create-testimonials"
-						element={isLogin() ? <TestimonialForm /> : <Navigate to="/login" />}
-					/>
-					<Route
-						path="/create-user"
-						element={isLogin() ? <UserForm /> : <Navigate to="/login" />}
-					/>
-					<Route
-						path="/create-member"
-						element={isLogin() ? <MembersForm /> : <Navigate to="/login" />}
-					/>
-					<Route
-						path="/create-project"
-						element={isLogin() ? <ProjectsForm /> : <Navigate to="/login" />}
-					/>
-					<Route path="/school-campaign" element={<SchoolCampaign />} />
-					<Route path="/toys-campaign" element={<ToysCampaign />} />
-					<Route path="/about-us" element={<AboutPrincipal />} />
-					<Route
-						path="/login"
-						element={isLogin() ? <HomePage /> : <LoginForm />}
-					/>
-					<Route
-						path="/register"
-						element={isLogin() ? <HomePage /> : <Register />}
-					/>
-					<Route
-						path="/donar"
-						element={LoginAndAdmin() ? <Donacion /> : <HomePage />}
-					/>
-					<Route path="/gracias" element={<Gracias />} />
-					<Route path="/novedades/:id" element={<DetailNew />} />
-					<Route path="/activities" element={<Activities />} />
-					<Route path="/activities/:id" element={<ActivitiesDetail />} />
-					<Route path="/Novedades" element={<NewsHome />} />
-					<Route
-						path="/newsletter"
-						element={isLogin() ? <Newsletter /> : <UserNotLogged />}
-					/>
-					<Route path="/testimonials" element={<Testimonials />} />
-					<Route component={PageNoFound} />
-				</Routes>
+				<LayoutPublic>
+					<Routes>
+						<Route path="/" exact element={<HomePage />} />
+						<Route
+							path="/backoffice/*"
+							element={userIsAdmin(RuteoBackoffice)}
+						/>
+						<Route
+							path="/contact"
+							element={contactRestrict() ? <Contact /> : <HomePage />}
+						/>
+						<Route
+							path="/create-activity"
+							element={
+								isLogin() ? <ActivitiesForm /> : <Navigate to="/login" />
+							}
+						/>
+						<Route
+							path="/create-category"
+							element={
+								isLogin() ? <CategoriesForm /> : <Navigate to="/login" />
+							}
+						/>
+						<Route
+							path="/create-news"
+							element={isLogin() ? <CreateNews /> : <Navigate to="/login" />}
+						/>
+						<Route
+							path="/create-testimonials"
+							element={
+								isLogin() ? <TestimonialForm /> : <Navigate to="/login" />
+							}
+						/>
+						<Route
+							path="/create-user"
+							element={isLogin() ? <UserForm /> : <Navigate to="/login" />}
+						/>
+						<Route
+							path="/create-member"
+							element={isLogin() ? <MembersForm /> : <Navigate to="/login" />}
+						/>
+						<Route
+							path="/create-project"
+							element={isLogin() ? <ProjectsForm /> : <Navigate to="/login" />}
+						/>
+						<Route path="/school-campaign" element={<SchoolCampaign />} />
+						<Route path="/toys-campaign" element={<ToysCampaign />} />
+						<Route path="/about-us" element={<AboutPrincipal />} />
+						<Route
+							path="/login"
+							element={isLogin() ? <HomePage /> : <LoginForm />}
+						/>
+						<Route
+							path="/register"
+							element={isLogin() ? <HomePage /> : <Register />}
+						/>
+						<Route
+							path="/donar"
+							element={LoginAndAdmin() ? <Donacion /> : <HomePage />}
+						/>
+						<Route path="/gracias" element={<Gracias />} />
+						<Route path="/novedades/:id" element={<DetailNew />} />
+						<Route path="/activities" element={<Activities />} />
+						<Route path="/activities/:id" element={<ActivitiesDetail />} />
+						<Route path="/Novedades" element={<NewsHome />} />
+						<Route
+							path="/newsletter"
+							element={isLogin() ? <Newsletter /> : <UserNotLogged />}
+						/>
+						<Route path="/testimonials" element={<Testimonials />} />
+						<Route component={PageNoFound} />
+					</Routes>
+				</LayoutPublic>
 			</BrowserRouter>
 		</>
 	)
