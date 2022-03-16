@@ -105,7 +105,10 @@ function App() {
 					<Route path="/school-campaign" element={<SchoolCampaign />} />
 					<Route path="/toys-campaign" element={<ToysCampaign />} />
 					<Route path="/about-us" element={<AboutPrincipal />} />
-					<Route path="/login" element={<LoginForm />} />
+					<Route
+						path="/login"
+						element={isLogin() ? <HomePage /> : <LoginForm />}
+					/>
 					<Route
 						path="/backoffice"
 						element={
