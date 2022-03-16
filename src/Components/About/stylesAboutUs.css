@@ -1,23 +1,23 @@
 .aboutPrincipal-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 
 .aboutUs-container {
-  color: var(--black);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 15px;
-  width: 100%;
+	color: var(--black);
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding: 15px;
+	width: 100%;
 }
 
 .aboutUs-container p {
-  text-align: justify;
+	text-align: justify;
 }
 .spinner-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

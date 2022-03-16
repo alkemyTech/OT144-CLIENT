@@ -1,26 +1,26 @@
-import { getRequest, postRequest, deleteRequest, putRequest } from "./privateApiService"
+import {
+	getRequest,
+	postRequest,
+	deleteRequest,
+	putRequest,
+} from './privateApiService'
 const endPoint = process.env.REACT_APP_URL_ACTIVITIES
 export const getActividades = async () => {
-    const response = await getRequest(endPoint)
-    return response
+	return await getRequest(endPoint)
 }
- 
+
 export const getActividadesId = async (id) => {
-    const response = await getRequest(endPoint, id)
-    return response
+	return await getRequest(endPoint, id)
 }
- 
+
 export const postActividades = async (data) => {
-    const response = await postRequest(endPoint, data)
-    return response
+	return await postRequest(endPoint, data)
 }
- 
+
 export const deleteActividades = async (id) => {
-    const response = await deleteRequest(endPoint, id)
-    return response
+	return await deleteRequest(endPoint, id)
 }
- 
+
 export const updateActividades = async (id, data) => {
-    const response = await putRequest(endPoint, id, data)
-    return response
+	return await putRequest(endPoint, id, data)
 }
