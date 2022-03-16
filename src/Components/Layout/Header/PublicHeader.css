@@ -51,6 +51,15 @@
 	transform: scale(1.1);
 }
 
+.containerHeaderButtons .btnDonar {
+	background-color: var(--green);
+}
+
+.containerHeaderButtons .btnDonar:hover {
+	background-color: var(--green);
+	opacity: 0.7;
+}
+
 #activePath a {
 	background-color: var(--lightGrey);
 	border-radius: 5px;

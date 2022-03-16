@@ -34,6 +34,7 @@ import Newsletter from './Components/Newsletter/Newsletter'
 import UserNotLogged, { isLogin } from './Components/UI/Errors/UserNotLogged'
 import { contactRestrict } from './Components/Contact/ContactRestrict'
 import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
+import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
 import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
 
@@ -118,8 +119,10 @@ function App() {
 						path="/register"
 						element={isLogin() ? <HomePage /> : <Register />}
 					/>
-					<Route path="/backoffice/news" element={userIsAdmin(Novedades)} />
-					<Route path="/donar" element={<Donacion />} />
+					<Route
+						path="/donar"
+						element={LoginAndAdmin() ? <Donacion /> : <HomePage />}
+					/>
 					<Route path="/gracias" element={<Gracias />} />
 					<Route path="/novedades/:id" element={<DetailNew />} />
 					<Route path="/activities" element={<Activities />} />
