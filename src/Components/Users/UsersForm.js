@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import axios from 'axios'
 import ImagePreview from './ImagePreview'
 import { Formik, Form, Field } from 'formik'
 import {
@@ -8,62 +7,71 @@ import {
 	validatePass,
 	validateRole,
 } from './ValidateFunctions'
+import { getUser, createUser, updateUser } from '../../Services/userService'
+import BasicAlert from '../UI/Alerts/BasicAlert'
+import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import '../FormStyles.css'
+import GoogleMaps from '../UI/GoogleMaps/googleMaps'
+import SearchLocationInput from './SearchLocationInput'
 const SUPPORTED_FORMATS = ['image/png', 'image/jpg']
 
-const UserForm = () => {
-	const userApi = `http://ongapi.alkemy.org/api/users` // {user.id} Acá se debería reemplazar el numero por el id del usuario
+const UserForm = (props) => {
+	const userApi = `http://ongapi.alkemy.org/api/users/${props.id}`
 	const [user, setUser] = React.useState({
 		id: null,
 		name: '',
 		email: '',
 		password: '',
 		roleId: '',
-		file: null,
+		profile_image: null,
 		created_at: null,
+		updated_at: null,
+		latitude: null,
+		longitude: null,
+		address: null,
 	})
 
 	useEffect(() => {
-		axios
-			.get(userApi)
-			.then((res) => {
-				setUser(res.data)
-			})
-			.catch((err) => {
-				console.log(err)
-			})
+		const fetchUser = async () => {
+			try {
+				await getUser(userApi).then((res) => {
+					setUser(res.data)
+				})
+			} catch (error) {
+				ErrorAlert(
+					'error',
+					'Error al obtener tus datos.',
+					'Por favor, vuelva a intentarlo más tarde.'
+				)
+			}
+		}
+		fetchUser()
 	}, [userApi])
+
+	if (!user.latitude && !user.longitude) {
+		setUser({ ...user, latitude: -34.603722, longitude: -58.381592 })
+	}
 
 	return (
 		<Formik
 			initialValues={user}
-			onSubmit={(values, { resetForm }) => {
-				console.log(values)
+			onSubmit={async (values, { resetForm }) => {
 				if (user.id) {
-					axios({
-						method: 'put',
-						url: userApi,
-						data: values,
-					})
-						.then((res) => {
-							// Actualizar los registros
-						})
-						.catch((err) => {
-							console.log(err)
-						})
+					try {
+						await updateUser(user.id, values)
+						BasicAlert('success', 'Usuario actualizado con éxito')
+						resetForm()
+					} catch (error) {
+						ErrorAlert('error', 'Error al actualizar usuario')
+					}
 				} else {
-					axios({
-						method: 'post',
-						url: userApi,
-						data: values,
-					})
-						.then((response) => {
-							// Crear un nuevo registro
-							resetForm()
-						})
-						.catch((error) => {
-							console.log(error)
-						})
+					try {
+						await createUser(values)
+						BasicAlert('success', 'Usuario creado con éxito')
+						resetForm()
+					} catch (error) {
+						ErrorAlert('error', 'Error al crear usuario')
+					}
 				}
 			}}
 		>
@@ -108,6 +116,11 @@ const UserForm = () => {
 						<div className="input-feedback">{errors.password}</div>
 					)}
 
+					<SearchLocationInput
+						value={values.address}
+						onChange={(e) => setUser(...user, e.target.value)}
+					/>
+
 					{values.file && <ImagePreview file={values.file} />}
 					<Field
 						className="input-field"
@@ -138,6 +151,13 @@ const UserForm = () => {
 					{errors.roleId && touched.roleId && (
 						<div className="input-feedback">{errors.roleId}</div>
 					)}
+
+					<section>
+						<GoogleMaps
+							latitude={values.latitude}
+							longitude={values.longitude}
+						/>
+					</section>
 
 					<button className="submit-btn" type="submit">
 						Send
