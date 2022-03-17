@@ -1,9 +1,9 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { getAllOrganizationData } from '../../Services/organizationService'
 
 const DataScreen = () => {
-	const navigate = useNavigate()
+	const history = useHistory()
 	const [data, setData] = React.useState([])
 	React.useEffect(() => {
 		const getOrganizationData = async () => {
@@ -20,7 +20,7 @@ const DataScreen = () => {
 			<p>{data.data?.short_description}</p>
 			<button
 				className="submit-btn"
-				onClick={() => navigate('/backoffice/organization/edit')}
+				onClick={() => history.replace('/backoffice/organization/edit')}
 			>
 				Editar
 			</button>
