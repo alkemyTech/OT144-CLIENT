@@ -1,5 +1,7 @@
 import './App.css'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { AnimatedSwitch } from 'react-router-transition'
+import { bounceTransition, mapStyles } from './utils/routerTransition'
 import HomeForm from './Components/Home/HomeForm'
 import ActivitiesForm from './Components/Activities/ActivitiesForm/ActivitiesForm'
 import CategoriesForm from './Components/Categories/CategoriesForm'
@@ -22,7 +24,6 @@ import Contact from './Components/Contact/Contact'
 import CreateNews from './Components/News/CreateNews'
 import NewsHome from './Components/News/Home'
 import UsersList from './Components/Users/UsersList/UsersList'
-import Novedades from './Components/Home/BackOffice/Novedades'
 import Donacion from './Components/Donations/Donacion'
 import Gracias from './Components/Donations/Gracias'
 import DetailNew from './Components/News/Detail/DetailNew'
@@ -42,100 +43,106 @@ import PageNoFound from './Components/Auth/PageNoFound'
 function App() {
 	return (
 		<>
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" exact element={<HomePage />} />
+			<Router>
+				<AnimatedSwitch
+					atEnter={bounceTransition.atEnter}
+					atLeave={bounceTransition.atLeave}
+					atActive={bounceTransition.atActive}
+					mapStyles={mapStyles}
+					className="route-wrapper"
+				>
+					<Route path="/" exact component={HomePage} />
 					<Route
 						path="/contact"
-						element={contactRestrict() ? <Contact /> : <HomePage />}
+						component={contactRestrict() ? Contact : HomePage}
 					/>
 					<Route
 						path="/create-activity"
-						element={isLogin() ? <ActivitiesForm /> : <Navigate to="/login" />}
+						component={isLogin() ? ActivitiesForm : <Redirect to="/login" />}
 					/>
 					<Route
 						path="/create-category"
-						element={isLogin() ? <CategoriesForm /> : <Navigate to="/login" />}
+						component={isLogin() ? CategoriesForm : <Redirect to="/login" />}
 					/>
 					<Route
 						path="/create-news"
-						element={isLogin() ? <CreateNews /> : <Navigate to="/login" />}
+						component={isLogin() ? CreateNews : <Redirect to="/login" />}
 					/>
 					<Route
 						path="/backoffice/organization/edit-home"
-						element={userIsAdmin(HomeForm)}
+						component={userIsAdmin(HomeForm)}
 					/>
 					<Route
 						path="/backoffice/slides/:action"
-						element={userIsAdmin(RedirecSlides)}
+						component={userIsAdmin(RedirecSlides)}
 					/>
-					<Route path="/backoffice/slides" element={userIsAdmin(SlidesList)} />
+					<Route
+						path="/backoffice/slides"
+						component={userIsAdmin(SlidesList)}
+					/>
 					<Route
 						path="/backoffice/organization/edit"
-						element={userIsAdmin(OrganizationEditForm)}
+						component={userIsAdmin(OrganizationEditForm)}
 					/>
 					<Route
 						path="/backoffice/organization"
-						element={userIsAdmin(DataScreen)}
+						component={userIsAdmin(DataScreen)}
 					/>
-					<Route path="/backoffice/members" element={userIsAdmin(MemberList)} />
+					<Route
+						path="/backoffice/members"
+						component={userIsAdmin(MemberList)}
+					/>
 					<Route
 						path="/backoffice/categories"
-						element={userIsAdmin(Categories)}
+						component={userIsAdmin(Categories)}
 					/>
 					<Route
 						path="/backoffice/members/edit"
-						element={userIsAdmin(MembersForm)}
+						component={userIsAdmin(MembersForm)}
 					/>
-					<Route path="/backoffice/users" element={userIsAdmin(UsersList)} />
+					<Route path="/backoffice/users" component={userIsAdmin(UsersList)} />
 					<Route
 						path="/create-testimonials"
-						element={isLogin() ? <TestimonialForm /> : <Navigate to="/login" />}
+						component={isLogin() ? TestimonialForm : <Redirect to="/login" />}
 					/>
 					<Route
 						path="/create-user"
-						element={isLogin() ? <UserForm /> : <Navigate to="/login" />}
+						component={isLogin() ? UserForm : <Redirect to="/login" />}
 					/>
 					<Route
 						path="/create-member"
-						element={isLogin() ? <MembersForm /> : <Navigate to="/login" />}
+						component={isLogin() ? MembersForm : <Redirect to="/login" />}
 					/>
 					<Route
 						path="/create-project"
-						element={isLogin() ? <ProjectsForm /> : <Navigate to="/login" />}
+						component={isLogin() ? ProjectsForm : <Redirect to="/login" />}
 					/>
-					<Route path="/school-campaign" element={<SchoolCampaign />} />
-					<Route path="/toys-campaign" element={<ToysCampaign />} />
-					<Route path="/about-us" element={<AboutPrincipal />} />
-					<Route
-						path="/login"
-						element={isLogin() ? <HomePage /> : <LoginForm />}
-					/>
+					<Route path="/school-campaign" component={SchoolCampaign} />
+					<Route path="/toys-campaign" component={ToysCampaign} />
+					<Route path="/about-us" component={AboutPrincipal} />
+					<Route path="/login" component={isLogin() ? HomePage : LoginForm} />
 					<Route
 						path="/backoffice"
-						element={userIsAdmin(ScreenDashboardPage)}
+						component={userIsAdmin(ScreenDashboardPage)}
 					/>
-					<Route
-						path="/register"
-						element={isLogin() ? <HomePage /> : <Register />}
-					/>
+					<Route path="/register" component={isLogin() ? HomePage : Register} />
 					<Route
 						path="/donar"
-						element={LoginAndAdmin() ? <Donacion /> : <HomePage />}
+						component={LoginAndAdmin() ? Donacion : HomePage}
 					/>
-					<Route path="/gracias" element={<Gracias />} />
-					<Route path="/novedades/:id" element={<DetailNew />} />
-					<Route path="/activities" element={<Activities />} />
-					<Route path="/activities/:id" element={<ActivitiesDetail />} />
-					<Route path="/Novedades" element={<NewsHome />} />
+					<Route path="/gracias" component={Gracias} />
+					<Route path="/novedades/:id" component={DetailNew} />
+					<Route path="/activities" component={Activities} />
+					<Route path="/activities/:id" component={ActivitiesDetail} />
+					<Route path="/Novedades" component={NewsHome} />
 					<Route
 						path="/newsletter"
-						element={isLogin() ? <Newsletter /> : <UserNotLogged />}
+						component={isLogin() ? Newsletter : UserNotLogged}
 					/>
-					<Route path="/testimonials" element={<Testimonials />} />
+					<Route path="/testimonials" component={Testimonials} />
 					<Route component={PageNoFound} />
-				</Routes>
-			</BrowserRouter>
+				</AnimatedSwitch>
+			</Router>
 		</>
 	)
 }
