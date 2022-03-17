@@ -12,10 +12,11 @@
 }
 
 .SideBarMenu.expanded {
-	width: 300px;
+	width: 250px;
+	z-index: 99999;
 }
 .SideBarMenu.collapsed {
-	width: 55px;
+	width: 0px;
 }
 .menuButton {
 	display: flex;
@@ -32,7 +33,7 @@
 }
 
 .title--img {
-	max-height: 150px;
+	max-height: 120px;
 	min-height: 70px;
 	padding: 5px;
 }
@@ -66,8 +67,8 @@
 .itemContent {
 	display: flex;
 	flex-direction: row;
-	align-items: center;
-	justify-content: center;
+	align-items: left;
+	justify-content: flex-start;
 	overflow: hidden;
 	width: 100%;
 	white-space: nowrap;
@@ -102,13 +103,15 @@
 	flex-direction: column;
 	align-items: center;
 	margin: 0 5px;
+	background-color: #fff;
 }
 
-.SideBarMenuItem.nav-link {
+.SideBarMenuItem .nav-link {
 	color: white;
 	text-decoration: none;
 	display: block;
 	padding: 10px;
 	width: 100%;
 	border-radius: 5px;
+	text-align: left;
 }
