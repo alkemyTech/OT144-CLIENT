@@ -6,24 +6,22 @@ import './sidebarBackOffice.css'
 import SidebarItemsNav from './SidebarItemsNav'
 
 const SidebarBackOffice = () => {
+	const [isOpen, setIsOpen] = useState(true)
+	const handleClick = () => setIsOpen(!isOpen)
 
-  const [isOpen, setIsOpen] = useState(true)
-  const handleClick = () => setIsOpen(!isOpen)
-  
-  return (
-    <div className={classNames("SideBarMenu", isOpen ? " expanded" : " collapsed")}>
-        <div className='menuButton'>
-            <button className='hamburgerIcon' onClick={handleClick}>
-              <img src={menu} alt="button"/>
-            </button>
-        </div>
-        <TitleComponent 
-          title=""
-        />
-        <SidebarItemsNav isOpen= {isOpen} />
-        
-    </div>
-  )
+	return (
+		<div
+			className={classNames('SideBarMenu', isOpen ? ' expanded' : ' collapsed')}
+		>
+			<div className="menuButton">
+				<button className="hamburgerIcon" onClick={handleClick}>
+					<img src={menu} alt="button" />
+				</button>
+			</div>
+			<TitleComponent title="" />
+			<SidebarItemsNav isOpen={isOpen} />
+		</div>
+	)
 }
 
 export default SidebarBackOffice
