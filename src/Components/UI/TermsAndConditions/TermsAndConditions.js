@@ -4,17 +4,16 @@ import './TermsAndConditions.css'
 import ReadPDF from './ReadPDF'
 
 const TermsAndConditions = (data) => {
-	const [isData, setIsData] = useState(data)
+	const [, setIsData] = useState(data)
 
 	useEffect(() => {
 		setIsData(data)
 	})
 
-	// eslint-disable-next-line no-unused-vars
-	const sendData = () => {
-		console.log('state', isData)
-		alert('data enviada')
-	}
+	/* const sendData = () => {
+		console.log("state", isData);
+		alert("data enviada");
+	}; */
 
 	return (
 		<Popup

@@ -67,7 +67,6 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: center;
 	overflow: hidden;
 	width: 100%;
 	white-space: nowrap;
@@ -87,7 +86,9 @@
 	width: 100%;
 }
 .img-icon-d {
-	width: 40px;
+	width: 30px;
+	padding: 1px;
+	margin: 0;
 }
 
 .label {
@@ -107,6 +108,7 @@
 .SideBarMenuItem.nav-link {
 	color: white;
 	text-decoration: none;
+	text-align: right;
 	display: block;
 	padding: 10px;
 	width: 100%;
