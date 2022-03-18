@@ -22,6 +22,7 @@ import Contact from './Components/Contact/Contact'
 import CreateNews from './Components/News/CreateNews'
 import NewsHome from './Components/News/Home'
 import UsersList from './Components/Users/UsersList/UsersList'
+import Novedades from './Components/Home/BackOffice/Novedades'
 import Donacion from './Components/Donations/Donacion'
 import Gracias from './Components/Donations/Gracias'
 import DetailNew from './Components/News/Detail/DetailNew'
@@ -33,11 +34,9 @@ import Newsletter from './Components/Newsletter/Newsletter'
 import UserNotLogged, { isLogin } from './Components/UI/Errors/UserNotLogged'
 import { contactRestrict } from './Components/Contact/ContactRestrict'
 import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
-import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
-import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
 
-// eslint-disable-next-line
+// eslint-disable-next-line sonarjs/cognitive-complexity
 function App() {
 	return (
 		<>
@@ -62,31 +61,42 @@ function App() {
 					/>
 					<Route
 						path="/backoffice/organization/edit-home"
-						element={userIsAdmin(HomeForm)}
+						element={userIsAdmin() ? <HomeForm /> : <Navigate to="/" />}
 					/>
 					<Route
 						path="/backoffice/slides/:action"
-						element={userIsAdmin(RedirecSlides)}
+						element={userIsAdmin() ? <RedirecSlides /> : <Navigate to="/" />}
 					/>
-					<Route path="/backoffice/slides" element={userIsAdmin(SlidesList)} />
+					<Route
+						path="/backoffice/slides"
+						element={userIsAdmin() ? <SlidesList /> : <Navigate to="/" />}
+					/>
 					<Route
 						path="/backoffice/organization/edit"
-						element={userIsAdmin(OrganizationEditForm)}
+						element={
+							userIsAdmin() ? <OrganizationEditForm /> : <Navigate to="/" />
+						}
 					/>
 					<Route
 						path="/backoffice/organization"
-						element={userIsAdmin(DataScreen)}
+						element={userIsAdmin() ? <DataScreen /> : <Navigate to="/" />}
 					/>
-					<Route path="/backoffice/members" element={userIsAdmin(MemberList)} />
+					<Route
+						path="/backoffice/members"
+						element={userIsAdmin() ? <MemberList /> : <Navigate to="/" />}
+					/>
 					<Route
 						path="/backoffice/categories"
-						element={userIsAdmin(Categories)}
+						element={userIsAdmin() ? <Categories /> : <Navigate to="/" />}
 					/>
 					<Route
 						path="/backoffice/members/edit"
-						element={userIsAdmin(MembersForm)}
+						element={userIsAdmin() ? <MembersForm /> : <Navigate to="/" />}
 					/>
-					<Route path="/backoffice/users" element={userIsAdmin(UsersList)} />
+					<Route
+						path="/backoffice/users"
+						element={userIsAdmin() ? <UsersList /> : <Navigate to="/" />}
+					/>
 					<Route
 						path="/create-testimonials"
 						element={isLogin() ? <TestimonialForm /> : <Navigate to="/login" />}
@@ -112,16 +122,19 @@ function App() {
 					/>
 					<Route
 						path="/backoffice"
-						element={userIsAdmin(ScreenDashboardPage)}
+						element={
+							userIsAdmin() ? <ScreenDashboardPage /> : <Navigate to="/" />
+						}
 					/>
 					<Route
 						path="/register"
 						element={isLogin() ? <HomePage /> : <Register />}
 					/>
 					<Route
-						path="/donar"
-						element={LoginAndAdmin() ? <Donacion /> : <HomePage />}
+						path="/backoffice/news"
+						element={userIsAdmin() ? <Novedades /> : <Navigate to="/" />}
 					/>
+					<Route path="/donar" element={<Donacion />} />
 					<Route path="/gracias" element={<Gracias />} />
 					<Route path="/novedades/:id" element={<DetailNew />} />
 					<Route path="/activities" element={<Activities />} />
@@ -131,7 +144,6 @@ function App() {
 						path="/newsletter"
 						element={isLogin() ? <Newsletter /> : <UserNotLogged />}
 					/>
-					<Route path="/testimonials" element={<Testimonials />} />
 					<Route component={PageNoFound} />
 				</Routes>
 			</BrowserRouter>
