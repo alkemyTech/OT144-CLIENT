@@ -44,9 +44,11 @@ export default function PublicHeader() {
 				</ul>
 			</nav>
 			<div className="containerHeaderButtons">
-				{!isLoginRegister ?
-					<Link to="/register"><button>Registrate</button></Link> :
-          <Link to="/login"><button>Inicia sesión</button></Link>
+				{!isLoginRegister &&
+					<>
+						<Link to="/register"><button>Registrate</button></Link>
+          				<Link to="/login"><button>Inicia sesión</button></Link>
+					</> 
 				}
 			</div>
 		</header>

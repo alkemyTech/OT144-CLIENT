@@ -4,6 +4,7 @@ import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import './stylesHomePage.css'
 import { getSlides } from '../../Services/slidesService'
 import LayoutPublic from '../Layout/LayoutPublic'
+import SliderComponent from './SliderComponent'
 
 function HomePage() {
 	const [loading, setLoading] = useState(false)
@@ -44,7 +45,7 @@ function HomePage() {
 		<LayoutPublic>
 			<main className="homePage">
 				<section className="containerSlider">
-					<h2>Aqui va el componente Slider</h2>
+					<SliderComponent />
 				</section>
 				<section className="containerNovedades">
 					<h2>Aqui va el componente Novedades</h2>
