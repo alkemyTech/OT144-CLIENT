@@ -22,7 +22,6 @@ import Contact from './Components/Contact/Contact'
 import CreateNews from './Components/News/CreateNews'
 import NewsHome from './Components/News/Home'
 import UsersList from './Components/Users/UsersList/UsersList'
-import Novedades from './Components/Home/BackOffice/Novedades'
 import Donacion from './Components/Donations/Donacion'
 import Gracias from './Components/Donations/Gracias'
 import DetailNew from './Components/News/Detail/DetailNew'
@@ -37,6 +36,7 @@ import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
 import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
 import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
+import Novedades from './Components/Home/BackOffice/News/Novedades'
 
 // eslint-disable-next-line
 function App() {
@@ -134,6 +134,7 @@ function App() {
 					/>
 					<Route path="/testimonials" element={<Testimonials />} />
 					<Route component={PageNoFound} />
+					<Route path="/backoffice/news" element={<Novedades />} />
 				</Routes>
 			</BrowserRouter>
 		</>
