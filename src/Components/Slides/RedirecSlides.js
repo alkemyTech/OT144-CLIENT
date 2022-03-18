@@ -1,3 +1,4 @@
+import BackOfficeLayout from '../Layout/BackOfficeLayout'
 import { useParams } from 'react-router'
 import SlidesForm from './SlidesForm'
 import SlidesList from './SlidesList'
@@ -7,19 +8,29 @@ const RedirecSlides = () => {
 	const show = (param) => {
 		switch (param) {
 		case 'create':
-			return <SlidesForm mode="create" />
+			return (
+				<BackOfficeLayout>
+					<SlidesForm mode="create" />
+				</BackOfficeLayout>
+			)
 		case 'edit':
 			return (
-				<SlidesForm
-					slides={{
-						id: '1006',
-						title: 'Test Slide',
-						description: '<p>ASDAS<p>',
-					}}
-				/>
+				<BackOfficeLayout>
+					<SlidesForm
+						slides={{
+							id: '1006',
+							title: 'Test Slide',
+							description: '<p>ASDAS<p>',
+						}}
+					/>
+				</BackOfficeLayout>
 			)
 		default:
-			return <SlidesList />
+			return (
+				<BackOfficeLayout>
+					<SlidesList />
+				</BackOfficeLayout>
+			)
 		}
 	}
 	return show(action)
