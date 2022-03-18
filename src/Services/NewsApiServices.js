@@ -14,6 +14,10 @@ export const getNewsById = async (id) => {
 	return await getRequest(endpointNews, id)
 }
 
+export const getNewsByTitle = async (search) => {
+	return await getRequest(`${endpointNews}?search=${search}`)
+}
+
 export const postNews = async (bodyData) => {
 	return await postRequest(endpointNews, bodyData)
 }
