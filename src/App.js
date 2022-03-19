@@ -31,7 +31,6 @@ import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
 import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
 import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
-import Novedades from './Components/Home/BackOffice/News/Novedades'
 import MembersForm from './Components/Members/MembersForm'
 
 function App() {
@@ -46,7 +45,10 @@ function App() {
 					className="route-wrapper"
 				>
 					<Route path="/" exact component={HomePage} />
-					<Route path="/backoffice/*" component={userIsAdmin(RuteoBackoffice)} />
+					<Route
+						path="/backoffice/*"
+						component={userIsAdmin(RuteoBackoffice)}
+					/>
 					<Route
 						path="/contact"
 						component={contactRestrict() ? Contact : HomePage}
@@ -66,34 +68,6 @@ function App() {
 					<Route
 						path="/backoffice/organization/edit-home"
 						component={userIsAdmin(HomeForm)}
-					/>
-					<Route
-						path="/backoffice/slides/:action"
-						component={userIsAdmin(RedirecSlides)}
-					/>
-					<Route
-						path="/backoffice/slides"
-						component={userIsAdmin(SlidesList)}
-					/>
-					<Route
-						path="/backoffice/organization/edit"
-						component={userIsAdmin(OrganizationEditForm)}
-					/>
-					<Route
-						path="/backoffice/organization"
-						component={userIsAdmin(DataScreen)}
-					/>
-					<Route
-						path="/backoffice/members"
-						component={userIsAdmin(MemberList)}
-					/>
-					<Route
-						path="/backoffice/categories"
-						component={userIsAdmin(Categories)}
-					/>
-					<Route
-						path="/backoffice/members/edit"
-						component={userIsAdmin(MembersForm)}
 					/>
 					<Route path="/backoffice/users" component={userIsAdmin(UsersList)} />
 					<Route
@@ -116,10 +90,6 @@ function App() {
 					<Route path="/toys-campaign" component={ToysCampaign} />
 					<Route path="/about-us" component={AboutPrincipal} />
 					<Route path="/login" component={isLogin() ? HomePage : LoginForm} />
-					<Route
-						path="/backoffice"
-						component={userIsAdmin(ScreenDashboardPage)}
-					/>
 					<Route path="/register" component={isLogin() ? HomePage : Register} />
 					<Route
 						path="/donar"
