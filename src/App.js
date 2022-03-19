@@ -31,8 +31,14 @@ import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
 import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
 import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
-import Novedades from './Components/Home/BackOffice/News/Novedades'
 import MembersForm from './Components/Members/MembersForm'
+import RedirecSlides from './Components/Slides/RedirecSlides'
+import SlidesList from './Components/Slides/SlidesList'
+import OrganizationEditForm from './Components/Home/BackOffice/OrganizationEditForm'
+import DataScreen from './Components/Testimonials/DataScreen'
+import MemberList from './Components/Members/MemberList'
+import Categories from './Components/Home/BackOffice/Categories'
+import ScreenDashboardPage from './Components/ScreenDashboard/ScreenDashboardPage'
 
 function App() {
 	return (
@@ -46,7 +52,10 @@ function App() {
 					className="route-wrapper"
 				>
 					<Route path="/" exact component={HomePage} />
-					<Route path="/backoffice/*" component={userIsAdmin(RuteoBackoffice)} />
+					<Route
+						path="/backoffice/*"
+						component={userIsAdmin(RuteoBackoffice)}
+					/>
 					<Route
 						path="/contact"
 						component={contactRestrict() ? Contact : HomePage}
