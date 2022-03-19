@@ -1,89 +1,89 @@
-.reactSocialPlugins{
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.reactSocialPlugins {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
-.reactSocialPlugins h1{
-    margin: 20px 0;
+.reactSocialPlugins h1 {
+	margin: 20px 0;
 }
 
-.containerSocial{
-    position: relative;
-    width: 100%;
-    min-height: 85vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.containerSocial {
+	position: relative;
+	width: 100%;
+	min-height: 85vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.imgSocial{
-    position: relative;
-    min-width: 6%;
-    max-width: 6%;
-    min-height: 85vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.imgSocial {
+	position: relative;
+	min-width: 6%;
+	max-width: 6%;
+	min-height: 85vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
-.ImageSocial{
-    width: 30px;
-    margin: 15px 0;
-    cursor: pointer;
+.ImageSocial {
+	width: 30px;
+	margin: 15px 0;
+	cursor: pointer;
 }
 
-.ImageSocial:hover{
-    transform: scale(0.9);
-    transition: 0.5s;
+.ImageSocial:hover {
+	transform: scale(0.9);
+	transition: 0.5s;
 }
 
-.containerRedes{
-    position: relative;
-    min-width: 94%;
-    max-width: 94%;
-    min-height: 85vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.containerRedes {
+	position: relative;
+	min-width: 94%;
+	max-width: 94%;
+	min-height: 85vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
-.containerTweet{
-    position: relative;
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.containerTweet {
+	position: relative;
+	width: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-@media all and (max-width: 750px){
-    .containerSocial{
-        flex-direction: column;
-    }
+@media all and (max-width: 750px) {
+	.containerSocial {
+		flex-direction: column;
+	}
 
-    .imgSocial{
-        width: 100%;
-        min-height: 15vh;
-        flex-direction:row;
-    }
+	.imgSocial {
+		width: 100%;
+		min-height: 15vh;
+		flex-direction: row;
+	}
 
-    .ImageSocial{
-        width: 35px;
-        margin: 35px 30px;
-    }
+	.ImageSocial {
+		width: 35px;
+		margin: 35px 30px;
+	}
 
-    .containerRedes{
-        width: 100%;
-        flex-direction: column;
-    }
+	.containerRedes {
+		width: 100%;
+		flex-direction: column;
+	}
 
-    .containerTweet{
-        width: 100%;
-        margin-bottom: 30px;
-    }
+	.containerTweet {
+		width: 100%;
+		margin-bottom: 30px;
+	}
 }
