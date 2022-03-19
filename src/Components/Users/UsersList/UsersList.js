@@ -51,8 +51,6 @@ const UsersList = () => {
 		}
 	}, [search])
 
-	console.log(users)
-
 	function handleChange(event) {
 		setSearch(event.target.value)
 	}
