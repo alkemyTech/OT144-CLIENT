@@ -34,7 +34,6 @@ function Novedades() {
 			} else {
 				dispatch(startGetNews(inputSearch))
 			}
-			console.log(news)
 			setLoading(false)
 		} catch (error) {
 			setError(true)
