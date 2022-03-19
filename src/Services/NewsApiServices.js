@@ -6,8 +6,10 @@ import {
 } from './privateApiService'
 const endpointNews = process.env.REACT_APP_URL_NEWS
 
-export const getNews = async () => {
-	return await getRequest(endpointNews)
+export const getNews = async (search = '') => {
+	const endpoint =
+		search === '' ? endpointNews : `${endpointNews}?search=${search}`
+	return await getRequest(endpoint)
 }
 
 export const getNewsById = async (id) => {
