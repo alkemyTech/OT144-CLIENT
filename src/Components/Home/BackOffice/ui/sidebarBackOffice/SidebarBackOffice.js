@@ -9,7 +9,10 @@ const SidebarBackOffice = ({ isOpen }) => {
 			className={classNames('SideBarMenu', isOpen ? ' expanded' : ' collapsed')}
 		>
 			<TitleComponent title="" />
-			<SidebarItemsNav isOpen={isOpen} />
+
+			{items.map((item) => (
+				<SidebarItemsNav isOpen={isOpen} key={item.itemsId} item={item} />
+			))}
 		</div>
 	)
 }

@@ -6,6 +6,7 @@ import { getTestimonialsAction } from '../../actions/actions'
 import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import Title from '../title/TitleComponent'
+import LayoutPublic from '../Layout/LayoutPublic'
 
 export default function Testimonials() {
 	const [data, setData] = useState([])
@@ -32,7 +33,7 @@ export default function Testimonials() {
 	}
 
 	return (
-		<>
+		<LayoutPublic>
 			<Title title={'Testimonios'} />
 			<div className="new-list-container">
 				{data
@@ -41,6 +42,6 @@ export default function Testimonials() {
 					  })
 					: null}
 			</div>
-		</>
+		</LayoutPublic>
 	)
 }
