@@ -95,6 +95,15 @@ a {
 	font-size: calc(10px + 2vmin);
 }
 
+.route-wrapper {
+	position: relative;
+}
+
+.route-wrapper > div {
+	width: 100%;
+	position: absolute;
+}
+
 .App-link {
 	color: rgb(112, 76, 182);
 }
