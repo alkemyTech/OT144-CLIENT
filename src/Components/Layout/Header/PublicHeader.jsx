@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import Logo from "./LOGO-SOMOS MAS.png"
 import "./PublicHeader.css"
@@ -18,7 +18,7 @@ export default function PublicHeader() {
 	const [isLoginRegister, setIsLoginRegister] = useState(false)
 
 	useEffect(
-		()=>{
+		() => {
 			if (isLogin === true) {
 				setIsLoginRegister(true)
 			}
@@ -46,7 +46,7 @@ export default function PublicHeader() {
 			<div className="containerHeaderButtons">
 				{!isLoginRegister ?
 					<Link to="/register"><button>Registrate</button></Link> :
-          <Link to="/login"><button>Inicia sesión</button></Link>
+					<Link to="/login"><button>Inicia sesión</button></Link>
 				}
 			</div>
 		</header>
