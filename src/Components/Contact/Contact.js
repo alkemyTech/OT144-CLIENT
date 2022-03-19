@@ -10,9 +10,7 @@ const Contact = ({ img, name, phone, email }) => {
 
 	React.useEffect(async () => {
 		try {
-
-			 await getContact()
-
+			await getContact()
 		} catch (error) {
 			setError(true)
 		}

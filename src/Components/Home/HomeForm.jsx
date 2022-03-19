@@ -1,4 +1,5 @@
 import React from 'react'
+import BackOfficeLayout from '../Layout/BackOfficeLayout'
 const SUPPORTED_FORMATS = ['image/x-png', 'image/x-jpg']
 
 const HomeForm = () => {
@@ -64,54 +65,56 @@ const HomeForm = () => {
 	}
 
 	return (
-		<div className="Home">
-			<h1>{welcome}</h1>
-			<form className="form-container" onSubmit={handleWelcomeSubmit}>
-				<label>Cambia el mensaje de bienvenida </label>
-				<input
-					className="input-field"
-					type="text"
-					onChange={(e) => setWelcome(e.target.value)}
-				/>
-				<button type="submit" value="Submit" className="submit-btn">
-					{' '}
-					Editar{' '}
-				</button>
-				{welcomeError && <p>{errorMessage}</p>}
-			</form>
+		<BackOfficeLayout>
+			<div className="Home">
+				<h1>{welcome}</h1>
+				<form className="form-container" onSubmit={handleWelcomeSubmit}>
+					<label>Cambia el mensaje de bienvenida </label>
+					<input
+						className="input-field"
+						type="text"
+						onChange={(e) => setWelcome(e.target.value)}
+					/>
+					<button type="submit" value="Submit" className="submit-btn">
+						{' '}
+						Editar{' '}
+					</button>
+					{welcomeError && <p>{errorMessage}</p>}
+				</form>
 
-			<section className="slides-edit">
-				<div className="slide-edit-container">
-					{slides.map((slide) => (
-						<form
-							key={slide.id}
-							className="form-container"
-							onSubmit={(e) => handleSubmit(slide.id)(e)}
-						>
-							<label>Cambia el texto del Slide {slide.id}</label>
-							<input
-								className="input-field"
-								type="text"
-								value={slide.text}
-								onChange={(e) => handleTextChange(slide.id)(e)}
-							/>
-							<label>Cambia la imagen del Slide {slide.id}</label>
-							<input
-								className="input-field"
-								type="file"
-								accept={SUPPORTED_FORMATS}
-								onChange={(e) => handleImageChange(slide.id)(e)}
-							/>
-							<button type="submit" value="Submit" className="submit-btn">
-								{' '}
-								Editar{' '}
-							</button>
-							{slide.error && <p>{errorMessage}</p>}
-						</form>
-					))}
-				</div>
-			</section>
-		</div>
+				<section className="slides-edit">
+					<div className="slide-edit-container">
+						{slides.map((slide) => (
+							<form
+								key={slide.id}
+								className="form-container"
+								onSubmit={(e) => handleSubmit(slide.id)(e)}
+							>
+								<label>Cambia el texto del Slide {slide.id}</label>
+								<input
+									className="input-field"
+									type="text"
+									value={slide.text}
+									onChange={(e) => handleTextChange(slide.id)(e)}
+								/>
+								<label>Cambia la imagen del Slide {slide.id}</label>
+								<input
+									className="input-field"
+									type="file"
+									accept={SUPPORTED_FORMATS}
+									onChange={(e) => handleImageChange(slide.id)(e)}
+								/>
+								<button type="submit" value="Submit" className="submit-btn">
+									{' '}
+									Editar{' '}
+								</button>
+								{slide.error && <p>{errorMessage}</p>}
+							</form>
+						))}
+					</div>
+				</section>
+			</div>
+		</BackOfficeLayout>
 	)
 }
 
