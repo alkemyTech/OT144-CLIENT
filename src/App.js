@@ -31,6 +31,7 @@ import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
 import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
 import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
+import Novedades from './Components/Home/BackOffice/News/Novedades'
 import MembersForm from './Components/Members/MembersForm'
 
 function App() {
