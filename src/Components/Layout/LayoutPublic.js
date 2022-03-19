@@ -8,7 +8,7 @@ const LayoutPublic = ({ children }) => {
 			<Header />
 			<div className="layout-container">{children}</div>
 			<Footer />
-		<>
+		</>
 	)
 }
 
