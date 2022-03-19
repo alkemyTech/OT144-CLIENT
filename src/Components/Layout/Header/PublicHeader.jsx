@@ -10,12 +10,17 @@ export default function PublicHeader() {
 		{ nombre: 'Nosotros', url: '/about-us' },
 		{ nombre: 'Actividades', url: '/activities' },
 		{ nombre: 'Novedades', url: '/novedades' },
-		{ nombre: 'Testimonios', url: '' },
+		{ nombre: 'Testimonios', url: '/testimonials' },
 		{ nombre: 'Contacto', url: '/contact' },
 		{ nombre: 'Contribuye', url: '/donar' },
 	]
 
+	const [activePath, setActivePath] = useState("")
 	const [isLoginRegister, setIsLoginRegister] = useState(false)
+
+	useEffect(()=>{
+		setActivePath(window.location.pathname)
+	},[activePath])
 
 	useEffect(
 		() => {
@@ -33,13 +38,18 @@ export default function PublicHeader() {
 			</div>
 			<nav className="containerHeaderNav">
 				<ul>
+
 					{datos.map((dato, index) => (
-						<li
-							key={`${dato.nombre}${index}`}
-							id={dato.url === window.location.pathname ? 'activePath' : null}
-						>
-							<Link to={dato.url}>{dato.nombre}</Link>
-						</li>
+						<>
+							{console.log(activePath)}
+							{console.log(dato.url)}
+							<li
+								key={`${dato.nombre}${index}`}
+								id={dato.url === activePath ? 'activePath' : null}
+							>
+								<Link to={dato.url}>{dato.nombre}</Link>
+							</li>
+						</>
 					))}
 				</ul>
 			</nav>
