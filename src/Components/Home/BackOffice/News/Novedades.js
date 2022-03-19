@@ -22,7 +22,6 @@ import { startGetNews } from '../../../../actions/news'
 function Novedades() {
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState(false)
-	const [dataNews, setDataNews] = useState([])
 	const [inputSearch, setInputSearch] = useState('')
 
 	const dispatch = useDispatch()
@@ -35,7 +34,7 @@ function Novedades() {
 			} else {
 				dispatch(startGetNews(inputSearch))
 			}
-			setDataNews(news)
+			console.log(news)
 			setLoading(false)
 		} catch (error) {
 			setError(true)
@@ -47,7 +46,6 @@ function Novedades() {
 			;(async () => {
 				const response = await postNews(bodyNews)
 				store.dispatch(addNewsAction(response.data.data))
-				setDataNews(store.getState().news)
 			})()
 		} catch (error) {
 			setError(true)
@@ -60,7 +58,6 @@ function Novedades() {
 			;(async () => {
 				await updateNews(bodyNews.id, bodyNews)
 				store.dispatch(updateNewsAction(bodyNews))
-				setDataNews(store.getState().news.news)
 			})()
 		} catch (error) {
 			setError(true)
@@ -72,7 +69,6 @@ function Novedades() {
 			;(async () => {
 				await deleteNews(id)
 				store.dispatch(deleteNewsAction(id))
-				setDataNews(store.getState().news.news)
 			})()
 		} catch (error) {
 			setError(true)
@@ -128,8 +124,8 @@ function Novedades() {
 							</tr>
 						</thead>
 						<tbody>
-							{dataNews.length > 0
-								? dataNews.map((news) => {
+							{news.length > 0
+								? news.map((news) => {
 									return (
 										<tr key={news.id}>
 											<td>{news.name}</td>
