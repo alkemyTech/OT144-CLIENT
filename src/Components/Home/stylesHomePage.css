@@ -13,7 +13,8 @@
 .containerSlider {
 	position: relative;
 	width: 100%;
-	min-height: 100vh;
+	height: 50vh;
+	background-color: rgb(1, 61, 95);
 	display: flex;
 	justify-content: center;
 	align-items: center;

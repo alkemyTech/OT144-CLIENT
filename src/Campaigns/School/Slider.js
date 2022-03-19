@@ -1,6 +1,6 @@
 import React from 'react'
 import './stylesSliderComponent.css'
-import Carousel from '../Carousel/Carousel'
+import Carousel from '../../Components/Carousel/Carousel'
 import escolar1 from '../../ImageProjects/escolar1.jpg'
 import escolar2 from '../../ImageProjects/escolar2.jpg'
 import escolar3 from '../../ImageProjects/escolar3.jpg'
