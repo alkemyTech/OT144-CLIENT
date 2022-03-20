@@ -31,7 +31,7 @@ import PageNoFound from './Components/Auth/PageNoFound'
 import MembersForm from './Components/Members/MembersForm'
 
 import PrivateRoute from './BackofficeRoutes/PrivateRoute'
-import { protectedRoutes } from './BackofficeRoutes/Routes'
+import protectedRoutes from './BackofficeRoutes/Routes'
 
 function App() {
 	return (
@@ -45,12 +45,12 @@ function App() {
 					className="route-wrapper"
 				>
 					<Route exact path="/" component={HomePage} />
-					{protectedRoutes.map((route) => (
+					{protectedRoutes.map((route, index) => (
 						<PrivateRoute
 							exact={route.exact}
 							path={route.path}
 							component={route.Component}
-							key={route.path}
+							key={`${index}${route.path}`}
 						/>
 					))}
 					<Route

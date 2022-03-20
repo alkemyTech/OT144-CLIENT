@@ -12,7 +12,7 @@ import Categories from '../Components/Home/BackOffice/Categories'
 
 const pathBackoffice = '/backoffice'
 
-export const protectedRoutes = [
+const protectedRoutes = [
 	{
 		Component: ScreenDashboardPage,
 		path: `${pathBackoffice}`,
@@ -69,3 +69,5 @@ export const protectedRoutes = [
 		exact: true,
 	},
 ]
+
+export default protectedRoutes
