@@ -24,12 +24,14 @@ import ActivitiesDetail from './Components/Activities/Detail/ActivitiesDetail'
 import Newsletter from './Components/Newsletter/Newsletter'
 import UserNotLogged, { isLogin } from './Components/UI/Errors/UserNotLogged'
 import { contactRestrict } from './Components/Contact/ContactRestrict'
-import RuteoBackoffice from './BackofficeRoutes/RuteoBackoffice'
-import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
+
 import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
 import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
 import MembersForm from './Components/Members/MembersForm'
+
+import PrivateRoute from './BackofficeRoutes/PrivateRoute'
+import { protectedRoutes } from './BackofficeRoutes/Routes'
 
 function App() {
 	return (
@@ -42,11 +44,15 @@ function App() {
 					mapStyles={mapStyles}
 					className="route-wrapper"
 				>
-					<Route path="/" exact component={HomePage} />
-					<Route
-						path="/backoffice/*"
-						component={userIsAdmin(RuteoBackoffice)}
-					/>
+					<Route exact path="/" component={HomePage} />
+					{protectedRoutes.map((route) => (
+						<PrivateRoute
+							exact={route.exact}
+							path={route.path}
+							component={route.Component}
+							key={route.path}
+						/>
+					))}
 					<Route
 						path="/contact"
 						component={contactRestrict() ? Contact : HomePage}
