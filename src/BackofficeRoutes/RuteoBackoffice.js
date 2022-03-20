@@ -16,7 +16,7 @@ export default function RuteoBackoffice() {
 	return (
 		<Routes>
 			<Route path="/" element={userIsAdmin(ScreenDashboardPage)} />
-			<Route path="edit" element={userIsAdmin(MembersForm)} />
+			<Route path="members/edit" element={userIsAdmin(MembersForm)} />
 			<Route path="users" element={userIsAdmin(UsersList)} />
 			<Route path="news" element={userIsAdmin(Novedades)} />
 			<Route path="organization/edit-home" element={userIsAdmin(HomeForm)} />
