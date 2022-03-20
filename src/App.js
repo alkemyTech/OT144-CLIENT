@@ -31,8 +31,8 @@ import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
 import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
 import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
-import Novedades from './Components/Home/BackOffice/News/Novedades'
 import MembersForm from './Components/Members/MembersForm'
+import ScreenDashboardPage from './Components/ScreenDashboard/ScreenDashboardPage'
 
 function App() {
 	return (
@@ -46,7 +46,10 @@ function App() {
 					className="route-wrapper"
 				>
 					<Route path="/" exact component={HomePage} />
-					<Route path="/backoffice/*" component={userIsAdmin(RuteoBackoffice)} />
+					<Route
+						path="/backoffice/*"
+						component={userIsAdmin(RuteoBackoffice)}
+					/>
 					<Route
 						path="/contact"
 						component={contactRestrict() ? Contact : HomePage}
@@ -66,30 +69,6 @@ function App() {
 					<Route
 						path="/backoffice/organization/edit-home"
 						component={userIsAdmin(HomeForm)}
-					/>
-					<Route
-						path="/backoffice/slides/:action"
-						component={userIsAdmin(RedirecSlides)}
-					/>
-					<Route
-						path="/backoffice/slides"
-						component={userIsAdmin(SlidesList)}
-					/>
-					<Route
-						path="/backoffice/organization/edit"
-						component={userIsAdmin(OrganizationEditForm)}
-					/>
-					<Route
-						path="/backoffice/organization"
-						component={userIsAdmin(DataScreen)}
-					/>
-					<Route
-						path="/backoffice/members"
-						component={userIsAdmin(MemberList)}
-					/>
-					<Route
-						path="/backoffice/categories"
-						component={userIsAdmin(Categories)}
 					/>
 					<Route
 						path="/backoffice/members/edit"
