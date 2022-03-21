@@ -1,11 +1,13 @@
-import React from 'react'
 import './stylesScreenDashboardPage.css'
+import BackOfficeLayout from '../Layout/BackOfficeLayout'
 
-function ScreenDashboardPage() {
+const ScreenDashboardPage = () => {
 	return (
-		<main className="screenDashboardPage">
-			<h2>Bienvenido</h2>
-		</main>
+		<BackOfficeLayout>
+			<main className="screenDashboardPage">
+				<h2>BackOffice</h2>
+			</main>
+		</BackOfficeLayout>
 	)
 }
 

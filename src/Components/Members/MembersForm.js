@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import BackOfficeLayout from '../Layout/BackOfficeLayout'
 import '../FormStyles.css'
 import './MembersForm.css'
 import { Formik } from 'formik'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import FileInputFormik from './FileInputFormik'
+
 const MembersForm = () => {
 	const [image, setImage] = useState('')
 	const imageExample = 'https://www.w3schools.com/howto/img_avatar.png'
@@ -118,88 +120,90 @@ const MembersForm = () => {
 	}
 
 	return (
-		<Formik
-			initialValues={{}}
-			validate={validate}
-			onSubmit={(values, helpers) => handleSubmit(values, helpers)}
-		>
-			{({
-				values,
-				errors,
-				touched,
-				handleChange,
-				handleSubmit,
-				isSubmitting,
-			}) => (
-				<form
-					className="form-container"
-					id="form-member-creation"
-					onSubmit={handleSubmit}
-				>
-					{formValues.map((item) => (
+		<BackOfficeLayout>
+			<Formik
+				initialValues={{}}
+				validate={validate}
+				onSubmit={(values, helpers) => handleSubmit(values, helpers)}
+			>
+				{({
+					values,
+					errors,
+					touched,
+					handleChange,
+					handleSubmit,
+					isSubmitting,
+				}) => (
+					<form
+						className="form-container"
+						id="form-member-creation"
+						onSubmit={handleSubmit}
+					>
+						{formValues.map((item) => (
+							<div
+								key={item.name}
+								style={{
+									...item.divStyle,
+								}}
+								className="create-member-input-field"
+							>
+								<input
+									type={item.type}
+									name={item.name}
+									onChange={handleChange}
+									value={values[item.name]}
+									placeholder={item.placeholder}
+									className={`input-field ${item.className}`}
+								/>
+
+								{errors[item.name] && touched[item.name] && errors[item.name]}
+							</div>
+						))}
 						<div
-							key={item.name}
-							style={{
-								...item.divStyle,
-							}}
+							style={{ gridArea: 'description' }}
 							className="create-member-input-field"
 						>
-							<input
-								type={item.type}
-								name={item.name}
-								onChange={handleChange}
-								value={values[item.name]}
-								placeholder={item.placeholder}
-								className={`input-field ${item.className}`}
+							<CKEditor
+								editor={ClassicEditor}
+								data="<p>¡Escribe una descripcion!</p>"
+								onChange={(event, editor) => {
+									const data = editor.getData()
+									const e = {
+										target: {
+											value: data,
+											name: 'description',
+										},
+									}
+									handleChange(e)
+								}}
 							/>
-
-							{errors[item.name] && touched[item.name] && errors[item.name]}
+							{errors.description && touched.description && errors.description}
 						</div>
-					))}
-					<div
-						style={{ gridArea: 'description' }}
-						className="create-member-input-field"
-					>
-						<CKEditor
-							editor={ClassicEditor}
-							data="<p>¡Escribe una descripcion!</p>"
-							onChange={(event, editor) => {
-								const data = editor.getData()
-								const e = {
-									target: {
-										value: data,
-										name: 'description',
-									},
-								}
-								handleChange(e)
-							}}
+						<FileInputFormik
+							name="image"
+							onChange={(e) => handleImageChange(e, handleChange)}
+							style={{ gridArea: 'imageInput' }}
+							accept={'.png, .jpg'}
+							errors={errors}
+							touched={touched}
 						/>
-						{errors.description && touched.description && errors.description}
-					</div>
-					<FileInputFormik
-						name="image"
-						onChange={(e) => handleImageChange(e, handleChange)}
-						style={{ gridArea: 'imageInput' }}
-						accept={'.png, .jpg'}
-						errors={errors}
-						touched={touched}
-					/>
-					<img
-						src={image ? URL.createObjectURL(image) : imageExample}
-						alt="profile images"
-						className="profile-preview-image"
-					/>
-					<button
-						type="submit"
-						className="submit-btn"
-						disabled={isSubmitting}
-						style={{ gridArea: 'submit' }}
-					>
-						Enviar
-					</button>
-				</form>
-			)}
-		</Formik>
+						<img
+							src={image ? URL.createObjectURL(image) : imageExample}
+							alt="profile images"
+							className="profile-preview-image"
+						/>
+						<button
+							type="submit"
+							className="submit-btn"
+							disabled={isSubmitting}
+							style={{ gridArea: 'submit' }}
+						>
+							Enviar
+						</button>
+					</form>
+				)}
+			</Formik>
+		</BackOfficeLayout>
 	)
 }
 

@@ -14,10 +14,10 @@ export const contactRestrict = () => {
 		}
 	}, [])
 
-	if (user.role_id === 1) {
+	if (user?.role_id === 1) {
 		return true
 	}
-	if (user.role_id === 0) {
+	if (user?.role_id === 0) {
 		return false
 	}
 }
