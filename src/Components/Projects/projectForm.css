@@ -1,0 +1,20 @@
+.projects-form {
+	display: flex;
+	flex-direction: column;
+	margin: 15px auto;
+	width: 70%;
+	max-width: 768px;
+	gap: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+	.projects-form {
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.projects-form {
+		width: 90%;
+	}
+}

@@ -4,6 +4,7 @@ import Logo from './Logo'
 import btnMenuImg from '../../../ImageProject/btn-menu.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { startLogout } from '../../../actions/auth'
+import SidebarBackOffice from './ui/sidebarBackOffice/SidebarBackOffice'
 
 function HeaderComponent() {
 	const { isAuthenticated } = useSelector((state) => state.auth)
@@ -22,6 +23,8 @@ function HeaderComponent() {
 	}
 	return (
 		<header>
+			<SidebarBackOffice isOpen={btnResponsive} />
+
 			<Logo />
 
 			<div className="menu-btn" onClick={handleClickBtn}>

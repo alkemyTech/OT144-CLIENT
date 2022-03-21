@@ -16,6 +16,10 @@ export const getUser = async (id) => {
 	return response.data
 }
 
+export const getUserByName = async (search) => {
+	return await getRequest(`${endpoint}?search=${search}`)
+}
+
 export const createUser = async (user) => {
 	const response = await postRequest(endpoint, user)
 	return response.data

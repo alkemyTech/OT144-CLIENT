@@ -1,5 +1,4 @@
 import { getRequest } from '../../../Services/publicApiService'
-import { Redirect } from 'react-router'
 import { isLogin } from './UserNotLogged'
 
 const getUsers = async () => {
@@ -28,9 +27,5 @@ export default function userIsAdmin(Componente) {
 		getRole()
 	}
 
-	if (localStorage.getItem('role') === '1') {
-		return <Componente />
-	} else {
-		<Redirect to="/" />
-	}
+	return localStorage.getItem('role') === '1'
 }

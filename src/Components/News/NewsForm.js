@@ -7,6 +7,7 @@ import { getBase64 } from '../../utils'
 import { MIN_LENGTH_TITLE_NEWS, TEXT_INPUT_REQUIRED } from '../../constants'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import { getNews, postNews, updateNews } from '../../Services/NewsApiServices'
+import BasicAlert from '../UI/Alerts/BasicAlert'
 
 const validate = (values) => {
 	const errors = {}
@@ -54,6 +55,7 @@ const NewsForm = ({ mode = 'create', novelity }) => {
 	})
 	const [error, setError] = useState(false)
 	const [categories, setCategories] = useState([])
+	const [envioOk, setEnvioOk] = useState(false)
 
 	useEffect(() => {
 		const getCategories = async () => {
@@ -77,9 +79,15 @@ const NewsForm = ({ mode = 'create', novelity }) => {
 		// If the mode is "create", the api is called via the POST verb, if not, the PUT verb is called with ID of novelity
 		if (mode === 'create') {
 			try {
-				await postNews(dataObject)
+				const response = await postNews(dataObject)
+
+				if (response.status === 200) {
+					setEnvioOk(true)
+				}
 			} catch {
 				setError(true)
+				setEnvioOk(false)
+				console.log(error)
 			}
 		} else {
 			try {
@@ -150,6 +158,13 @@ const NewsForm = ({ mode = 'create', novelity }) => {
 						Enviar
 					</button>
 					{error && <ErrorAlert />}
+					{envioOk && (
+						<BasicAlert
+							type="success"
+							title="Ok"
+							text="Información enviada correctamente"
+						/>
+					)}
 				</Form>
 			)}
 		</Formik>
