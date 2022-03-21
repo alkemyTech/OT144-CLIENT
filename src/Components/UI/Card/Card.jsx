@@ -16,7 +16,7 @@ const Card = (props) => {
 				) : (
 					<img src={'/images/SomosMas.png'} alt={cardItem.title} />
 				)}
-				{cardItem.title ? <h1>{cardItem.title}</h1> : <h1>Titulo de prueba</h1>}
+				{cardItem.title ? <h1>{cardItem.title}</h1> : (cardItem.name ? <h1>{cardItem.name}</h1> : <h1>Titulo de prueba</h1>)}
 				{cardItem.description ? (
 					<p>{cardItem.description}</p>
 				) : (

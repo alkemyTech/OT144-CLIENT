@@ -2,7 +2,6 @@ import './App.css'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { AnimatedSwitch } from 'react-router-transition'
 import { bounceTransition, mapStyles } from './utils/routerTransition'
-import HomeForm from './Components/Home/HomeForm'
 import ActivitiesForm from './Components/Activities/ActivitiesForm/ActivitiesForm'
 import CategoriesForm from './Components/Categories/CategoriesForm'
 import TestimonialForm from './Components/Testimonials/TestimonialsForm'
@@ -18,7 +17,6 @@ import Register from './Components/Auth/RegisterForm'
 import Contact from './Components/Contact/Contact'
 import CreateNews from './Components/News/CreateNews'
 import NewsHome from './Components/News/Home'
-import UsersList from './Components/Users/UsersList/UsersList'
 import Donacion from './Components/Donations/Donacion'
 import Gracias from './Components/Donations/Gracias'
 import DetailNew from './Components/News/Detail/DetailNew'
@@ -26,19 +24,14 @@ import ActivitiesDetail from './Components/Activities/Detail/ActivitiesDetail'
 import Newsletter from './Components/Newsletter/Newsletter'
 import UserNotLogged, { isLogin } from './Components/UI/Errors/UserNotLogged'
 import { contactRestrict } from './Components/Contact/ContactRestrict'
-import RuteoBackoffice from './BackofficeRoutes/RuteoBackoffice'
-import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
+
 import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
 import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
 import MembersForm from './Components/Members/MembersForm'
-import RedirecSlides from './Components/Slides/RedirecSlides'
-import SlidesList from './Components/Slides/SlidesList'
-import OrganizationEditForm from './Components/Home/BackOffice/OrganizationEditForm'
-import DataScreen from './Components/Testimonials/DataScreen'
-import MemberList from './Components/Members/MemberList'
-import Categories from './Components/Home/BackOffice/Categories'
-import ScreenDashboardPage from './Components/ScreenDashboard/ScreenDashboardPage'
+
+import PrivateRoute from './BackofficeRoutes/PrivateRoute'
+import protectedRoutes from './BackofficeRoutes/Routes'
 
 function App() {
 	return (
@@ -51,11 +44,15 @@ function App() {
 					mapStyles={mapStyles}
 					className="route-wrapper"
 				>
-					<Route path="/" exact component={HomePage} />
-					<Route
-						path="/backoffice/*"
-						component={userIsAdmin(RuteoBackoffice)}
-					/>
+					<Route exact path="/" component={HomePage} />
+					{protectedRoutes.map((route, index) => (
+						<PrivateRoute
+							exact={route.exact}
+							path={route.path}
+							component={route.Component}
+							key={`${index}${route.path}`}
+						/>
+					))}
 					<Route
 						path="/contact"
 						component={contactRestrict() ? Contact : HomePage}
@@ -72,39 +69,6 @@ function App() {
 						path="/create-news"
 						component={isLogin() ? CreateNews : <Redirect to="/login" />}
 					/>
-					<Route
-						path="/backoffice/organization/edit-home"
-						component={userIsAdmin(HomeForm)}
-					/>
-					<Route
-						path="/backoffice/slides/:action"
-						component={userIsAdmin(RedirecSlides)}
-					/>
-					<Route
-						path="/backoffice/slides"
-						component={userIsAdmin(SlidesList)}
-					/>
-					<Route
-						path="/backoffice/organization/edit"
-						component={userIsAdmin(OrganizationEditForm)}
-					/>
-					<Route
-						path="/backoffice/organization"
-						component={userIsAdmin(DataScreen)}
-					/>
-					<Route
-						path="/backoffice/members"
-						component={userIsAdmin(MemberList)}
-					/>
-					<Route
-						path="/backoffice/categories"
-						component={userIsAdmin(Categories)}
-					/>
-					<Route
-						path="/backoffice/members/edit"
-						component={userIsAdmin(MembersForm)}
-					/>
-					<Route path="/backoffice/users" component={userIsAdmin(UsersList)} />
 					<Route
 						path="/create-testimonials"
 						component={isLogin() ? TestimonialForm : <Redirect to="/login" />}
@@ -125,10 +89,6 @@ function App() {
 					<Route path="/toys-campaign" component={ToysCampaign} />
 					<Route path="/about-us" component={AboutPrincipal} />
 					<Route path="/login" component={isLogin() ? HomePage : LoginForm} />
-					<Route
-						path="/backoffice"
-						component={userIsAdmin(ScreenDashboardPage)}
-					/>
 					<Route path="/register" component={isLogin() ? HomePage : Register} />
 					<Route
 						path="/donar"
@@ -138,7 +98,7 @@ function App() {
 					<Route path="/novedades/:id" component={DetailNew} />
 					<Route path="/activities" component={Activities} />
 					<Route path="/activities/:id" component={ActivitiesDetail} />
-					<Route path="/Novedades" component={NewsHome} />
+					<Route path="/novedades" component={NewsHome} />
 					<Route
 						path="/newsletter"
 						component={isLogin() ? Newsletter : UserNotLogged}

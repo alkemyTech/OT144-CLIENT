@@ -1,7 +1,7 @@
 import React from 'react'
 import './Carousel.css'
-import leftArrow from './icons/left-arrow.svg'
-import rightArrow from './icons/right-arrow.svg'
+import leftArrow from './icons/left-arrow.png'
+import rightArrow from './icons/right-arrow.png'
 
 export default function BtnSlider({ direction, moveSlide }) {
 	return (
