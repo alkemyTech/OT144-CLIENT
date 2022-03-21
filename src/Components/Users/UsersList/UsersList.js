@@ -65,27 +65,27 @@ const UsersList = () => {
 	}
 
 	return (
-    <BackOfficeLayout>
-		  <main className="users-list-container">
-			  <h1 className="headerTxt">Lista de Usuarios</h1>
-			  <div className="containerInputSearch">
-				  <input
-					  name="users-search"
-					  type="search"
-					  value={search}
-					  onChange={handleChange}
-					  className="input-field search"
-					  placeholder="Buscar usuarios"
-				  />
-			  </div>
-			  <div className="main-action">
-				  <Link to="/backoffice/users/create" className="btnAddTable">
-					  Crear nuevo usuario
-				  </Link>
-			  </div>
-			  <UsersTable users={users} />
-		  </main>
-    </BackOfficeLayout>
+		<BackOfficeLayout>
+			<main className="users-list-container">
+				<h1 className="headerTxt">Lista de Usuarios</h1>
+				<div className="containerInputSearch">
+					<input
+						name="users-search"
+						type="search"
+						value={search}
+						onChange={handleChange}
+						className="input-field search"
+						placeholder="Buscar usuarios"
+					/>
+				</div>
+				<div className="main-action">
+					<Link to="/backoffice/users/create" className="btnAddTable">
+						Crear nuevo usuario
+					</Link>
+				</div>
+				<UsersTable users={users} />
+			</main>
+		</BackOfficeLayout>
 	)
 }
 

@@ -4,9 +4,13 @@ import { Formik } from 'formik'
 import { createUser } from '../../Services/userService'
 import TermsAndConditions from '../UI/TermsAndConditions/TermsAndConditions'
 import '../UI/TermsAndConditions/TermsAndConditions.css'
+import ErrorAlert from '../UI/Alerts/ErrorAlert'
+import BasicAlert from '../UI/Alerts/BasicAlert'
 
 const RegisterForm = () => {
 	const [acceptTerms, setAcceptTerms] = useState(false)
+	const [loading, setLoading] = useState(true)
+
 	const formValues = [
 		{
 			type: 'text',
@@ -91,9 +95,21 @@ const RegisterForm = () => {
 	const registerUser = async (values) => {
 		try {
 			await createUser(values)
+			setLoading(false)
 		} catch (e) {
-			alert(e)
+			;<ErrorAlert />
 		}
+	}
+
+	if (!loading) {
+		return (
+			<>
+				<BasicAlert title="OK!" text="Registro exitoso" /> &&
+				{setTimeout(() => {
+					window.location.href = '/login'
+				}, 1700)}
+			</>
+		)
 	}
 
 	const handleSubmit = (values, { setSubmitting }) => {
@@ -126,11 +142,14 @@ const RegisterForm = () => {
 								type={item.type}
 								name={item.name}
 								onChange={handleChange}
-								value={values[item.name]}
+								defaultValue={values[item.name]}
 								placeholder={item.placeholder}
 								className="input-field"
+								data-testid={item.name}
 							/>
-							{errors[item.name] && touched[item.name] && errors[item.name]}
+							{errors[item.name] && touched[item.name] && (
+								<p data-testid={`error-${item.name}`}>{errors[item.name]}</p>
+							)}
 						</React.Fragment>
 					))}
 
@@ -138,7 +157,7 @@ const RegisterForm = () => {
 						<input
 							className="terms-checkbox"
 							type="checkbox"
-							value={acceptTerms}
+							defaultValue={acceptTerms}
 							onChange={handleChangeCheckbox}
 						/>
 						<label className="terms-text">

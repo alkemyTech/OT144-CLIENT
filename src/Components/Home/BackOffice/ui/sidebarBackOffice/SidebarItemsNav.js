@@ -1,10 +1,10 @@
-import organization from '../../../../../assets/organizationchart_116388.svg'
+/* import organization from '../../../../../assets/organizationchart_116388.svg'
 import slides from '../../../../../assets/slides.svg'
 import user from '../../../../../assets/user.svg'
 import members from '../../../../../assets/members.svg'
 import categories from '../../../../../assets/categories.svg'
 import backoffice from '../../../../../assets/BACKOFFICE.svg'
-import news from '../../../../../assets/news.svg'
+import news from '../../../../../assets/news.svg' */
 import { classNames } from './classes.js'
 import './sidebarBackOffice.css'
 import { NavLink } from 'react-router-dom'

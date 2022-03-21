@@ -18,9 +18,9 @@ export default function PublicHeader() {
 	const [activePath, setActivePath] = useState("")
 	const [isLoginRegister, setIsLoginRegister] = useState(false)
 
-	useEffect(()=>{
+	useEffect(() => {
 		setActivePath(window.location.pathname)
-	},[activePath])
+	}, [activePath])
 
 	useEffect(
 		() => {
@@ -53,8 +53,10 @@ export default function PublicHeader() {
 			</nav>
 			<div className="containerHeaderButtons">
 				{!isLoginRegister &&
-					<Link to="/register"><button>Registrate</button></Link>
-					<Link to="/login"><button>Inicia sesión</button></Link>
+					<>
+						<Link to="/register"><button>Registrate</button></Link>
+						<Link to="/login"><button>Inicia sesión</button></Link>
+					</>
 				}
 			</div>
 		</header>
