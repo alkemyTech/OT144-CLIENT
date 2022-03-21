@@ -7,6 +7,7 @@ import activitiesReducer from './ActivitiesReducer'
 import usersReducer from './usersReducer'
 import sliderReducer from './sliderReducer'
 import TestimonialsReducer from './TestimonialsReducer'
+import { usReducer } from './usReducer'
 
 export const rootReducer = combineReducers({
 	auth: authReducer,
@@ -17,4 +18,5 @@ export const rootReducer = combineReducers({
 	members: memberReducer,
 	sliders: sliderReducer,
 	testimonials: TestimonialsReducer,
+	usAbout: usReducer,
 })
