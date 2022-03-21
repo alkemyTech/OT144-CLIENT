@@ -10,3 +10,13 @@
 	grid-gap: 20px;
 	margin-top: 20px;
 }
+
+.containerInputSearch {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+.search {
+	width: 50%;
+}

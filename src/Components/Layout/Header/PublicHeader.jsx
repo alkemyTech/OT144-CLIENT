@@ -41,8 +41,6 @@ export default function PublicHeader() {
 
 					{datos.map((dato, index) => (
 						<>
-							{console.log(activePath)}
-							{console.log(dato.url)}
 							<li
 								key={`${dato.nombre}${index}`}
 								id={dato.url === activePath ? 'activePath' : null}
@@ -54,8 +52,8 @@ export default function PublicHeader() {
 				</ul>
 			</nav>
 			<div className="containerHeaderButtons">
-				{!isLoginRegister ?
-					<Link to="/register"><button>Registrate</button></Link> :
+				{!isLoginRegister &&
+					<Link to="/register"><button>Registrate</button></Link>
 					<Link to="/login"><button>Inicia sesión</button></Link>
 				}
 			</div>

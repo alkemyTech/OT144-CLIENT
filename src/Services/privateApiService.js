@@ -35,7 +35,6 @@ export const postRequest = async (url, bodyData) => {
 			data: response.data,
 		}
 	} catch (error) {
-		console.log(error)
 		return {
 			status: error.response.status,
 			error: error,

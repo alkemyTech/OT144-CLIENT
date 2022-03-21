@@ -32,3 +32,13 @@
 		width: 90%;
 	}
 }
+
+.containerInputSearch {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+.search {
+	width: 50%;
+}
