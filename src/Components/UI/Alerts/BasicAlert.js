@@ -1,7 +1,12 @@
 import Swal from 'sweetalert2'
 
-const BasicAlert = (type = 'success', title = '', text = '', timer = 1500) => {
-	return Swal.fire({
+const BasicAlert = async (
+	type = 'success',
+	title = '',
+	text = '',
+	timer = 1500
+) => {
+	return await Swal.fire({
 		icon: type,
 		title,
 		text,
