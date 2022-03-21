@@ -5,6 +5,10 @@ import BtnSlider from './BtnSlider'
 const Carousel = ({ props }) => {
 	const [slideIndex, setSlideIndex] = useState(1)
 
+	setTimeout(() => {
+		nextSlide()
+	}, 5000)
+
 	const nextSlide = () => {
 		if (slideIndex !== props.length) {
 			setSlideIndex(slideIndex + 1)
@@ -29,9 +33,13 @@ const Carousel = ({ props }) => {
 						key={obj.title}
 						className={slideIndex === index + 1 ? 'slide active-anim' : 'slide'}
 					>
-						<h1 className="title">{obj.title}</h1>
-						<p className="description">{obj.description}</p>
-						<img src={obj.image} alt={obj.title} />
+						<div className="imgSlider">
+							<img src={obj.image} alt={obj.title} />
+						</div>
+						<div className="txtSlider">
+							<h1>{obj.title}</h1>
+							<p>{obj.description}</p>
+						</div>
 					</div>
 				)
 			})}
