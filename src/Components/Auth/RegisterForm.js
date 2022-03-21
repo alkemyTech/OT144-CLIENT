@@ -94,7 +94,8 @@ const RegisterForm = () => {
 
 	const registerUser = async (values) => {
 		try {
-			await createUser(values)
+			const response = await createUser(values)
+			console.log(response)
 			setLoading(false)
 		} catch (e) {
 			;<ErrorAlert />
@@ -104,10 +105,11 @@ const RegisterForm = () => {
 	if (!loading) {
 		return (
 			<>
-				<BasicAlert title="OK!" text="Registro exitoso" /> &&
-				{setTimeout(() => {
+				<BasicAlert title="OK!" text="Registro exitoso" />{' '}
+				{/* &&
+				 setTimeout(() => {
 					window.location.href = '/login'
-				}, 1700)}
+				}, 1700) */}
 			</>
 		)
 	}

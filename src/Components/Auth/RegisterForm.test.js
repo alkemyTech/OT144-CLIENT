@@ -8,8 +8,9 @@ import {
 	waitFor,
 	act,
 } from '@testing-library/react'
+import { createUser, deleteUser } from '../../Services/userService'
 
-test('RegisterForm shouldn´t be submitted if it is not correctly completed. Passwords are not the same. It should render an error message', async () => {
+test('RegisterForm shouldn´t be submitted if it is not correctly completed. Passwords are not the same. It should render an error message', () => {
 	cleanup()
 	const onSubmit = jest.fn()
 	const { getByRole, getByTestId } = render(
@@ -34,30 +35,49 @@ test('RegisterForm shouldn´t be submitted if it is not correctly completed. Pas
 		fireEvent.submit(getByRole('button', { name: /Enviar/i }))
 	})
 
-	await waitFor(() => {
+	waitFor(() => {
 		expect(onSubmit).toHaveBeenCalledTimes(0)
 	})
-	await waitFor(() => {
+	waitFor(() => {
 		errorMessage = getByTestId('error-password_confirmation')
 		expect(errorMessage).not.toBeNull()
 	})
 })
 
-/* const axios = jest.mock("axios");
+// Hay que actualizar el email cada vez que se ejecuta porque sino no se hace la peticion porque el mail figura en la base de datos a pesar de que lo borro
 
-test("renders learn react link", () => {
-	axios.get.mockImplementation(() => {
-		return {
-			data: {
-				userId: 1,
-				id: 1,
-				title: "delectus aut autem",
-				completed: false,
-			},
-		};
-	});
+test('RegisterForm should do a post petition and create an user', async () => {
+	cleanup()
+	const user = await createUser({
+		name: 'Marcos',
+		lastName: 'Perez',
+		email: 'grupo144@alkemy.com.ar',
+		password: '1234q!',
+		password_confirmation: '1234q!',
+	})
 
-	render(<RegisterForm />);
+	expect(user).toMatchObject({
+		data: {
+			name: 'Marcos',
+			email: 'grupo144@alkemy.com.ar',
+		},
+		message: 'User saved successfully',
+		success: true,
+	})
 
-	expect(screen.getByText(/React App/i)).toBeInTheDocument();
-}); */
+	await deleteUser(user.data.id)
+})
+
+test('RegisterForm should do a post petition and return an error because the email exists in the data base', async () => {
+	const user = await createUser({
+		name: 'Marcos',
+		lastName: 'Perez',
+		email: 'grupo1@digital.com',
+		password: '1234q!',
+		password_confirmation: '1234q!',
+	})
+
+	expect(user).toMatchObject({
+		message: 'The given data was invalid.',
+	})
+})
