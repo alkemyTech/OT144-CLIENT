@@ -8,4 +8,6 @@ export const MIN_LENGTH_PHONE = 8
 
 export const MIN_LENGTH_TITLE_NEWS = 4
 
+export const MIN_LENGTH_TITLE_PROJECTS = 4
+
 export const TEXT_INPUT_REQUIRED = 'Campo requerido'
