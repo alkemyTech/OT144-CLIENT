@@ -41,8 +41,6 @@ export default function PublicHeader() {
 
 					{datos.map((dato, index) => (
 						<>
-							{console.log(activePath)}
-							{console.log(dato.url)}
 							<li
 								key={`${dato.nombre}${index}`}
 								id={dato.url === activePath ? 'activePath' : null}
