@@ -31,6 +31,6 @@ export default function userIsAdmin(Componente) {
 	if (localStorage.getItem('role') === '1') {
 		return <Componente />
 	} else {
-		;<Redirect to="/" />
+		<Redirect to="/" />
 	}
 }
