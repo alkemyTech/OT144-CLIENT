@@ -6,6 +6,7 @@
 }
 
 .containerHeader {
+	position: relative;
 	background-color: var(--darkBlue);
 	height: 110px;
 	justify-content: space-between;
