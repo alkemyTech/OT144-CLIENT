@@ -1,6 +1,6 @@
-import { NavLink } from 'react-router-dom'
 import { classNames } from './classes.js'
 import './sidebarBackOffice.css'
+import { NavLink } from 'react-router-dom'
 
 const SidebarItemsNav = ({ isOpen, item }) => {
 	return (

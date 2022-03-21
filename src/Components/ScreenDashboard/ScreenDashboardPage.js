@@ -1,11 +1,13 @@
 import './stylesScreenDashboardPage.css'
+import HeaderComponent from '../Home/BackOffice/HeaderComponent'
 import BackOfficeLayout from '../Layout/BackOfficeLayout'
 
 const ScreenDashboardPage = () => {
 	return (
 		<BackOfficeLayout>
 			<main className="screenDashboardPage">
-				<h2>BackOffice</h2>
+				<HeaderComponent />
+				<h2>Bienvenido</h2>
 			</main>
 		</BackOfficeLayout>
 	)

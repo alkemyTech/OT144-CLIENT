@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import menu from '../../../../../assets/menu.svg'
+import React from 'react'
 import TitleComponent from '../../../../title/TitleComponent'
 import { classNames } from './classes.js'
 import './sidebarBackOffice.css'
@@ -12,13 +11,13 @@ import categories from '../../../../../assets/categories.svg'
 import backoffice from '../../../../../assets/BACKOFFICE.svg'
 import news from '../../../../../assets/news.svg'
 
-const SidebarBackOffice = () => {
+const SidebarBackOffice = ({ isOpen }) => {
 	const generarId = () => {
 		const random = Math.random().toString(36)
 		const fecha = Date.now().toString(36)
-
 		return random + fecha
 	}
+
 	const items = [
 		{
 			itemsId: generarId(),
@@ -88,18 +87,10 @@ const SidebarBackOffice = () => {
 		},
 	]
 
-	const [isOpen, setIsOpen] = useState(true)
-	const handleClick = () => setIsOpen(!isOpen)
-
 	return (
 		<div
 			className={classNames('SideBarMenu', isOpen ? ' expanded' : ' collapsed')}
 		>
-			<div className="menuButton">
-				<button className="hamburgerIcon" onClick={handleClick}>
-					<img src={menu} alt="button" />
-				</button>
-			</div>
 			<TitleComponent title="" />
 
 			{items.map((item) => (
