@@ -1,7 +1,7 @@
 import ErrorAlert from '../Alerts/ErrorAlert'
 
 export function isLogin() {
-	return localStorage.getItem('token')
+	return localStorage.getItem('email')
 }
 
 export default function UserNotLogged() {

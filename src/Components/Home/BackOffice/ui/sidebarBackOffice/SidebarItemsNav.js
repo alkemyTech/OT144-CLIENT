@@ -1,7 +1,13 @@
-
-import { NavLink } from 'react-router-dom'
+import organization from '../../../../../assets/organizationchart_116388.svg'
+import slides from '../../../../../assets/slides.svg'
+import user from '../../../../../assets/user.svg'
+import members from '../../../../../assets/members.svg'
+import categories from '../../../../../assets/categories.svg'
+import backoffice from '../../../../../assets/BACKOFFICE.svg'
+import news from '../../../../../assets/news.svg'
 import { classNames } from './classes.js'
 import './sidebarBackOffice.css'
+import { NavLink } from 'react-router-dom'
 
 const SidebarItemsNav = ({ isOpen, item }) => {
 	return (
@@ -22,7 +28,6 @@ const SidebarItemsNav = ({ isOpen, item }) => {
 					</div>
 					<span className="label">{item.nombre}</span>
 					{!isOpen ? <div className="tooltip">{item.nombre}</div> : ''}
-
 				</div>
 			</NavLink>
 		</div>

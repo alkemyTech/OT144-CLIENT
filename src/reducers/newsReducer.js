@@ -8,6 +8,7 @@ const newsReducer = (state = initialState, action) => {
 	switch (action.type) {
 	case types.NEWS_GET:
 		return {
+			...state,
 			news: action.payload,
 		}
 	case types.NEWS_ADD:
@@ -26,7 +27,7 @@ const newsReducer = (state = initialState, action) => {
 			news: state.news.filter((elem) => elem.id !== action.payload),
 		}
 	default:
-		return { ...state }
+		return state
 	}
 }
 

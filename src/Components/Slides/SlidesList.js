@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import BackOfficeLayout from '../Layout/BackOfficeLayout'
 import Table from '../UI/Table'
 import { Link } from 'react-router-dom'
 import { getSlides, deleteSlide } from '../../Services/slidesService'
@@ -40,49 +41,55 @@ export default function SlidesList() {
 	}
 
 	if (loading) {
-		return <SpinnerComponent loading={loading} />
+		return (
+			<BackOfficeLayout>
+				<SpinnerComponent loading={loading} />
+			</BackOfficeLayout>
+		)
 	}
 
 	return (
-		<div>
-			<Table
-				header={{
-					title: 'Listado Slides',
-					button: () => (
-						<Link to="/backoffice/slides/create">
-							<button className="btnAddTable">Crear Slide</button>
-						</Link>
-					),
-				}}
-				fields={['Titulo', 'Imagen', 'Order', 'Acciones']}
-				scopedSlots={{
-					title: ({ name }) => <td>{name}</td>,
-					image: ({ image, name }) => (
-						<td>
-							<img src={image} alt={name + ' foto'} />
-						</td>
-					),
-					order: ({ order }) => (
-						<td>
-							<h1>{order}</h1>
-						</td>
-					),
-					actions: ({ id }) => (
-						<td>
-							<Link to="/backoffice/slides/edit">
-								<button className="btnUpdateTable">Editar</button>
+		<BackOfficeLayout>
+			<div>
+				<Table
+					header={{
+						title: 'Listado Slides',
+						button: () => (
+							<Link to="/backoffice/slides/create">
+								<button className="btnAddTable">Crear Slide</button>
 							</Link>
-							<button
-								className="btnDeleteTable"
-								onClick={() => handleClickDelete(id)}
-							>
-								Eliminar
-							</button>
-						</td>
-					),
-				}}
-				data={slidesData}
-			/>
-		</div>
+						),
+					}}
+					fields={['Titulo', 'Imagen', 'Order', 'Acciones']}
+					scopedSlots={{
+						title: ({ name }) => <td>{name}</td>,
+						image: ({ image, name }) => (
+							<td>
+								<img src={image} alt={name + ' foto'} />
+							</td>
+						),
+						order: ({ order }) => (
+							<td>
+								<h1>{order}</h1>
+							</td>
+						),
+						actions: ({ id }) => (
+							<td>
+								<Link to="/backoffice/slides/edit">
+									<button className="btnUpdateTable">Editar</button>
+								</Link>
+								<button
+									className="btnDeleteTable"
+									onClick={() => handleClickDelete(id)}
+								>
+									Eliminar
+								</button>
+							</td>
+						),
+					}}
+					data={slidesData}
+				/>
+			</div>
+		</BackOfficeLayout>
 	)
 }
