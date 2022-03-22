@@ -10,7 +10,7 @@ import { getAllOrganizationData } from '../../Services/organizationService'
 import { Link } from 'react-router-dom'
 
 function HomePage() {
-	const [loading, setLoading] = useState(false)
+	const [loading, setLoading] = useState(true)
 	const [data, setData] = useState([])
 
 	useEffect(() => {
