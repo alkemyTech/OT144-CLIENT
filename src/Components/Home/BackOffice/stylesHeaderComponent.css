@@ -1,23 +1,16 @@
 header {
-	position: absolute;
-	top: 0;
-	left: 0;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px 50px;
 	background-color: var(--darkBlue);
 	width: 100%;
+	min-height: 112px;
 }
 
 /*MENU HAMBURGUESA*/
 .menu-btn {
-	position: relative;
 	cursor: pointer;
-	top: 38px;
-	right: 50px;
-	z-index: 999999;
-	position: fixed;
 	line-height: 30px;
 }
 

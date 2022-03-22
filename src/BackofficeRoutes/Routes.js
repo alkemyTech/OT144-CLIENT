@@ -35,7 +35,7 @@ const protectedRoutes = [
 	},
 	{
 		Component: HomeForm,
-		path: `${pathBackoffice}/organization/edit-home`,
+		path: `${pathBackoffice}/edit-home`,
 		exact: true,
 	},
 	{

@@ -1,6 +1,4 @@
 import React from 'react'
-import TitleComponent from '../../../../title/TitleComponent'
-import { classNames } from './classes.js'
 import './sidebarBackOffice.css'
 import SidebarItemsNav from './SidebarItemsNav'
 import organization from '../../../../../assets/organizationchart_116388.svg'
@@ -10,8 +8,13 @@ import members from '../../../../../assets/members.svg'
 import categories from '../../../../../assets/categories.svg'
 import backoffice from '../../../../../assets/BACKOFFICE.svg'
 import news from '../../../../../assets/news.svg'
+import { useDispatch } from 'react-redux'
+import { startLogout } from '../../../../../actions/auth'
+import { useHistory } from 'react-router-dom'
 
 const SidebarBackOffice = ({ isOpen }) => {
+	const history = useHistory()
+	const dispatch = useDispatch()
 	const generarId = () => {
 		const random = Math.random().toString(36)
 		const fecha = Date.now().toString(36)
@@ -21,15 +24,9 @@ const SidebarBackOffice = ({ isOpen }) => {
 	const items = [
 		{
 			itemsId: generarId(),
-			nombre: 'Backoffice',
-			url: 'backoffice',
+			nombre: 'Inicio',
+			url: '/backoffice',
 			img: `${backoffice}`,
-		},
-		{
-			itemsId: generarId(),
-			nombre: 'Organización',
-			url: '/backoffice/organization',
-			img: `${organization}`,
 		},
 		{
 			itemsId: generarId(),
@@ -39,13 +36,7 @@ const SidebarBackOffice = ({ isOpen }) => {
 		},
 		{
 			itemsId: generarId(),
-			nombre: 'Editar Organización Home',
-			url: '/backoffice/organization/edit-home',
-			img: `${organization}`,
-		},
-		{
-			itemsId: generarId(),
-			nombre: 'Diapositivas',
+			nombre: 'Slider',
 			url: '/backoffice/slides',
 			img: `${slides}`,
 		},
@@ -87,15 +78,21 @@ const SidebarBackOffice = ({ isOpen }) => {
 		},
 	]
 
+	const handleLogOut = async () => {
+		await dispatch(startLogout())
+		history.push('/')
+	}
+
 	return (
 		<div
-			className={classNames('SideBarMenu', isOpen ? ' expanded' : ' collapsed')}
+			className={`SideBarMenu ${isOpen ? 'expanded' : 'collapsed'}`}
 		>
-			<TitleComponent title="" />
-
 			{items.map((item) => (
 				<SidebarItemsNav isOpen={isOpen} key={item.itemsId} item={item} />
 			))}
+			<button className="btn-logout" onClick={handleLogOut}>
+				Cerrar sesión
+			</button>
 		</div>
 	)
 }
