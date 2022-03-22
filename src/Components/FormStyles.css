@@ -4,6 +4,7 @@
 	justify-content: center;
 	flex-direction: column;
 	gap: 10px;
+	background: var(--blue);
 }
 
 .form-container form {
@@ -15,8 +16,8 @@
 	max-width: 800px;
 	padding: 20px;
 	width: 50%;
-	-webkit-box-shadow: 6px 4px 21px 1px #00000060;
-	box-shadow: 6px 4px 10px 1px #00000056;
+	-webkit-box-shadow: 2px 2px 10px 1px #00000060;
+	box-shadow: 2px 2px 10px 1px #00000056;
 }
 
 .form-container h2 {

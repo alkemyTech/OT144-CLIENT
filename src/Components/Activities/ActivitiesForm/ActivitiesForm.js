@@ -66,7 +66,7 @@ const ActivitiesForm = ({ props }) => {
 	}
 
 	return (
-		<div className="form-container">
+		<div className="form-container activities-form">
 			<Formik initialValues={initialValues} validate={validate}>
 				{({ errors, touched }) => (
 					<form onSubmit={submitData}>
