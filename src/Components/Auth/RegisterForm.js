@@ -6,6 +6,7 @@ import TermsAndConditions from '../UI/TermsAndConditions/TermsAndConditions'
 import '../UI/TermsAndConditions/TermsAndConditions.css'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import BasicAlert from '../UI/Alerts/BasicAlert'
+import './signup.css'
 
 const RegisterForm = () => {
 	const [acceptTerms, setAcceptTerms] = useState(false)
@@ -137,40 +138,43 @@ const RegisterForm = () => {
 				handleSubmit,
 				isSubmitting,
 			}) => (
-				<form className="form-container" onSubmit={handleSubmit}>
-					{formValues.map((item) => (
-						<React.Fragment key={item.name}>
-							<input
-								type={item.type}
-								name={item.name}
-								onChange={handleChange}
-								defaultValue={values[item.name]}
-								placeholder={item.placeholder}
-								className="input-field"
-								data-testid={item.name}
-							/>
-							{errors[item.name] && touched[item.name] && (
-								<p data-testid={`error-${item.name}`}>{errors[item.name]}</p>
-							)}
-						</React.Fragment>
-					))}
+				<div className="form-container signup">
+					<form onSubmit={handleSubmit}>
+						<h2 className="title">Crear cuenta</h2>
+						{formValues.map((item) => (
+							<React.Fragment key={item.name}>
+								<input
+									type={item.type}
+									name={item.name}
+									onChange={handleChange}
+									defaultValue={values[item.name]}
+									placeholder={item.placeholder}
+									className="input-field"
+									data-testid={item.name}
+								/>
+								{errors[item.name] && touched[item.name] && (
+									<p data-testid={`error-${item.name}`}>{errors[item.name]}</p>
+								)}
+							</React.Fragment>
+						))}
 
-					<div className="terms-container">
-						<input
-							className="terms-checkbox"
-							type="checkbox"
-							defaultValue={acceptTerms}
-							onChange={handleChangeCheckbox}
-						/>
-						<label className="terms-text">
-							Aceptar Terminos y condiciones de uso
-						</label>
-					</div>
-					<TermsAndConditions />
-					<button type="submit" className="submit-btn" disabled={isSubmitting}>
-						Enviar
-					</button>
-				</form>
+						<div className="terms-container">
+							<input
+								className="terms-checkbox"
+								type="checkbox"
+								defaultValue={acceptTerms}
+								onChange={handleChangeCheckbox}
+							/>
+							<label className="terms-text">
+								Aceptar Terminos y condiciones de uso
+							</label>
+						</div>
+						<TermsAndConditions />
+						<button type="submit" className="submit-btn" disabled={isSubmitting}>
+							Enviar
+						</button>
+					</form>
+				</div>
 			)}
 		</Formik>
 	)
