@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { startGetActivities } from '../../../../src/actions/Activities'
 import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
 import BasicAlert from '../../UI/Alerts/BasicAlert'
+import { Link } from 'react-router-dom'
 
 const ActivitiesTable = () => {
 	const [loading, setLoading] = useState(true)
@@ -38,11 +39,16 @@ const ActivitiesTable = () => {
 
 	return (
 		<>
-			<SearchActivities
-				inputSearch={inputSearch}
-				setInputSearch={setInputSearch}
-			/>
 			<div className="table-container-responsive">
+				<div className="main-action">
+					<Link to="/backoffice/activities/create" className="btnAddTable">
+						Crear nueva actividad
+					</Link>
+					<SearchActivities
+						inputSearch={inputSearch}
+						setInputSearch={setInputSearch}
+					/>
+				</div>
 				<table className="table">
 					<thead>
 						<tr>

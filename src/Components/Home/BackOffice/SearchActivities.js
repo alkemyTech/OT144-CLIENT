@@ -1,12 +1,12 @@
 import React from 'react'
+import './stylesSearchActivities.css'
 
 const SearchActivities = ({ inputSearch, setInputSearch }) => {
 	return (
 		<div className="input-search-container">
-			<h1 className="headerTxt">Lista de Actividades</h1>
 			<input
 				type="text"
-				className="input-field field-search"
+				className="input-field field-search inputSearch"
 				name="search"
 				value={inputSearch}
 				onChange={(e) => setInputSearch(e.target.value)}
