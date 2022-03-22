@@ -3,6 +3,7 @@ import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import AboutUs from './AboutUs'
 import './stylesAboutUs.css'
+import LayoutPublic from '../Layout/LayoutPublic'
 
 export default function AboutPrincipal() {
 	const [loading, setLoading] = useState(false)
@@ -37,8 +38,10 @@ export default function AboutPrincipal() {
 		return <ErrorAlert />
 	}
 	return (
-		<main className="aboutPrincipal-container">
-			<AboutUs text={principalText} />
-		</main>
+		<LayoutPublic>
+			<main className="aboutPrincipal-container">
+				<AboutUs text={principalText} />
+			</main>
+		</LayoutPublic>
 	)
 }
