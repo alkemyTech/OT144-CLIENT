@@ -4,7 +4,7 @@ import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
 import ActivitiesTable from './ActivitiesTable'
 import { Link } from 'react-router-dom'
 import { getActivities } from '../../../Services/activitiesService'
-import '../../TableStyles.css'
+import '../../UI/Table/table.css'
 import './ActivitiesList.css'
 
 const ActivitiesList = () => {
