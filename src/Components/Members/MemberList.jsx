@@ -6,7 +6,7 @@ import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import { store } from '../../app/store'
 import { getAllMembers } from '../../Services/membersService'
 import { getMemberActions } from '../../actions/memberActions'
-import '../TableStyles.css'
+import '../UI/Table/table.css'
 import './MemberList.css'
 
 const MemberList = () => {

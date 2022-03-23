@@ -6,6 +6,7 @@ import { store } from '../../app/store'
 import axios from 'axios'
 import { baseURL } from '../../Services/Api'
 import { login } from '../../actions/actions'
+import { useHistory } from 'react-router-dom'
 
 const validation = (values) => {
 	const errors = {}
@@ -32,6 +33,7 @@ const validation = (values) => {
 }
 
 const LoginForm = () => {
+	const history = useHistory()
 	const [values, setValues] = useState({
 		email: '',
 		password: '',
@@ -52,7 +54,8 @@ const LoginForm = () => {
 						user: res.config.data,
 					})
 				)
-				console.log(res)
+				
+				history.push('/backoffice')
 			})
 			.then(() => {
 				localStorage.setItem('email', values.email)

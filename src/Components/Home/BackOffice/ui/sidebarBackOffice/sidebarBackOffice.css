@@ -1,22 +1,23 @@
 .SideBarMenu {
-	background-color: var(--blue);
-	color: white;
-	position: absolute;
+	background-color: var(--darkBlue);
+	color: var(--blue);
+	position: fixed;
 	left: 0;
-	top: 0;
-	height: 100%;
+	top: 112px;
+	height: calc(100vh - 112px);
 	display: flex;
 	flex-direction: column;
-	transition: width 1s;
+	transition: left 0.5s;
 	font-weight: bold;
+	width: 250px;
 }
 
 .SideBarMenu.expanded {
-	width: 250px;
-	z-index: 99999;
+	left: 0;
+	z-index: 2;
 }
 .SideBarMenu.collapsed {
-	width: 0px;
+	left: -100%;
 }
 .menuButton {
 	display: flex;
@@ -85,7 +86,9 @@
 }
 
 .img-icon {
-	width: 100%;
+	width: 25px;
+	height: 25px;
+	filter: invert(100%);
 }
 .img-icon-d {
 	width: 30px;
@@ -105,7 +108,6 @@
 	flex-direction: column;
 	align-items: center;
 	margin: 0 5px;
-	background-color: #fff;
 }
 
 .SideBarMenuItem .nav-link {
