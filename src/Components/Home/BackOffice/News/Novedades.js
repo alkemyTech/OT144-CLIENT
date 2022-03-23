@@ -73,6 +73,7 @@ function Novedades() {
 			setError(true)
 		}
 	}
+	console.log(store.getState())
 	// REEMPLAZAR POR LA INFORMACION QUE VENGA DE LA PANTALLA DE EDITAR
 	const body = {
 		name: 'pruebaUpdate',

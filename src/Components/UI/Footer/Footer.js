@@ -40,8 +40,8 @@ const Footer = () => {
 		<div className="main-footer">
 			<div className="container">
 				<div className="col col-1">
-					<h4>{data.name}</h4>
-					<img src={data.logo} alt="somos-mas-icon" />
+					<h4>{data?.name}</h4>
+					<img src={data?.logo} alt="somos-mas-icon" />
 				</div>
 				<div className="col col-2">
 					<ul className="list-unstyled">

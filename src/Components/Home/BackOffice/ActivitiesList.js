@@ -1,11 +1,16 @@
 import ActivitiesTable from './ActivitiesTable'
 import './ActivitiesList.css'
+import BackOfficeLayout from '../../Layout/BackOfficeLayout'
 
 const ActivitiesList = () => {
 	return (
 		<main>
-			<h1 className="headerTxt">Lista de Actividades</h1>
-			<ActivitiesTable />
+			<BackOfficeLayout>
+				<div className="containerActivities">
+					<h1 className="headerTxt">Lista de Actividades</h1>
+					<ActivitiesTable />
+				</div>
+			</BackOfficeLayout>
 		</main>
 	)
 }

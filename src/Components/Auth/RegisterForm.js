@@ -106,11 +106,10 @@ const RegisterForm = () => {
 	if (!loading) {
 		return (
 			<>
-				<BasicAlert title="OK!" text="Registro exitoso" />{' '}
-				{/* &&
-				 setTimeout(() => {
+				<BasicAlert title="OK!" text="Registro exitoso" />
+				{setTimeout(() => {
 					window.location.href = '/login'
-				}, 1700) */}
+				}, 1700)}
 			</>
 		)
 	}
