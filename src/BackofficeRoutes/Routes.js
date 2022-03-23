@@ -1,6 +1,7 @@
 import MembersForm from '../Components/Members/MembersForm'
 import ScreenDashboardPage from '../Components/ScreenDashboard/ScreenDashboardPage'
 import UsersList from '../Components/Users/UsersList/UsersList'
+import UsersForm from '../Components/Users/UsersForm'
 import Novedades from '../Components/Home/BackOffice/News/Novedades'
 import HomeForm from '../Components/Home/HomeForm'
 import RedirecSlides from '../Components/Slides/RedirecSlides'
@@ -21,6 +22,11 @@ const protectedRoutes = [
 	{
 		Component: UsersList,
 		path: `${pathBackoffice}/users`,
+		exact: true,
+	},
+	{
+		Component: UsersForm,
+		path: `${pathBackoffice}/users/create`,
 		exact: true,
 	},
 	{
