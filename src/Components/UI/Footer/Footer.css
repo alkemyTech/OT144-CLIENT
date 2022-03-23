@@ -42,12 +42,18 @@ ul li {
 	width: 250px;
 }
 
-a,
-a:hover,
-a:focus,
-a:active {
+.list-unstyled a,
+.list-unstyled a:hover,
+.list-unstyled a:focus,
+.list-unstyled a:active {
 	text-decoration: none;
-	color: inherit;
+}
+
+.list-unstyled a {
+	color: white;
+}
+.list-unstyled a:hover {
+	color: var(--lightBlue);
 }
 
 .social-media {

@@ -14,7 +14,7 @@
 	position: relative;
 	width: 100%;
 	height: 50vh;
-	background-color: rgb(1, 61, 95);
+	background-color: rgb(18 90 131);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -23,9 +23,12 @@
 .containerNovedades {
 	position: relative;
 	width: 100%;
-	height: 50vh;
+	min-height: 80vh;
+	top: 35px;
+	gap: 15px;
 	background-color: rgb(1, 102, 160);
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
@@ -34,4 +37,20 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.allNewsButton {
+	background-color: var(--lightGrey);
+	border: none;
+	border-radius: 8px;
+	color: var(--darkBlue);
+	font-size: 1.25rem;
+	padding: 7px 20px;
+	transition: 0.5s;
+	margin-top: 20px;
+}
+
+.allNewsButton:hover {
+	background-color: var(--lightBlue);
+	transform: scale(1.1);
 }
