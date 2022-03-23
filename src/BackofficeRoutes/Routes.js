@@ -9,6 +9,8 @@ import OrganizationEditForm from '../Components/Home/BackOffice/OrganizationEdit
 import DataScreen from '../Components/Testimonials/DataScreen'
 import MemberList from '../Components/Members/MemberList'
 import Categories from '../Components/Home/BackOffice/Categories'
+import Activities from '../Components/Home/BackOffice/ActivitiesList'
+import RedirectActivities from '../Components/Home/BackOffice/RedirectActivities'
 
 const pathBackoffice = '/backoffice'
 
@@ -16,6 +18,21 @@ const protectedRoutes = [
 	{
 		Component: ScreenDashboardPage,
 		path: `${pathBackoffice}`,
+		exact: true,
+	},
+	{
+		Component: Activities,
+		path: `${pathBackoffice}/activities`,
+		exact: true,
+	},
+	{
+		Component: RedirectActivities,
+		path: `${pathBackoffice}/activities/:action`,
+		exact: true,
+	},
+	{
+		Component: RedirectActivities,
+		path: `${pathBackoffice}/activities/:action/:id`,
 		exact: true,
 	},
 	{

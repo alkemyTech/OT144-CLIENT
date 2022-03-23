@@ -4,6 +4,7 @@ import { getActivities } from '../../Services/ActivityApiService'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import Card from '../UI/Card/Card'
+import LayoutPublic from '../Layout/LayoutPublic'
 
 const Actividades = () => {
 	const [dataLoading, setDataLoading] = useState({
@@ -16,6 +17,7 @@ const Actividades = () => {
 		try {
 			;(async () => {
 				const response = await getActivities()
+				console.log(response)
 				if (response.status === 200) {
 					setDataLoading({
 						...dataLoading,
@@ -33,7 +35,7 @@ const Actividades = () => {
 		} catch (error) {
 			setDataLoading({ ...dataLoading, error: error, loading: false })
 		}
-	}, [dataLoading])
+	}, [])
 
 	if (dataLoading.loading) {
 		return (
@@ -48,14 +50,14 @@ const Actividades = () => {
 	}
 
 	return (
-		<div>
+		<LayoutPublic>
 			<TitleComponent title="Actividades" />
 			<div className="new-list-container">
-				{dataLoading.data.map((activity, index) => (
+				{dataLoading.data?.map((activity, index) => (
 					<Card key={index} cardItem={activity} />
 				))}
 			</div>
-		</div>
+		</LayoutPublic>
 	)
 }
 
