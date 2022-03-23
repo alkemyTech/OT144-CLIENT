@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import BackOfficeLayout from '../../Layout/BackOfficeLayout'
 import { Link } from 'react-router-dom'
-import '../../TableStyles.css'
+import '../../UI/Table/table.css'
 
 export default function Categories() {
 	const [categories] = useState([

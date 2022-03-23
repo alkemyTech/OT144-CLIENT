@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import FacebookIcon from '../../assets/facebook.svg'
 import LinkedinIcon from '../../assets/linkedin.svg'
 import InstagramIcon from '../../assets/instagram.svg'
+import './stylesContentSchool.css'
 
 const Footer = () => {
 	const [data, setData] = useState([])

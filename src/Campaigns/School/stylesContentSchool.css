@@ -42,6 +42,12 @@
 	display: none;
 }
 
+.organizationName,
+.socialText,
+#campaigns {
+	display: none;
+}
+
 @media all and (min-width: 361px) {
 	.newDateSchool {
 		display: block;
@@ -64,10 +70,50 @@
 		top: 80px;
 		display: block;
 	}
+	#landing {
+		grid-template-columns: 2fr 1fr;
+	}
+	#landing .col-1 {
+		flex-direction: row-reverse;
+	}
+	#landing .col-1 a {
+		color: white;
+	}
+	.organizationName {
+		display: block;
+		font-size: var(--text1);
+	}
 }
 
 @media all and (min-width: 1367px) {
 	.contentSchool {
 		background-color: #085bb33a;
+	}
+
+	.social-media li a {
+		display: flex;
+		align-items: center;
+	}
+	.socialText {
+		display: block;
+		color: white;
+		font-size: var(--text1);
+	}
+}
+
+@media all and (min-width: 1920px) {
+	#landing {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	#campaigns {
+		display: flex;
+		flex-direction: column;
+	}
+	#campaigns h3 {
+		color: var(--lightBlue);
+	}
+	#campaigns a {
+		color: white;
+		font-size: var(--text1);
 	}
 }
