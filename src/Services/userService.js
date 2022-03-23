@@ -20,10 +20,6 @@ export const getUserByName = async (search) => {
 	return await getRequest(`${endpoint}?search=${search}`)
 }
 
-export const getUserByRole = async (search, role) => {
-	return await getRequest(`${endpoint}?search=${search}&role=${role}`)
-}
-
 export const createUser = async (user) => {
 	const response = await postRequest(endpoint, user)
 	return response.data
