@@ -1,61 +1,84 @@
 import { useState, useEffect } from 'react'
 import TitleComponent from '../title/TitleComponent'
-import { getActivities } from '../../Services/ActivityApiService'
+import { getRequest } from '../../Services/publicApiService'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import Card from '../UI/Card/Card'
+import LayoutPublic from '../Layout/LayoutPublic'
+import SearchActivitiesInput from './SearchActivitiesInput'
 
 const Actividades = () => {
-	const [dataLoading, setDataLoading] = useState({
-		loading: true,
-		data: [],
-		error: '',
-	})
+	const [data, setData] = useState([])
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState(false)
+
+	const [searchInput, setSearchInput] = useState('')
+	const [searchResults, setSearchResults] = useState([])
 
 	useEffect(() => {
-		try {
-			;(async () => {
-				const response = await getActivities()
+		const getActivities = async () => {
+			try {
+				const response = await getRequest('/activities')
 				if (response.status === 200) {
-					setDataLoading({
-						...dataLoading,
-						data: response.data.data,
-						loading: false,
-					})
-				} else {
-					setDataLoading({
-						...dataLoading,
-						error: response.error,
-						loading: false,
-					})
+					setTimeout(() => {
+						setLoading(false)
+						setData(response.data.data)
+					}, 1000)
 				}
-			})()
-		} catch (error) {
-			setDataLoading({ ...dataLoading, error: error, loading: false })
+				// setData(response.data.data)
+			} catch (e) {
+				setLoading(false)
+				setError(true)
+				return <ErrorAlert />
+			}
 		}
-	}, [dataLoading])
+		getActivities()
+	}, [])
 
-	if (dataLoading.loading) {
+	if (loading) {
 		return (
-			<div className="spinner-container">
-				<SpinnerComponent loading={dataLoading.loading} />
-			</div>
+			<LayoutPublic>
+				<div className="spinner-container">
+					<SpinnerComponent loading={loading} />
+				</div>
+			</LayoutPublic>
 		)
 	}
 
-	if (dataLoading.error) {
+	if (error) {
 		return <ErrorAlert />
 	}
 
 	return (
-		<div>
+		<LayoutPublic>
 			<TitleComponent title="Actividades" />
-			<div className="new-list-container">
-				{dataLoading.data.map((activity, index) => (
-					<Card key={index} cardItem={activity} />
-				))}
-			</div>
-		</div>
+			<SearchActivitiesInput
+				searchInput={searchInput}
+				setSearchInput={setSearchInput}
+				searchResults={searchResults}
+				setSearchResults={setSearchResults}
+				data={data}
+			/>
+			{searchResults.length > 0 && (
+				<div className="new-list-container">
+					{searchResults.map((activity) => (
+						<Card
+							key={activity.id}
+							cardItem={activity}
+							link={`/activities/${activity.id}`}
+						/>
+					))}
+				</div>
+			)}
+
+			{searchResults < 1 && (
+				<div className="new-list-container">
+					{data.map((activity, index) => (
+						<Card key={activity.id} cardItem={activity} />
+					))}
+				</div>
+			)}
+		</LayoutPublic>
 	)
 }
 
