@@ -42,12 +42,6 @@ const SidebarBackOffice = ({ isOpen }) => {
 		},
 		{
 			itemsId: generarId(),
-			nombre: 'Editar Diapositivas Acción',
-			url: '/backoffice/slides/:action',
-			img: `${slides}`,
-		},
-		{
-			itemsId: generarId(),
 			nombre: 'Usuarios',
 			url: '/backoffice/users',
 			img: `${user}`,

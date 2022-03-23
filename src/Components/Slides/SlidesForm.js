@@ -133,12 +133,6 @@ const SlidesForm = ({ mode = '', slides }) => {
 								)}
 							</Field>
 						</div>
-						<Field
-							className="submit-btn"
-							type="submit"
-							name="enviar"
-							value="Enviar"
-						/>
 						<button type="submit" className="submit-btn">
 							Enviar
 						</button>

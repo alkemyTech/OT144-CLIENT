@@ -15,8 +15,6 @@
 	position: relative;
 	width: 100%;
 	border-collapse: collapse;
-	border: 3px solid var(--darkBlue);
-	background-color: var(--darkBlue);
 }
 
 thead th:nth-child(1) {
@@ -70,16 +68,11 @@ tbody tr:nth-child(even) {
 
 thead {
 	color: #ffffff;
-	text-shadow: 1px 1px 1px black;
 }
 
 thead th {
-	background: linear-gradient(
-		to bottom,
-		rgba(0, 0, 0, 0.1),
-		rgba(0, 0, 0, 0.5)
-	);
-	border: 1px solid #fff;
+	background: var(--blue);
+	border: 2px solid var(--blue);
 }
 
 .btnAddTable,
@@ -93,7 +86,7 @@ thead th {
 }
 
 .btnAddTable {
-	background-color: var(--green);
+	background-color: var(--darkBlue);
 	display: block;
 	text-decoration: none;
 	display: flex;
@@ -113,6 +106,5 @@ thead th {
 .btnAddTable:hover,
 .btnUpdateTable:hover,
 .btnDeleteTable:hover {
-	opacity: 0.8;
-	transition: 0.5s;
+	background: red;
 }
