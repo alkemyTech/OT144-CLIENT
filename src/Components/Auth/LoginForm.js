@@ -34,7 +34,7 @@ const validation = (values) => {
 
 const LoginForm = () => {
 	const history = useHistory()
-	const [values, setValues] = useState({
+	const [values] = useState({
 		email: '',
 		password: '',
 	})
@@ -57,7 +57,6 @@ const LoginForm = () => {
 			})
 			.then(() => {
 				localStorage.setItem('email', values.email)
-				localStorage.setItem('password', values.password)
 				localStorage.setItem('role_id', 1)
 				window.location.href = '/'
 			})

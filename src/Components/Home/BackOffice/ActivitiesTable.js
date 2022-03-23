@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import '../../TableStyles.css'
+import React, { useState } from 'react'
 import { store } from '../../../app/store'
 import { deleteActivities } from '../../../Services/activitiesService'
 import { deleteActivitiesAction } from '../../../actions/actions'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const ActivitiesTable = ({ activities, setData }) => {
@@ -24,27 +22,6 @@ const ActivitiesTable = ({ activities, setData }) => {
 
 	const handleClickDelete = (event) => {
 		fetchDeleteActivity(parseInt(event.target.id))
-	}
-
-	useEffect(() => {
-		try {
-			if (inputSearch.length < 3) {
-				dispatch(startGetActivities())
-			} else {
-				dispatch(startGetActivities(inputSearch))
-			}
-			setLoading(false)
-		} catch (error) {
-			setError(true)
-		}
-	}, [inputSearch])
-
-	if (loading) {
-		return <SpinnerComponent />
-	}
-
-	if (error) {
-		return <BasicAlert />
 	}
 
 	return (
