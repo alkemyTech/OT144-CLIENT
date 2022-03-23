@@ -4,8 +4,10 @@ import '../../Components/FormStyles.css'
 import { getBase64 } from '../../utils'
 import CKEditorNews from '../News/CKEditorNews'
 import { createSlide, updateSlide } from '../../Services/slidesService'
+import { useHistory } from 'react-router-dom'
 
 const SlidesForm = ({ mode = '', slides }) => {
+	const history = useHistory()
 	const [formValues] = useState({
 		name: mode === 'create' ? '' : slides.title,
 		image: mode === 'create' ? '' : slides.image,
@@ -56,7 +58,7 @@ const SlidesForm = ({ mode = '', slides }) => {
 		} else {
 			handleClickUpdate(slides.id, dataObject)
 		}
-		console.log('Desde Handle', dataObject)
+		history.push('/backoffice/slides')
 	}
 
 	const handleClickCreate = async (dataObject) => {
@@ -133,12 +135,6 @@ const SlidesForm = ({ mode = '', slides }) => {
 								)}
 							</Field>
 						</div>
-						<Field
-							className="submit-btn"
-							type="submit"
-							name="enviar"
-							value="Enviar"
-						/>
 						<button type="submit" className="submit-btn">
 							Enviar
 						</button>

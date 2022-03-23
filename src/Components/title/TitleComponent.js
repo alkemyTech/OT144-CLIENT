@@ -8,4 +8,5 @@ const TitleComponent = ({ title, img, nameImg }) => {
 		</div>
 	)
 }
+
 export default TitleComponent
