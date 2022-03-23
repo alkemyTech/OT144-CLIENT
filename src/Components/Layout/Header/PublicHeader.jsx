@@ -40,22 +40,22 @@ export default function PublicHeader() {
 				<ul>
 
 					{datos.map((dato, index) => (
-						<>
-							<li
-								key={`${dato.nombre}${index}`}
-								id={dato.url === activePath ? 'activePath' : null}
-							>
-								<Link to={dato.url}>{dato.nombre}</Link>
-							</li>
-						</>
+
+						<li
+							key={`${dato.nombre}${index}`}
+							id={dato.url === activePath ? 'activePath' : null}
+						>
+							<Link to={dato.url}>{dato.nombre}</Link>
+						</li>
+
 					))}
 				</ul>
 			</nav>
 			<div className="containerHeaderButtons">
 				{!isLoginRegister &&
 					<>
-						<Link to="/register"><button>Registrate</button></Link>
-						<Link to="/login"><button>Inicia sesión</button></Link>
+						<Link data-testid='button-register' to="/register"><button>Registrate</button></Link>
+						<Link data-testid='button-login' to="/login"><button>Inicia sesión</button></Link>
 					</>
 				}
 			</div>
