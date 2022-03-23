@@ -18,6 +18,7 @@ export default function SlidesList() {
 			setLoading(true)
 			try {
 				const response = await Promise.resolve(getSlides())
+				console.log(response)
 				store.dispatch(getSliderActions(response.data.data))
 				setLoading(false)
 				return setSlidesData(response.data.data)

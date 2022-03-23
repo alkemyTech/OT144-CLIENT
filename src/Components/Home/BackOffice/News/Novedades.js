@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import '../../../TableStyles.css'
+import '../../../UI/Table/table.css'
 import './NewsBackoffice.css'
 import SpinnerComponent from '../../../UI/spinner/SpinnerComponent'
 import BasicAlert from '../../../UI/Alerts/BasicAlert'

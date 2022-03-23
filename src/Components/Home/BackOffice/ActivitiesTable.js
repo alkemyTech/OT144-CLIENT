@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'
 import '../../TableStyles.css'
 import { store } from '../../../app/store'
 import { deleteActivities } from '../../../Services/activitiesService'
@@ -23,6 +24,27 @@ const ActivitiesTable = ({ activities, setData }) => {
 
 	const handleClickDelete = (event) => {
 		fetchDeleteActivity(parseInt(event.target.id))
+	}
+
+	useEffect(() => {
+		try {
+			if (inputSearch.length < 3) {
+				dispatch(startGetActivities())
+			} else {
+				dispatch(startGetActivities(inputSearch))
+			}
+			setLoading(false)
+		} catch (error) {
+			setError(true)
+		}
+	}, [inputSearch])
+
+	if (loading) {
+		return <SpinnerComponent />
+	}
+
+	if (error) {
+		return <BasicAlert />
 	}
 
 	return (

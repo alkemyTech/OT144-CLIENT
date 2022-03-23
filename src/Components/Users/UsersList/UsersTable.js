@@ -1,6 +1,16 @@
 import React from 'react'
+import { deleteUser } from '../../../Services/userService'
 
 const UsersTable = ({ users }) => {
+
+	const handleDelete = async (id) => {
+		try {
+			await deleteUser(id)
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
 	return (
 		<div className="table-container-responsive">
 			<table className="table">
@@ -18,7 +28,7 @@ const UsersTable = ({ users }) => {
 							<td>{user.email}</td>
 							<td className="actions">
 								<button className="btnUpdateTable">Editar</button>
-								<button className="btnDeleteTable">Eliminar</button>
+								<button className="btnDeleteTable" onClick={() => handleDelete(user.id)}>Eliminar</button>
 							</td>
 						</tr>
 					))}

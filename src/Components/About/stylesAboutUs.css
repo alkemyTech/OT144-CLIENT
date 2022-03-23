@@ -1,4 +1,5 @@
 .aboutPrincipal-container {
+	margin-top: 110px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -16,8 +17,25 @@
 .aboutUs-container p {
 	text-align: justify;
 }
+
 .spinner-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.about-text {
+	max-width: 60%;
+}
+
+@media screen and (max-width: 1024px) {
+	.about-text {
+		max-width: 75%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.about-text {
+		max-width: 90%;
+	}
 }
