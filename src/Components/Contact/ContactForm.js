@@ -134,7 +134,7 @@ const ContactForm = () => {
 						<div className="alert-danger">{errors.message}</div>
 					)}
 
-					<button className="btn-submit" type="submit">
+					<button className="btn-submit" type="submit" data-testid="submit">
 						Enviar
 					</button>
 				</Form>

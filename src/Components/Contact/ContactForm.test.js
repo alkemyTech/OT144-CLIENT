@@ -1,16 +1,9 @@
 import React from 'react'
 import ContactForm from './ContactForm'
 import '@testing-library/jest-dom/extend-expect'
-import {
-	render,
-	fireEvent,
-	cleanup,
-	waitFor,
-	act,
-} from '@testing-library/react'
-import axios from 'axios'
+import { render, fireEvent, cleanup, waitFor } from '@testing-library/react'
 
-// El siguiente test valida que los campos existan, tambien de que los valores sean agregados correctamente y el envio de la data(POST) sea correcta.
+// El siguiente test valida que los campos existan, tambien de que los valores sean agregados correctamente.
 // El test pasa correctamente
 // Ejecutado el 22/03/22
 
