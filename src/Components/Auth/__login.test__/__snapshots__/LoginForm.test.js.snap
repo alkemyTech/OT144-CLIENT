@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component should render 1`] = `
+<div>
+  <form
+    action="#"
+    class="form-container login"
+  >
+    <h2
+      class="title"
+      data-testid="title"
+    >
+      Iniciar sesión
+    </h2>
+    <input
+      class="input-field"
+      name="email"
+      placeholder="Correo electrónico"
+      role="email"
+      type="email"
+      value=""
+    />
+    <input
+      class="input-field"
+      name="password"
+      placeholder="Contraseña"
+      role="password"
+      type="password"
+      value=""
+    />
+    <button
+      class="submit-btn"
+      data-testid="submit"
+      role="submit"
+      type="submit"
+    >
+      Iniciar sesión
+    </button>
+  </form>
+</div>
+`;
