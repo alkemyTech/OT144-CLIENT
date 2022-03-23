@@ -4,7 +4,11 @@ import UsersTable from './UsersTable'
 import './UsersList.css'
 import '../../UI/Table/table.css'
 import { Link } from 'react-router-dom'
-import { getUserByName, getUsers } from '../../../Services/userService'
+import {
+	getUserByName,
+	getUsers,
+	getUserByRole,
+} from '../../../Services/userService'
 import { getUsersAction } from '../../../actions/actions'
 import { store } from '../../../app/store'
 import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
@@ -15,6 +19,7 @@ const UsersList = () => {
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState('')
 	const [search, setSearch] = useState('')
+	const [role, setRole] = useState('')
 
 	function getAllUsers() {
 		const initializeUsers = async () => {
@@ -27,7 +32,6 @@ const UsersList = () => {
 				setError(error)
 			}
 		}
-
 		initializeUsers()
 	}
 
@@ -52,9 +56,22 @@ const UsersList = () => {
 		}
 	}, [search])
 
-	function handleChange(event) {
-		setSearch(event.target.value)
-	}
+	useEffect(() => {
+		if (role !== '') {
+			try {
+				;(async () => {
+					const response = await getUserByRole(search, role)
+					store.dispatch(getUsersAction(response.data))
+					setUsers(store.getState().users.users.data)
+					setLoading(false)
+				})()
+			} catch (error) {
+				setError(true)
+			}
+		} else {
+			getAllUsers()
+		}
+	}, [role])
 
 	if (loading) {
 		return <SpinnerComponent />
@@ -68,16 +85,27 @@ const UsersList = () => {
 		<BackOfficeLayout>
 			<main className="users-list-container">
 				<h1 className="headerTxt">Lista de Usuarios</h1>
-				<div className="containerInputSearch">
+				<section className="containerInputSearch">
 					<input
 						name="users-search"
 						type="search"
 						value={search}
-						onChange={handleChange}
+						onChange={(e) => setSearch(e.target.value)}
 						className="input-field search"
 						placeholder="Buscar usuarios"
 					/>
-				</div>
+					<select
+						name="role_id"
+						className="select-field"
+						placeholder="Buscar usuarios"
+						value={role}
+						onChange={(e) => setRole(e.target.value)}
+					>
+						<option value="">Todos</option>
+						<option value="1">Administradores</option>
+						<option value="2">Usuarios Regulares</option>
+					</select>
+				</section>
 				<div className="main-action">
 					<Link to="/backoffice/users/create" className="btnAddTable">
 						Crear nuevo usuario
