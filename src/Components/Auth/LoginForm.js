@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Formik } from 'formik'
+import { Formik, Form, Field } from 'formik'
 import './stylesLogin.css'
 import '../FormStyles.css'
 import { store } from '../../app/store'
@@ -32,14 +32,12 @@ const validation = (values) => {
 }
 
 const LoginForm = () => {
-	const [values, setValues] = useState({
+	const [values] = useState({
 		email: '',
 		password: '',
 	})
 
-	const handleSubmit = async (e) => {
-		e.preventDefault()
-
+	const handleSubmit = async (values) => {
 		axios({
 			method: 'post',
 			url: `${baseURL}/login`,
@@ -56,50 +54,62 @@ const LoginForm = () => {
 			})
 			.then(() => {
 				localStorage.setItem('email', values.email)
+				localStorage.setItem('password', values.password)
+				localStorage.setItem('role_id', 1)
+				window.location.href = '/'
 			})
 			.catch((err) => {
 				console.log(err)
 			})
 	}
 
-	const handleChange = (e) => {
-		setValues({ ...values, [e.target.type]: e.target.value })
-	}
-
 	return (
-		<Formik initialValues={values} validate={validation}>
-			{(props) => {
+		<Formik
+			initialValues={values}
+			validate={validation}
+			onSubmit={handleSubmit}
+		>
+			{({ handleChange, errors, touched, values }) => {
 				return (
-					<div className="form-container login">
-						<form onSubmit={handleSubmit}>
-							<h2 className="title">Iniciar sesión</h2>
-							<input
-								className="input-field"
-								type="email"
-								name="email"
-								value={values.email}
-								onChange={handleChange}
-								placeholder="Correo electrónico"
-							></input>
-							<div className="div-error">
-								{props.touched.email && props.errors.email}
+					<Form className="form-container login">
+						<h2 data-testid="title" className="title">
+							Iniciar sesión
+						</h2>
+						<Field
+							role="email"
+							className="input-field"
+							type="email"
+							name="email"
+							value={values.email}
+							onChange={handleChange}
+							placeholder="Correo electrónico"
+						/>
+						{errors.email && touched.email && (
+							<div className="div-error" role="error">
+								{errors.email}
 							</div>
-							<input
-								className="input-field"
-								type="password"
-								name="password"
-								value={values.password}
-								onChange={handleChange}
-								placeholder="Contraseña"
-							></input>
-							<div className="div-error">
-								{props.touched.password && props.errors.password}
-							</div>
-							<button className="submit-btn" type="submit">
-								Iniciar sesión
-							</button>
-						</form>
-					</div>
+						)}
+						<Field
+							role="password"
+							className="input-field"
+							type="password"
+							name="password"
+							value={values.password}
+							onChange={handleChange}
+							placeholder="Contraseña"
+						/>
+						{errors.password && touched.password && (
+							<div className="div-error">{errors.password}</div>
+						)}
+						<button
+							role="submit"
+							data-testid="submit"
+							className="submit-btn"
+							type="submit"
+						>
+							Iniciar sesión
+						</button>
+					</Form>
 				)
 			}}
 		</Formik>
