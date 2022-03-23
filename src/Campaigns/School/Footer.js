@@ -6,6 +6,7 @@ import FacebookIcon from '../../assets/facebook.svg'
 import LinkedinIcon from '../../assets/linkedin.svg'
 import InstagramIcon from '../../assets/instagram.svg'
 
+
 const Footer = () => {
 	const [data, setData] = useState([])
 

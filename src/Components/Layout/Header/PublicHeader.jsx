@@ -18,9 +18,9 @@ export default function PublicHeader() {
 	const [activePath, setActivePath] = useState("")
 	const [isLoginRegister, setIsLoginRegister] = useState(false)
 
-	useEffect(()=>{
+	useEffect(() => {
 		setActivePath(window.location.pathname)
-	},[activePath])
+	}, [activePath])
 
 	useEffect(
 		() => {
