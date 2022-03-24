@@ -9,6 +9,7 @@
 	background-color: var(--darkBlue);
 	width: 100%;
 	min-height: 112px;
+	z-index: 1;
 }
 
 /*MENU HAMBURGUESA*/
