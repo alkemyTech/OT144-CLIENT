@@ -7,9 +7,10 @@ import FacebookIcon from '../../../assets/facebook.svg'
 import LinkedinIcon from '../../../assets/linkedin.svg'
 import InstagramIcon from '../../../assets/instagram.svg'
 import userIsAdmin from '../Errors/UserIsAdmin'
+import Logo from '../../Layout/Header/LOGO-SOMOS MAS.png'
 
 const Footer = () => {
-	const [data, setData] = useState([])
+	const [, setData] = useState([])
 	const [admin, setAdmin] = useState(false)
 
 	useEffect(() => {
@@ -40,8 +41,8 @@ const Footer = () => {
 		<div className="main-footer">
 			<div className="container">
 				<div className="col col-1">
-					<h4>{data?.name}</h4>
-					<img src={data?.logo} alt="somos-mas-icon" />
+					<h4>Somos más</h4>
+					<img src={Logo} alt="somos-mas-icon" />
 				</div>
 				<div className="col col-2">
 					<ul className="list-unstyled">

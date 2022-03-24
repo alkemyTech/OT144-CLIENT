@@ -4,6 +4,7 @@ import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import AboutUs from './AboutUs'
 import './stylesAboutUs.css'
 import LayoutPublic from '../Layout/LayoutPublic'
+import ListMember from './ListMember/ListMember'
 
 export default function AboutPrincipal() {
 	const [loading, setLoading] = useState(false)
@@ -41,6 +42,8 @@ export default function AboutPrincipal() {
 		<LayoutPublic>
 			<main className="aboutPrincipal-container">
 				<AboutUs text={principalText} />
+				<h2 className="headerTxt">Miembros</h2>
+				<ListMember />
 			</main>
 		</LayoutPublic>
 	)

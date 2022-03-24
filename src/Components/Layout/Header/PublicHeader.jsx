@@ -16,20 +16,14 @@ export default function PublicHeader() {
 	]
 
 	const [activePath, setActivePath] = useState("")
-	const [isLoginRegister, setIsLoginRegister] = useState(false)
 
 	useEffect(() => {
 		setActivePath(window.location.pathname)
 	}, [activePath])
 
-	useEffect(
-		() => {
-			if (isLogin === true) {
-				setIsLoginRegister(true)
-			}
-		},
-		[]
-	)
+	const handleClick = () => {
+		localStorage.clear()
+	}
 
 	return (
 		<header className="containerHeader">
@@ -52,7 +46,9 @@ export default function PublicHeader() {
 				</ul>
 			</nav>
 			<div className="containerHeaderButtons">
-				{!isLoginRegister &&
+				{isLogin() ?
+					<Link to="/"><button onClick={handleClick}>Cerrar sesión</button></Link>
+					:
 					<>
 						<Link data-testid='button-register' to="/register"><button>Registrate</button></Link>
 						<Link data-testid='button-login' to="/login"><button>Inicia sesión</button></Link>

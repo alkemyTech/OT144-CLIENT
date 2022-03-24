@@ -1,33 +1,69 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import BackOfficeLayout from '../../Layout/BackOfficeLayout'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import './Categories.css'
 import '../../UI/Table/table.css'
+import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
+import ErrorAlert from '../../UI/Alerts/ErrorAlert'
+import {
+	getCategories,
+	deleteCategory,
+} from '../../../Services/categoriesService'
 
 export default function Categories() {
-	const [categories] = useState([
-		{ id: 1, name: 'Categoria-1', createdAt: '2022-01-03' },
-		{ id: 2, name: 'Categoria-2', createdAt: '2022-01-20' },
-		{ id: 3, name: 'Categoria-3', createdAt: '2022-01-31' },
-	])
+	const history = useHistory()
 
-	const handleClickUpdate = (id) => {}
+	const [categories, setCategories] = useState([])
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState('')
 
-	const handleClickDelete = (id) => {}
+	useEffect(() => {
+		const initializeCategories = async () => {
+			try {
+				const response = await getCategories()
+				setCategories(response.data)
+				setLoading(false)
+			} catch (error) {
+				setError(true)
+			}
+		}
+		initializeCategories()
+	}, [])
+
+	const handleClickDelete = async (id) => {
+		try {
+			await deleteCategory(id)
+			setCategories(categories.filter((category) => category.id !== id))
+		} catch (error) {
+			setError(true)
+		}
+	}
+
+	if (loading) {
+		return <SpinnerComponent />
+	}
+
+	if (error) {
+		return <ErrorAlert />
+	}
 
 	return (
 		<BackOfficeLayout>
 			<section className="sectionTable">
 				<div className="table-container-responsive">
+					<h1 className="headerTxt">Categorias</h1>
 					<table className="table">
 						<thead>
 							<tr>
 								<td>
-									<Link
-										to="/backoffice/categories/create"
+									<button
+										onClick={() =>
+											history.push('/backoffice/create-categories', [{}])
+										}
 										className="btnAddTable"
 									>
 										Crear
-									</Link>
+									</button>
 								</td>
 							</tr>
 							<tr>
@@ -41,12 +77,16 @@ export default function Categories() {
 								return (
 									<tr key={category.id}>
 										<td>{category.name}</td>
-										<td>{category.createdAt}</td>
+										<td>{category.created_at}</td>
 										<td>
 											<button
 												className="btnUpdateTable"
 												type="button"
-												onClick={() => handleClickUpdate(category.id)}
+												onClick={() =>
+													history.push(`/backoffice/create-categories`, [
+														{ category },
+													])
+												}
 											>
 												Editar
 											</button>

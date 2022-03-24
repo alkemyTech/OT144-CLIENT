@@ -3,6 +3,7 @@ import TitleComponent from '../title/TitleComponent'
 import ActivitiesList from './ActivitiesList'
 import { store } from '../../app/store'
 import { getActivities } from '../../Services/ActivityApiService'
+import img from './Foto11.jpg'
 
 const Actividades = () => {
 	const [, setDataActivities] = useState({})
@@ -21,7 +22,11 @@ const Actividades = () => {
 
 	return (
 		<div>
-			<TitleComponent title="actividades" />
+			<TitleComponent
+				title="Actividades"
+				img={img}
+				nameImg="Actividad al aire libre"
+			/>
 			<ActivitiesList />
 		</div>
 	)

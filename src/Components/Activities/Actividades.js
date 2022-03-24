@@ -6,6 +6,8 @@ import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import Card from '../UI/Card/Card'
 import LayoutPublic from '../Layout/LayoutPublic'
 import SearchActivitiesInput from './SearchActivitiesInput'
+import img from './Foto11.jpg'
+import './Actividades.css'
 
 const Actividades = () => {
 	const [data, setData] = useState([])
@@ -51,33 +53,39 @@ const Actividades = () => {
 
 	return (
 		<LayoutPublic>
-			<TitleComponent title="Actividades" />
-			<SearchActivitiesInput
-				searchInput={searchInput}
-				setSearchInput={setSearchInput}
-				searchResults={searchResults}
-				setSearchResults={setSearchResults}
-				data={data}
+			<TitleComponent
+				title="Actividades"
+				img={img}
+				nameImg="Actividad al aire libre"
 			/>
-			{searchResults.length > 0 && (
-				<div className="new-list-container">
-					{searchResults.map((activity) => (
-						<Card
-							key={activity.id}
-							cardItem={activity}
-							link={`/activities/${activity.id}`}
-						/>
-					))}
-				</div>
-			)}
+			<div className="containerActivitiesTitle">
+				<SearchActivitiesInput
+					searchInput={searchInput}
+					setSearchInput={setSearchInput}
+					searchResults={searchResults}
+					setSearchResults={setSearchResults}
+					data={data}
+				/>
+				{searchResults.length > 0 && (
+					<div className="list-container">
+						{searchResults.map((activity) => (
+							<Card
+								key={activity.id}
+								cardItem={activity}
+								link={`/activities/${activity.id}`}
+							/>
+						))}
+					</div>
+				)}
 
-			{searchResults < 1 && (
-				<div className="new-list-container">
-					{data.map((activity, index) => (
-						<Card key={activity.id} cardItem={activity} />
-					))}
-				</div>
-			)}
+				{searchResults < 1 && (
+					<div className="list-container">
+						{data.map((activity, index) => (
+							<Card key={activity.id} cardItem={activity} />
+						))}
+					</div>
+				)}
+			</div>
 		</LayoutPublic>
 	)
 }
