@@ -29,10 +29,7 @@ function HeaderComponent() {
 				<img src={btnMenuImg} alt="Imagen Btn Menu"></img>
 			</div>
 
-			<SidebarBackOffice isOpen={btnResponsive} />
-			
 			<Logo />
-
 
 			{isAuthenticated ? (
 				<button className="btn-logout" onClick={handleLogOut}>
