@@ -7,6 +7,7 @@ import axios from 'axios'
 import { baseURL } from '../../Services/Api'
 import { login } from '../../actions/actions'
 import { useHistory } from 'react-router-dom'
+import LayoutPublic from '../Layout/LayoutPublic'
 
 const validation = (values) => {
 	const errors = {}
@@ -52,7 +53,7 @@ const LoginForm = () => {
 						user: res.config.data,
 					})
 				)
-				
+
 				history.push('/backoffice')
 			})
 			.then(() => {
@@ -73,45 +74,49 @@ const LoginForm = () => {
 		>
 			{({ handleChange, errors, touched, values }) => {
 				return (
-					<Form className="form-container login">
-						<h2 data-testid="title" className="title">
-							Iniciar sesión
-						</h2>
-						<Field
-							role="email"
-							className="input-field"
-							type="email"
-							name="email"
-							value={values.email}
-							onChange={handleChange}
-							placeholder="Correo electrónico"
-						/>
-						{errors.email && touched.email && (
-							<div className="div-error" role="error">
-								{errors.email}
-							</div>
-						)}
-						<Field
-							role="password"
-							className="input-field"
-							type="password"
-							name="password"
-							value={values.password}
-							onChange={handleChange}
-							placeholder="Contraseña"
-						/>
-						{errors.password && touched.password && (
-							<div className="div-error">{errors.password}</div>
-						)}
-						<button
-							role="submit"
-							data-testid="submit"
-							className="submit-btn"
-							type="submit"
-						>
-							Iniciar sesión
-						</button>
-					</Form>
+					<LayoutPublic>
+						<div className="form-container login">
+							<Form>
+								<h2 data-testid="title" className="title">
+									Iniciar sesión
+								</h2>
+								<Field
+									role="email"
+									className="input-field"
+									type="email"
+									name="email"
+									value={values.email}
+									onChange={handleChange}
+									placeholder="Correo electrónico"
+								/>
+								{errors.email && touched.email && (
+									<div className="div-error" role="error">
+										{errors.email}
+									</div>
+								)}
+								<Field
+									role="password"
+									className="input-field"
+									type="password"
+									name="password"
+									value={values.password}
+									onChange={handleChange}
+									placeholder="Contraseña"
+								/>
+								{errors.password && touched.password && (
+									<div className="div-error">{errors.password}</div>
+								)}
+								<button
+									role="submit"
+									data-testid="submit"
+									className="submit-btn"
+									type="submit"
+								>
+									Iniciar sesión
+								</button>
+							</Form>
+						</div>
+					</LayoutPublic>
 				)
 			}}
 		</Formik>

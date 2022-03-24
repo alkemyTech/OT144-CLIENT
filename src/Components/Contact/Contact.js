@@ -4,8 +4,9 @@ import './Contact.css'
 import { getContact } from '../../Services/ServiceAPIContact'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import LayoutPublic from '../Layout/LayoutPublic'
+import img from './contacto.jpg'
 
-const Contact = ({ img, name, phone, email }) => {
+const Contact = ({ name, phone, email }) => {
 	const [error, setError] = React.useState(false)
 
 	React.useEffect(async () => {
@@ -27,6 +28,7 @@ const Contact = ({ img, name, phone, email }) => {
 				<ContactForm />
 			</div>
 		</LayoutPublic>
+
 	)
 }
 

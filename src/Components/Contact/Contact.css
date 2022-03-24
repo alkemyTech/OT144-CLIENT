@@ -1,17 +1,27 @@
 .alert-danger {
 	color: #b50400;
 }
+
+.containerContactForm {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+}
 .contact-container {
 	background-color: var(--lightGrey);
 	margin: 15px auto;
 	width: 60%;
 	max-width: 700px;
 	border-radius: 8px;
+
 }
 .form-contact {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	width: 60%;
+	align-items: center;
 }
 .btn-submit {
 	padding: 10px 15px;
@@ -21,6 +31,7 @@
 	color: #fff;
 	max-width: 128px;
 	cursor: pointer;
+	width: 20%;
 }
 .btn-submit:hover {
 	filter: brightness(1.1);
