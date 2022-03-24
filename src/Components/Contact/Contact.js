@@ -5,6 +5,7 @@ import TitleComponent from '../title/TitleComponent'
 import { getContact } from '../../Services/ServiceAPIContact'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import img from './contacto.jpg'
+import LayoutPublic from '../Layout/LayoutPublic'
 
 const Contact = ({ name, phone, email }) => {
 	const [error, setError] = React.useState(false)
@@ -22,28 +23,15 @@ const Contact = ({ name, phone, email }) => {
 	}
 
 	return (
-		<div className="contact-container">
-			<TitleComponent title="Contacto" img={img} nameImg="Contacto" />
-
-			<ul className="contact-list">
-				<li>
-					{' '}
-					Nombre:<span> {name} </span>{' '}
-				</li>
-				<li>
-					{' '}
-					Email: <span> {email} </span>
-				</li>
-				<li>
-					{' '}
-					Phone: <span> {phone} </span>{' '}
-				</li>
-			</ul>
-			<div className="containerContactForm">
-				<h3 className="subtitle">Contactanos</h3>
-				<ContactForm />
+		<LayoutPublic>
+			<div className="contact-container">
+				<TitleComponent title="Contacto" img={img} nameImg="Contacto" />
+				<div className="containerContactForm">
+					<h3 className="subtitle">Contactanos</h3>
+					<ContactForm />
+				</div>
 			</div>
-		</div>
+		</LayoutPublic>
 	)
 }
 
