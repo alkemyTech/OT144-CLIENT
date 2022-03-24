@@ -1,5 +1,9 @@
 .layout-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	min-height: 100vh;
 	position: relative;
 	top: 110px;
+	background-color: var(--blue);
 }
