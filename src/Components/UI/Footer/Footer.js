@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react'
 import ErrorAlert from '../Alerts/ErrorAlert'
 import { getAllOrganizationData } from '../../../Services/organizationService'
-import { getUser } from '../../../Services/userService'
 import { Link } from 'react-router-dom'
 import './Footer.css'
 import FacebookIcon from '../../../assets/facebook.svg'
 import LinkedinIcon from '../../../assets/linkedin.svg'
 import InstagramIcon from '../../../assets/instagram.svg'
+import userIsAdmin from '../Errors/UserIsAdmin'
 
 const Footer = () => {
 	const [data, setData] = useState([])
-	const [user, setUser] = useState([])
 	const [admin, setAdmin] = useState(false)
 
 	useEffect(() => {
@@ -18,13 +17,16 @@ const Footer = () => {
 			try {
 				const response = await getAllOrganizationData()
 				setData(response.data.data)
+				if (userIsAdmin) {
+					setAdmin(true)
+				}
 			} catch (e) {
 				return <ErrorAlert />
 			}
 		})()
 	}, [])
 
-	const fetchUser = () => {
+	/* const fetchUser = () => {
 		try {
 			const response = getUser()
 			setUser(response.data.data)
@@ -32,18 +34,14 @@ const Footer = () => {
 			return <ErrorAlert />
 		}
 	}
-	fetchUser()
-
-	if(user.role_id === 1) {
-		setAdmin(true)
-	}
+	fetchUser() */
 
 	return (
 		<div className="main-footer">
 			<div className="container">
 				<div className="col col-1">
-					<h4>{data.name}</h4>
-					<img src={data.logo} alt="somos-mas-icon" />
+					<h4>{data?.name}</h4>
+					<img src={data?.logo} alt="somos-mas-icon" />
 				</div>
 				<div className="col col-2">
 					<ul className="list-unstyled">
@@ -57,13 +55,13 @@ const Footer = () => {
 								Nosotros
 							</Link>
 						</li>
-						{admin && 
-						<li>
-							<Link target="_blank" to="/contact">
-								Contacto
-							</Link>
-						</li>
-						}
+						{admin && (
+							<li>
+								<Link target="_blank" to="/contact">
+									Contacto
+								</Link>
+							</li>
+						)}
 						<li>
 							<Link target="_blank" to="/Novedades">
 								Novedades

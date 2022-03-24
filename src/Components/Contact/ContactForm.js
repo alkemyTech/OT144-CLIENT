@@ -86,6 +86,7 @@ const ContactForm = () => {
 						name="name"
 						placeholder="Nombre"
 						type="text"
+						data-testid="name"
 						onBlur={handleBlur}
 					/>
 					{touched.name && errors.name && (
@@ -95,6 +96,7 @@ const ContactForm = () => {
 					<Field
 						className="input-field"
 						name="email"
+						data-testid="email"
 						placeholder="Email"
 						type="text"
 						onBlur={handleBlur}
@@ -106,6 +108,7 @@ const ContactForm = () => {
 					<Field
 						className="input-field"
 						name="phone"
+						data-testid="phone"
 						placeholder="Celular"
 						type="text"
 						onBlur={handleBlur}
@@ -118,6 +121,7 @@ const ContactForm = () => {
 						as="textarea"
 						className="input-field"
 						name="message"
+						data-testid="message"
 						placeholder="Escribe tu consulta..."
 						rows="4"
 						style={{
@@ -130,7 +134,7 @@ const ContactForm = () => {
 						<div className="alert-danger">{errors.message}</div>
 					)}
 
-					<button className="btn-submit" type="submit">
+					<button className="btn-submit" type="submit" data-testid="submit">
 						Enviar
 					</button>
 				</Form>

@@ -1,4 +1,4 @@
-.form-container {
+.form-container.activities-form {
 	padding: 20px;
 	border-radius: 4px;
 	width: 60%;
@@ -7,6 +7,11 @@
 	flex-direction: column;
 	gap: 15px;
 	box-shadow: 6px 4px 10px 1px #00000056;
+}
+.form-container-activities form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 label {
@@ -27,6 +32,7 @@ label {
 .btn-container {
 	display: flex;
 	justify-content: center;
+	width: 40%;
 }
 .submit-btn {
 	margin: 5px;

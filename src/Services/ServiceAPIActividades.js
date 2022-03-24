@@ -5,8 +5,11 @@ import {
 	putRequest,
 } from './privateApiService'
 const endPoint = process.env.REACT_APP_URL_ACTIVITIES
-export const getActividades = async () => {
-	return await getRequest(endPoint)
+
+export const getActividades = async (search = '') => {
+	const endpointSearch =
+		search === '' ? endPoint : `${endPoint}?search=${search}`
+	return await getRequest(endpointSearch)
 }
 
 export const getActividadesId = async (id) => {

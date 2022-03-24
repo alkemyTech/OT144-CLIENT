@@ -1,41 +1,79 @@
-import '../../TableStyles.css'
+import React, { useState } from 'react'
+import { store } from '../../../app/store'
+import { deleteActivities } from '../../../Services/activitiesService'
+import { deleteActivitiesAction } from '../../../actions/actions'
+import { Link } from 'react-router-dom'
 
-const ActivitiesTable = ({ activities }) => {
-	const handleClickUpdate = () => {}
-	const handleClickDelete = () => {}
+const ActivitiesTable = ({ activities, setData }) => {
+	const [, setError] = useState(false)
+
+	const fetchDeleteActivity = (id) => {
+		try {
+			;(async () => {
+				await deleteActivities(id)
+				store.dispatch(deleteActivitiesAction(id))
+				setData(store.getState().activities.activities)
+			})()
+		} catch (error) {
+			setError(true)
+		}
+	}
+	console.log(store.getState())
+
+	const handleClickDelete = (event) => {
+		fetchDeleteActivity(parseInt(event.target.id))
+	}
 
 	return (
-		<div className="table-container-responsive">
-			<table className="table">
-				<thead>
-					<tr>
-						<th>Nombre</th>
-						<th>Imagen</th>
-						<th>Creado</th>
-						<th>Acciones</th>
-					</tr>
-				</thead>
-				<tbody>
-					{activities.map((activity) => (
-						<tr key={activity.id}>
-							<td>{activity.name}</td>
+		<section className="sectionTable">
+			<div className="table-container-responsive">
+				<table className="table">
+					<thead>
+						<tr>
 							<td>
-								<img src={activity.image} alt={activity.name} />
-							</td>
-							<td>{activity.created_at}</td>
-							<td className="actions">
-								<button className="btnUpdateTable" onClick={handleClickUpdate}>
-									Editar
-								</button>
-								<button className="btnDeleteTable" onClick={handleClickDelete}>
-									Eliminar
-								</button>
+								<Link
+									to="/backoffice/activities/create"
+									className="btnAddTable"
+								>
+									Crear nueva actividad
+								</Link>
 							</td>
 						</tr>
-					))}
-				</tbody>
-			</table>
-		</div>
+						<tr>
+							<th>Nombre</th>
+							<th>Imagen</th>
+							<th>Creado</th>
+							<th colSpan="2">Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						{activities.map((activity) => (
+							<tr key={activity.id}>
+								<td>{activity.name}</td>
+								<td>
+									<img src={activity.image} alt={activity.name} />
+								</td>
+								<td>{activity.created_at}</td>
+								<td>
+									<Link to={`/backoffice/activities/edit/${activity.id}`}>
+										<button className="btnUpdateTable">Editar</button>
+									</Link>
+								</td>
+								<td>
+									<button
+										className="btnDeleteTable"
+										id={activity.id}
+										onClick={handleClickDelete}
+									>
+										Eliminar
+									</button>
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</section>
 	)
 }
 
