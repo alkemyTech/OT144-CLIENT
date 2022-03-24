@@ -23,8 +23,6 @@ import DetailNew from './Components/News/Detail/DetailNew'
 import ActivitiesDetail from './Components/Activities/Detail/ActivitiesDetail'
 import Newsletter from './Components/Newsletter/Newsletter'
 import UserNotLogged, { isLogin } from './Components/UI/Errors/UserNotLogged'
-import { contactRestrict } from './Components/Contact/ContactRestrict'
-
 import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
 import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
@@ -32,6 +30,7 @@ import MembersForm from './Components/Members/MembersForm'
 
 import PrivateRoute from './BackofficeRoutes/PrivateRoute'
 import protectedRoutes from './BackofficeRoutes/Routes'
+import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
 
 function App() {
 	return (
@@ -55,7 +54,7 @@ function App() {
 					))}
 					<Route
 						path="/contact"
-						component={contactRestrict() ? Contact : HomePage}
+						render={() => (!userIsAdmin() ? <Contact /> : <Redirect to="/" />)}
 					/>
 					<Route
 						path="/create-activity"
@@ -92,7 +91,9 @@ function App() {
 					<Route path="/register" component={isLogin() ? HomePage : Register} />
 					<Route
 						path="/donar"
-						component={LoginAndAdmin() ? Donacion : HomePage}
+						render={() =>
+							LoginAndAdmin() ? <Donacion /> : <Redirect to="/" />
+						}
 					/>
 					<Route path="/gracias" component={Gracias} />
 					<Route path="/novedades/:id" component={DetailNew} />

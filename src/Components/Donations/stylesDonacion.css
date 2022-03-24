@@ -1,12 +1,30 @@
 .donacion {
 	position: relative;
 	width: 100%;
-	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	gap: 40px;
 }
 .donacion p {
-	margin-bottom: 40px;
+	font-size: var(--text1);
+}
+
+.donacion h2 {
+	position: absolute;
+	color: white;
+	left: 100px;
+	z-index: 10;
+	top: 50px;
+	border: solid 12px var(--darkBlue);
+	padding: 20px;
+}
+
+@media screen and (max-width: 769px) {
+	.donacion h2 {
+		right: 50px;
+		left: 50px;
+		padding: 10px;
+	}
 }
