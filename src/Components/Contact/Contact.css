@@ -2,9 +2,11 @@
 	color: #b50400;
 }
 .contact-container {
+	background-color: var(--lightGrey);
 	margin: 15px auto;
 	width: 60%;
 	max-width: 700px;
+	border-radius: 8px;
 }
 .form-contact {
 	display: flex;
@@ -39,6 +41,7 @@
 .subtitle {
 	text-align: center;
 	font-weight: bold;
+	padding: 16px;
 }
 
 .contact-list {
