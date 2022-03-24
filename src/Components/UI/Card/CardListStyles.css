@@ -10,6 +10,8 @@
 	grid-template-rows: repeat(auto-fit, 350px);
 }
 .card-container {
+	display: flex;
+	justify-content: space-between;
 	box-sizing: border-box;
 	width: 100%;
 	height: 100%;
@@ -46,4 +48,9 @@
 	display: -webkit-box;
 	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
+}
+
+.social img {
+	height: 45px;
+	width: 45px;
 }

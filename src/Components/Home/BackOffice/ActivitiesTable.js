@@ -1,27 +1,56 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { store } from '../../../app/store'
 import { deleteActivities } from '../../../Services/activitiesService'
 import { deleteActivitiesAction } from '../../../actions/actions'
 import { Link } from 'react-router-dom'
+import '../../../Components/UI/Table/table.css'
+import SearchActivities from './SearchActivities'
+import { useDispatch, useSelector } from 'react-redux'
+import { startGetActivities } from '../../../../src/actions/Activities'
+import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
+import BasicAlert from '../../UI/Alerts/BasicAlert'
 
-const ActivitiesTable = ({ activities, setData }) => {
-	const [, setError] = useState(false)
+const ActivitiesTable = () => {
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState(false)
+	const [inputSearch, setInputSearch] = useState('')
+	const { activities } = useSelector((store) => store.activities)
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		try {
+			if (inputSearch.length < 3) {
+				dispatch(startGetActivities())
+			} else {
+				dispatch(startGetActivities(inputSearch))
+			}
+			setLoading(false)
+		} catch (error) {
+			setError(true)
+		}
+	}, [inputSearch])
 
 	const fetchDeleteActivity = (id) => {
 		try {
 			;(async () => {
 				await deleteActivities(id)
 				store.dispatch(deleteActivitiesAction(id))
-				setData(store.getState().activities.activities)
 			})()
 		} catch (error) {
 			setError(true)
 		}
 	}
-	console.log(store.getState())
 
 	const handleClickDelete = (event) => {
 		fetchDeleteActivity(parseInt(event.target.id))
+	}
+
+	if (loading) {
+		return <SpinnerComponent />
+	}
+
+	if (error) {
+		return <BasicAlert />
 	}
 
 	return (
@@ -37,6 +66,12 @@ const ActivitiesTable = ({ activities, setData }) => {
 								>
 									Crear nueva actividad
 								</Link>
+							</td>
+							<td colSpan="2">
+								<SearchActivities
+									inputSearch={inputSearch}
+									setInputSearch={setInputSearch}
+								/>
 							</td>
 						</tr>
 						<tr>

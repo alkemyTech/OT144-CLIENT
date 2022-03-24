@@ -1,5 +1,4 @@
 .aboutPrincipal-container {
-	margin-top: 110px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -10,11 +9,11 @@
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	padding: 15px;
 	width: 100%;
 }
 
 .aboutUs-container p {
+	font-size: var(--text1);
 	text-align: justify;
 }
 

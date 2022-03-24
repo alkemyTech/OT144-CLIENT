@@ -4,17 +4,26 @@
 	min-height: 100vh;
 }
 
+.containerInputNews {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
 .new-list-container {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	grid-gap: 20px;
 	margin-top: 20px;
+	width: 80%;
 }
 
 .containerInputSearch {
 	display: flex;
 	justify-content: center;
 	padding: 20px;
+	width: 100%;
 }
 
 .search {
