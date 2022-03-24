@@ -4,10 +4,11 @@ import {
 	putRequest,
 	deleteRequest,
 } from './publicApiService'
-const endPoint = process.env.REACT_APP_URL_CATEGORIES
+const endPoint = '/categories'
 
 export const getCategories = async () => {
-	return await getRequest(endPoint)
+	const response = await getRequest(endPoint)
+	return response.data
 }
 
 export const createCategories = async (data) => {

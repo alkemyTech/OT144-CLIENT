@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { AnimatedSwitch } from 'react-router-transition'
 import { bounceTransition, mapStyles } from './utils/routerTransition'
 import ActivitiesForm from './Components/Activities/ActivitiesForm/ActivitiesForm'
-import CategoriesForm from './Components/Categories/CategoriesForm'
 import TestimonialForm from './Components/Testimonials/TestimonialsForm'
 import UserForm from './Components/Users/UsersForm'
 import SchoolCampaign from './Campaigns/School/SchoolCampaign'
@@ -60,10 +59,6 @@ function App() {
 					<Route
 						path="/create-activity"
 						component={isLogin() ? ActivitiesForm : <Redirect to="/login" />}
-					/>
-					<Route
-						path="/create-category"
-						component={isLogin() ? CategoriesForm : <Redirect to="/login" />}
 					/>
 					<Route
 						path="/create-news"

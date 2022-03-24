@@ -10,6 +10,7 @@ import OrganizationEditForm from '../Components/Home/BackOffice/OrganizationEdit
 import DataScreen from '../Components/Testimonials/DataScreen'
 import MemberList from '../Components/Members/MemberList'
 import Categories from '../Components/Home/BackOffice/Categories'
+import CategoriesForm from '../Components/Categories/CategoriesForm'
 import Activities from '../Components/Home/BackOffice/ActivitiesList'
 import RedirectActivities from '../Components/Home/BackOffice/RedirectActivities'
 
@@ -89,6 +90,11 @@ const protectedRoutes = [
 	{
 		Component: Categories,
 		path: `${pathBackoffice}/categories`,
+		exact: true,
+	},
+	{
+		Component: CategoriesForm,
+		path: `${pathBackoffice}/create-categories`,
 		exact: true,
 	},
 ]
