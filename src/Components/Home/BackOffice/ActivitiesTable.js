@@ -3,7 +3,7 @@ import { store } from '../../../app/store'
 import { deleteActivities } from '../../../Services/activitiesService'
 import { deleteActivitiesAction } from '../../../actions/actions'
 import { Link } from 'react-router-dom'
-// import '../../TableStyles.css'
+import '../../../Components/UI/Table/table.css'
 import SearchActivities from './SearchActivities'
 import { useDispatch, useSelector } from 'react-redux'
 import { startGetActivities } from '../../../../src/actions/Activities'
@@ -66,6 +66,8 @@ const ActivitiesTable = () => {
 								>
 									Crear nueva actividad
 								</Link>
+							</td>
+							<td colSpan="2">
 								<SearchActivities
 									inputSearch={inputSearch}
 									setInputSearch={setInputSearch}
