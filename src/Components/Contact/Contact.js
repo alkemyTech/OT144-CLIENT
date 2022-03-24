@@ -4,8 +4,9 @@ import './Contact.css'
 import TitleComponent from '../title/TitleComponent'
 import { getContact } from '../../Services/ServiceAPIContact'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
+import img from './contacto.jpg'
 
-const Contact = ({ img, name, phone, email }) => {
+const Contact = ({ name, phone, email }) => {
 	const [error, setError] = React.useState(false)
 
 	React.useEffect(async () => {
@@ -22,7 +23,7 @@ const Contact = ({ img, name, phone, email }) => {
 
 	return (
 		<div className="contact-container">
-			<TitleComponent title="Contacto" img={img} />
+			<TitleComponent title="Contacto" img={img} nameImg="Contacto" />
 
 			<ul className="contact-list">
 				<li>
@@ -38,10 +39,10 @@ const Contact = ({ img, name, phone, email }) => {
 					Phone: <span> {phone} </span>{' '}
 				</li>
 			</ul>
-
-			<h3 className="subtitle">Contactanos</h3>
-
-			<ContactForm />
+			<div className="containerContactForm">
+				<h3 className="subtitle">Contactanos</h3>
+				<ContactForm />
+			</div>
 		</div>
 	)
 }

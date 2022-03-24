@@ -21,10 +21,8 @@
 }
 
 .containerNovedades {
-	position: relative;
 	width: 100%;
-	min-height: 80vh;
-	top: 35px;
+	padding: 40px;
 	gap: 15px;
 	background-color: rgb(1, 102, 160);
 	display: flex;

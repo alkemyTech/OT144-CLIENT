@@ -1,5 +1,10 @@
 .layout-container {
-	min-height: 100vh;
+	min-height: 110vh;
 	position: relative;
 	top: 110px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+	padding-bottom: 200px;
 }
