@@ -7,17 +7,22 @@ import btnMenuImg from '../../../ImageProject/btn-menu.png'
 import { isLogin } from '../../../Components/UI/Errors/UserNotLogged'
 import useWindowDimensions from '../../../hooks/useWindowDimensions.js'
 
-export default function PublicHeader() {
-	const datos = [
-		{ nombre: 'Inicio', url: '/' },
-		{ nombre: 'Nosotros', url: '/about-us' },
-		{ nombre: 'Actividades', url: '/activities' },
-		{ nombre: 'Novedades', url: '/novedades' },
-		{ nombre: 'Testimonios', url: '/testimonials' },
-		{ nombre: 'Contacto', url: '/contact' },
-		{ nombre: 'Contribuye', url: '/donar' },
-	]
+const generarId = () => {
+	const random = Math.random().toString(36)
+	const fecha = Date.now().toString(36)
+	return random + fecha
+}
 
+const datos = [
+	{ itemsId: generarId(), nombre: 'Inicio', url: '/' },
+	{ itemsId: generarId(), nombre: 'Nosotros', url: '/about-us' },
+	{ itemsId: generarId(), nombre: 'Actividades', url: '/activities' },
+	{ itemsId: generarId(), nombre: 'Novedades', url: '/novedades' },
+	{ itemsId: generarId(), nombre: 'Testimonios', url: '/testimonials' },
+	{ itemsId: generarId(), nombre: 'Contacto', url: '/contact' },
+	{ itemsId: generarId(), nombre: 'Contribuye', url: '/donar' },
+]
+export default function PublicHeader() {
 	const [activePath, setActivePath] = useState('')
 	const [isLoginRegister, setIsLoginRegister] = useState(false)
 
@@ -48,7 +53,7 @@ export default function PublicHeader() {
 			<div className="containerLogo">
 				<img src={Logo} alt="logo" />
 			</div>
-			<SideBarPublic isOpen={btnResponsive} />
+			<SideBarPublic isOpen={btnResponsive} items={datos} />
 			{width > 842 ? (
 				<>
 					<nav className="containerHeaderNav">
