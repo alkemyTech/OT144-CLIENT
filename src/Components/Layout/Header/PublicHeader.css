@@ -11,10 +11,13 @@
 	height: 110px;
 	justify-content: space-between;
 	padding: 0 20px;
-	position: fixed;
 	z-index: 1;
 	top: 0;
 	width: 100%;
+}
+
+.reverse {
+	flex-direction: row-reverse;
 }
 
 .containerLogo img {
@@ -23,6 +26,8 @@
 
 .containerHeaderNav ul,
 .containerHeaderButtons {
+	justify-content: center;
+	flex-wrap: wrap;
 	gap: 13px;
 }
 

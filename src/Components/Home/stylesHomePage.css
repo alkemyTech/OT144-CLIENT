@@ -11,26 +11,23 @@
 }
 
 .containerSlider {
-	position: relative;
 	width: 100%;
-	height: 50vh;
 	background-color: rgb(18 90 131);
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 32px 0;
 }
 
 .containerNovedades {
-	position: relative;
 	width: 100%;
-	min-height: 80vh;
-	top: 35px;
 	gap: 15px;
 	background-color: rgb(1, 102, 160);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding: 24px 0;
 }
 
 .spinner-container {
