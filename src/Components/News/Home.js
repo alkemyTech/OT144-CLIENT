@@ -7,6 +7,7 @@ import { store } from '../../app/store'
 import { setNewsAction } from '../../actions/actions'
 import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
+import LayoutPublic from '../Layout/LayoutPublic'
 
 export default function Home() {
 	const [dataNews, setDataNews] = useState([])
@@ -61,23 +62,25 @@ export default function Home() {
 	}
 
 	return (
-		<div style={{ width: '80%', margin: 'auto', marginTop: '3rem' }}>
-			<Title title={'Novedades'} />
-			<div className="containerInputSearch">
-				<input
-					name="news-search"
-					type="search"
-					value={search}
-					onChange={handleChange}
-					className="input-field search"
-					placeholder="Buscar novedades"
-				/>
+		<LayoutPublic>
+			<div style={{ width: '80%', margin: 'auto', marginTop: '3rem' }}>
+				<Title title={'Novedades'} />
+				<div className="containerInputSearch">
+					<input
+						name="news-search"
+						type="search"
+						value={search}
+						onChange={handleChange}
+						className="input-field search"
+						placeholder="Buscar novedades"
+					/>
+				</div>
+				<div className="new-list-container">
+					{dataNews.map((data, index) => (
+						<Card key={index} cardItem={data} />
+					))}
+				</div>
 			</div>
-			<div className="new-list-container">
-				{dataNews.map((data, index) => (
-					<Card key={index} cardItem={data} />
-				))}
-			</div>
-		</div>
+		</LayoutPublic>
 	)
 }

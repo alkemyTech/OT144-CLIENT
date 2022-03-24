@@ -1,0 +1,58 @@
+.header-container {
+	height: 110px;
+	background-color: var(--lightBlue);
+	position: relative;
+	width: 100%;
+	display: flex;
+}
+
+.logoONG {
+	display: none;
+}
+
+.logoEscuela {
+	margin: auto;
+	width: 100px;
+	height: 100px;
+	filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.424));
+}
+
+.slogan {
+	display: none;
+}
+
+@media screen and (min-width: 768px) {
+	.logoONG {
+		width: 100px;
+		margin-left: 20px;
+		display: block;
+		filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.424));
+	}
+
+	.logoEscuela {
+		margin-right: 20px;
+		text-align: right;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.logoONG {
+		width: 120px;
+		margin-left: 20px;
+		display: block;
+	}
+
+	.logoEscuela {
+		margin: auto;
+	}
+
+	.slogan {
+		color: var(--lightGrey);
+		font-size: var(--heading5);
+		font-weight: bold;
+		margin-right: 20px;
+		align-items: center;
+		display: flex;
+		text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.424);
+	}
+}

@@ -16,7 +16,7 @@ export default function AboutUs({ text }) {
 		<div className="aboutUs-container">
 			<TitleComponent text="Nosotros" />
 			<h3 className="subtitle">Sobre nosotros</h3>
-			<p>{text}</p>
+			<p className="about-text">{text}</p>
 		</div>
 	)
 }
