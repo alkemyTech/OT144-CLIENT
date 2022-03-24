@@ -12,6 +12,7 @@
 	position: relative;
 	top: 110px;
 	width: 100%;
+	background-color: var(--lightGrey);
 }
 .form-contact {
 	display: flex;
