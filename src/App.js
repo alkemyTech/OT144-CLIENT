@@ -87,8 +87,14 @@ function App() {
 					<Route path="/school-campaign" component={SchoolCampaign} />
 					<Route path="/toys-campaign" component={ToysCampaign} />
 					<Route path="/about-us" component={AboutPrincipal} />
-					<Route path="/login" component={isLogin() ? HomePage : LoginForm} />
-					<Route path="/register" component={isLogin() ? HomePage : Register} />
+					<Route
+						path="/login"
+						render={() => (isLogin() ? <Redirect to="/" /> : <LoginForm />)}
+					/>
+					<Route
+						path="/register"
+						render={() => (isLogin() ? <Redirect to="/" /> : <Register />)}
+					/>
 					<Route
 						path="/donar"
 						render={() =>
