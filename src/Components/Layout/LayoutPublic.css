@@ -1,7 +1,6 @@
 .layout-container {
 	min-height: 110vh;
 	position: relative;
-	top: 110px;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
