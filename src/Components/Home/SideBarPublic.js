@@ -12,7 +12,7 @@ const SideBar = ({ isOpen, items }) => {
 			{items.map((item) => (
 				<SidebarItemsNav isOpen={isOpen} key={item.itemsId} item={item} />
 			))}
-			{isLogin === true ? (
+			{isLogin() ? (
 				<Link to="/" className="btn-logout">
 					<button onClick={handleClick} className="button-unset">
 						Cerrar sesión

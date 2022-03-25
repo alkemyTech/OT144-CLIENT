@@ -64,7 +64,7 @@ export default function PublicHeader() {
 						</ul>
 					</nav>
 					<div className="containerHeaderButtons">
-						{isLogin ? (
+						{isLogin() ? (
 							<Link to="/">
 								<button onClick={handleClick}>Cerrar sesión</button>
 							</Link>
