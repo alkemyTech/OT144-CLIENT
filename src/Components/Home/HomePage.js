@@ -9,7 +9,7 @@ import Card from '../UI/Card/Card'
 import { getAllOrganizationData } from '../../Services/organizationService'
 import { Link } from 'react-router-dom'
 import PresentationPage from '../UI/PresentationPage/PresentationPage'
-import children9 from '../../ImageProjects/img/children9.jpg'
+import children9 from '../../ImageProjects/children9.jpg'
 
 function HomePage() {
 	const [loading, setLoading] = useState(true)

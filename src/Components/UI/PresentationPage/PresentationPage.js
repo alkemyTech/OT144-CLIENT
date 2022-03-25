@@ -1,5 +1,5 @@
 import './stylesPresentationPage.css'
-import juguetesPresentacion from '../../../ImageProjects/img/juguetesPresentacion.png'
+import juguetesPresentacion from '../../../ImageProjects/juguetesPresentacion.png'
 import logoSomosMas from '../../../ImageProjects/SomosMas2.png'
 
 const PresentationPage = ({ title, subtitle, img, nameImg }) => {
