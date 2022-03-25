@@ -23,22 +23,7 @@ const datos = [
 	{ itemsId: generarId(), nombre: 'Contribuye', url: '/donar' },
 ]
 export default function PublicHeader() {
-<<<<<<< HEAD
 	const [activePath, setActivePath] = useState('')
-	const [isLoginRegister, setIsLoginRegister] = useState(false)
-=======
-	const datos = [
-		{ nombre: 'Inicio', url: '/' },
-		{ nombre: 'Nosotros', url: '/about-us' },
-		{ nombre: 'Actividades', url: '/activities' },
-		{ nombre: 'Novedades', url: '/novedades' },
-		{ nombre: 'Testimonios', url: '/testimonials' },
-		{ nombre: 'Contacto', url: '/contact' },
-		{ nombre: 'Contribuye', url: '/donar' },
-	]
-
-	const [activePath, setActivePath] = useState("")
->>>>>>> 26faf2e360b57293a33e5160a1421461e7b7dba2
 
 	const [btnResponsive, setBtnResponsive] = useState(false)
 
@@ -56,15 +41,9 @@ export default function PublicHeader() {
 		setActivePath(window.location.pathname)
 	}, [activePath])
 
-	useEffect(() => {
-		if (isLogin === true) {
-			setIsLoginRegister(true)
-		}
-	}, [])
 	const handleClick = () => {
 		localStorage.clear()
 	}
-
 	return (
 		<header className={`containerHeader ${width <= 842 ? 'reverse' : ''}`}>
 			<div className="containerLogo">
@@ -86,10 +65,14 @@ export default function PublicHeader() {
 						</ul>
 					</nav>
 					<div className="containerHeaderButtons">
-						{!isLoginRegister && (
+						{isLogin ? (
+							<Link to="/">
+								<button onClick={handleClick}>Cerrar sesión</button>
+							</Link>
+						) : (
 							<>
 								<Link data-testid="button-register" to="/register">
-									<button>Registrate</button>
+									<button>Registrarse</button>
 								</Link>
 								<Link data-testid="button-login" to="/login">
 									<button>Inicia sesión</button>
