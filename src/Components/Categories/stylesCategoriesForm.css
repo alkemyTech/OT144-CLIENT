@@ -1,10 +1,10 @@
 .categoriesForm {
-	position: relative;
 	width: 100%;
 	min-height: 50vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 
 .form-container-Category {
@@ -18,7 +18,7 @@
 
 .input-field-Category,
 .ckeditorForm {
-	width: 70%;
+	width: 50%;
 }
 
 .ck.ck-reset {
@@ -35,8 +35,6 @@
 
 .containerImgCategory {
 	position: relative;
-	min-width: 25%;
-	max-width: 25%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -49,6 +47,7 @@
 	height: 100px;
 	object-fit: cover;
 	margin-top: 25px;
+	border-radius: 50%;
 }
 
 /****Mensajes****/
@@ -74,21 +73,15 @@
 }
 /****Mensajes****/
 
-@media all and (max-width: 820px) {
+@media all and (min-width: 768px) {
 	.categoriesForm {
-		flex-direction: column;
-	}
-
-	.form-container-Category {
-		min-width: 100%;
-		max-width: 100%;
+		flex-direction: row;
 	}
 
 	.containerImgCategory {
-		min-width: 35%;
-		max-width: 35%;
 		margin-top: 40px;
 		padding-bottom: 0px;
+		margin-right: 80px;
 	}
 
 	.input-field-Category,

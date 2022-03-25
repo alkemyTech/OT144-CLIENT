@@ -4,6 +4,7 @@
 	position: relative;
 	width: 100%;
 	display: flex;
+	cursor: default;
 }
 
 .logoONG {

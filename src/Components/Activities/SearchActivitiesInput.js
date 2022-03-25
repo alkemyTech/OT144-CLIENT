@@ -1,4 +1,5 @@
 import React from 'react'
+import './SearchInputActivities.css'
 
 const SearchActivitiesInput = ({
 	data,
@@ -23,7 +24,7 @@ const SearchActivitiesInput = ({
 	}
 
 	return (
-		<div>
+		<div id="containerInputActivities">
 			<input
 				type="text"
 				placeholder="Buscar actividad"

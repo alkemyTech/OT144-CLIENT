@@ -4,6 +4,12 @@
 	height: 100%;
 	min-height: 300px;
 	max-height: 600px;
+	opacity: 0.4;
+}
+
+.containerImage {
+	background: black;
+	width: 100%;
 }
 
 .container-title {
@@ -11,6 +17,7 @@
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
+	width: 100%;
 }
 
 .title {
@@ -18,4 +25,22 @@
 	font-weight: bold;
 	font-size: 1.5rem;
 	color: var(--blue);
+}
+
+.container-h2 {
+	position: absolute;
+	color: white;
+	left: 100px;
+	z-index: 10;
+	top: 50px;
+	border: solid 12px var(--darkBlue);
+	padding: 20px;
+}
+
+@media screen and (max-width: 769px) {
+	.container-h2 {
+		right: 50px;
+		left: 50px;
+		padding: 10px;
+	}
 }

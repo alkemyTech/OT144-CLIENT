@@ -1,12 +1,12 @@
 .donacion {
 	position: relative;
 	width: 100%;
-	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	gap: 40px;
 }
 .donacion p {
-	margin-bottom: 40px;
+	font-size: var(--text1);
 }

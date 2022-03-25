@@ -53,9 +53,8 @@ const NewsForm = ({ mode = 'create', novelity }) => {
 		image: mode === 'create' ? '' : novelity.image,
 		content: mode === 'create' ? '' : novelity.content,
 	})
-	const [error, setError] = useState(false)
+
 	const [categories, setCategories] = useState([])
-	const [envioOk, setEnvioOk] = useState(false)
 
 	useEffect(() => {
 		const getCategories = async () => {
@@ -81,19 +80,22 @@ const NewsForm = ({ mode = 'create', novelity }) => {
 			try {
 				const response = await postNews(dataObject)
 
-				if (response.status === 200) {
-					setEnvioOk(true)
+				if (response.data) {
+					BasicAlert(
+						'success',
+						'Ok!',
+						'Información enviada correctamente',
+						1500
+					)
 				}
 			} catch {
-				setError(true)
-				setEnvioOk(false)
-				console.log(error)
+				;<ErrorAlert />
 			}
 		} else {
 			try {
 				await updateNews(novelity.id, dataObject)
 			} catch {
-				setError(true)
+				;<ErrorAlert />
 			}
 		}
 	}
@@ -157,14 +159,6 @@ const NewsForm = ({ mode = 'create', novelity }) => {
 					<button className="submit-btn" type="submit">
 						Enviar
 					</button>
-					{error && <ErrorAlert />}
-					{envioOk && (
-						<BasicAlert
-							type="success"
-							title="Ok"
-							text="Información enviada correctamente"
-						/>
-					)}
 				</Form>
 			)}
 		</Formik>

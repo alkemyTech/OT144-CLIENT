@@ -4,6 +4,7 @@ import TitleComponent from '../title/TitleComponent'
 import { useDispatch } from 'react-redux'
 import { getAboutUs } from '../../actions/usAboutActions'
 import { useEffect } from 'react'
+import img from './equipo.jpg'
 
 export default function AboutUs({ text }) {
 	const dispatch = useDispatch()
@@ -14,8 +15,7 @@ export default function AboutUs({ text }) {
 
 	return (
 		<div className="aboutUs-container">
-			<TitleComponent text="Nosotros" />
-			<h3 className="subtitle">Sobre nosotros</h3>
+			<TitleComponent title="Nosotros" img={img} nameImg="equipo" />
 			<p className="about-text">{text}</p>
 		</div>
 	)

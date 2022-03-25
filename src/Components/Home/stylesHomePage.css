@@ -21,6 +21,7 @@
 
 .containerNovedades {
 	width: 100%;
+	padding: 40px;
 	gap: 15px;
 	background-color: rgb(1, 102, 160);
 	display: flex;
