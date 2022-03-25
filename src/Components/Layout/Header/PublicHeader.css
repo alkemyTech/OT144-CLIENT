@@ -8,7 +8,7 @@
 .containerHeader {
 	position: relative;
 	background-color: var(--darkBlue);
-	height: 110px;
+	height: 15vh;
 	justify-content: space-between;
 	padding: 0 20px;
 	z-index: 1;
