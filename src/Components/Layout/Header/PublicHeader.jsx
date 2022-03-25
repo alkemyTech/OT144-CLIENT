@@ -24,7 +24,6 @@ const datos = [
 ]
 export default function PublicHeader() {
 	const [activePath, setActivePath] = useState('')
-
 	const [btnResponsive, setBtnResponsive] = useState(false)
 
 	const { width } = useWindowDimensions()
