@@ -12,13 +12,15 @@ const SidebarItemsNav = ({ isOpen, item }) => {
 				to={item.url}
 			>
 				<div className={classNames('itemContent', isOpen ? '' : ' collapsed')}>
-					<div className="icon">
-						<img
-							className={classNames(isOpen ? ' img-icon' : ' img-icon-d')}
-							src={item.img}
-							alt={item.nombre}
-						/>
-					</div>
+					{item.img ? (
+						<div className="icon">
+							<img
+								className={classNames(isOpen ? ' img-icon' : ' img-icon-d')}
+								src={item.img}
+								alt={item.nombre}
+							/>
+						</div>
+					) : null}
 					<span className="label">{item.nombre}</span>
 					{!isOpen ? <div className="tooltip">{item.nombre}</div> : ''}
 				</div>
