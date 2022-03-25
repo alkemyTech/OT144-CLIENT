@@ -9,7 +9,7 @@ import Card from '../UI/Card/Card'
 import { getAllOrganizationData } from '../../Services/organizationService'
 import { Link } from 'react-router-dom'
 import PresentationPage from '../UI/PresentationPage/PresentationPage'
-import children9 from '../../ImageProjects/children9.jpg'
+import imgHomePage from '../../ImageProjects/homePage.jpg'
 
 function HomePage() {
 	const [loading, setLoading] = useState(true)
@@ -67,7 +67,7 @@ function HomePage() {
 					<PresentationPage
 						title="Bienvenidos!"
 						subtitle="FUNDACIÓN SOMOS MAS"
-						img={children9}
+						img={imgHomePage}
 						nameImg="Imagen Home"
 					/>
 				</section>

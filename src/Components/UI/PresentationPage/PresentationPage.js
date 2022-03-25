@@ -1,6 +1,7 @@
 import './stylesPresentationPage.css'
 import juguetesPresentacion from '../../../ImageProjects/juguetesPresentacion.png'
 import logoSomosMas from '../../../ImageProjects/SomosMas2.png'
+import LazyLoadImages from '../LazyLoadImages/LazyLoadImages'
 
 const PresentationPage = ({ title, subtitle, img, nameImg }) => {
 	return (
@@ -23,7 +24,11 @@ const PresentationPage = ({ title, subtitle, img, nameImg }) => {
 			</div>
 
 			<div className="containerImagePresentation">
-				<img className="imgPresentation" src={img} alt={nameImg} />
+				<LazyLoadImages
+					src={img}
+					altText={nameImg}
+					classText="imgPresentation"
+				/>
 			</div>
 		</div>
 	)

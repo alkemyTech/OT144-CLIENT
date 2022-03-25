@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
-import TitleComponent from '../title/TitleComponent'
 import { getRequest } from '../../Services/publicApiService'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import Card from '../UI/Card/Card'
 import LayoutPublic from '../Layout/LayoutPublic'
 import SearchActivitiesInput from './SearchActivitiesInput'
-import img from './Foto11.jpg'
 import './Actividades.css'
+import PresentationPage from '../UI/PresentationPage/PresentationPage'
+import imgActividades from '../../ImageProjects/actividades.jpeg'
 
 const Actividades = () => {
 	const [data, setData] = useState([])
@@ -53,10 +53,11 @@ const Actividades = () => {
 
 	return (
 		<LayoutPublic>
-			<TitleComponent
+			<PresentationPage
 				title="Actividades"
-				img={img}
-				nameImg="Actividad al aire libre"
+				subtitle="FUNDACIÓN SOMOS MAS"
+				img={imgActividades}
+				nameImg="Imagen Actividades"
 			/>
 			<div className="containerActivitiesTitle">
 				<SearchActivitiesInput
