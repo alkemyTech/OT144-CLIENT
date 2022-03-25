@@ -6,7 +6,6 @@ const BackOfficeLayout = ({ children }) => {
 		<>
 			<HeaderComponent />
 			<SidebarBackOffice />
-			<div>{children}</div>
 		</>
 	)
 }

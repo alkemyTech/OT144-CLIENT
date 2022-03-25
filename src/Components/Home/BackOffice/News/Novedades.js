@@ -18,6 +18,7 @@ import {
 import InputSearchNews from './InputSearchNews'
 import { useDispatch, useSelector } from 'react-redux'
 import { startGetNews } from '../../../../actions/news'
+import HeaderComponent from '../HeaderComponent'
 
 function Novedades() {
 	const [loading, setLoading] = useState(true)
@@ -97,11 +98,15 @@ function Novedades() {
 
 	return (
 		<>
-			<InputSearchNews
-				inputSearch={inputSearch}
-				setInputSearch={setInputSearch}
-			/>
+			<div>
+				<HeaderComponent />
+			</div>
+
 			<section className="sectionTable">
+				<InputSearchNews
+					inputSearch={inputSearch}
+					setInputSearch={setInputSearch}
+				/>
 				<div className="table-container-responsive">
 					<table className="table">
 						<thead>

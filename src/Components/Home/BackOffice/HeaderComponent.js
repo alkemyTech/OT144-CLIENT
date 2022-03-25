@@ -24,15 +24,14 @@ function HeaderComponent() {
 	return (
 		<header className="backofficeHeader">
 			<SidebarBackOffice isOpen={btnResponsive} />
-			<Logo />
+
 			<div className="menu-btn" onClick={handleClickBtn}>
 				<img src={btnMenuImg} alt="Imagen Btn Menu"></img>
 			</div>
 
 			<SidebarBackOffice isOpen={btnResponsive} />
-			
-			<Logo />
 
+			<Logo />
 
 			{isAuthenticated ? (
 				<button className="btn-logout" onClick={handleLogOut}>

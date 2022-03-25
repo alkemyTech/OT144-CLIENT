@@ -6,3 +6,6 @@
 .field-search {
 	max-width: 600px;
 }
+.sectionTable {
+	flex-direction: column;
+}
