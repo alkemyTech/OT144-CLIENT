@@ -1,17 +1,18 @@
 import React from 'react'
 import LayoutPublic from '../Layout/LayoutPublic'
-import TitleComponent from '../title/TitleComponent'
 import './stylesDonacion.css'
-import img from './donaciones.jpg'
+import PresentationPage from '../UI/PresentationPage/PresentationPage'
+import imgDonaciones from '../../ImageProjects/donaciones.jpeg'
 
-function Donacion(props) {
+function Donacion() {
 	return (
 		<LayoutPublic>
 			<section className="donacion">
-				<TitleComponent
-					title="Tu ayuda hace la diferencia"
-					img={img}
-					nameImg="donacion"
+				<PresentationPage
+					title="Donaciones"
+					subtitle="FUNDACIÓN SOMOS MAS"
+					img={imgDonaciones}
+					nameImg="Imagen Donaciones"
 				/>
 				<p>
 					Sumate como voluntario a la formación de ciudadanos comprometidos con
