@@ -1,16 +1,23 @@
 .aboutPrincipal-container {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
 	display: flex;
+	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	cursor: default;
 }
 
 .aboutUs-container {
+	position: relative;
+	width: 100%;
+	min-height: 90vh;
 	color: var(--black);
 	display: flex;
+	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	width: 100%;
 }
 
 .containerTxtAbout {
@@ -35,6 +42,10 @@
 	align-items: center;
 }
 
+.titleAbout {
+	margin-bottom: 50px;
+}
+
 @media screen and (max-width: 1024px) {
 	.about-text {
 		max-width: 75%;
@@ -44,5 +55,9 @@
 @media screen and (max-width: 768px) {
 	.about-text {
 		max-width: 90%;
+	}
+
+	.containerTxtAbout {
+		margin: 70px;
 	}
 }

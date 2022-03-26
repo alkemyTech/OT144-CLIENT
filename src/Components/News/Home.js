@@ -71,7 +71,7 @@ export default function Home() {
 					img={imgNovedades}
 					nameImg="Imagen Novedades"
 				/>
-				<div className="containerInputNews">
+				<div className="containerInputCard">
 					<div className="containerInputSearch">
 						<input
 							name="news-search"
