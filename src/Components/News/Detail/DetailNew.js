@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import TitleComponent from '../../title/TitleComponent'
 import DetailContent from './DetailContent'
 import { getNewsById } from '../../../Services/NewsApiServices'
 import Skeleton from '../../UI/Skeleton/Skeleton'
 import './stylesDetailNew.css'
+import LayoutPublic from '../../Layout/LayoutPublic'
+import PresentationPage from '../../UI/PresentationPage/PresentationPage'
 
 const DetailNew = () => {
 	const [data, setData] = useState({})
@@ -23,24 +24,27 @@ const DetailNew = () => {
 		sizeSkeletonTxt: { width: '80%', height: '80px', radius: '' },
 	}
 
-	const urlParams = useParams()
+	const { id } = useParams()
 
-	const actionGet = async () => {
+	useEffect(async () => {
 		try {
-			const response = await Promise.resolve(getNewsById(urlParams.id))
+			const response = await Promise.resolve(getNewsById(id))
+			console.log(response)
 			if (response.data) {
 				setLoading(false)
 				return setData(response.data.data)
 			}
 		} catch (error) {
+			console.log(error)
 			return {
 				status: error.response.status,
 				error: error.message,
 				data: error.response.data,
 			}
 		}
-	}
+	}, [])
 
+	console.log(data)
 	/* Determinar altura elemento */
 	function logit() {
 		setScrollY(window.pageYOffset)
@@ -66,7 +70,7 @@ const DetailNew = () => {
 	const mostrarScroll = () => {
 		if (scrollY > height) {
 			setStopScroll(false)
-			actionGet()
+			// actionGet()
 		}
 	}
 	/* Fin determinar altura elemento */
@@ -74,25 +78,26 @@ const DetailNew = () => {
 	return (
 		<main>
 			{loading ? (
-				<>
-					<div className="spaceScroll"></div>
-					<div ref={refCom}>
+				<LayoutPublic>
+					<div ref={refCom} className="containerSkeleton">
 						<Skeleton skeletonSize={sizeSkeleton.sizeSkeletonTitle} />
 						<Skeleton skeletonSize={sizeSkeleton.sizeSkeletonImg} />
 						<Skeleton skeletonSize={sizeSkeleton.sizeSkeletonTxt} />
 					</div>
-				</>
+				</LayoutPublic>
 			) : (
 				<>
-					<div style={{ width: '100%', height: '1000px' }}></div>
-					<div ref={refCom}>
-						<TitleComponent
-							title={data.name}
-							img={data.image}
-							nameImg={data.name}
-						/>
+					<LayoutPublic>
+						<section>
+							<PresentationPage
+								title={data.name}
+								subtitle=""
+								img={data.image}
+								nameImg={data.name}
+							/>
+						</section>
 						<DetailContent data={data} />
-					</div>
+					</LayoutPublic>
 				</>
 			)}
 		</main>

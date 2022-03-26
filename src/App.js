@@ -26,10 +26,12 @@ import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
 import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
 import MembersForm from './Components/Members/MembersForm'
+import SlidesDetail from './Components/Slides/SlidesDetail'
 
 import PrivateRoute from './BackofficeRoutes/PrivateRoute'
 import protectedRoutes from './BackofficeRoutes/Routes'
 import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
+import DetailTestimonials from './Components/Testimonials/DetailTestimonials'
 
 function App() {
 	return (
@@ -98,14 +100,16 @@ function App() {
 					/>
 					<Route path="/gracias" component={Gracias} />
 					<Route path="/novedades/:id" component={DetailNew} />
-					<Route path="/activities" component={Activities} />
+					<Route exact path="/activities" component={Activities} />
 					<Route path="/activities/:id" component={ActivitiesDetail} />
 					<Route path="/novedades" component={NewsHome} />
 					<Route
 						path="/newsletter"
 						component={isLogin() ? Newsletter : UserNotLogged}
 					/>
+					<Route path="/testimonials/:id" component={DetailTestimonials} />
 					<Route path="/testimonials" component={Testimonials} />
+					<Route path="/slides/:id" component={SlidesDetail} />
 					<Route component={PageNoFound} />
 				</AnimatedSwitch>
 			</Router>

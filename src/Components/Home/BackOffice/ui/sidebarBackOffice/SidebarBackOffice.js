@@ -7,7 +7,10 @@ import user from '../../../../../assets/user.svg'
 import members from '../../../../../assets/members.svg'
 import categories from '../../../../../assets/categories.svg'
 import backoffice from '../../../../../assets/BACKOFFICE.svg'
+import activities from '../../../../../assets/activities.svg'
 import news from '../../../../../assets/news.svg'
+import checklist from '../../../../../assets/checklist.png'
+import testimonials from '../../../../../assets/testimonials.png'
 import { useDispatch } from 'react-redux'
 import { startLogout } from '../../../../../actions/auth'
 import { useHistory } from 'react-router-dom'
@@ -30,13 +33,37 @@ const SidebarBackOffice = ({ isOpen }) => {
 		},
 		{
 			itemsId: generarId(),
-			nombre: 'Editar Organización',
-			url: '/backoffice/organization/edit',
+			nombre: 'Novedades',
+			url: '/backoffice/news',
+			img: `${news}`,
+		},
+		{
+			itemsId: generarId(),
+			nombre: 'Actividades',
+			url: '/backoffice/activities',
+			img: `${checklist}`,
+		},
+		{
+			itemsId: generarId(),
+			nombre: 'Categorias',
+			url: '/backoffice/categories',
+			img: `${categories}`,
+		},
+		{
+			itemsId: generarId(),
+			nombre: 'Testimonios',
+			url: '/backoffice/testimonials',
+			img: `${testimonials}`,
+		},
+		{
+			itemsId: generarId(),
+			nombre: 'Organización',
+			url: '/backoffice/organization',
 			img: `${organization}`,
 		},
 		{
 			itemsId: generarId(),
-			nombre: 'Slider',
+			nombre: 'Slides',
 			url: '/backoffice/slides',
 			img: `${slides}`,
 		},
@@ -54,21 +81,9 @@ const SidebarBackOffice = ({ isOpen }) => {
 		},
 		{
 			itemsId: generarId(),
-			nombre: 'Editar Miembros',
-			url: '/backoffice/members/edit',
-			img: `${members}`,
-		},
-		{
-			itemsId: generarId(),
-			nombre: 'Categorias',
-			url: '/backoffice/categories',
-			img: `${categories}`,
-		},
-		{
-			itemsId: generarId(),
-			nombre: 'Novedades',
-			url: '/backoffice/news',
-			img: `${news}`,
+			nombre: 'Actividades',
+			url: '/backoffice/activities',
+			img: `${activities}`,
 		},
 	]
 
@@ -78,9 +93,7 @@ const SidebarBackOffice = ({ isOpen }) => {
 	}
 
 	return (
-		<div
-			className={`SideBarMenu ${isOpen ? 'expanded' : 'collapsed'}`}
-		>
+		<div className={`SideBarMenu ${isOpen ? 'expanded' : 'collapsed'}`}>
 			{items.map((item) => (
 				<SidebarItemsNav isOpen={isOpen} key={item.itemsId} item={item} />
 			))}

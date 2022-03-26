@@ -42,12 +42,6 @@
 	filter: brightness(1.1);
 }
 
-@media screen and (max-width: 1024px) {
-	.contact-container {
-		width: 80%;
-	}
-}
-
 @media screen and (max-width: 768px) {
 	.contact-container {
 		width: 90%;

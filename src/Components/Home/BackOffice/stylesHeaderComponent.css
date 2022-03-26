@@ -8,7 +8,7 @@
 	padding: 0 50px;
 	background-color: var(--darkBlue);
 	width: 100%;
-	min-height: 112px;
+	min-height: 15vh;
 	z-index: 1;
 }
 
