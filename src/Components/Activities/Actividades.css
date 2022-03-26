@@ -1,6 +1,7 @@
-.containerActivitiesTitle {
+.containerInputCard {
 	display: flex;
 	flex-direction: column;
-	width: 80%;
 	align-items: center;
+	width: 100%;
+	padding: 100px;
 }

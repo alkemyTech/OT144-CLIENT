@@ -1,5 +1,4 @@
 import Card from '../../UI/Card/Card'
-import './ListMember.css'
 import { useEffect, useState } from 'react'
 import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
 import ErrorAlert from '../../UI/Alerts/ErrorAlert'
@@ -40,7 +39,7 @@ const ListMember = () => {
 
 	console.log(store.getState())
 	return (
-		<section className="list-member-container">
+		<section className="list-container">
 			{data?.map((member) => (
 				<Card cardItem={member} key={member.id} />
 			))}

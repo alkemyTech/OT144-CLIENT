@@ -42,7 +42,7 @@ export default function AboutPrincipal() {
 		<LayoutPublic>
 			<main className="aboutPrincipal-container">
 				<AboutUs text={principalText} />
-				<h2 className="headerTxt">Miembros</h2>
+				<h2 className="headerTxt titleAbout">Miembros</h2>
 				<ListMember />
 			</main>
 		</LayoutPublic>
