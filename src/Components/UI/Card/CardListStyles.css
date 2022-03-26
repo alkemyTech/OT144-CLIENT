@@ -1,5 +1,6 @@
 .list-container {
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	justify-content: space-around;
 	gap: 20px;
 	flex-wrap: wrap;

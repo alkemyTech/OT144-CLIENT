@@ -82,7 +82,7 @@ export default function Home() {
 							placeholder="Buscar novedades"
 						/>
 					</div>
-					<div className="new-list-container">
+					<div className="list-container">
 						{dataNews.map((data, index) => (
 							<Card key={index} cardItem={data} />
 						))}

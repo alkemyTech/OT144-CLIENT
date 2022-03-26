@@ -41,7 +41,7 @@ export default function Testimonials() {
 				img={imgTestimonios}
 				nameImg="Imagen Testimonios"
 			/>
-			<div className="new-list-container">
+			<div className="list-container">
 				{data
 					? data.map((dato) => {
 						return <Card cardItem={dato} key={dato.id} />
