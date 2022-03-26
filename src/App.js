@@ -86,7 +86,7 @@ function App() {
 					<Route path="/about-us" component={AboutPrincipal} />
 					<Route
 						path="/login"
-						render={() => (isLogin() ? <Redirect to="/" /> : <LoginForm />)}
+						render={() => (!isLogin() ? <LoginForm /> : <Redirect to="/" />)}
 					/>
 					<Route
 						path="/register"

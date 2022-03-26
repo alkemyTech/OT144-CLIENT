@@ -8,6 +8,7 @@ import { baseURL } from '../../Services/Api'
 import { login } from '../../actions/actions'
 import { useHistory } from 'react-router-dom'
 import LayoutPublic from '../Layout/LayoutPublic'
+import userIsAdmin from '../UI/Errors/UserIsAdmin'
 
 const validation = (values) => {
 	const errors = {}
@@ -47,6 +48,7 @@ const LoginForm = () => {
 			data: { email: values.email, password: values.password },
 		})
 			.then((res) => {
+				localStorage.setItem('email', values.email)
 				store.dispatch(
 					login({
 						// token: res.data.data.token,
@@ -57,9 +59,9 @@ const LoginForm = () => {
 				history.push('/backoffice')
 			})
 			.then(() => {
-				localStorage.setItem('email', values.email)
-				localStorage.setItem('role_id', 1)
-				window.location.href = '/'
+				if (userIsAdmin()) {
+					window.location.href = '/backoffice'
+				}
 			})
 			.catch((err) => {
 				console.log(err)
