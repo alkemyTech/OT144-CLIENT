@@ -1,8 +1,8 @@
 import React from 'react'
 import { deleteUser } from '../../../Services/userService'
+import '../../UI/Table/table.css'
 
 const UsersTable = ({ users }) => {
-
 	const handleDelete = async (id) => {
 		try {
 			await deleteUser(id)
@@ -19,7 +19,7 @@ const UsersTable = ({ users }) => {
 						<th>Nombre</th>
 						<th>Correo</th>
 						<th>Rol</th>
-						<th>Acciones</th>
+						<th colSpan="2">Acciones</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -33,7 +33,12 @@ const UsersTable = ({ users }) => {
 							</td>
 							<td className="actions">
 								<button className="btnUpdateTable">Editar</button>
-								<button className="btnDeleteTable" onClick={() => handleDelete(user.id)}>Eliminar</button>
+								<button
+									className="btnDeleteTable"
+									onClick={() => handleDelete(user.id)}
+								>
+									Eliminar
+								</button>
 							</td>
 						</tr>
 					))}

@@ -98,11 +98,13 @@ function Novedades() {
 
 	return (
 		<BackOfficeLayout>
-			<InputSearchNews
-				inputSearch={inputSearch}
-				setInputSearch={setInputSearch}
-			/>
 			<section className="sectionTable">
+				<div>
+					<InputSearchNews
+						inputSearch={inputSearch}
+						setInputSearch={setInputSearch}
+					/>
+				</div>
 				<div className="table-container-responsive">
 					<table className="table">
 						<thead>

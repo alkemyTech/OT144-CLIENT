@@ -4,7 +4,6 @@
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
-	align-items: center;
 	padding-bottom: 200px;
 	background-color: var(--lightGrey);
 }

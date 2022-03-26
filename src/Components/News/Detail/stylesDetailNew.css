@@ -2,3 +2,44 @@
 	width: 100%;
 	height: 1000px;
 }
+.containerSkeleton {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.detail {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+.contentDetail {
+	font-size: var(--text1);
+	text-align: justify;
+	max-width: 60%;
+}
+
+.detailContentContainer {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: default;
+}
+
+@media screen and (max-width: 1024px) {
+	.contentDetail {
+		max-width: 75%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.contentDetail {
+		max-width: 90%;
+	}
+}

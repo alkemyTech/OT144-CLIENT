@@ -11,3 +11,8 @@
 	width: 50%;
 	margin: auto;
 }
+
+.sectionTable {
+	flex-direction: column;
+	margin-top: 10px;
+}
