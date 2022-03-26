@@ -18,6 +18,7 @@ import {
 import InputSearchNews from './InputSearchNews'
 import { useDispatch, useSelector } from 'react-redux'
 import { startGetNews } from '../../../../actions/news'
+import BackOfficeLayout from '../../../Layout/BackOfficeLayout'
 
 function Novedades() {
 	const [loading, setLoading] = useState(true)
@@ -96,12 +97,14 @@ function Novedades() {
 	}
 
 	return (
-		<>
-			<InputSearchNews
-				inputSearch={inputSearch}
-				setInputSearch={setInputSearch}
-			/>
+		<BackOfficeLayout>
 			<section className="sectionTable">
+				<div>
+					<InputSearchNews
+						inputSearch={inputSearch}
+						setInputSearch={setInputSearch}
+					/>
+				</div>
 				<div className="table-container-responsive">
 					<table className="table">
 						<thead>
@@ -159,7 +162,7 @@ function Novedades() {
 					</table>
 				</div>
 			</section>
-		</>
+		</BackOfficeLayout>
 	)
 }
 
