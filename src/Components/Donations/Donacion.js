@@ -14,13 +14,15 @@ function Donacion() {
 					img={imgDonaciones}
 					nameImg="Imagen Donaciones"
 				/>
-				<p>
-					Sumate como voluntario a la formación de ciudadanos comprometidos con
-					su comunidad. Necesitamos de tu colaboración para que cada vez más
-					niños, niñas y jóvenes alcancen su pleno desarrollo y se involucren en
-					las problemáticas de su comunidad.
-				</p>
-				<button className="submit-btn">Mercado Pago</button>
+				<div className="containerTxtDonacion">
+					<p>
+						Sumate como voluntario a la formación de ciudadanos comprometidos
+						con su comunidad. Necesitamos de tu colaboración para que cada vez
+						más niños, niñas y jóvenes alcancen su pleno desarrollo y se
+						involucren en las problemáticas de su comunidad.
+					</p>
+					<button className="submit-btn btnDonar">Mercado Pago</button>
+				</div>
 			</section>
 		</LayoutPublic>
 	)

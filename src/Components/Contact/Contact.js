@@ -33,7 +33,7 @@ const Contact = ({ name, phone, email }) => {
 					nameImg="Imagen Contacto"
 				/>
 				<div className="containerContactForm">
-					<h3 className="subtitle">Contactanos</h3>
+					<h3 className="titleContacto">Contactanos</h3>
 					<ContactForm />
 				</div>
 				<ContactMap />
