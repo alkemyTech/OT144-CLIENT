@@ -1,4 +1,15 @@
-.form-container.activities-form {
+.container-flex {
+	width: 70%;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+.form-container-activities {
+	width: 100%;
+}
+
+.form-container-activities form {
 	padding: 20px;
 	border-radius: 4px;
 	width: 60%;
@@ -32,7 +43,7 @@ label {
 .btn-container {
 	display: flex;
 	justify-content: center;
-	width: 40%;
+	width: 100%;
 }
 .submit-btn {
 	margin: 5px;
@@ -53,4 +64,24 @@ label {
 	height: 20px;
 	color: #db5752;
 	font-size: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+	.container-flex {
+		width: 80%;
+	}
+
+	.form-container-activities form {
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.container-flex {
+		width: 90%;
+	}
+
+	.form-container-activities form {
+		width: 100%;
+	}
 }

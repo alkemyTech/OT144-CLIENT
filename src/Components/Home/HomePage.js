@@ -9,6 +9,9 @@ import Card from '../UI/Card/Card'
 import { getAllOrganizationData } from '../../Services/organizationService'
 import { Link } from 'react-router-dom'
 import Carousel from '../Carousel/Carousel'
+import PresentationPage from '../UI/PresentationPage/PresentationPage'
+import imgHomePage from '../../ImageProjects/homePage.jpg'
+import { getTestimonials } from '../../Services/TestimonialsApiService'
 
 function HomePage() {
 	const [loading, setLoading] = useState(true)
@@ -22,6 +25,7 @@ function HomePage() {
 					getSlides(),
 					getNews(),
 					getAllOrganizationData(),
+					getTestimonials(),
 				])
 				setData(
 					response.map((res) => {
@@ -50,7 +54,7 @@ function HomePage() {
 	function dataViewer(indice, mensaje, endpoint) {
 		return data[indice]?.length > 0 ? (
 			data[indice]
-				.slice(data[indice]?.length - 6, data[indice]?.length)
+				.slice(data[indice]?.length - 4, data[indice]?.length)
 				.map((element) => {
 					return (
 						<Link to={`/${endpoint}/${element.id}`} key={element.id}>
@@ -62,15 +66,22 @@ function HomePage() {
 			<p>{mensaje}</p>
 		)
 	}
-
+	console.log(data[3])
 	return (
 		<LayoutPublic>
 			<main className="homePage">
 				<section>
+					<PresentationPage
+						title="Bienvenidos!"
+						subtitle="FUNDACIÓN SOMOS MAS"
+						img={imgHomePage}
+						nameImg="Imagen Home"
+					/>
+				</section>
+				<section>
 					<Carousel slides={data[0]} />
 				</section>
 				<section className="containerNovedades">
-					<h1 className="headerTxt">{data[2]?.welcome_text}</h1>
 					<h2 className="subtitle">Últimas novedades</h2>
 					<div className="list-container">
 						{dataViewer(1, 'No hay novedades', 'novedades')}
@@ -79,9 +90,15 @@ function HomePage() {
 						Ver todas
 					</Link>
 				</section>
-				{/* <section className="containerSlider">
-					<div className="list-container">{dataViewer(0, 'No disponible')}</div>
-				</section> */}
+				<section className="containerSlider">
+					<h2 className="subtitle">Testimonios</h2>
+					<div className="list-container">
+						{dataViewer(3, 'No disponible', 'testimonials')}
+					</div>
+					<Link to="/testimonials" className="allNewsButton">
+						Ver todos
+					</Link>
+				</section>
 			</main>
 		</LayoutPublic>
 	)

@@ -30,6 +30,7 @@ import MembersForm from './Components/Members/MembersForm'
 import PrivateRoute from './BackofficeRoutes/PrivateRoute'
 import protectedRoutes from './BackofficeRoutes/Routes'
 import userIsAdmin from './Components/UI/Errors/UserIsAdmin'
+import DetailTestimonials from './Components/Testimonials/DetailTestimonials'
 
 function App() {
 	return (
@@ -105,6 +106,7 @@ function App() {
 						path="/newsletter"
 						component={isLogin() ? Newsletter : UserNotLogged}
 					/>
+					<Route path="/testimonials/:id" component={DetailTestimonials} />
 					<Route path="/testimonials" component={Testimonials} />
 					<Route component={PageNoFound} />
 				</AnimatedSwitch>

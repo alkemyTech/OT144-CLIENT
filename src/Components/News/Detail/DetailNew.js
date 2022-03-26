@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import TitleComponent from '../../title/TitleComponent'
 import DetailContent from './DetailContent'
 import { getNewsById } from '../../../Services/NewsApiServices'
 import Skeleton from '../../UI/Skeleton/Skeleton'
 import './stylesDetailNew.css'
 import LayoutPublic from '../../Layout/LayoutPublic'
+import PresentationPage from '../../UI/PresentationPage/PresentationPage'
 
 const DetailNew = () => {
 	const [data, setData] = useState({})
@@ -88,11 +88,14 @@ const DetailNew = () => {
 			) : (
 				<>
 					<LayoutPublic>
-						<TitleComponent
-							title={data.name}
-							img={data.image}
-							nameImg={data.name}
-						/>
+						<section>
+							<PresentationPage
+								title={data.name}
+								subtitle=""
+								img={data.image}
+								nameImg={data.name}
+							/>
+						</section>
 						<DetailContent data={data} />
 					</LayoutPublic>
 				</>

@@ -1,13 +1,14 @@
-import TitleComponent from '../../title/TitleComponent'
 import { useParams } from 'react-router'
 import { useState, useEffect } from 'react'
-import { getActivitiesId } from '../../../Services/ActivityApiService'
-import ErrorAlert from '../../UI/Alerts/ErrorAlert'
-import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
-import './stylesActivity.css'
-import LayoutPublic from '../../Layout/LayoutPublic'
+import ErrorAlert from '../UI/Alerts/ErrorAlert'
+import SpinnerComponent from '../UI/spinner/SpinnerComponent'
+import '../Activities/Detail/stylesActivity.css'
+import './Testimonials.css'
+import LayoutPublic from '../Layout/LayoutPublic'
+import { getTestimonial } from '../../Services/TestimonialsApiService'
+import PresentationPage from '../UI/PresentationPage/PresentationPage'
 
-export default function ActivitiesDetail() {
+export default function DetailTestimonials() {
 	const { id } = useParams()
 
 	const [dataLoading, setDataLoading] = useState({
@@ -15,23 +16,23 @@ export default function ActivitiesDetail() {
 		data: [],
 		error: '',
 	})
-	console.log(id)
+
 
 	useEffect(() => {
 		try {
-			;(async () => {
-				const response = await getActivitiesId(id)
+			; (async () => {
+				const response = await getTestimonial(id)
 				response.status === 200
 					? setDataLoading({
 						...dataLoading,
 						data: response.data.data,
 						loading: false,
-					  })
+					})
 					: setDataLoading({
 						...dataLoading,
 						error: response.error,
 						loading: false,
-					  })
+					})
 			})()
 		} catch (error) {
 			setDataLoading({ ...dataLoading, error: error.message, loading: false })
@@ -56,11 +57,15 @@ export default function ActivitiesDetail() {
 		<LayoutPublic>
 			<main className="homePage">
 				<section className="containerActivity">
-					<TitleComponent
+					<PresentationPage
 						title={dataLoading.data.name}
+						subtitle="FUNDACIÓN SOMOS MAS"
 						img={dataLoading.data.image}
+						nameImg={dataLoading.data.name}
 					/>
-					<p>{dataLoading.data.description}</p>
+					<div className='contentDescription'>
+						<p>{dataLoading.data.description}</p>
+					</div>
 				</section>
 			</main>
 		</LayoutPublic>

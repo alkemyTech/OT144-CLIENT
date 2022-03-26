@@ -2,7 +2,54 @@
 	position: relative;
 	width: 100%;
 	min-height: calc(100vh - 112px);
+}
+
+.containerDashboard {
+	width: 100%;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	gap: 40px;
+	min-height: calc(100vh - 112px);
+}
+
+.screenDashboardPage h2 {
+	font-size: var(--heading2);
+	color: var(--darkBlue);
+	font-weight: 700;
+}
+
+.containerButtons {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(200px, 1fr));
+	grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 25px;
+	justify-items: center;
+}
+
+.backofficeButtons {
+	display: flex;
+	align-items: center;
+	border: none;
+	border-radius: 20px;
+	flex-direction: column;
+	padding: 40px;
+	width: 220px;
+}
+
+.backofficeButtons h3 {
+	color: var(--darkBlue);
+	font-size: var(--heading4);
+}
+
+.backofficeButtons img {
+	width: 90px;
+}
+
+@media screen and (max-width: 1000px) {
+	.containerButtons {
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		width: 70%;
+	}
 }
