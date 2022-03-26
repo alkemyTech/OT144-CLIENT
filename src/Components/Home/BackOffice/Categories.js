@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import BackOfficeLayout from '../../Layout/BackOfficeLayout'
 import { useHistory } from 'react-router-dom'
-import './Categories.css'
 import '../../UI/Table/table.css'
 import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
 import ErrorAlert from '../../UI/Alerts/ErrorAlert'
