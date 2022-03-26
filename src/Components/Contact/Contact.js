@@ -6,6 +6,7 @@ import { getContact } from '../../Services/ServiceAPIContact'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import img from './contacto.jpg'
 import LayoutPublic from '../Layout/LayoutPublic'
+import ContactMap from './ContactMap'
 
 const Contact = ({ name, phone, email }) => {
 	const [error, setError] = React.useState(false)
@@ -30,6 +31,7 @@ const Contact = ({ name, phone, email }) => {
 					<h3 className="subtitle">Contactanos</h3>
 					<ContactForm />
 				</div>
+				<ContactMap />
 			</div>
 		</LayoutPublic>
 	)

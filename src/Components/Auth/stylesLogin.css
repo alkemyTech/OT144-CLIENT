@@ -3,6 +3,10 @@
 	min-height: 400px;
 }
 
+.login form {
+	gap: 50px;
+}
+
 .input-field {
 	border: none;
 	border-bottom: 1px solid var(--blue);
