@@ -1,26 +1,38 @@
 .donacion {
 	position: relative;
 	width: 100%;
+	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	gap: 40px;
 }
-.donacion p {
+
+.containerTxtDonacion {
+	position: relative;
+	width: 100%;
+	min-height: 60vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.containerTxtDonacion p {
 	font-size: var(--text1);
 	max-width: 60%;
 	text-align: justify;
 }
 
 @media screen and (max-width: 1024px) {
-	.donacion p {
+	.containerTxtDonacion p {
 		max-width: 75%;
 	}
 }
 
 @media screen and (max-width: 768px) {
-	.donacion p {
+	.containerTxtDonacion p {
 		max-width: 90%;
 	}
 }
