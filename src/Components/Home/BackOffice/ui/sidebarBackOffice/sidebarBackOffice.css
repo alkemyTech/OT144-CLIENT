@@ -3,8 +3,8 @@
 	color: var(--blue);
 	position: fixed;
 	left: 0;
-	top: 112px;
-	height: calc(100vh - 112px);
+	top: 15vh;
+	height: 85vh;
 	display: flex;
 	flex-direction: column;
 	transition: left 0.5s;

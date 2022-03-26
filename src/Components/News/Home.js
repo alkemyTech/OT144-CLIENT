@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import './Home.css'
-import Title from '../title/TitleComponent'
 import Card from '../UI/Card/Card'
 import { getNews, getNewsByTitle } from '../../Services/NewsApiServices'
 import { store } from '../../app/store'
@@ -8,7 +7,8 @@ import { setNewsAction } from '../../actions/actions'
 import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import LayoutPublic from '../Layout/LayoutPublic'
-import img from './Foto10.jpg'
+import PresentationPage from '../UI/PresentationPage/PresentationPage'
+import imgNovedades from '../../ImageProjects/novedades.jpeg'
 
 export default function Home() {
 	const [dataNews, setDataNews] = useState([])
@@ -65,7 +65,12 @@ export default function Home() {
 	return (
 		<LayoutPublic>
 			<div style={{ width: '100%' }}>
-				<Title title={'Novedades'} img={img} nameImg="Novedades" />
+				<PresentationPage
+					title="Novedades"
+					subtitle="FUNDACIÓN SOMOS MAS"
+					img={imgNovedades}
+					nameImg="Imagen Novedades"
+				/>
 				<div className="containerInputNews">
 					<div className="containerInputSearch">
 						<input

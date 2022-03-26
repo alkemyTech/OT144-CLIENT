@@ -1,10 +1,9 @@
 import './stylesAboutUs.css'
-import TitleComponent from '../title/TitleComponent'
-
+import PresentationPage from '../UI/PresentationPage/PresentationPage'
 import { useDispatch } from 'react-redux'
 import { getAboutUs } from '../../actions/usAboutActions'
 import { useEffect } from 'react'
-import img from './equipo.jpg'
+import imgNosotros from '../../ImageProjects/nosotros.jpeg'
 
 export default function AboutUs({ text }) {
 	const dispatch = useDispatch()
@@ -15,7 +14,12 @@ export default function AboutUs({ text }) {
 
 	return (
 		<div className="aboutUs-container">
-			<TitleComponent title="Nosotros" img={img} nameImg="equipo" />
+			<PresentationPage
+				title="Nosotros"
+				subtitle="FUNDACIÓN SOMOS MAS"
+				img={imgNosotros}
+				nameImg="Imagen Nosotros"
+			/>
 			<p className="about-text">{text}</p>
 		</div>
 	)

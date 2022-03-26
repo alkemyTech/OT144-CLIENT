@@ -8,6 +8,8 @@ import LayoutPublic from '../Layout/LayoutPublic'
 import Card from '../UI/Card/Card'
 import { getAllOrganizationData } from '../../Services/organizationService'
 import { Link } from 'react-router-dom'
+import PresentationPage from '../UI/PresentationPage/PresentationPage'
+import imgHomePage from '../../ImageProjects/homePage.jpg'
 
 function HomePage() {
 	const [loading, setLoading] = useState(true)
@@ -61,6 +63,14 @@ function HomePage() {
 	return (
 		<LayoutPublic>
 			<main className="homePage">
+				<section>
+					<PresentationPage
+						title="Bienvenidos!"
+						subtitle="FUNDACIÓN SOMOS MAS"
+						img={imgHomePage}
+						nameImg="Imagen Home"
+					/>
+				</section>
 				<section className="containerNovedades">
 					<h1 className="headerTxt">{data[2]?.welcome_text}</h1>
 					<h2 className="subtitle">Últimas novedades</h2>
