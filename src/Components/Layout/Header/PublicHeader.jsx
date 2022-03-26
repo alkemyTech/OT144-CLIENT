@@ -6,6 +6,7 @@ import './PublicHeader.css'
 import btnMenuImg from '../../../ImageProject/btn-menu.png'
 import { isLogin } from '../../../Components/UI/Errors/UserNotLogged'
 import useWindowDimensions from '../../../hooks/useWindowDimensions.js'
+import userIsAdmin from '../../UI/Errors/UserIsAdmin'
 
 const generarId = () => {
 	const random = Math.random().toString(36)
@@ -64,11 +65,7 @@ export default function PublicHeader() {
 						</ul>
 					</nav>
 					<div className="containerHeaderButtons">
-						{isLogin() ? (
-							<Link to="/">
-								<button onClick={handleClick}>Cerrar sesión</button>
-							</Link>
-						) : (
+						{!isLogin() ? (
 							<>
 								<Link data-testid="button-register" to="/register">
 									<button>Registrarse</button>
@@ -77,6 +74,22 @@ export default function PublicHeader() {
 									<button>Inicia sesión</button>
 								</Link>
 							</>
+						) : (
+							userIsAdmin() ? (
+								<>
+									<Link data-testid="button-register" to="/backoffice">
+										<button>Administrador</button>
+									</Link>
+									<Link to="/">
+										<button onClick={handleClick}>Cerrar sesión</button>
+									</Link>
+								</>
+							)
+								: (
+									<Link to="/">
+										<button onClick={handleClick}>Cerrar sesión</button>
+									</Link>
+								)
 						)}
 					</div>
 				</>
