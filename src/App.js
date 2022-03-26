@@ -98,7 +98,7 @@ function App() {
 					/>
 					<Route path="/gracias" component={Gracias} />
 					<Route path="/novedades/:id" component={DetailNew} />
-					<Route path="/activities" component={Activities} />
+					<Route exact path="/activities" component={Activities} />
 					<Route path="/activities/:id" component={ActivitiesDetail} />
 					<Route path="/novedades" component={NewsHome} />
 					<Route

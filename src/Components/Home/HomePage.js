@@ -8,6 +8,7 @@ import LayoutPublic from '../Layout/LayoutPublic'
 import Card from '../UI/Card/Card'
 import { getAllOrganizationData } from '../../Services/organizationService'
 import { Link } from 'react-router-dom'
+import Carousel from '../Carousel/Carousel'
 
 function HomePage() {
 	const [loading, setLoading] = useState(true)
@@ -46,12 +47,16 @@ function HomePage() {
 		)
 	}
 
-	function dataViewer(indice, mensaje) {
+	function dataViewer(indice, mensaje, endpoint) {
 		return data[indice]?.length > 0 ? (
 			data[indice]
 				.slice(data[indice]?.length - 6, data[indice]?.length)
 				.map((element) => {
-					return <Card cardItem={element} key={element.id} />
+					return (
+						<Link to={`/${endpoint}/${element.id}`} key={element.id}>
+							<Card cardItem={element} key={element.id} />
+						</Link>
+					)
 				})
 		) : (
 			<p>{mensaje}</p>
@@ -61,19 +66,22 @@ function HomePage() {
 	return (
 		<LayoutPublic>
 			<main className="homePage">
+				<section>
+					<Carousel slides={data[0]} />
+				</section>
 				<section className="containerNovedades">
 					<h1 className="headerTxt">{data[2]?.welcome_text}</h1>
 					<h2 className="subtitle">Últimas novedades</h2>
 					<div className="list-container">
-						{dataViewer(1, 'No hay novedades')}
+						{dataViewer(1, 'No hay novedades', 'novedades')}
 					</div>
 					<Link to="/novedades" className="allNewsButton">
 						Ver todas
 					</Link>
 				</section>
-				<section className="containerSlider">
+				{/* <section className="containerSlider">
 					<div className="list-container">{dataViewer(0, 'No disponible')}</div>
-				</section>
+				</section> */}
 			</main>
 		</LayoutPublic>
 	)
