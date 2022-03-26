@@ -26,6 +26,7 @@ import { LoginAndAdmin } from '../src/Components/UI/Restrictions/LoginAndAdmin'
 import Testimonials from './Components/Testimonials/Testimonials'
 import PageNoFound from './Components/Auth/PageNoFound'
 import MembersForm from './Components/Members/MembersForm'
+import SlidesDetail from './Components/Slides/SlidesDetail'
 
 import PrivateRoute from './BackofficeRoutes/PrivateRoute'
 import protectedRoutes from './BackofficeRoutes/Routes'
@@ -108,6 +109,7 @@ function App() {
 					/>
 					<Route path="/testimonials/:id" component={DetailTestimonials} />
 					<Route path="/testimonials" component={Testimonials} />
+					<Route path="/slides/:id" component={SlidesDetail} />
 					<Route component={PageNoFound} />
 				</AnimatedSwitch>
 			</Router>

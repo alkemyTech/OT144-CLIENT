@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Carousel.css'
 import BtnSlider from './BtnSlider'
+import { Link } from 'react-router-dom'
 
 const Carousel = ({ slides }) => {
 	const [slideIndex, setSlideIndex] = useState(1)
@@ -37,8 +38,10 @@ const Carousel = ({ slides }) => {
 							<img src={obj.image} alt={obj.title} />
 						</div>
 						<div className="txtSlider">
-							<h1>{obj.title}</h1>
-							<p>{obj.description}</p>
+							<Link to={`/slides/${obj.id}`}>
+								<h1>{obj.title}</h1>
+								<p>{obj.description}</p>
+							</Link>
 						</div>
 					</div>
 				)
