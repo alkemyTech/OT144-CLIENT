@@ -1,0 +1,9 @@
+.contentDescription {
+	display: flex;
+	justify-content: center;
+	width: 50%;
+}
+
+.contentDescription p {
+	font-size: var(--text1);
+}

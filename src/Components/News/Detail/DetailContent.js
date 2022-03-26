@@ -1,4 +1,5 @@
 import React, { useRef, useLayoutEffect } from 'react'
+import './stylesDetailNew.css'
 
 const DetailContent = ({ data }) => {
 	const containerRef = useRef()
@@ -19,12 +20,12 @@ const DetailContent = ({ data }) => {
 			}
 		}
 	}, [])
+
+	console.log(data)
 	return (
-		<div
-			ref={containerRef}
-			className="container-new"
-			dangerouslySetInnerHTML={{ __html: data.content }}
-		></div>
+		<div ref={containerRef} className="container-new detail">
+			<p className="contentDetail">{data.content}</p>
+		</div>
 	)
 }
 

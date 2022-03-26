@@ -1,13 +1,13 @@
-import TitleComponent from '../../title/TitleComponent'
 import { useParams } from 'react-router'
 import { useState, useEffect } from 'react'
-import { getActivitiesId } from '../../../Services/ActivityApiService'
-import ErrorAlert from '../../UI/Alerts/ErrorAlert'
-import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
-import './stylesActivity.css'
-import LayoutPublic from '../../Layout/LayoutPublic'
+import { getSlide } from '../../Services/slidesService'
+import '../Activities/Detail/stylesActivity.css'
+import PresentationPage from '../UI/PresentationPage/PresentationPage'
+import LayoutPublic from '../Layout/LayoutPublic'
+import ErrorAlert from '../UI/Alerts/ErrorAlert'
+import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 
-export default function ActivitiesDetail() {
+export default function SlidesDetail() {
 	const { id } = useParams()
 
 	const [dataLoading, setDataLoading] = useState({
@@ -20,7 +20,7 @@ export default function ActivitiesDetail() {
 	useEffect(() => {
 		try {
 			;(async () => {
-				const response = await getActivitiesId(id)
+				const response = await getSlide(id)
 				response.status === 200
 					? setDataLoading({
 						...dataLoading,
@@ -56,11 +56,15 @@ export default function ActivitiesDetail() {
 		<LayoutPublic>
 			<main className="homePage">
 				<section className="containerActivity">
-					<TitleComponent
+					<PresentationPage
 						title={dataLoading.data.name}
+						subtitle="FUNDACIÓN SOMOS MAS"
 						img={dataLoading.data.image}
+						nameImg={dataLoading.data.name}
 					/>
-					<p>{dataLoading.data.description}</p>
+					<div className="contentDescription">
+						<p>{dataLoading.data.description}</p>
+					</div>
 				</section>
 			</main>
 		</LayoutPublic>
