@@ -61,7 +61,11 @@ const ActivitiesForm = ({ activity, mode, loading }) => {
 			response = await updateActivities(activity.id, dataObject)
 		}
 		if (response.status === 200) {
-			BasicAlert({ type: 'success', title: 'OK', text: 'Actividad creada' })
+			BasicAlert({
+				type: 'success',
+				title: 'OK',
+				text: `Actividad ${mode === 'create' ? 'creada' : 'actualizada'}`,
+			})
 			setTimeout(() => {
 				window.location.href = '/backoffice/activities'
 			}, 1900)
