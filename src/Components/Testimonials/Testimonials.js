@@ -5,9 +5,9 @@ import { store } from '../../app/store'
 import { getTestimonialsAction } from '../../actions/actions'
 import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
-import Title from '../title/TitleComponent'
 import LayoutPublic from '../Layout/LayoutPublic'
-import img from './Foto6.jpg'
+import PresentationPage from '../UI/PresentationPage/PresentationPage'
+import imgTestimonios from '../../ImageProjects/testimonios.jpg'
 
 export default function Testimonials() {
 	const [data, setData] = useState([])
@@ -35,7 +35,12 @@ export default function Testimonials() {
 
 	return (
 		<LayoutPublic>
-			<Title title={'Testimonios'} img={img} nameImg="Testimonios" />
+			<PresentationPage
+				title="Testimonios"
+				subtitle="FUNDACIÓN SOMOS MAS"
+				img={imgTestimonios}
+				nameImg="Imagen Testimonios"
+			/>
 			<div className="new-list-container">
 				{data
 					? data.map((dato) => {

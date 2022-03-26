@@ -10,7 +10,6 @@
 }
 .contact-container {
 	position: relative;
-	top: 110px;
 	width: 100%;
 	background-color: var(--lightGrey);
 }
@@ -33,12 +32,6 @@
 }
 .btn-submit:hover {
 	filter: brightness(1.1);
-}
-
-@media screen and (max-width: 1024px) {
-	.contact-container {
-		width: 80%;
-	}
 }
 
 @media screen and (max-width: 768px) {

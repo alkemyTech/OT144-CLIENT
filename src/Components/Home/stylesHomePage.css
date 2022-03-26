@@ -10,25 +10,32 @@
 	min-height: 100vh;
 }
 
+.containerPresentation {
+	width: 100%;
+}
 .containerSlider {
 	width: 100%;
-	background-color: rgb(18 90 131);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding: 32px 0;
 }
 
-.containerNovedades {
+.containerNovedades,
+.containerSlider {
 	width: 100%;
 	padding: 40px;
 	gap: 15px;
-	background-color: rgb(1, 102, 160);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 24px 0;
+}
+
+.containerNovedades h2,
+.containerSlider h2 {
+	color: var(--darkBlue);
 }
 
 .spinner-container {
@@ -38,10 +45,10 @@
 }
 
 .allNewsButton {
-	background-color: var(--lightGrey);
+	background-color: var(--lightBlue);
 	border: none;
 	border-radius: 8px;
-	color: var(--darkBlue);
+	color: var(--black);
 	font-size: 1.25rem;
 	padding: 7px 20px;
 	transition: 0.5s;
@@ -49,6 +56,6 @@
 }
 
 .allNewsButton:hover {
-	background-color: var(--lightBlue);
+	background-color: var(--blue);
 	transform: scale(1.1);
 }

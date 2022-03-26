@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import './Carousel.css'
 import BtnSlider from './BtnSlider'
+import { Link } from 'react-router-dom'
 
-const Carousel = ({ props }) => {
+const Carousel = ({ slides }) => {
 	const [slideIndex, setSlideIndex] = useState(1)
 
 	setTimeout(() => {
@@ -10,9 +11,9 @@ const Carousel = ({ props }) => {
 	}, 5000)
 
 	const nextSlide = () => {
-		if (slideIndex !== props.length) {
+		if (slideIndex !== slides.length) {
 			setSlideIndex(slideIndex + 1)
-		} else if (slideIndex === props.length) {
+		} else if (slideIndex === slides.length) {
 			setSlideIndex(1)
 		}
 	}
@@ -21,13 +22,13 @@ const Carousel = ({ props }) => {
 		if (slideIndex !== 1) {
 			setSlideIndex(slideIndex - 1)
 		} else if (slideIndex === 1) {
-			setSlideIndex(props.length)
+			setSlideIndex(slides.length)
 		}
 	}
 
 	return (
 		<div className="container-slider">
-			{props.map((obj, index) => {
+			{slides.map((obj, index) => {
 				return (
 					<div
 						key={obj.title}
@@ -37,8 +38,10 @@ const Carousel = ({ props }) => {
 							<img src={obj.image} alt={obj.title} />
 						</div>
 						<div className="txtSlider">
-							<h1>{obj.title}</h1>
-							<p>{obj.description}</p>
+							<Link to={`/slides/${obj.id}`}>
+								<h1>{obj.title}</h1>
+								<p>{obj.description}</p>
+							</Link>
 						</div>
 					</div>
 				)

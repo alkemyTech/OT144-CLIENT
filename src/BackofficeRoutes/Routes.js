@@ -13,6 +13,7 @@ import Categories from '../Components/Home/BackOffice/Categories'
 import CategoriesForm from '../Components/Categories/CategoriesForm'
 import Activities from '../Components/Home/BackOffice/ActivitiesList'
 import RedirectActivities from '../Components/Home/BackOffice/RedirectActivities'
+import TestimonialsList from '../Components/Testimonials/TestimonialsTable'
 
 const pathBackoffice = '/backoffice'
 
@@ -95,6 +96,11 @@ const protectedRoutes = [
 	{
 		Component: CategoriesForm,
 		path: `${pathBackoffice}/create-categories`,
+		exact: true,
+	},
+	{
+		Component: TestimonialsList,
+		path: `${pathBackoffice}/testimonials`,
 		exact: true,
 	},
 ]
