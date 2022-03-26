@@ -12,7 +12,6 @@
 
 .containerSlider {
 	width: 100%;
-	background-color: rgb(18 90 131);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -23,7 +22,6 @@
 	width: 100%;
 	padding: 40px;
 	gap: 15px;
-	background-color: rgb(1, 102, 160);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
