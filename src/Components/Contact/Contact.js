@@ -4,6 +4,7 @@ import './Contact.css'
 import { getContact } from '../../Services/ServiceAPIContact'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import LayoutPublic from '../Layout/LayoutPublic'
+import ContactMap from './ContactMap'
 import PresentationPage from '../UI/PresentationPage/PresentationPage'
 import imgContacto from '../../ImageProjects/contacto.jpeg'
 
@@ -35,6 +36,7 @@ const Contact = ({ name, phone, email }) => {
 					<h3 className="subtitle">Contactanos</h3>
 					<ContactForm />
 				</div>
+				<ContactMap />
 			</div>
 		</LayoutPublic>
 	)
