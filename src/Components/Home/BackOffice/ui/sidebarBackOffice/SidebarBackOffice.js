@@ -7,6 +7,7 @@ import user from '../../../../../assets/user.svg'
 import members from '../../../../../assets/members.svg'
 import categories from '../../../../../assets/categories.svg'
 import backoffice from '../../../../../assets/BACKOFFICE.svg'
+import activities from '../../../../../assets/activities.svg'
 import news from '../../../../../assets/news.svg'
 import { useDispatch } from 'react-redux'
 import { startLogout } from '../../../../../actions/auth'
@@ -70,6 +71,12 @@ const SidebarBackOffice = ({ isOpen }) => {
 			url: '/backoffice/news',
 			img: `${news}`,
 		},
+		{
+			itemsId: generarId(),
+			nombre: 'Actividades',
+			url: '/backoffice/activities',
+			img: `${activities}`,
+		},
 	]
 
 	const handleLogOut = async () => {
@@ -78,9 +85,7 @@ const SidebarBackOffice = ({ isOpen }) => {
 	}
 
 	return (
-		<div
-			className={`SideBarMenu ${isOpen ? 'expanded' : 'collapsed'}`}
-		>
+		<div className={`SideBarMenu ${isOpen ? 'expanded' : 'collapsed'}`}>
 			{items.map((item) => (
 				<SidebarItemsNav isOpen={isOpen} key={item.itemsId} item={item} />
 			))}
