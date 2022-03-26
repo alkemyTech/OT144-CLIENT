@@ -1,5 +1,5 @@
 .backofficeHeader {
-	position: absolute;
+	position: relative;
 	top: 0;
 	left: 0;
 	display: flex;
@@ -9,6 +9,7 @@
 	background-color: var(--darkBlue);
 	width: 100%;
 	min-height: 112px;
+	z-index: 1;
 }
 
 /*MENU HAMBURGUESA*/

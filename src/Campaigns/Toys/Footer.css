@@ -16,12 +16,6 @@
 	justify-content: center;
 	text-decoration: none;
 	color: inherit;
-	border-radius: 8px;
-	box-shadow: 1px 1px 1px var(--lightGrey);
-}
-
-.social-media li a:hover {
-	box-shadow: 2px 2px 2px var(--lightGrey);
 }
 
 .container {
