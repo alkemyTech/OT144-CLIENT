@@ -8,6 +8,7 @@ import SearchActivities from './SearchActivities'
 import { useDispatch, useSelector } from 'react-redux'
 import { startGetActivities } from '../../../../src/actions/Activities'
 import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
+import ConfirmAlert from '../../UI/Alerts/ConfirmAlert'
 import BasicAlert from '../../UI/Alerts/BasicAlert'
 
 const ActivitiesTable = () => {
@@ -41,8 +42,16 @@ const ActivitiesTable = () => {
 		}
 	}
 
-	const handleClickDelete = (event) => {
-		fetchDeleteActivity(parseInt(event.target.id))
+	const handleClickDelete = async (event) => {
+		const result = await ConfirmAlert({
+			type: 'warning',
+			title: '¿Está seguro?',
+			text: 'Esta acción es irreversible',
+		})
+		if (result.isConfirmed) {
+			fetchDeleteActivity(parseInt(event.target.id))
+			BasicAlert({ type: 'success', title: 'OK', text: 'Actividad eliminada' })
+		}
 	}
 
 	if (loading) {
