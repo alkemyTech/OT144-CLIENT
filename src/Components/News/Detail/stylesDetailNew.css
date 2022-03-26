@@ -10,10 +10,28 @@
 }
 
 .detail {
+	position: relative;
 	display: flex;
 	justify-content: center;
-	width: 50%;
+	align-items: center;
+	width: 100%;
 }
 .contentDetail {
 	font-size: var(--text1);
+	text-align: justify;
+	max-width: 60%;
+}
+
+.detailContentContainer {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: default;
+}
+
+@media screen and (max-width: 1024px) {
+	.contentDetail {
+		max-width: 75%;
+	}
 }

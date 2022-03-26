@@ -23,8 +23,10 @@ const DetailContent = ({ data }) => {
 
 	console.log(data)
 	return (
-		<div ref={containerRef} className="container-new detail">
-			<p className="contentDetail">{data.content}</p>
+		<div className="detailContentContainer">
+			<div ref={containerRef} className="container-new detail">
+				<p className="contentDetail">{data.content}</p>
+			</div>
 		</div>
 	)
 }

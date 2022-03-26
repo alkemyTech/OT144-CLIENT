@@ -9,4 +9,18 @@
 }
 .donacion p {
 	font-size: var(--text1);
+	max-width: 60%;
+	text-align: justify;
+}
+
+@media screen and (max-width: 1024px) {
+	.donacion p {
+		max-width: 75%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.donacion p {
+		max-width: 90%;
+	}
 }
