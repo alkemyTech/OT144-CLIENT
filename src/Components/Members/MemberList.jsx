@@ -49,12 +49,10 @@ const MemberList = () => {
 	return (
 		<BackOfficeLayout>
 			<section className="sectionTable">
+				<h1 className="headerTxt">Lista de Miembros</h1>
 				<table className="table">
 					<thead>
 						<tr>
-							<td>
-								<h1 className="title">Listado de Miembros</h1>
-							</td>
 							<td>
 								<button
 									className="btnAddTable"

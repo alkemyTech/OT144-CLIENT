@@ -45,6 +45,7 @@ const TestimonialsList = () => {
 		<BackOfficeLayout>
 			<section className="sectionTable">
 				<div className="table-container-responsive">
+					<h1 className="headerTxt">Testimonios</h1>
 					<table className="table">
 						<thead>
 							<tr>

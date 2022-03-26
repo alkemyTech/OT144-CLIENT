@@ -4,6 +4,7 @@
 	max-width: 1024px;
 	display: flex;
 	flex-direction: column;
+	margin-top: 10px;
 }
 
 .users-list-container h1 {
