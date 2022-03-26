@@ -4,15 +4,20 @@ import { Link } from 'react-router-dom'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import { store } from '../../app/store'
-import { getAllMembers } from '../../Services/membersService'
-import { getMemberActions } from '../../actions/memberActions'
+import { deleteMember, getAllMembers } from '../../Services/membersService'
+import { deleteMemberActions, getMemberActions } from '../../actions/memberActions'
 import '../UI/Table/table.css'
 import './MemberList.css'
+import ConfirmAlert from '../UI/Alerts/ConfirmAlert'
+import BasicAlert from '../UI/Alerts/BasicAlert'
+import { useSelector } from 'react-redux'
 
 const MemberList = () => {
 	const [loading, setLoading] = useState(false)
 	const [data, setData] = useState([])
 	const [error, setError] = useState(null)
+
+	const { members } = useSelector((state) => state.members)
 
 	useEffect(() => {
 		; (async () => {
@@ -28,9 +33,34 @@ const MemberList = () => {
 		})()
 	}, [])
 
-	const handleClickUpdate = () => { }
+	console.log(data);
 
-	const handleClickDelete = () => { }
+	const fetchDeleteMember = (id) => {
+		try {
+			;(async () => {
+				await deleteMember(id)
+				store.dispatch(deleteMemberActions(id))
+				
+			})()
+		} catch (error) {
+			setError(true)
+		}
+	}
+
+	const handleClickDelete = async (event) => {
+		const result = await ConfirmAlert({
+			type: 'warning',
+			title: '¿Está seguro?',
+			text: 'Esta acción es irreversible',
+		})
+		if (result.isConfirmed) {
+			fetchDeleteMember(parseInt(event.target.id))
+			BasicAlert({ type: 'success', title: 'OK', text: 'Actividad eliminada' })
+			setTimeout(() => {
+				window.location.reload()
+			}, 1500);
+		}
+	}
 
 	if (loading) {
 		return (
@@ -49,58 +79,57 @@ const MemberList = () => {
 	return (
 		<BackOfficeLayout>
 			<section className="sectionTable">
-				<table className="table">
-					<thead>
-						<tr>
-							<td>
-								<h1 className="title">Listado de Miembros</h1>
-							</td>
-							<td>
-								<button
-									className="btnAddTable"
-									onClick={() => {
-										; <Link to="/backoffice/members/create">Nuevo Miembro</Link>
-									}}
-								>
-									Nuevo Miembro
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<th>Nombre</th>
-							<th>Foto</th>
-							<th>Acciones</th>
-						</tr>
-					</thead>
-					<tbody>
-						{data.length > 0 ? (
-							data.map((member) => (
-								<tr className="card-container" key={member.id}>
-									<td>{member.name}</td>
-									<td>
-										<img src={member.image} alt={member.name} />
-									</td>
-									<td>
-										<button
-											className="btnUpdateTable"
-											onClick={() => handleClickUpdate()}
-										>
-											Edit
-										</button>
-										<button
-											className="btnDeleteTable"
-											onClick={() => handleClickDelete()}
-										>
-											Delete
-										</button>
-									</td>
-								</tr>
-							))
-						) : (
-							<p> No hay miembros</p>
-						)}
-					</tbody>
-				</table>
+				<div className="table-container-responsive">
+					<table className="table">
+						<thead>
+							<tr>
+								<td>
+									<Link
+										to="/backoffice/members/create"
+										className="btnAddTable"
+									>
+										Crear nuevo miembro
+									</Link>
+								</td>
+								<td>
+									<h1 className="title">Listado de Miembros</h1>
+
+								</td>
+							</tr>
+							<tr>
+								<th>Nombre</th>
+								<th>Foto</th>
+								<th>Acciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							{members.length > 0 ? (
+								members?.map((member) => (
+									<tr key={member.id}>
+										<td>{member.name}</td>
+										<td>
+											<img src={member.image} alt={member.name} />
+										</td>
+										<td>
+											<Link to={`/backoffice/members/edit/${member.id}`}>
+												<button className="btnUpdateTable">Editar</button>
+											</Link>
+											<button
+												className="btnDeleteTable"
+												id={member.id}
+												onClick={handleClickDelete}
+											>
+												Eliminar
+											</button>
+										</td>
+									</tr>
+								))
+							) : (
+								<p> No hay miembros</p>
+							)}
+						</tbody>
+					</table>
+				</div>
 			</section>
 		</BackOfficeLayout>
 	)
