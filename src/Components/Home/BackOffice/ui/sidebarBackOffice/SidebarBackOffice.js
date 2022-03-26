@@ -62,7 +62,7 @@ const SidebarBackOffice = ({ isOpen }) => {
 		},
 		{
 			itemsId: generarId(),
-			nombre: 'Slider',
+			nombre: 'Slides',
 			url: '/backoffice/slides',
 			img: `${slides}`,
 		},

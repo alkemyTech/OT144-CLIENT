@@ -74,6 +74,7 @@
 	width: 100%;
 	white-space: nowrap;
 	transition: width 1s;
+	align-items: center;
 }
 
 .icon {

@@ -2,8 +2,6 @@
 	position: relative;
 	width: 100%;
 	min-height: calc(100vh - 112px);
-
-	top: 112px;
 }
 
 .containerDashboard {
