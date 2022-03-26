@@ -21,7 +21,7 @@ function Donacion() {
 						más niños, niñas y jóvenes alcancen su pleno desarrollo y se
 						involucren en las problemáticas de su comunidad.
 					</p>
-					<button className="submit-btn">Mercado Pago</button>
+					<button className="submit-btn btnDonar">Mercado Pago</button>
 				</div>
 			</section>
 		</LayoutPublic>

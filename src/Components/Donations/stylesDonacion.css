@@ -12,7 +12,7 @@
 .containerTxtDonacion {
 	position: relative;
 	width: 100%;
-	min-height: 60vh;
+	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -23,6 +23,10 @@
 	font-size: var(--text1);
 	max-width: 60%;
 	text-align: justify;
+}
+
+.btnDonar {
+	margin-top: 50px;
 }
 
 @media screen and (max-width: 1024px) {
