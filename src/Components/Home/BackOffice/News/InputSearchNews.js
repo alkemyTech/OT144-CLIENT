@@ -4,14 +4,16 @@ import '../../../FormStyles.css'
 const InputSearchNews = ({ inputSearch, setInputSearch }) => {
 	return (
 		<div className="input-search-container">
-			<input
-				type="text"
-				className="input-field field-search"
-				name="search"
-				value={inputSearch}
-				onChange={(e) => setInputSearch(e.target.value)}
-				placeholder="Buscar..."
-			/>
+			<div>
+				<input
+					type="text"
+					className="input-field field-search"
+					name="search"
+					value={inputSearch}
+					onChange={(e) => setInputSearch(e.target.value)}
+					placeholder="Buscar..."
+				/>
+			</div>
 		</div>
 	)
 }

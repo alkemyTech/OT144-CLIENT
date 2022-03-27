@@ -100,6 +100,7 @@ function Novedades() {
 		<BackOfficeLayout>
 			<section className="sectionTable">
 				<div>
+					<h1 className="headerTxt">Lista de Novedades</h1>
 					<InputSearchNews
 						inputSearch={inputSearch}
 						setInputSearch={setInputSearch}
