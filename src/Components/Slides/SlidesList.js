@@ -52,6 +52,7 @@ export default function SlidesList() {
 	return (
 		<BackOfficeLayout>
 			<div>
+				<h1 className="headerTxt">Slides</h1>
 				<Table
 					header={{
 						title: 'Listado Slides',
