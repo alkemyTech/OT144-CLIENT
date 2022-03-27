@@ -1,7 +1,5 @@
 import Card from '../../UI/Card/Card'
-import './ListMember.css'
 import { useEffect, useState } from 'react'
-import LayoutPublic from '../../Layout/LayoutPublic'
 import SpinnerComponent from '../../UI/spinner/SpinnerComponent'
 import ErrorAlert from '../../UI/Alerts/ErrorAlert'
 import { store } from '../../../app/store'
@@ -29,11 +27,9 @@ const ListMember = () => {
 
 	if (loading) {
 		return (
-			<LayoutPublic>
-				<div className="spinner-container">
-					<SpinnerComponent loading={true} />
-				</div>
-			</LayoutPublic>
+			<div className="spinner-container">
+				<SpinnerComponent loading={true} />
+			</div>
 		)
 	}
 
@@ -43,7 +39,7 @@ const ListMember = () => {
 
 	console.log(store.getState())
 	return (
-		<section className="list-member-container">
+		<section className="list-container">
 			{data?.map((member) => (
 				<Card cardItem={member} key={member.id} />
 			))}

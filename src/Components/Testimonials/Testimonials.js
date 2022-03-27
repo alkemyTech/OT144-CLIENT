@@ -41,12 +41,14 @@ export default function Testimonials() {
 				img={imgTestimonios}
 				nameImg="Imagen Testimonios"
 			/>
-			<div className="new-list-container">
-				{data
-					? data.map((dato) => {
-						return <Card cardItem={dato} key={dato.id} />
-					  })
-					: null}
+			<div className="containerInputCard">
+				<div className="list-container">
+					{data
+						? data.map((dato) => {
+							return <Card cardItem={dato} key={dato.id} />
+						  })
+						: null}
+				</div>
 			</div>
 		</LayoutPublic>
 	)

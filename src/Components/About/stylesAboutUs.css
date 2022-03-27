@@ -1,20 +1,39 @@
 .aboutPrincipal-container {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
 	display: flex;
+	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	cursor: default;
 }
 
 .aboutUs-container {
+	position: relative;
+	width: 100%;
+	min-height: 90vh;
 	color: var(--black);
 	display: flex;
+	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	width: 100%;
 }
 
-.aboutUs-container p {
+.containerTxtAbout {
+	position: relative;
+	width: 100%;
+	min-height: 90vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.about-text {
 	font-size: var(--text1);
 	text-align: justify;
+	max-width: 60%;
 }
 
 .spinner-container {
@@ -23,8 +42,8 @@
 	align-items: center;
 }
 
-.about-text {
-	max-width: 60%;
+.titleAbout {
+	margin-bottom: 50px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -36,5 +55,9 @@
 @media screen and (max-width: 768px) {
 	.about-text {
 		max-width: 90%;
+	}
+
+	.containerTxtAbout {
+		margin: 70px;
 	}
 }

@@ -7,7 +7,6 @@ import user from '../../../../../assets/user.svg'
 import members from '../../../../../assets/members.svg'
 import categories from '../../../../../assets/categories.svg'
 import backoffice from '../../../../../assets/BACKOFFICE.svg'
-import activities from '../../../../../assets/activities.svg'
 import news from '../../../../../assets/news.svg'
 import checklist from '../../../../../assets/checklist.png'
 import testimonials from '../../../../../assets/testimonials.png'
@@ -78,12 +77,6 @@ const SidebarBackOffice = ({ isOpen }) => {
 			nombre: 'Miembros',
 			url: '/backoffice/members',
 			img: `${members}`,
-		},
-		{
-			itemsId: generarId(),
-			nombre: 'Actividades',
-			url: '/backoffice/activities',
-			img: `${activities}`,
 		},
 	]
 

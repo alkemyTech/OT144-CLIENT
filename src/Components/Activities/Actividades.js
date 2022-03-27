@@ -59,7 +59,7 @@ const Actividades = () => {
 				img={imgActividades}
 				nameImg="Imagen Actividades"
 			/>
-			<div className="containerActivitiesTitle">
+			<div className="containerInputCard">
 				<SearchActivitiesInput
 					searchInput={searchInput}
 					setSearchInput={setSearchInput}

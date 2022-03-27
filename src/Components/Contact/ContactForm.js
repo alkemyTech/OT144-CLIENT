@@ -81,6 +81,7 @@ const ContactForm = () => {
 		>
 			{({ errors, handleBlur, touched }) => (
 				<Form className="form-contact">
+					<h3 className="titleContacto">Contáctanos</h3>
 					<Field
 						className="input-field"
 						name="name"

@@ -20,7 +20,9 @@ export default function AboutUs({ text }) {
 				img={imgNosotros}
 				nameImg="Imagen Nosotros"
 			/>
-			<p className="about-text">{text}</p>
+			<div className="containerTxtAbout">
+				<p className="about-text">{text}</p>
+			</div>
 		</div>
 	)
 }

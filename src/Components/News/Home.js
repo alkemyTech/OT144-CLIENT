@@ -71,7 +71,7 @@ export default function Home() {
 					img={imgNovedades}
 					nameImg="Imagen Novedades"
 				/>
-				<div className="containerInputNews">
+				<div className="containerInputCard">
 					<div className="containerInputSearch">
 						<input
 							name="news-search"
@@ -82,7 +82,7 @@ export default function Home() {
 							placeholder="Buscar novedades"
 						/>
 					</div>
-					<div className="new-list-container">
+					<div className="list-container">
 						{dataNews.map((data, index) => (
 							<Card key={index} cardItem={data} />
 						))}

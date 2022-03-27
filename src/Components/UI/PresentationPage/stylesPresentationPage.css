@@ -7,6 +7,7 @@
 	align-items: center;
 	background-color: var(--blue);
 	cursor: default;
+	overflow: hidden;
 }
 
 .containerLogoPresentationPage {
@@ -55,6 +56,7 @@
 
 .imgLogoPresentation {
 	width: 65%;
+	min-width: 300px;
 }
 
 .containerImagePresentation {
