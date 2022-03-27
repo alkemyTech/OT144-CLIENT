@@ -80,6 +80,7 @@ const MemberList = () => {
 		<BackOfficeLayout>
 			<section className="sectionTable">
 				<div className="table-container-responsive">
+					<h1 className="headerTxt">Listado de Miembros</h1>
 					<table className="table">
 						<thead>
 							<tr>
@@ -90,10 +91,6 @@ const MemberList = () => {
 									>
 										Crear nuevo miembro
 									</Link>
-								</td>
-								<td>
-									<h1 className="title">Listado de Miembros</h1>
-
 								</td>
 							</tr>
 							<tr>
