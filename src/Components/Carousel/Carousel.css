@@ -1,7 +1,7 @@
 .container-slider {
-	max-width: 100%;
+	width: 100%;
 	min-height: 520px;
-	margin: 0;
+	margin: auto;
 	position: relative;
 }
 
@@ -15,11 +15,13 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	border-radius: 50px;
 }
 .imgSlider img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	border-radius: 50px;
 }
 .active-anim {
 	opacity: 1;
@@ -68,6 +70,7 @@
 	padding: 10px;
 	cursor: default;
 	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 0 0 50px 50px;
 }
 
 .txtSlider h1 {
