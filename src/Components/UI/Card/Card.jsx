@@ -18,7 +18,7 @@ const Card = (props) => {
 				)}
 				{cardItem.title ? <h1>{cardItem.title}</h1> : (cardItem.name ? <h1>{cardItem.name}</h1> : <h1>Titulo de prueba</h1>)}
 				{cardItem.description ? (
-					<p>{cardItem.description}</p>
+					<div className="card-description-container" dangerouslySetInnerHTML={{ __html: cardItem.description }}></div>
 				) : (
 					<p>
 						Descripción de prueba. Lorem, ipsum dolor sit amet consectetur

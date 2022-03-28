@@ -4,6 +4,6 @@
 	width: 50%;
 }
 
-.contentDescription p {
+.contentDescription {
 	font-size: var(--text1);
 }

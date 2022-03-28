@@ -31,7 +31,7 @@ const Carousel = ({ slides }) => {
 			{slides.map((obj, index) => {
 				return (
 					<div
-						key={obj.title}
+						key={index}
 						className={slideIndex === index + 1 ? 'slide active-anim' : 'slide'}
 					>
 						<div className="imgSlider">
@@ -39,8 +39,11 @@ const Carousel = ({ slides }) => {
 						</div>
 						<div className="txtSlider">
 							<Link to={`/slides/${obj.id}`}>
-								<h1>{obj.title}</h1>
-								<p>{obj.description}</p>
+								<h1>{obj.name}</h1>
+								<div
+									className="txtSlider-description"
+									dangerouslySetInnerHTML={{ __html: obj.description }}
+								></div>
 							</Link>
 						</div>
 					</div>

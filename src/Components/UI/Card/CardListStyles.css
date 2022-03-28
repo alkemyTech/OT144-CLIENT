@@ -52,7 +52,9 @@
 	width: 95%;
 	margin-top: 10px;
 }
-.card-container p {
+.card-description-container {
+	padding: 8px;
+	text-align: center;
 	font-size: var(--text2);
 	width: 95%;
 	margin-top: 10px;

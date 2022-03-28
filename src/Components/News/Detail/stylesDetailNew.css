@@ -18,12 +18,6 @@
 	align-items: center;
 	width: 100%;
 }
-.contentDetail {
-	font-size: var(--text1);
-	text-align: justify;
-	max-width: 60%;
-}
-
 .detailContentContainer {
 	position: relative;
 	display: flex;
@@ -31,7 +25,11 @@
 	align-items: center;
 	cursor: default;
 }
-
+.container-new p {
+	font-size: var(--text1);
+	text-align: justify;
+	max-width: 60%;
+}
 @media screen and (max-width: 1024px) {
 	.contentDetail {
 		max-width: 75%;
