@@ -1,9 +1,6 @@
-import {
-	getRequest,
-	postRequest,
-	putRequest,
-	deleteRequest,
-} from './publicApiService'
+import { getRequest, postRequest, putRequest } from './publicApiService'
+import { deleteRequest } from './privateApiService'
+
 const endpoint = process.env.REACT_APP_URL_TESTIMONIALS
 
 export const getTestimonials = async () => {
