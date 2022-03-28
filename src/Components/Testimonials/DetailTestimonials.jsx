@@ -63,8 +63,7 @@ export default function DetailTestimonials() {
 						img={dataLoading.data.image}
 						nameImg={dataLoading.data.name}
 					/>
-					<div className='contentDescription'>
-						<p>{dataLoading.data.description}</p>
+					<div className='contentDescription' dangerouslySetInnerHTML={{ __html: dataLoading.data.description }}>
 					</div>
 				</section>
 			</main>
