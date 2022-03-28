@@ -5,6 +5,7 @@ import AboutUs from './AboutUs'
 import './stylesAboutUs.css'
 import LayoutPublic from '../Layout/LayoutPublic'
 import ListMember from './ListMember/ListMember'
+import ReactSocialPlugins from '../UI/ReactSocialPlugins/ReactSocialPlugins'
 
 export default function AboutPrincipal() {
 	const [loading, setLoading] = useState(false)
@@ -44,6 +45,7 @@ export default function AboutPrincipal() {
 				<AboutUs text={principalText} />
 				<h2 className="headerTxt titleAbout">Miembros</h2>
 				<ListMember />
+				<ReactSocialPlugins />
 			</main>
 		</LayoutPublic>
 	)

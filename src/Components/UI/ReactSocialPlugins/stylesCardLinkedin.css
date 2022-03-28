@@ -1,7 +1,7 @@
 .cardLinkedin {
 	position: relative;
 	width: 280px;
-	min-height: 320px;
+	min-height: 335px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -11,10 +11,7 @@
 	cursor: default;
 	animation-duration: 4s;
 	animation-name: animateLinkedin;
-}
-
-.cardLinkedin:hover {
-	background-color: rgb(247, 249, 249);
+	background-color: rgb(255, 255, 255);
 }
 
 .titleLinkedin {
@@ -27,6 +24,7 @@
 	align-items: center;
 	padding: 0 15px;
 	border-radius: 15px 15px 0 0;
+	border: none;
 }
 
 .titleLinkedin p {
@@ -61,7 +59,7 @@
 .txtLinkedin {
 	position: relative;
 	width: 100%;
-	min-height: 130px;
+	min-height: 140px;
 	display: flex;
 	align-items: left;
 	flex-direction: column;
@@ -90,7 +88,7 @@
 	border-radius: 20px;
 	text-align: center;
 	width: 130px;
-	margin-top: 10px;
+	margin: 10px 0 5px 0;
 	padding: 6px 0;
 }
 
@@ -107,7 +105,7 @@
 
 	to {
 		width: 280px;
-		height: 320px;
+		height: 335px;
 		transition: 0.5s;
 		opacity: 1;
 	}
