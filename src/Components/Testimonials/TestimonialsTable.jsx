@@ -3,15 +3,17 @@ import BackOfficeLayout from '../Layout/BackOfficeLayout'
 import ErrorAlert from '../UI/Alerts/ErrorAlert'
 import SpinnerComponent from '../UI/spinner/SpinnerComponent'
 import { store } from '../../app/store'
-import { getTestimonials } from '../../Services/TestimonialsApiService'
+import { deleteTestimonial, getTestimonials } from '../../Services/TestimonialsApiService'
 import '../UI/Table/table.css'
-import { getTestimonialsAction } from '../../actions/actions'
+import { deleteTestimonialAction, getTestimonialsAction } from '../../actions/actions'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const TestimonialsList = () => {
 	const [loading, setLoading] = useState(false)
-	const [data, setData] = useState([])
+
 	const [error, setError] = useState(null)
+	const { testimonials } = useSelector((store) => store.testimonials)
 
 	useEffect(() => {
 		; (async () => {
@@ -19,13 +21,29 @@ const TestimonialsList = () => {
 			try {
 				const response = await getTestimonials()
 				store.dispatch(getTestimonialsAction(response.data.data))
-				setData(response.data.data)
+			
 			} catch (e) {
 				setError(e.message)
 			}
 			setLoading(false)
 		})()
 	}, [])
+
+	const fetchDeleteTestimonial = (id) => {
+		try {
+			;(async () => {
+				await deleteTestimonial(id)
+				store.dispatch(deleteTestimonialAction(id))
+				window.location.reload()
+			})()
+		} catch (error) {
+			setError(true)
+		}
+	}
+
+	const handleClickDelete = (event) => {
+		fetchDeleteTestimonial(parseInt(event.target.id))
+	}
 
 	if (loading) {
 		return (
@@ -66,7 +84,7 @@ const TestimonialsList = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{data.map((activity) => (
+							{testimonials?.map((activity) => (
 								<tr key={activity.id}>
 									<td>{activity.name}</td>
 									<td>
@@ -82,6 +100,7 @@ const TestimonialsList = () => {
 										<button
 											className="btnDeleteTable"
 											id={activity.id}
+											onClick={handleClickDelete}
 										>
 											Eliminar
 										</button>
