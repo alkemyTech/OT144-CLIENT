@@ -9,13 +9,13 @@ import CardLinkedin from './CardLinkedin'
 function ReactSocialPlugins() {
 	return (
 		<section className="reactSocialPlugins">
-			<h1 className="title">Nuestras Redes</h1>
+			<h1 className="titleRedes">Nuestras Redes</h1>
 
 			<div className="containerSocial">
 				<div className="containerRedes">
 					<div className="containerTweet">
 						<TwitterTweet
-							align="left"
+							align="center"
 							coversation="none"
 							tweetId="1502382821184348161"
 							theme="light"
