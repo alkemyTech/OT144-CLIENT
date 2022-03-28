@@ -52,8 +52,8 @@ function HomePage() {
 	}
 
 	function dataViewer(indice, mensaje, endpoint) {
-		return data[indice]?.length > 0 ? (
-			data[indice]
+		return data[indice]?.length > 0
+			? data[indice]
 				.slice(data[indice]?.length - 4, data[indice]?.length)
 				.map((element) => {
 					return (
@@ -62,9 +62,7 @@ function HomePage() {
 						</Link>
 					)
 				})
-		) : (
-			<p>{mensaje}</p>
-		)
+			: { mensaje }
 	}
 	console.log(data[3])
 	return (
@@ -78,11 +76,13 @@ function HomePage() {
 						nameImg="Imagen Home"
 					/>
 				</section>
-				<section>
-					<Carousel slides={data[0]} />
+				<section className="containerCarouselHome">
+					<div className="carouselHome">
+						<Carousel slides={data[0]} />
+					</div>
 				</section>
 				<section className="containerNovedades">
-					<h2 className="subtitle">Últimas novedades</h2>
+					<h2 className="titleHome">Últimas novedades</h2>
 					<div className="list-container">
 						{dataViewer(1, 'No hay novedades', 'novedades')}
 					</div>
@@ -91,7 +91,7 @@ function HomePage() {
 					</Link>
 				</section>
 				<section className="containerSlider">
-					<h2 className="subtitle">Testimonios</h2>
+					<h2 className="titleHome">Testimonios</h2>
 					<div className="list-container">
 						{dataViewer(3, 'No disponible', 'testimonials')}
 					</div>

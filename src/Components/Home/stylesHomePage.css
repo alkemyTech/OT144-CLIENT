@@ -24,18 +24,13 @@
 .containerNovedades,
 .containerSlider {
 	width: 100%;
-	padding: 40px;
 	gap: 15px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 24px 0;
-}
-
-.containerNovedades h2,
-.containerSlider h2 {
-	color: var(--darkBlue);
+	margin-top: 80px;
 }
 
 .spinner-container {
@@ -45,10 +40,10 @@
 }
 
 .allNewsButton {
-	background-color: var(--lightBlue);
+	background-color: var(--blue);
 	border: none;
 	border-radius: 8px;
-	color: var(--black);
+	color: var(--lightGrey);
 	font-size: 1.25rem;
 	padding: 7px 20px;
 	transition: 0.5s;
@@ -56,6 +51,33 @@
 }
 
 .allNewsButton:hover {
-	background-color: var(--blue);
+	background-color: var(--darkBlue);
 	transform: scale(1.1);
+}
+
+.titleHome {
+	font-size: var(--heading1);
+	margin-bottom: 50px;
+	color: var(--black);
+}
+
+.containerCarouselHome {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	margin-top: 120px;
+}
+
+.carouselHome {
+	position: relative;
+	width: 70%;
+}
+
+@media all and (max-width: 900px) {
+	.carouselHome {
+		width: 90%;
+	}
 }
